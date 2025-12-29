@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Jobs - NaukriForSure</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">💼</span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html" class="active">All Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jobs Page -->
+    <div class="jobs-page">
+        <!-- Jobs Header -->
+        <div class="jobs-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>All Jobs</span>
+                </div>
+                <h1>Browse All <span class="gradient-text">Job Openings</span></h1>
+                <p id="jobsCount" class="jobs-count">20 jobs found</p>
+            </div>
+        </div>
+
+        <!-- Jobs Content -->
+        <div class="container" style="padding: 40px 20px;">
+            <!-- Search & Filter Bar -->
+            <div class="search-box" style="margin-bottom: 30px;">
+                <div class="search-field">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Job title, keywords, or company">
+                </div>
+                <div class="search-field">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" id="locationInput" placeholder="Location">
+                </div>
+                <button class="btn btn-search" onclick="searchJobs()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="jobs-filter-bar">
+                <select class="filter-select" id="categoryFilter" onchange="filterJobs()">
+                    <option value="">All Categories</option>
+                    <option value="it">IT & Software</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="design">Design</option>
+                    <option value="sales">Sales</option>
+                    <option value="hr">HR</option>
+                    <option value="finance">Finance</option>
+                    <option value="content">Content Writing</option>
+                    <option value="data">Data Science</option>
+                </select>
+                <select class="filter-select" id="experienceFilter" onchange="filterJobs()">
+                    <option value="">All Experience</option>
+                    <option value="fresher">Fresher</option>
+                    <option value="0-1">0-1 Years</option>
+                    <option value="0-2">0-2 Years</option>
+                </select>
+                <select class="filter-select" id="salaryFilter" onchange="filterJobs()">
+                    <option value="">All Salaries</option>
+                    <option value="3">₹3 LPA+</option>
+                    <option value="5">₹5 LPA+</option>
+                    <option value="8">₹8 LPA+</option>
+                    <option value="10">₹10 LPA+</option>
+                    <option value="15">₹15 LPA+</option>
+                </select>
+            </div>
+
+            <!-- Jobs List -->
+            <div class="jobs-list" id="jobsList">
+                <!-- Jobs will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">💼</span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>Your trusted partner in finding the perfect job. We connect freshers and college students with top employers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Job Categories</h4>
+                    <ul>
+                        <li><a href="jobs.html?category=it">IT & Software</a></li>
+                        <li><a href="jobs.html?category=marketing">Marketing</a></li>
+                        <li><a href="jobs.html?category=sales">Sales</a></li>
+                        <li><a href="jobs.html?category=finance">Finance</a></li>
+                        <li><a href="jobs.html?category=hr">Human Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Career Tips</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NaukriForSure. All rights reserved. Made with ❤️ for Freshers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jobs-data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load jobs when page loads
+        document.addEventListener('DOMContentLoaded', loadAllJobs);
+    </script>
+</body>
+</html>

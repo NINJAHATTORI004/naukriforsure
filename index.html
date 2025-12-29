@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaukriForSure - Jobs for Freshers & College Students</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">💼</span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🎓</span> #1 Job Portal for Freshers
+            </div>
+            <h1>Find Your <span class="gradient-text">Dream Job</span><br>Start Your Career Journey</h1>
+            <p>Discover thousands of job opportunities for college students and freshers. Your first job is just a click away!</p>
+            
+            <div class="search-box">
+                <div class="search-field">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Job title, keywords, or company">
+                </div>
+                <div class="search-field">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" id="locationInput" placeholder="Location">
+                </div>
+                <button class="btn btn-search" onclick="searchJobs()">
+                    <i class="fas fa-search"></i> Search Jobs
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Active Jobs</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5K+</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Freshers Hired</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card card-1">
+                <i class="fas fa-briefcase"></i>
+                <span>New Jobs Daily</span>
+            </div>
+            <div class="floating-card card-2">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Fresher Friendly</span>
+            </div>
+            <div class="floating-card card-3">
+                <i class="fas fa-rocket"></i>
+                <span>Quick Apply</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Categories -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Categories</span>
+                <h2>Explore by <span class="gradient-text">Category</span></h2>
+                <p>Find jobs that match your skills and interests</p>
+            </div>
+            <div class="categories-grid">
+                <a href="jobs.html?category=it" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>IT & Software</h3>
+                    <span class="job-count">2,500+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=marketing" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing</h3>
+                    <span class="job-count">1,200+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=design" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Design</h3>
+                    <span class="job-count">800+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=sales" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Sales</h3>
+                    <span class="job-count">1,500+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=hr" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>HR</h3>
+                    <span class="job-count">600+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=finance" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Finance</h3>
+                    <span class="job-count">900+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=content" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Content Writing</h3>
+                    <span class="job-count">700+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=data" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Science</h3>
+                    <span class="job-count">1,100+ Jobs</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs -->
+    <section class="featured-jobs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Featured</span>
+                <h2>Latest <span class="gradient-text">Job Openings</span></h2>
+                <p>Hand-picked opportunities for freshers</p>
+            </div>
+            <div class="jobs-grid" id="featuredJobs">
+                <!-- Jobs will be loaded dynamically -->
+            </div>
+            <div class="view-all">
+                <a href="jobs.html" class="btn btn-outline">View All Jobs <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Why Us</span>
+                <h2>Why Choose <span class="gradient-text">NaukriForSure</span>?</h2>
+                <p>We're committed to helping freshers land their dream jobs</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Verified Jobs</h3>
+                    <p>All job postings are verified to ensure authenticity and protect you from scams.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Fresher Focused</h3>
+                    <p>We specialize in entry-level positions perfect for college students and fresh graduates.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Application</h3>
+                    <p>Apply to multiple jobs with just one click using your saved profile.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Job Alerts</h3>
+                    <p>Get instant notifications when new jobs matching your profile are posted.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Top Companies</h3>
+                    <p>Connect with leading companies actively hiring freshers and interns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Career Support</h3>
+                    <p>Get resume tips, interview preparation guides, and career counseling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Partners</span>
+                <h2>Top <span class="gradient-text">Hiring Companies</span></h2>
+                <p>Trusted by leading organizations</p>
+            </div>
+            <div class="companies-slider">
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/120x60?text=TCS" alt="TCS">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/120x60?text=Infosys" alt="Infosys">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/120x60?text=Wipro" alt="Wipro">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/120x60?text=Accenture" alt="Accenture">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/120x60?text=Cognizant" alt="Cognizant">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/120x60?text=HCL" alt="HCL">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Success Stories</span>
+                <h2>What <span class="gradient-text">Freshers Say</span></h2>
+                <p>Real stories from candidates who found their dream jobs</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Found my first job within 2 weeks of signing up. The platform made job hunting so easy for a fresher like me!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RP</div>
+                        <div class="author-info">
+                            <h4>Rahul Patel</h4>
+                            <span>Software Developer at TCS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"As a commerce graduate, I was worried about getting IT jobs. NaukriForSure helped me find the perfect role!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <span>Business Analyst at Infosys</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The job alerts feature is amazing! Got notified about my dream company hiring and landed the interview."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Amit Kumar</h4>
+                            <span>Data Analyst at Wipro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Career?</h2>
+                <p>Join thousands of freshers who found their dream jobs through NaukriForSure</p>
+                <div class="cta-buttons">
+                    <a href="jobs.html" class="btn btn-white">Browse Jobs</a>
+                    <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">💼</span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>Your trusted partner in finding the perfect job. We connect freshers and college students with top employers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Job Categories</h4>
+                    <ul>
+                        <li><a href="jobs.html?category=it">IT & Software</a></li>
+                        <li><a href="jobs.html?category=marketing">Marketing</a></li>
+                        <li><a href="jobs.html?category=sales">Sales</a></li>
+                        <li><a href="jobs.html?category=finance">Finance</a></li>
+                        <li><a href="jobs.html?category=hr">Human Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Career Tips</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NaukriForSure. All rights reserved. Made with ❤️ for Freshers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jobs-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

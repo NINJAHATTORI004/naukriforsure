@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Categories - NaukriForSure</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">💼</span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li><a href="categories.html" class="active">Categories</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Categories</span>
+            </div>
+            <h1>Browse Jobs by <span class="gradient-text">Category</span></h1>
+            <p>Find jobs that match your skills and career goals</p>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <section class="categories-section" style="background: white;">
+        <div class="container">
+            <div class="categories-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <a href="jobs.html?category=it" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>IT & Software</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Software development, web development, mobile apps, cloud computing</p>
+                    <span class="job-count">2,500+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=marketing" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Digital marketing, SEO, social media, brand management</p>
+                    <span class="job-count">1,200+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=design" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Design</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">UI/UX design, graphic design, product design, visual design</p>
+                    <span class="job-count">800+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=sales" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Sales</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Business development, inside sales, account management</p>
+                    <span class="job-count">1,500+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=hr" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Human Resources</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Recruitment, employee relations, HR operations, payroll</p>
+                    <span class="job-count">600+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=finance" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Finance & Accounting</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Financial analysis, accounting, auditing, taxation</p>
+                    <span class="job-count">900+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=content" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Content Writing</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Content creation, copywriting, technical writing, blogging</p>
+                    <span class="job-count">700+ Jobs</span>
+                </a>
+                <a href="jobs.html?category=data" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Science</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Data analysis, machine learning, AI, business intelligence</p>
+                    <span class="job-count">1,100+ Jobs</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Roles Section -->
+    <section style="padding: 60px 0; background: #f1f5f9;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Popular</span>
+                <h2>Popular <span class="gradient-text">Roles for Freshers</span></h2>
+                <p>Most sought-after positions for entry-level candidates</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <a href="jobs.html?q=software+developer" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">Software Developer</h4>
+                    <span class="job-count">1,200+ Jobs</span>
+                </a>
+                <a href="jobs.html?q=business+analyst" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">Business Analyst</h4>
+                    <span class="job-count">500+ Jobs</span>
+                </a>
+                <a href="jobs.html?q=data+analyst" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">Data Analyst</h4>
+                    <span class="job-count">450+ Jobs</span>
+                </a>
+                <a href="jobs.html?q=digital+marketing" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">Digital Marketing</h4>
+                    <span class="job-count">350+ Jobs</span>
+                </a>
+                <a href="jobs.html?q=frontend+developer" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">Frontend Developer</h4>
+                    <span class="job-count">600+ Jobs</span>
+                </a>
+                <a href="jobs.html?q=hr+executive" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">HR Executive</h4>
+                    <span class="job-count">200+ Jobs</span>
+                </a>
+                <a href="jobs.html?q=content+writer" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">Content Writer</h4>
+                    <span class="job-count">300+ Jobs</span>
+                </a>
+                <a href="jobs.html?q=sales+executive" class="category-card" style="padding: 20px;">
+                    <h4 style="margin-bottom: 5px;">Sales Executive</h4>
+                    <span class="job-count">800+ Jobs</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">💼</span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>Your trusted partner in finding the perfect job. We connect freshers and college students with top employers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Job Categories</h4>
+                    <ul>
+                        <li><a href="jobs.html?category=it">IT & Software</a></li>
+                        <li><a href="jobs.html?category=marketing">Marketing</a></li>
+                        <li><a href="jobs.html?category=sales">Sales</a></li>
+                        <li><a href="jobs.html?category=finance">Finance</a></li>
+                        <li><a href="jobs.html?category=hr">Human Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Career Tips</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NaukriForSure. All rights reserved. Made with ❤️ for Freshers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jobs-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
