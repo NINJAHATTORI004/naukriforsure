@@ -1104,6 +1104,40 @@ const jobsData = [
         skills: ["Programming", "Software Development", "Problem Solving"],
         description: `<h3>About the Role</h3><p>GHX is hiring for Software Engineer I roles.</p><h3>Job Details</h3><ul><li>Job Role: Software Engineer I</li><li>Experience: 0 - 1 Years</li><li>Expected Salary: ₹5 - ₹12 LPA</li></ul>`,
         applyLink: "https://job-boards.greenhouse.io/globalhealthcareexchangeinc/jobs/4631021005?gh_src=a02044705us"
+    },
+    {
+        id: "generative-ai-intern-evnek-230",
+        title: "Generative AI Intern",
+        company: "Evnek Technologies Pvt Ltd",
+        companyShort: "Evnek",
+        location: "Bangalore, Karnataka",
+        salary: "Competitive Stipend",
+        type: "Full Time",
+        experience: "Fresher",
+        category: "data",
+        posted: "January 05, 2026",
+        deadline: "March 30, 2026",
+        openings: 5,
+        skills: ["Python", "AI/ML", "NumPy", "Pandas", "Scikit-learn", "TensorFlow", "NLP"],
+        description: `<h3>About the Role</h3><p>Evnek Technologies Pvt Ltd is looking for a passionate and motivated AI Intern to join their team. This internship offers hands-on experience in Artificial Intelligence and Machine Learning, providing exposure to real-world projects and industry practices.</p><h3>Key Responsibilities</h3><ul><li>Assist in developing and testing AI/ML models</li><li>Work with data collection, cleaning, and preprocessing</li><li>Support implementation of algorithms related to machine learning, NLP, or computer vision</li><li>Collaborate with the development team on AI-driven solutions</li></ul><h3>Job Details</h3><ul><li>Job Role: Generative AI Intern</li><li>Experience: 0-1 Year</li><li>Location: Remote – Bangalore</li><li>Industry: IT Services</li></ul>`,
+        applyLink: "https://career.evnek.com/jobs/Careers/126220000015723175/Generative-AI-Intern?source=CareerSite"
+    },
+    {
+        id: "backend-intern-primetrace-231",
+        title: "Backend Intern",
+        company: "Primetrace Technologies",
+        companyShort: "Primetrace",
+        location: "Bangalore",
+        salary: "Competitive Stipend",
+        type: "Internship",
+        experience: "Fresher",
+        category: "it",
+        posted: "1 day ago",
+        deadline: "March 30, 2026",
+        openings: 5,
+        skills: ["Node.js", "Go", "APIs", "Redis", "SQL", "Problem Solving"],
+        description: `<h3>About the Role</h3><p>Primetrace Technologies is hiring Full-Stack Software Engineering Interns for a 6-month, full-time, work-from-office internship. This is a great opportunity for passionate developers who love building real things.</p><h3>What You'll Do</h3><ul><li>Work on real production systems</li><li>Debug real-world issues</li><li>Build features used by real users</li></ul><h3>Job Details</h3><ul><li>Job Role: Backend Intern</li><li>Duration: 6 months</li><li>Type: Full-time, Work-from-office</li><li>Location: Bangalore</li></ul>`,
+        applyLink: "https://primetrace.keka.com/careers/jobdetails/53199"
     }
 ];
 
