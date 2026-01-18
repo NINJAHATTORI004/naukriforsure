@@ -1257,6 +1257,23 @@ const jobsData = [
         skills: ["ERP Systems", "Software Development", "Problem Solving", "Programming"],
         description: `<h3>About the Role</h3><p>Cargill is hiring Associate Software Engineers for ERP. This is an excellent opportunity for freshers to join a global organization and work on enterprise-level software solutions.</p><h3>Job Details</h3><ul><li>Job Role: Associate Software Engineer - ERP</li><li>Location: Bengaluru</li><li>Experience: Freshers</li><li>Type: Full-time</li></ul>`,
         applyLink: "https://careers.cargill.com/en/job/bengaluru/associate-software-engineer-erp/23251/90574533296"
+    },
+    {
+        id: "talent-platform-mercor-246",
+        title: "Talent Platform (Remote Opportunities)",
+        company: "Mercor",
+        companyShort: "Mercor",
+        location: "Remote",
+        salary: "Competitive (USD)",
+        type: "Full Time",
+        experience: "Fresher",
+        category: "it",
+        posted: "1 day ago",
+        deadline: "March 30, 2026",
+        openings: 50,
+        skills: ["Software Development", "AI/ML", "Design", "Problem Solving", "Communication"],
+        description: `<h3>About the Role</h3><p>Mercor is a platform that matches talent with US-based startups and companies for remote work opportunities. This is a great opportunity for freshers and experienced professionals to work with international companies remotely.</p><h3>Job Details</h3><ul><li>Job Role: Various Roles (SDE, AI, Design, etc.)</li><li>Location: Remote</li><li>Experience: Freshers / Experienced</li><li>Type: Remote Work with US Companies</li></ul>`,
+        applyLink: "https://work.mercor.com?referralCode=90c94fa1-5d28-4383-b22c-ead234fe6ac5&utm_source=referral&utm_medium=direct&utm_campaign=platform"
     }
 ];
 
