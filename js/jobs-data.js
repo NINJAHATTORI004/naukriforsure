@@ -1665,6 +1665,23 @@ const jobsData = [
         skills: ["C#/.NET", "Software Development", "DSA", "Problem Solving"],
         description: `<h3>About the Role</h3><p>UiPath is hiring Software Engineers. This is an excellent opportunity to work at a leading enterprise automation software company known for its RPA (Robotic Process Automation) solutions.</p><h3>Job Details</h3><ul><li>Job Role: Software Engineer</li><li>Company: UiPath</li><li>Location: Bengaluru</li><li>Experience: Freshers / Entry Level</li><li>Type: Full-time</li></ul>`,
         applyLink: "https://jobs.ashbyhq.com/uipath/8fcc9baf-8bcb-4db4-a3b8-072b41cf5ae1"
+    },
+    {
+        id: "sales-hiring-drive-talenttitan-270",
+        title: "Sales Hiring Drive - Multiple Positions",
+        company: "TalentTitan",
+        companyShort: "TalentTitan",
+        location: "Multiple Locations (India)",
+        salary: "As per Industry Standards",
+        type: "Full Time",
+        experience: "0-3 Years",
+        category: "sales",
+        posted: "1 day ago",
+        deadline: "March 30, 2026",
+        openings: 50,
+        skills: ["Sales", "Business Development", "Insurance", "Team Handling", "Communication", "BFSI"],
+        description: `<h3>About the Hiring Drive</h3><p>TalentTitan is conducting a Sales Champion hiring drive for multiple positions across the Insurance and BFSI sector. Open positions include Business Development Specialist, Customer Success Associate, Select Service Advisor, Product Advisor, Area Sales Manager, Team Lead Direct, Branch Manager, and Agency Manager.</p><h3>Locations</h3><ul><li>Delhi, Punjab, Haryana</li><li>Pune</li><li>Bengaluru, Chennai, Hyderabad, Mumbai, Kochi</li><li>Mumbai, Thane</li><li>Ahmedabad, Gujarat</li><li>Maharashtra, Madhya Pradesh, Chhattisgarh</li></ul><h3>Experience Required</h3><ul><li>Entry Level Roles: 0-1 Years</li><li>Mid-Level Roles: 1-3 Years</li></ul>`,
+        applyLink: "https://talenttitan.com/candidates/hiring-drives/sales-champion2/"
     }
 ];
 
