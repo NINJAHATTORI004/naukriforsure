@@ -35,23 +35,6 @@ const jobsData = [
         applyLink: "https://www.talentd.in/jobs/cyber-security-analyst-jobs-at-cloudsek-bengaluru-apply-now-8-12-lpa"
     },
     {
-        id: "data-engineer-intern-fam-003",
-        title: "Data Engineer Intern",
-        company: "Fam",
-        companyShort: "Fam",
-        location: "Bengaluru",
-        salary: "₹25K - 50K/month",
-        type: "Internship",
-        experience: "Fresher",
-        category: "data",
-        posted: "1 day ago",
-        deadline: "January 20, 2025",
-        openings: 5,
-        skills: ["Python", "SQL", "Data Engineering", "ETL"],
-        description: `<h3>About the Role</h3><p>Fam is looking for a Data Engineer Intern in Bengaluru. This internship offers a high stipend and is open to recent graduates.</p><h3>Job Details</h3><ul><li>Job Role: Data Engineer Intern</li><li>Salary: ₹25K - ₹50K/month</li><li>Location: Bengaluru</li><li>Education: BE/BTech</li><li>Batch: 2023 - 2025</li></ul>`,
-        applyLink: "https://www.talentd.in/jobs/data-engineer-intern-hiring-at-fam-bengaluru-3-6-lpa"
-    },
-    {
         id: "software-developer-oracle-004",
         title: "Software Developer",
         company: "Oracle",
