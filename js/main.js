@@ -6,8 +6,64 @@ document.addEventListener('DOMContentLoaded', function() {
     loadFeaturedJobs();
     initSearchFunctionality();
     initSavedJobs();
+    initScrollToTop();
+    initAnimations();
     addJsonLdSchema();
 });
+
+// ==================== SCROLL TO TOP BUTTON ====================
+
+function initScrollToTop() {
+    // Create scroll to top button
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'scroll-to-top';
+    scrollBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    scrollBtn.setAttribute('aria-label', 'Scroll to top');
+    document.body.appendChild(scrollBtn);
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+    
+    // Scroll to top on click
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// ==================== SCROLL ANIMATIONS ====================
+
+function initAnimations() {
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements that should animate
+    document.querySelectorAll('.job-card, .category-card, .feature-card, .testimonial-card, .section-header').forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+    });
+}
 
 // ==================== SAVED JOBS FEATURE ====================
 
@@ -242,6 +298,7 @@ function addSchemaScript(schema) {
 function initNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
     
     if (hamburger) {
         hamburger.addEventListener('click', function() {
@@ -259,14 +316,28 @@ function initNavigation() {
         });
     });
     
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navLinks && navLinks.classList.contains('active')) {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         }
+    });
+    
+    // Enhanced navbar scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
     });
 }
 
