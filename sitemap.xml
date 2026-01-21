@@ -2,73 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Main Pages -->
     <url>
-        <loc>https://naukriforsure.com/</loc>
+        <loc>https://naukriforsure.vercel.app/</loc>
         <lastmod>2026-01-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://naukriforsure.com/jobs.html</loc>
+        <loc>https://naukriforsure.vercel.app/jobs.html</loc>
         <lastmod>2026-01-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://naukriforsure.com/categories.html</loc>
+        <loc>https://naukriforsure.vercel.app/categories.html</loc>
         <lastmod>2026-01-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://naukriforsure.com/resume-screener.html</loc>
+        <loc>https://naukriforsure.vercel.app/resume-screener.html</loc>
         <lastmod>2026-01-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://naukriforsure.com/about.html</loc>
+        <loc>https://naukriforsure.vercel.app/about.html</loc>
         <lastmod>2026-01-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://naukriforsure.com/contact.html</loc>
+        <loc>https://naukriforsure.vercel.app/contact.html</loc>
         <lastmod>2026-01-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://naukriforsure.com/latest-jobs-21-01-2026.html</loc>
+        <loc>https://naukriforsure.vercel.app/latest-jobs-21-01-2026.html</loc>
         <lastmod>2026-01-21</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     
     <!-- Job Pages -->
-    <url><loc>https://naukriforsure.com/job/devops-intern-streamline-001.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/cyber-security-analyst-cloudsek-002.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/data-engineer-intern-fam-003.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/software-developer-oracle-004.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/l1-service-desk-zones-005.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/software-developer-intern-ibm-006.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/automation-sre-intern-ibm-007.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/backend-developer-intern-ibm-008.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/software-engineering-intern-microsoft-009.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/data-science-intern-microsoft-010.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/product-management-intern-microsoft-011.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/applied-science-intern-microsoft-012.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/software-engineer-intern-honeywell-013.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/software-development-engineer-adobe-014.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/sde-1-csg-015.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://naukriforsure.com/job/management-trainee-genpact-251.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/engineer-associate-qualcomm-252.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/business-analyst-spglobal-253.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/associate-software-engineer-capgemini-254.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/software-engineer-smartsheet-255.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/data-analytics-analyst-natwest-256.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/student-intern-oracle-257.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/junior-fullstack-developer-jfrog-258.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/sdet-gokwik-259.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/software-engineer-microsoft-264.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://naukriforsure.com/job/junior-swe-test-apple-267.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/devops-intern-streamline-001.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/cyber-security-analyst-cloudsek-002.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/data-engineer-intern-fam-003.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/software-developer-oracle-004.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/l1-service-desk-zones-005.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/software-developer-intern-ibm-006.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/automation-sre-intern-ibm-007.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/backend-developer-intern-ibm-008.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/software-engineering-intern-microsoft-009.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/data-science-intern-microsoft-010.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/product-management-intern-microsoft-011.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/applied-science-intern-microsoft-012.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/software-engineer-intern-honeywell-013.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/software-development-engineer-adobe-014.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/sde-1-csg-015.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/management-trainee-genpact-251.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/engineer-associate-qualcomm-252.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/business-analyst-spglobal-253.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/associate-software-engineer-capgemini-254.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/software-engineer-smartsheet-255.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/data-analytics-analyst-natwest-256.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/student-intern-oracle-257.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/junior-fullstack-developer-jfrog-258.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/sdet-gokwik-259.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/software-engineer-microsoft-264.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://naukriforsure.vercel.app/job/junior-swe-test-apple-267.html</loc><lastmod>2026-01-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

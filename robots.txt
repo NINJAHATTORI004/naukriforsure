@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://naukriforsure.com/sitemap.xml
+Sitemap: https://naukriforsure.vercel.app/sitemap.xml
 
 # Disallow admin or private areas (if any)
 Disallow: /admin/

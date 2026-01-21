@@ -225,8 +225,8 @@ function addJsonLdSchema() {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "NaukriForSure",
-        "url": "https://naukriforsure.com",
-        "logo": "https://naukriforsure.com/logo.png",
+        "url": "https://naukriforsure.vercel.app",
+        "logo": "https://naukriforsure.vercel.app/logo.png",
         "description": "Free job portal for tier 3 college students and freshers",
         "sameAs": []
     };
@@ -238,10 +238,10 @@ function addJsonLdSchema() {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "NaukriForSure",
-        "url": "https://naukriforsure.com",
+        "url": "https://naukriforsure.vercel.app",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://naukriforsure.com/jobs.html?q={search_term_string}",
+            "target": "https://naukriforsure.vercel.app/jobs.html?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
     };
