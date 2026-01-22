@@ -1,4 +1,5 @@
 // Main JavaScript file for NaukriForSure
+// Premium UI/UX Interactions v2.0
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the page
@@ -9,7 +10,179 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollToTop();
     initAnimations();
     addJsonLdSchema();
+    initPremiumEffects();
+    initParallaxEffects();
+    initCounterAnimations();
+    initDarkMode();
 });
+
+// ==================== DARK MODE ====================
+
+function initDarkMode() {
+    // Create dark mode toggle button
+    const themeToggle = document.createElement('button');
+    themeToggle.className = 'theme-toggle';
+    themeToggle.setAttribute('aria-label', 'Toggle dark mode');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i><i class="fas fa-sun"></i>';
+    document.body.appendChild(themeToggle);
+    
+    // Check for saved theme preference or default to system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    } else if (prefersDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    
+    // Toggle theme on click
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Add animation class
+        document.body.classList.add('theme-transitioning');
+        setTimeout(() => {
+            document.body.classList.remove('theme-transitioning');
+        }, 300);
+        
+        showToast(`${newTheme === 'dark' ? '🌙 Dark' : '☀️ Light'} mode activated`, 'success');
+    });
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+    });
+}
+
+// ==================== PREMIUM EFFECTS ====================
+
+function initPremiumEffects() {
+    // Add smooth hover effect to all cards
+    document.querySelectorAll('.job-card, .category-card, .feature-card, .testimonial-card').forEach(card => {
+        card.addEventListener('mouseenter', function(e) {
+            this.style.transform = 'translateY(-10px) scale(1.01)';
+        });
+        
+        card.addEventListener('mouseleave', function(e) {
+            this.style.transform = '';
+        });
+    });
+    
+    // Add magnetic button effect
+    document.querySelectorAll('.btn-primary, .btn-search').forEach(btn => {
+        btn.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            this.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.02)`;
+        });
+        
+        btn.addEventListener('mouseleave', function(e) {
+            this.style.transform = '';
+        });
+    });
+    
+    // Add focus ring animation for inputs
+    document.querySelectorAll('input, textarea, select').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement?.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement?.classList.remove('focused');
+        });
+    });
+    
+    // Add typing animation to hero text
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) {
+        heroTitle.classList.add('animate-text');
+    }
+}
+
+// ==================== PARALLAX EFFECTS ====================
+
+function initParallaxEffects() {
+    let ticking = false;
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const scrolled = window.pageYOffset;
+                
+                // Parallax for floating cards
+                document.querySelectorAll('.floating-card').forEach((card, index) => {
+                    const speed = 0.05 + (index * 0.02);
+                    card.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+                
+                // Subtle parallax for hero background
+                const heroBg = document.querySelector('.hero-bg');
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+                
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+}
+
+// ==================== COUNTER ANIMATIONS ====================
+
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+}
+
+function animateCounter(element) {
+    const text = element.textContent;
+    const match = text.match(/(\d+)/);
+    if (!match) return;
+    
+    const target = parseInt(match[0]);
+    const suffix = text.replace(match[0], '').trim();
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + suffix;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + suffix;
+        }
+    }, duration / steps);
+}
 
 // ==================== SCROLL TO TOP BUTTON ====================
 
@@ -22,12 +195,18 @@ function initScrollToTop() {
     document.body.appendChild(scrollBtn);
     
     // Show/hide button based on scroll position
+    let lastScrollY = window.scrollY;
+    
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 400) {
             scrollBtn.classList.add('visible');
         } else {
             scrollBtn.classList.remove('visible');
         }
+        
+        lastScrollY = currentScrollY;
     });
     
     // Scroll to top on click
