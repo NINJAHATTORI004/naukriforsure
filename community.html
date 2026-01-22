@@ -854,16 +854,25 @@
                 <span class="logo-text">NaukriForSure</span>
             </a>
             <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html">Jobs</a></li>
                 <li><a href="categories.html">Categories</a></li>
                 <li><a href="community.html" class="active">Community</a></li>
+                <li><a href="resume-screener.html">Resume Screener</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -1649,6 +1658,8 @@
         })();
     </script>
 
+    <!-- Main JS for navigation -->
+    <script src="js/main.js"></script>
     <!-- Chatbot -->
     <script src="js/chatbot.js"></script>
 </body>
