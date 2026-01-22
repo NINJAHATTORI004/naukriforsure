@@ -406,7 +406,7 @@ function addJsonLdSchema() {
         "name": "NaukriForSure",
         "url": "https://naukriforsure.vercel.app",
         "logo": "https://naukriforsure.vercel.app/logo.png",
-        "description": "Free job portal for tier 3 college students and freshers",
+        "description": "Free job portal for freshers and job seekers",
         "sameAs": []
     };
     
