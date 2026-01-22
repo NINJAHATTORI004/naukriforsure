@@ -2685,11 +2685,8 @@ a:focus-visible {
     }
 }
 
-@media (max-width: 768px) {
-    section {
-        padding: 60px 0;
-    }
-    
+/* MOBILE NAVIGATION - Trigger at 1024px for 7 nav items */
+@media (max-width: 1024px) {
     .nav-links {
         display: none !important;
         visibility: hidden;
@@ -2819,6 +2816,13 @@ a:focus-visible {
         background: var(--primary);
         color: white;
         transform: rotate(90deg);
+    }
+}
+
+/* Layout adjustments for tablets and smaller */
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0;
     }
     
     .hero {
