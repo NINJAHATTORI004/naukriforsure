@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Q&A - NaukriForSure | Ask Questions, Get Answers</title>
+    <meta name="description" content="Join our anonymous community to ask career questions, share experiences, and help fellow job seekers. Get answers from real people!">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Community Page Specific Styles */
+        .community-hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .community-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .community-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .community-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .community-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .community-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .community-layout {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        /* Ask Question Card */
+        .ask-question-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .ask-question-card h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ask-question-card h2 i {
+            color: #6366f1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #6366f1;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .identity-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .identity-toggle input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #6366f1;
+            cursor: pointer;
+        }
+
+        .identity-toggle label {
+            font-weight: 500;
+            color: #0369a1;
+            cursor: pointer;
+        }
+
+        .name-field {
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .name-field.visible {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Questions List */
+        .questions-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .filters-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border-color: transparent;
+        }
+
+        .search-bar {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            background: white;
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        /* Question Card */
+        .question-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .question-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .author-avatar.anonymous {
+            background: linear-gradient(135deg, #94a3b8, #64748b);
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .question-time {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .question-category {
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+            color: #6d28d9;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .question-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .question-body {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .question-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: none;
+            background: #f1f5f9;
+            border-radius: 20px;
+            color: #64748b;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+
+        .action-btn.liked {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #dc2626;
+        }
+
+        .action-btn i {
+            font-size: 1rem;
+        }
+
+        /* Answers Section */
+        .answers-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #e2e8f0;
+        }
+
+        .answers-count {
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .answers-count i {
+            color: #22c55e;
+        }
+
+        .answer-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .answer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .answer-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .answer-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .answer-avatar.anonymous {
+            background: linear-gradient(135deg, #94a3b8, #64748b);
+        }
+
+        .answer-name {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.9rem;
+        }
+
+        .answer-time {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .answer-body {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .answer-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .answer-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .answer-action-btn:hover {
+            color: #6366f1;
+        }
+
+        .answer-action-btn.liked {
+            color: #dc2626;
+        }
+
+        /* Answer Form */
+        .answer-form {
+            margin-top: 16px;
+            display: none;
+        }
+
+        .answer-form.visible {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        .answer-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            min-height: 100px;
+            resize: vertical;
+            margin-bottom: 12px;
+        }
+
+        .answer-form textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .answer-form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .answer-identity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .answer-identity input {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        .submit-answer-btn {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-answer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-card h3 i {
+            color: #6366f1;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-list li {
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .category-list li:hover {
+            background: #f1f5f9;
+        }
+
+        .category-list li.active {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            color: #6d28d9;
+            font-weight: 600;
+        }
+
+        .category-count {
+            background: #e2e8f0;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .guidelines-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guidelines-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .guidelines-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guidelines-list li i {
+            color: #22c55e;
+            margin-top: 3px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 16px;
+            border: 2px dashed #e2e8f0;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3rem;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #94a3b8;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .community-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .community-hero h1 {
+                font-size: 2rem;
+            }
+
+            .community-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-bar {
+                flex-direction: column;
+            }
+
+            .search-bar {
+                order: -1;
+            }
+
+            .question-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .answer-form-footer {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .answer-identity input {
+                width: 100%;
+            }
+
+            .submit-answer-btn {
+                width: 100%;
+            }
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            .ask-question-card,
+            .question-card,
+            .sidebar-card,
+            .empty-state {
+                background: #1e293b;
+                border-color: #334155;
+            }
+
+            .ask-question-card h2,
+            .questions-section h2,
+            .sidebar-card h3,
+            .question-title,
+            .author-name,
+            .answer-name,
+            .answers-count {
+                color: #f1f5f9;
+            }
+
+            .form-group label {
+                color: #cbd5e1;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9;
+            }
+
+            .identity-toggle {
+                background: linear-gradient(135deg, #1e3a5f, #1e40af);
+            }
+
+            .identity-toggle label {
+                color: #93c5fd;
+            }
+
+            .filter-btn {
+                background: #334155;
+                border-color: #475569;
+                color: #cbd5e1;
+            }
+
+            .search-bar input {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9;
+            }
+
+            .question-body,
+            .answer-body,
+            .guidelines-list li {
+                color: #94a3b8;
+            }
+
+            .action-btn {
+                background: #334155;
+                color: #cbd5e1;
+            }
+
+            .action-btn:hover {
+                background: #475569;
+                color: #f1f5f9;
+            }
+
+            .answer-card {
+                background: #0f172a;
+            }
+
+            .answer-form textarea,
+            .answer-identity input {
+                background: #334155;
+                border-color: #475569;
+                color: #f1f5f9;
+            }
+
+            .category-list li:hover {
+                background: #334155;
+            }
+
+            .category-count {
+                background: #475569;
+                color: #cbd5e1;
+            }
+
+            .empty-state {
+                border-color: #475569;
+            }
+        }
+
+        body.dark-mode .ask-question-card,
+        body.dark-mode .question-card,
+        body.dark-mode .sidebar-card,
+        body.dark-mode .empty-state {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        body.dark-mode .ask-question-card h2,
+        body.dark-mode .questions-section h2,
+        body.dark-mode .sidebar-card h3,
+        body.dark-mode .question-title,
+        body.dark-mode .author-name,
+        body.dark-mode .answer-name,
+        body.dark-mode .answers-count {
+            color: #f1f5f9;
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group textarea,
+        body.dark-mode .form-group select,
+        body.dark-mode .search-bar input,
+        body.dark-mode .answer-form textarea,
+        body.dark-mode .answer-identity input {
+            background: #334155;
+            border-color: #475569;
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">💼</span>
+                <span class="logo-text">NaukriForSure</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="community.html" class="active">Community</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="community-hero">
+        <div class="container">
+            <h1><i class="fas fa-comments"></i> Community Q&A</h1>
+            <p>Ask questions anonymously, share your knowledge, and help fellow job seekers succeed in their career journey!</p>
+            <div class="community-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-questions">0</div>
+                    <div class="stat-label">Questions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="total-answers">0</div>
+                    <div class="stat-label">Answers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="total-members">1.2K+</div>
+                    <div class="stat-label">Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="community-container">
+        <div class="community-layout">
+            <!-- Main Column -->
+            <div class="main-column">
+                <!-- Ask Question Card -->
+                <div class="ask-question-card">
+                    <h2><i class="fas fa-plus-circle"></i> Ask a Question</h2>
+                    <form id="question-form">
+                        <div class="form-group">
+                            <label for="question-title">Question Title *</label>
+                            <input type="text" id="question-title" placeholder="What would you like to know?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="question-body">Details (Optional)</label>
+                            <textarea id="question-body" placeholder="Add more context to help others understand your question better..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="question-category">Category *</label>
+                            <select id="question-category" required>
+                                <option value="">Select a category</option>
+                                <option value="career">💼 Career Advice</option>
+                                <option value="interview">🎤 Interview Tips</option>
+                                <option value="resume">📄 Resume & CV</option>
+                                <option value="salary">💰 Salary & Negotiation</option>
+                                <option value="technical">💻 Technical Questions</option>
+                                <option value="company">🏢 Company Reviews</option>
+                                <option value="freshers">🎓 Freshers Help</option>
+                                <option value="other">❓ Other</option>
+                            </select>
+                        </div>
+                        <div class="identity-toggle">
+                            <input type="checkbox" id="reveal-identity">
+                            <label for="reveal-identity">🔓 Reveal my identity (optional - default is anonymous)</label>
+                        </div>
+                        <div class="name-field" id="name-field">
+                            <div class="form-group">
+                                <label for="author-name">Your Name</label>
+                                <input type="text" id="author-name" placeholder="Enter your name">
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Post Question
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Questions Section -->
+                <div class="questions-section">
+                    <h2><i class="fas fa-list"></i> Recent Questions</h2>
+                    
+                    <!-- Filters -->
+                    <div class="filters-bar">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="newest">Newest</button>
+                        <button class="filter-btn" data-filter="popular">Popular</button>
+                        <button class="filter-btn" data-filter="unanswered">Unanswered</button>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-questions" placeholder="Search questions...">
+                        </div>
+                    </div>
+
+                    <!-- Questions List -->
+                    <div id="questions-list">
+                        <!-- Questions will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Categories -->
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-folder"></i> Categories</h3>
+                    <ul class="category-list" id="category-list">
+                        <li class="active" data-category="all">
+                            <span>All Questions</span>
+                            <span class="category-count" id="count-all">0</span>
+                        </li>
+                        <li data-category="career">
+                            <span>💼 Career Advice</span>
+                            <span class="category-count" id="count-career">0</span>
+                        </li>
+                        <li data-category="interview">
+                            <span>🎤 Interview Tips</span>
+                            <span class="category-count" id="count-interview">0</span>
+                        </li>
+                        <li data-category="resume">
+                            <span>📄 Resume & CV</span>
+                            <span class="category-count" id="count-resume">0</span>
+                        </li>
+                        <li data-category="salary">
+                            <span>💰 Salary & Negotiation</span>
+                            <span class="category-count" id="count-salary">0</span>
+                        </li>
+                        <li data-category="technical">
+                            <span>💻 Technical</span>
+                            <span class="category-count" id="count-technical">0</span>
+                        </li>
+                        <li data-category="company">
+                            <span>🏢 Company Reviews</span>
+                            <span class="category-count" id="count-company">0</span>
+                        </li>
+                        <li data-category="freshers">
+                            <span>🎓 Freshers Help</span>
+                            <span class="category-count" id="count-freshers">0</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Community Guidelines -->
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-shield-alt"></i> Guidelines</h3>
+                    <ul class="guidelines-list">
+                        <li><i class="fas fa-check"></i> Be respectful and helpful</li>
+                        <li><i class="fas fa-check"></i> No spam or self-promotion</li>
+                        <li><i class="fas fa-check"></i> Keep it professional</li>
+                        <li><i class="fas fa-check"></i> Share genuine experiences</li>
+                        <li><i class="fas fa-check"></i> Protect your privacy</li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul class="guidelines-list">
+                        <li><a href="jobs.html" style="color: #6366f1; text-decoration: none;"><i class="fas fa-briefcase"></i> Browse Jobs</a></li>
+                        <li><a href="resume-screener.html" style="color: #6366f1; text-decoration: none;"><i class="fas fa-file-alt"></i> Resume Screener</a></li>
+                        <li><a href="categories.html" style="color: #6366f1; text-decoration: none;"><i class="fas fa-th-large"></i> Job Categories</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NaukriForSure</h3>
+                    <p>Your trusted platform for finding genuine job opportunities. 100% free, always.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resume-screener.html">Resume Screener</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <p>📧 anshmittal133@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. Made with ❤️ by Ansh Mittal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Community JavaScript -->
+    <script>
+        // Community Q&A System
+        (function() {
+            'use strict';
+
+            // Storage Keys
+            const STORAGE_KEY = 'naukriforsure_community';
+
+            // Category Labels
+            const CATEGORY_LABELS = {
+                career: '💼 Career Advice',
+                interview: '🎤 Interview Tips',
+                resume: '📄 Resume & CV',
+                salary: '💰 Salary & Negotiation',
+                technical: '💻 Technical',
+                company: '🏢 Company Reviews',
+                freshers: '🎓 Freshers Help',
+                other: '❓ Other'
+            };
+
+            // Sample Questions (for first-time visitors)
+            const sampleQuestions = [
+                {
+                    id: 1,
+                    title: "How to prepare for a technical interview at FAANG companies?",
+                    body: "I have an upcoming interview at a top tech company. What topics should I focus on and how should I structure my preparation? Any tips from people who've been through this process?",
+                    category: "interview",
+                    author: "Anonymous",
+                    isAnonymous: true,
+                    timestamp: Date.now() - 3600000,
+                    likes: 24,
+                    answers: [
+                        {
+                            id: 1,
+                            body: "Focus on Data Structures & Algorithms! Practice on LeetCode daily - aim for at least 2-3 problems. Also, don't forget system design if you're applying for senior roles. Mock interviews helped me a lot!",
+                            author: "Tech Mentor",
+                            isAnonymous: false,
+                            timestamp: Date.now() - 1800000,
+                            likes: 12
+                        },
+                        {
+                            id: 2,
+                            body: "I recently cleared Google's interview. Key things: 1) Think out loud, 2) Ask clarifying questions, 3) Start with brute force then optimize. Good luck!",
+                            author: "Anonymous",
+                            isAnonymous: true,
+                            timestamp: Date.now() - 900000,
+                            likes: 8
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    title: "What's a good starting salary for a fresher in IT (2026)?",
+                    body: "I'm about to graduate and have a few offers. What's the market rate for freshers in software development in India? I don't want to undersell myself.",
+                    category: "salary",
+                    author: "Curious Graduate",
+                    isAnonymous: false,
+                    timestamp: Date.now() - 7200000,
+                    likes: 31,
+                    answers: [
+                        {
+                            id: 1,
+                            body: "For product companies: 8-15 LPA, Service companies: 3.5-6 LPA, Startups: 5-12 LPA (variable). Location matters too - Bangalore pays more than tier-2 cities generally.",
+                            author: "HR Professional",
+                            isAnonymous: false,
+                            timestamp: Date.now() - 5400000,
+                            likes: 18
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    title: "Is a gap year a problem for getting hired?",
+                    body: "I took a gap year after graduation for personal reasons. Now I'm worried recruiters will see this negatively. How should I address this in interviews?",
+                    category: "career",
+                    author: "Anonymous",
+                    isAnonymous: true,
+                    timestamp: Date.now() - 86400000,
+                    likes: 45,
+                    answers: [
+                        {
+                            id: 1,
+                            body: "Be honest about it! Use the gap productively - learn new skills, do certifications, contribute to open source. Frame it positively: 'I used this time to upskill in X, Y, Z.' Most good companies understand that life happens.",
+                            author: "Anonymous",
+                            isAnonymous: true,
+                            timestamp: Date.now() - 43200000,
+                            likes: 22
+                        }
+                    ]
+                },
+                {
+                    id: 4,
+                    title: "How to write ATS-friendly resume for freshers?",
+                    body: "I've been applying to many jobs but not getting callbacks. I suspect my resume isn't passing ATS systems. What format and keywords should I use?",
+                    category: "resume",
+                    author: "Anonymous",
+                    isAnonymous: true,
+                    timestamp: Date.now() - 172800000,
+                    likes: 38,
+                    answers: []
+                },
+                {
+                    id: 5,
+                    title: "Work culture at TCS vs Infosys vs Wipro - which is better for freshers?",
+                    body: "I have offers from all three. Can anyone share their experience working at these companies? Specifically interested in learning opportunities and work-life balance.",
+                    category: "company",
+                    author: "Confused Fresher",
+                    isAnonymous: false,
+                    timestamp: Date.now() - 259200000,
+                    likes: 52,
+                    answers: [
+                        {
+                            id: 1,
+                            body: "All three have similar starting packages. TCS has good training programs. Infosys Mysore campus is amazing for freshers. Wipro varies by project. Honestly, your growth depends more on your project and manager than the company name.",
+                            author: "Anonymous",
+                            isAnonymous: true,
+                            timestamp: Date.now() - 172800000,
+                            likes: 15
+                        }
+                    ]
+                }
+            ];
+
+            // Initialize Data
+            function initializeData() {
+                let data = loadData();
+                if (!data || data.questions.length === 0) {
+                    data = { questions: sampleQuestions };
+                    saveData(data);
+                }
+                return data;
+            }
+
+            // Load Data
+            function loadData() {
+                try {
+                    const saved = localStorage.getItem(STORAGE_KEY);
+                    return saved ? JSON.parse(saved) : { questions: [] };
+                } catch (e) {
+                    return { questions: [] };
+                }
+            }
+
+            // Save Data
+            function saveData(data) {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                } catch (e) {
+                    console.error('Failed to save data:', e);
+                }
+            }
+
+            // Format Time
+            function formatTime(timestamp) {
+                const diff = Date.now() - timestamp;
+                const minutes = Math.floor(diff / 60000);
+                const hours = Math.floor(diff / 3600000);
+                const days = Math.floor(diff / 86400000);
+
+                if (minutes < 1) return 'Just now';
+                if (minutes < 60) return `${minutes}m ago`;
+                if (hours < 24) return `${hours}h ago`;
+                if (days < 7) return `${days}d ago`;
+                return new Date(timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            }
+
+            // Get Initial
+            function getInitial(name) {
+                if (!name || name === 'Anonymous') return '?';
+                return name.charAt(0).toUpperCase();
+            }
+
+            // Generate ID
+            function generateId() {
+                return Date.now() + Math.random().toString(36).substr(2, 9);
+            }
+
+            // Render Questions
+            function renderQuestions(filter = 'all', category = 'all', search = '') {
+                const data = loadData();
+                let questions = [...data.questions];
+
+                // Filter by category
+                if (category !== 'all') {
+                    questions = questions.filter(q => q.category === category);
+                }
+
+                // Filter by search
+                if (search) {
+                    const searchLower = search.toLowerCase();
+                    questions = questions.filter(q => 
+                        q.title.toLowerCase().includes(searchLower) ||
+                        q.body.toLowerCase().includes(searchLower)
+                    );
+                }
+
+                // Sort
+                switch (filter) {
+                    case 'newest':
+                        questions.sort((a, b) => b.timestamp - a.timestamp);
+                        break;
+                    case 'popular':
+                        questions.sort((a, b) => b.likes - a.likes);
+                        break;
+                    case 'unanswered':
+                        questions = questions.filter(q => q.answers.length === 0);
+                        break;
+                    default:
+                        questions.sort((a, b) => b.timestamp - a.timestamp);
+                }
+
+                const container = document.getElementById('questions-list');
+
+                if (questions.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-comments"></i>
+                            <h3>No questions yet</h3>
+                            <p>Be the first to ask a question!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = questions.map(q => renderQuestionCard(q)).join('');
+
+                // Bind events
+                bindQuestionEvents();
+            }
+
+            // Render Question Card
+            function renderQuestionCard(question) {
+                const avatarClass = question.isAnonymous ? 'anonymous' : '';
+                const authorDisplay = question.isAnonymous ? 'Anonymous' : question.author;
+                const initial = getInitial(authorDisplay);
+
+                const answersHtml = question.answers.length > 0 ? `
+                    <div class="answers-section">
+                        <div class="answers-count">
+                            <i class="fas fa-check-circle"></i>
+                            ${question.answers.length} Answer${question.answers.length > 1 ? 's' : ''}
+                        </div>
+                        ${question.answers.map(a => renderAnswerCard(a, question.id)).join('')}
+                    </div>
+                ` : '';
+
+                return `
+                    <div class="question-card" data-id="${question.id}">
+                        <div class="question-header">
+                            <div class="question-meta">
+                                <div class="author-avatar ${avatarClass}">${initial}</div>
+                                <div class="author-info">
+                                    <span class="author-name">${authorDisplay}</span>
+                                    <span class="question-time">${formatTime(question.timestamp)}</span>
+                                </div>
+                            </div>
+                            <span class="question-category">${CATEGORY_LABELS[question.category] || question.category}</span>
+                        </div>
+                        <h3 class="question-title">${escapeHtml(question.title)}</h3>
+                        ${question.body ? `<p class="question-body">${escapeHtml(question.body)}</p>` : ''}
+                        <div class="question-actions">
+                            <button class="action-btn like-btn" data-id="${question.id}" data-type="question">
+                                <i class="fas fa-heart"></i>
+                                <span>${question.likes}</span>
+                            </button>
+                            <button class="action-btn answer-toggle-btn" data-id="${question.id}">
+                                <i class="fas fa-reply"></i>
+                                <span>Answer</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        ${answersHtml}
+                        <div class="answer-form" id="answer-form-${question.id}">
+                            <textarea placeholder="Write your answer..." id="answer-text-${question.id}"></textarea>
+                            <div class="answer-form-footer">
+                                <div class="answer-identity">
+                                    <input type="text" placeholder="Your name (optional)" id="answer-name-${question.id}">
+                                </div>
+                                <button class="submit-answer-btn" data-question-id="${question.id}">
+                                    <i class="fas fa-paper-plane"></i> Post Answer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Render Answer Card
+            function renderAnswerCard(answer, questionId) {
+                const avatarClass = answer.isAnonymous ? 'anonymous' : '';
+                const authorDisplay = answer.isAnonymous ? 'Anonymous' : answer.author;
+                const initial = getInitial(authorDisplay);
+
+                return `
+                    <div class="answer-card" data-id="${answer.id}">
+                        <div class="answer-header">
+                            <div class="answer-author">
+                                <div class="answer-avatar ${avatarClass}">${initial}</div>
+                                <span class="answer-name">${authorDisplay}</span>
+                            </div>
+                            <span class="answer-time">${formatTime(answer.timestamp)}</span>
+                        </div>
+                        <p class="answer-body">${escapeHtml(answer.body)}</p>
+                        <div class="answer-actions">
+                            <button class="answer-action-btn like-answer-btn" data-question-id="${questionId}" data-answer-id="${answer.id}">
+                                <i class="fas fa-heart"></i>
+                                <span>${answer.likes}</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Escape HTML
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // Update Stats
+            function updateStats() {
+                const data = loadData();
+                const totalQuestions = data.questions.length;
+                const totalAnswers = data.questions.reduce((sum, q) => sum + q.answers.length, 0);
+
+                document.getElementById('total-questions').textContent = totalQuestions;
+                document.getElementById('total-answers').textContent = totalAnswers;
+
+                // Update category counts
+                document.getElementById('count-all').textContent = totalQuestions;
+                
+                const categories = ['career', 'interview', 'resume', 'salary', 'technical', 'company', 'freshers'];
+                categories.forEach(cat => {
+                    const count = data.questions.filter(q => q.category === cat).length;
+                    const el = document.getElementById(`count-${cat}`);
+                    if (el) el.textContent = count;
+                });
+            }
+
+            // Bind Question Events
+            function bindQuestionEvents() {
+                // Like buttons
+                document.querySelectorAll('.like-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const questionId = parseInt(this.dataset.id);
+                        likeQuestion(questionId);
+                        this.classList.toggle('liked');
+                    });
+                });
+
+                // Answer toggle buttons
+                document.querySelectorAll('.answer-toggle-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const questionId = this.dataset.id;
+                        const form = document.getElementById(`answer-form-${questionId}`);
+                        form.classList.toggle('visible');
+                        if (form.classList.contains('visible')) {
+                            form.querySelector('textarea').focus();
+                        }
+                    });
+                });
+
+                // Submit answer buttons
+                document.querySelectorAll('.submit-answer-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const questionId = parseInt(this.dataset.questionId);
+                        const textEl = document.getElementById(`answer-text-${questionId}`);
+                        const nameEl = document.getElementById(`answer-name-${questionId}`);
+                        
+                        const body = textEl.value.trim();
+                        const name = nameEl.value.trim();
+
+                        if (!body) {
+                            alert('Please write an answer!');
+                            return;
+                        }
+
+                        addAnswer(questionId, body, name);
+                        textEl.value = '';
+                        nameEl.value = '';
+                    });
+                });
+
+                // Like answer buttons
+                document.querySelectorAll('.like-answer-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const questionId = parseInt(this.dataset.questionId);
+                        const answerId = parseInt(this.dataset.answerId);
+                        likeAnswer(questionId, answerId);
+                        this.classList.toggle('liked');
+                    });
+                });
+            }
+
+            // Like Question
+            function likeQuestion(questionId) {
+                const data = loadData();
+                const question = data.questions.find(q => q.id === questionId);
+                if (question) {
+                    question.likes = (question.likes || 0) + 1;
+                    saveData(data);
+                    renderQuestions(currentFilter, currentCategory, currentSearch);
+                }
+            }
+
+            // Like Answer
+            function likeAnswer(questionId, answerId) {
+                const data = loadData();
+                const question = data.questions.find(q => q.id === questionId);
+                if (question) {
+                    const answer = question.answers.find(a => a.id === answerId);
+                    if (answer) {
+                        answer.likes = (answer.likes || 0) + 1;
+                        saveData(data);
+                        renderQuestions(currentFilter, currentCategory, currentSearch);
+                    }
+                }
+            }
+
+            // Add Answer
+            function addAnswer(questionId, body, name) {
+                const data = loadData();
+                const question = data.questions.find(q => q.id === questionId);
+                
+                if (question) {
+                    const newAnswer = {
+                        id: generateId(),
+                        body: body,
+                        author: name || 'Anonymous',
+                        isAnonymous: !name,
+                        timestamp: Date.now(),
+                        likes: 0
+                    };
+                    
+                    question.answers.push(newAnswer);
+                    saveData(data);
+                    renderQuestions(currentFilter, currentCategory, currentSearch);
+                    updateStats();
+                    
+                    // Show success message
+                    showToast('Answer posted successfully! 🎉');
+                }
+            }
+
+            // Add Question
+            function addQuestion(title, body, category, name) {
+                const data = loadData();
+                
+                const newQuestion = {
+                    id: generateId(),
+                    title: title,
+                    body: body,
+                    category: category,
+                    author: name || 'Anonymous',
+                    isAnonymous: !name,
+                    timestamp: Date.now(),
+                    likes: 0,
+                    answers: []
+                };
+                
+                data.questions.unshift(newQuestion);
+                saveData(data);
+                renderQuestions(currentFilter, currentCategory, currentSearch);
+                updateStats();
+                
+                // Show success message
+                showToast('Question posted successfully! 🎉');
+            }
+
+            // Show Toast
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.style.cssText = `
+                    position: fixed;
+                    bottom: 30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: linear-gradient(135deg, #10b981, #059669);
+                    color: white;
+                    padding: 16px 32px;
+                    border-radius: 12px;
+                    font-weight: 600;
+                    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+                    z-index: 10000;
+                    animation: toastIn 0.3s ease;
+                `;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.animation = 'toastOut 0.3s ease';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            // Add toast animations
+            const toastStyles = document.createElement('style');
+            toastStyles.textContent = `
+                @keyframes toastIn {
+                    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+                }
+                @keyframes toastOut {
+                    from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                    to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                }
+            `;
+            document.head.appendChild(toastStyles);
+
+            // Current state
+            let currentFilter = 'all';
+            let currentCategory = 'all';
+            let currentSearch = '';
+
+            // Initialize
+            function init() {
+                initializeData();
+                updateStats();
+                renderQuestions();
+
+                // Question form submission
+                document.getElementById('question-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const title = document.getElementById('question-title').value.trim();
+                    const body = document.getElementById('question-body').value.trim();
+                    const category = document.getElementById('question-category').value;
+                    const revealIdentity = document.getElementById('reveal-identity').checked;
+                    const name = revealIdentity ? document.getElementById('author-name').value.trim() : '';
+
+                    if (!title || !category) {
+                        alert('Please fill in all required fields!');
+                        return;
+                    }
+
+                    addQuestion(title, body, category, name);
+                    
+                    // Reset form
+                    this.reset();
+                    document.getElementById('name-field').classList.remove('visible');
+                });
+
+                // Identity toggle
+                document.getElementById('reveal-identity').addEventListener('change', function() {
+                    document.getElementById('name-field').classList.toggle('visible', this.checked);
+                });
+
+                // Filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.filter;
+                        renderQuestions(currentFilter, currentCategory, currentSearch);
+                    });
+                });
+
+                // Category list
+                document.querySelectorAll('.category-list li').forEach(item => {
+                    item.addEventListener('click', function() {
+                        document.querySelectorAll('.category-list li').forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                        currentCategory = this.dataset.category;
+                        renderQuestions(currentFilter, currentCategory, currentSearch);
+                    });
+                });
+
+                // Search
+                document.getElementById('search-questions').addEventListener('input', function() {
+                    currentSearch = this.value;
+                    renderQuestions(currentFilter, currentCategory, currentSearch);
+                });
+            }
+
+            // Start
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+
+    <!-- Chatbot -->
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
