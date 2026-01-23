@@ -1,4 +1,4 @@
-// Main JavaScript file for NaukriForSure
+﻿// Main JavaScript file for NaukriForSure
 // Premium UI/UX Interactions v2.0
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -317,7 +317,7 @@ function shareOnLinkedIn(url, title) {
 
 // Share on Twitter
 function shareOnTwitter(title, url) {
-    const text = `${title} - Great opportunity for freshers! 🎯`;
+    const text = `${title} - Great opportunity for freshers! `;
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
 }
 

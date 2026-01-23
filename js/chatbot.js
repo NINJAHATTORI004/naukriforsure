@@ -1,4 +1,4 @@
-// Bucks - NaukriForSure Advanced AI Chatbot v2.0
+﻿// Bucks - NaukriForSure Advanced AI Chatbot v2.0
 // Enhanced with: Smart Intent Recognition, Chat History, Time-based Greetings, Markdown Support, and More!
 (function() {
     'use strict';
@@ -28,13 +28,13 @@
                 "Hey, early bird! 🐦 I'm Bucks. The best jobs go to those who start early. How can I assist?"
             ],
             afternoon: [
-                "Good afternoon! 👋 I'm Bucks, here to power up your job search. What would you like to know?",
+                "Good afternoon!  I'm Bucks, here to power up your job search. What would you like to know?",
                 "Hey there! 🌞 Afternoon vibes! I'm Bucks, your friendly job assistant. How can I help today?",
                 "Hello! ☕ Taking a break to job hunt? Smart move! I'm Bucks - ask me anything!"
             ],
             evening: [
                 "Good evening! 🌆 I'm Bucks! Winding down but still job hunting? I'm here to help!",
-                "Evening! ✨ I'm Bucks, your AI career assistant. Let's find your dream opportunity together!",
+                "Evening!  I'm Bucks, your AI career assistant. Let's find your dream opportunity together!",
                 "Hey! 🌙 Evening job search session? Perfect timing! I'm Bucks - what can I help you with?"
             ],
             night: [
@@ -49,189 +49,189 @@
             greeting: {
                 patterns: ['hi', 'hello', 'hey', 'hola', 'howdy', 'sup', 'yo', 'hii', 'hiii', 'namaste', 'good morning', 'good afternoon', 'good evening', 'whats up', "what's up"],
                 responses: [
-                    "Hello! 👋 Great to have you here! How can I make your job search easier today?",
-                    "Hey there! 😊 Welcome! I'm all ears - what would you like to know?",
-                    "Hi! 🎉 Excited to help you! What brings you here today?"
+                    "Hello!  Great to have you here! How can I make your job search easier today?",
+                    "Hey there!  Welcome! I'm all ears - what would you like to know?",
+                    "Hi!  Excited to help you! What brings you here today?"
                 ]
             },
 
             about_website: {
                 patterns: ['what is naukriforsure', 'about naukriforsure', 'tell me about', 'what is this', 'what does this website do', 'about this site', 'purpose', 'what is this website'],
                 responses: [
-                    "🌟 **NaukriForSure** is your FREE gateway to amazing careers!\n\n**What makes us special:**\n• ✅ 100% Free - No hidden charges ever\n• 🏢 Jobs from top MNCs & startups\n• 📱 Fresh opportunities added daily\n• 🎯 Easy one-click applications\n• 🔍 Curated & verified listings\n\nWe believe your skills matter, not your wallet! 💪\n\n[🔗 Explore Jobs](/jobs.html)"
+                    " **NaukriForSure** is your FREE gateway to amazing careers!\n\n**What makes us special:**\n•  100% Free - No hidden charges ever\n•  Jobs from top MNCs & startups\n•  Fresh opportunities added daily\n•  Easy one-click applications\n• 🔍 Curated & verified listings\n\nWe believe your skills matter, not your wallet! \n\n[🔗 Explore Jobs](/jobs.html)"
                 ]
             },
 
             founder: {
                 patterns: ['who created', 'who made', 'founder', 'creator', 'ansh', 'who built', 'developed by', 'made by', 'owner'],
                 responses: [
-                    "🙋‍♂️ **Meet Our Founder:**\n\nNaukriForSure was created by **Ansh Mittal**!\n\n**His Vision:** Make job hunting accessible to everyone, regardless of their background or financial situation.\n\n**Mission:** Bridge the gap between talented individuals and their dream opportunities.\n\n📧 **Contact:** anshmittal133@gmail.com\n\nBuilt with passion and ❤️ for job seekers everywhere!"
+                    "🙋‍♂️ **Meet Our Founder:**\n\nNaukriForSure was created by **Ansh Mittal**!\n\n**His Vision:** Make job hunting accessible to everyone, regardless of their background or financial situation.\n\n**Mission:** Bridge the gap between talented individuals and their dream opportunities.\n\n **Contact:** anshmittal133@gmail.com\n\nBuilt with passion and  for job seekers everywhere!"
                 ]
             },
 
             how_to_apply: {
                 patterns: ['how to apply', 'apply for job', 'application process', 'how can i apply', 'apply kaise', 'application', 'how do i apply', 'applying', 'submit application'],
                 responses: [
-                    "📝 **Application Guide:**\n\n**Step 1️⃣** Visit our [Jobs page](/jobs.html)\n\n**Step 2️⃣** Browse or search for your desired role\n\n**Step 3️⃣** Click on the job card to view details\n\n**Step 4️⃣** Read requirements carefully\n\n**Step 5️⃣** Click the **'Apply Now'** button\n\n**Step 6️⃣** You'll be redirected to the company's official career page\n\n---\n💡 **Pro Tips:**\n• Tailor your resume for each role\n• Apply within 48 hours of posting\n• Follow up after a week"
+                    " **Application Guide:**\n\n**Step 1️⃣** Visit our [Jobs page](/jobs.html)\n\n**Step 2️⃣** Browse or search for your desired role\n\n**Step 3️⃣** Click on the job card to view details\n\n**Step 4️⃣** Read requirements carefully\n\n**Step 5️⃣** Click the **'Apply Now'** button\n\n**Step 6️⃣** You'll be redirected to the company's official career page\n\n---\n **Pro Tips:**\n• Tailor your resume for each role\n• Apply within 48 hours of posting\n• Follow up after a week"
                 ]
             },
 
             find_jobs: {
                 patterns: ['find jobs', 'search jobs', 'browse jobs', 'looking for job', 'job search', 'where are jobs', 'show jobs', 'job listings', 'available jobs', 'get job', 'need job'],
                 responses: [
-                    "🔍 **Find Your Perfect Job:**\n\n**Quick Links:**\n• [📋 All Jobs](/jobs.html) - Complete listings\n• [🔥 Latest Jobs](/latest-jobs-23-01-2026.html) - Fresh today!\n• [📂 By Category](/categories.html) - Industry-wise\n\n**Smart Tips:**\n• Use Ctrl+F to search on pages\n• Check back daily - we add 5-10 jobs/day\n• Save interesting jobs to apply later\n\nWhat type of role are you looking for? I can guide you better! 🎯"
+                    "🔍 **Find Your Perfect Job:**\n\n**Quick Links:**\n• [📋 All Jobs](/jobs.html) - Complete listings\n• [ Latest Jobs](/latest-jobs-23-01-2026.html) - Fresh today!\n• [📂 By Category](/categories.html) - Industry-wise\n\n**Smart Tips:**\n• Use Ctrl+F to search on pages\n• Check back daily - we add 5-10 jobs/day\n• Save interesting jobs to apply later\n\nWhat type of role are you looking for? I can guide you better! "
                 ]
             },
 
             latest_jobs: {
                 patterns: ['latest jobs', 'new jobs', 'recent jobs', 'today jobs', 'fresh jobs', 'newest', 'recent openings', 'just posted', 'todays jobs', "today's jobs"],
                 responses: [
-                    "🔥 **Hot Off The Press!**\n\nWe just added **13 new jobs** including:\n\n• 💻 **NTT Data** - Data Analyst\n• 🌐 **Cisco** - Backend SDE\n• 📊 **EY** - Associate Analyst\n• 🔴 **Oracle** - Student Intern\n• 💼 **Deloitte** - GLAS Analyst\n• 🛢️ **BP** - Execution Analyst\n• 👔 **Red Hat** - Trainee ASE\n• And 6 more!\n\n👉 [View All Latest Jobs](/latest-jobs-23-01-2026.html)\n\n*Updated: January 23, 2026* 📅"
+                    " **Hot Off The Press!**\n\nWe just added **13 new jobs** including:\n\n•  **NTT Data** - Data Analyst\n•  **Cisco** - Backend SDE\n•  **EY** - Associate Analyst\n• 🔴 **Oracle** - Student Intern\n•  **Deloitte** - GLAS Analyst\n• 🛢️ **BP** - Execution Analyst\n• 👔 **Red Hat** - Trainee ASE\n• And 6 more!\n\n👉 [View All Latest Jobs](/latest-jobs-23-01-2026.html)\n\n*Updated: January 23, 2026* 📅"
                 ]
             },
 
             categories: {
                 patterns: ['categories', 'job categories', 'types of jobs', 'industries', 'sectors', 'departments', 'job types', 'fields', 'domains'],
                 responses: [
-                    "📂 **Job Categories:**\n\n**Tech & Engineering:**\n• 💻 Software Development\n• 🔧 DevOps & Cloud\n• 🛡️ Cybersecurity\n• 📱 Mobile Development\n\n**Data & Analytics:**\n• 📊 Data Science\n• 🤖 AI/ML\n• 📈 Business Analytics\n\n**Business:**\n• 📣 Marketing & Sales\n• 💰 Finance & Accounting\n• 👥 HR & Operations\n\n**Creative:**\n• 🎨 UI/UX Design\n• ✏️ Content & Writing\n\n👉 [Explore All Categories](/categories.html)"
+                    "📂 **Job Categories:**\n\n**Tech & Engineering:**\n•  Software Development\n• 🔧 DevOps & Cloud\n• 🛡️ Cybersecurity\n•  Mobile Development\n\n**Data & Analytics:**\n•  Data Science\n• 🤖 AI/ML\n•  Business Analytics\n\n**Business:**\n• 📣 Marketing & Sales\n•  Finance & Accounting\n• 👥 HR & Operations\n\n**Creative:**\n• 🎨 UI/UX Design\n• ✏️ Content & Writing\n\n👉 [Explore All Categories](/categories.html)"
                 ]
             },
 
             companies: {
                 patterns: ['companies', 'which companies', 'top companies', 'company list', 'hiring companies', 'employers', 'brands', 'mnc'],
                 responses: [
-                    "🏢 **Top Companies Hiring:**\n\n**FAANG & Big Tech:**\n🟦 Microsoft | 🔴 Google | 🟠 Amazon\n🍎 Apple | 📘 Meta\n\n**IT Services:**\n🟣 Wipro | 🔵 TCS | ⚪ Infosys | 🟢 IBM\n\n**Consulting:**\n🟡 EY | 🔴 Deloitte | 🟠 PwC | 🟢 KPMG\n\n**Others:**\n🔵 Cisco | 🔴 Oracle | 🟣 Red Hat\n💚 Swiggy | 🟡 Flipkart | 🟠 Razorpay\n\n*And 100+ more verified employers!* ✅"
+                    " **Top Companies Hiring:**\n\n**FAANG & Big Tech:**\n🟦 Microsoft | 🔴 Google | 🟠 Amazon\n🍎 Apple | 📘 Meta\n\n**IT Services:**\n🟣 Wipro | 🔵 TCS | ⚪ Infosys | 🟢 IBM\n\n**Consulting:**\n🟡 EY | 🔴 Deloitte | 🟠 PwC | 🟢 KPMG\n\n**Others:**\n🔵 Cisco | 🔴 Oracle | 🟣 Red Hat\n💚 Swiggy | 🟡 Flipkart | 🟠 Razorpay\n\n*And 100+ more verified employers!* "
                 ]
             },
 
             freshers: {
                 patterns: ['fresher', 'freshers', 'no experience', 'entry level', 'graduate', 'new graduate', 'just graduated', '0 experience', 'first job', 'beginner', 'college pass out'],
                 responses: [
-                    "🎓 **Freshers Welcome Here!**\n\nWe have **tons** of fresher-friendly roles!\n\n**Look for these tags:**\n• 0-1 years experience\n• Entry Level / Graduate\n• Campus Hire / Fresher\n\n**Top Fresher Sectors:**\n• 💻 IT & Software Development\n• 📊 Data Analytics\n• 🎯 Business Development\n• 📞 Customer Support\n• 🎨 Content & Design\n\n**Avg Fresher Salary:** ₹3-8 LPA\n\n💪 Everyone starts somewhere - your dream job awaits!\n\n[🔗 Browse All Jobs](/jobs.html)"
+                    " **Freshers Welcome Here!**\n\nWe have **tons** of fresher-friendly roles!\n\n**Look for these tags:**\n• 0-1 years experience\n• Entry Level / Graduate\n• Campus Hire / Fresher\n\n**Top Fresher Sectors:**\n•  IT & Software Development\n•  Data Analytics\n•  Business Development\n•  Customer Support\n• 🎨 Content & Design\n\n**Avg Fresher Salary:** ₹3-8 LPA\n\n Everyone starts somewhere - your dream job awaits!\n\n[🔗 Browse All Jobs](/jobs.html)"
                 ]
             },
 
             internships: {
                 patterns: ['internship', 'internships', 'intern', 'student job', 'summer internship', 'winter internship', 'intern opportunity', 'training'],
                 responses: [
-                    "📚 **Internship Opportunities!**\n\n**Currently Hiring Interns:**\n• 💼 FamPay - Web Engineer Intern\n• 🎨 Deconstruct - Marketing Intern\n• 🔷 Microsoft - Various Interns\n• 🔴 Oracle - Student Intern\n• 🔵 IBM - Tech Intern\n\n**Why Intern?**\n✅ Real-world experience\n✅ Industry exposure\n✅ PPO opportunities (50%+ conversion)\n✅ Build your network\n✅ ₹10K-80K/month stipend\n\n💡 **Tip:** Apply 2-3 months before your preferred start date!\n\n[🔗 Find Internships](/jobs.html)"
+                    "📚 **Internship Opportunities!**\n\n**Currently Hiring Interns:**\n•  FamPay - Web Engineer Intern\n• 🎨 Deconstruct - Marketing Intern\n• 🔷 Microsoft - Various Interns\n• 🔴 Oracle - Student Intern\n• 🔵 IBM - Tech Intern\n\n**Why Intern?**\n Real-world experience\n Industry exposure\n PPO opportunities (50%+ conversion)\n Build your network\n ₹10K-80K/month stipend\n\n **Tip:** Apply 2-3 months before your preferred start date!\n\n[🔗 Find Internships](/jobs.html)"
                 ]
             },
 
             resume_tips: {
                 patterns: ['resume', 'cv', 'resume tips', 'how to write resume', 'resume help', 'curriculum vitae', 'resume format', 'ats resume', 'resume template', 'biodata'],
                 responses: [
-                    "📄 **Ultimate Resume Guide:**\n\n**Must-Have Sections:**\n1️⃣ Contact Info (Email, Phone, LinkedIn)\n2️⃣ Professional Summary (2-3 impactful lines)\n3️⃣ Skills (Technical + Soft)\n4️⃣ Experience/Projects (Most recent first)\n5️⃣ Education\n6️⃣ Certifications\n\n**Power Tips:**\n• ✅ Keep it 1 page (freshers), 2 max (experienced)\n• ✅ Use action verbs: Led, Developed, Increased\n• ✅ Quantify: 'Increased sales by 25%'\n• ✅ Include keywords from job description\n• ✅ ATS-friendly format (no tables/graphics)\n• ✅ PDF format always\n\n**FREE Tools:**\n• Canva, Novoresume, Zety\n\n🔧 [Try Our Resume Screener](/resume-screener.html)"
+                    "📄 **Ultimate Resume Guide:**\n\n**Must-Have Sections:**\n1️⃣ Contact Info (Email, Phone, LinkedIn)\n2️⃣ Professional Summary (2-3 impactful lines)\n3️⃣ Skills (Technical + Soft)\n4️⃣ Experience/Projects (Most recent first)\n5️⃣ Education\n6️⃣ Certifications\n\n**Power Tips:**\n•  Keep it 1 page (freshers), 2 max (experienced)\n•  Use action verbs: Led, Developed, Increased\n•  Quantify: 'Increased sales by 25%'\n•  Include keywords from job description\n•  ATS-friendly format (no tables/graphics)\n•  PDF format always\n\n**FREE Tools:**\n• Canva, Novoresume, Zety\n\n🔧 [Try Our Resume Screener](/resume-screener.html)"
                 ]
             },
 
             interview_tips: {
                 patterns: ['interview', 'interview tips', 'interview preparation', 'how to interview', 'interview help', 'prepare interview', 'crack interview', 'interview questions'],
                 responses: [
-                    "🎤 **Interview Success Blueprint:**\n\n**Before Interview:**\n📖 Research company thoroughly\n💼 Study the job description\n🔄 Practice STAR method answers\n👔 Plan professional attire\n📝 Prepare 5 questions to ask\n\n**During Interview:**\n• ⏰ Join 5 mins early (virtual) or 15 mins (in-person)\n• 👀 Maintain eye contact\n• 🎯 Be specific with examples\n• ✨ Show enthusiasm\n• 🙏 Thank the interviewer\n\n**Common Questions:**\n• Tell me about yourself\n• Why this company/role?\n• Strengths & weaknesses\n• Where do you see yourself in 5 years?\n• Do you have questions for us?\n\n**After Interview:**\n📧 Send thank-you email within 24 hours\n\nYou've got this! 🌟"
+                    "🎤 **Interview Success Blueprint:**\n\n**Before Interview:**\n📖 Research company thoroughly\n Study the job description\n🔄 Practice STAR method answers\n👔 Plan professional attire\n Prepare 5 questions to ask\n\n**During Interview:**\n• ⏰ Join 5 mins early (virtual) or 15 mins (in-person)\n• 👀 Maintain eye contact\n•  Be specific with examples\n•  Show enthusiasm\n• 🙏 Thank the interviewer\n\n**Common Questions:**\n• Tell me about yourself\n• Why this company/role?\n• Strengths & weaknesses\n• Where do you see yourself in 5 years?\n• Do you have questions for us?\n\n**After Interview:**\n Send thank-you email within 24 hours\n\nYou've got this! "
                 ]
             },
 
             salary: {
                 patterns: ['salary', 'pay', 'package', 'ctc', 'compensation', 'how much', 'stipend', 'earning', 'income', 'lpa'],
                 responses: [
-                    "💰 **Salary Guide 2026 (India):**\n\n**Freshers (0-1 years):**\n• IT/Software: ₹3-8 LPA\n• Data Science: ₹4-10 LPA\n• Marketing: ₹3-6 LPA\n• Finance: ₹3-7 LPA\n• Product: ₹6-12 LPA\n\n**Mid-Level (2-5 years):**\n• IT/Software: ₹8-20 LPA\n• Data Science: ₹12-25 LPA\n• Product: ₹15-35 LPA\n\n**Internship Stipends:**\n• ₹10,000 - ₹80,000/month\n• Top tech interns: Up to ₹1L/month\n\n**Top Paying Companies:**\nGoogle, Microsoft, Amazon, Stripe, Uber\n\n💡 *Negotiate 10-20% above offer if you have competing offers!*"
+                    " **Salary Guide 2026 (India):**\n\n**Freshers (0-1 years):**\n• IT/Software: ₹3-8 LPA\n• Data Science: ₹4-10 LPA\n• Marketing: ₹3-6 LPA\n• Finance: ₹3-7 LPA\n• Product: ₹6-12 LPA\n\n**Mid-Level (2-5 years):**\n• IT/Software: ₹8-20 LPA\n• Data Science: ₹12-25 LPA\n• Product: ₹15-35 LPA\n\n**Internship Stipends:**\n• ₹10,000 - ₹80,000/month\n• Top tech interns: Up to ₹1L/month\n\n**Top Paying Companies:**\nGoogle, Microsoft, Amazon, Stripe, Uber\n\n *Negotiate 10-20% above offer if you have competing offers!*"
                 ]
             },
 
             remote_jobs: {
                 patterns: ['remote', 'work from home', 'wfh', 'home based', 'remote work', 'virtual job', 'online job', 'hybrid', 'work anywhere'],
                 responses: [
-                    "🏠 **Remote Work Guide:**\n\n**Finding Remote Jobs:**\n• Look for 'Remote/WFH/Hybrid' tags\n• Filter by 'Pan India' location\n• Check company's work policy\n\n**Remote-First Companies:**\n• GitLab | Atlassian | Stripe\n• Zapier | Toptal | Automattic\n\n**Hybrid Companies:**\n• Microsoft | Google | Amazon\n• TCS | Wipro | Infosys\n\n**Remote Work Tips:**\n✅ Dedicated workspace\n✅ Stable internet (50+ Mbps)\n✅ Professional video setup\n✅ Clear communication\n✅ Work-life boundaries\n\n[🔗 Browse All Jobs](/jobs.html) - Look for 🏠 remote tags!"
+                    "🏠 **Remote Work Guide:**\n\n**Finding Remote Jobs:**\n• Look for 'Remote/WFH/Hybrid' tags\n• Filter by 'Pan India' location\n• Check company's work policy\n\n**Remote-First Companies:**\n• GitLab | Atlassian | Stripe\n• Zapier | Toptal | Automattic\n\n**Hybrid Companies:**\n• Microsoft | Google | Amazon\n• TCS | Wipro | Infosys\n\n**Remote Work Tips:**\n Dedicated workspace\n Stable internet (50+ Mbps)\n Professional video setup\n Clear communication\n Work-life boundaries\n\n[🔗 Browse All Jobs](/jobs.html) - Look for 🏠 remote tags!"
                 ]
             },
 
             skills: {
                 patterns: ['skills', 'what skills', 'learn', 'upskill', 'skill required', 'skills needed', 'technology', 'programming', 'course', 'certification'],
                 responses: [
-                    "🛠️ **In-Demand Skills 2026:**\n\n**Programming:**\n• Python, JavaScript, Java, Go\n• React, Node.js, Next.js\n• SQL, MongoDB, PostgreSQL\n\n**Cloud & DevOps:**\n• AWS, Azure, GCP\n• Docker, Kubernetes\n• CI/CD, Terraform\n\n**Data & AI:**\n• Machine Learning, Deep Learning\n• LLMs, Prompt Engineering\n• Data Analysis, Visualization\n\n**Soft Skills:**\n• Communication & Presentation\n• Problem-solving\n• Team Collaboration\n• Adaptability\n\n**Free Learning:**\n📚 Coursera | Udemy | edX\n💻 freeCodeCamp | Codecademy\n🎯 LeetCode | HackerRank\n📹 YouTube tutorials\n\nNever stop learning! 🚀"
+                    "🛠️ **In-Demand Skills 2026:**\n\n**Programming:**\n• Python, JavaScript, Java, Go\n• React, Node.js, Next.js\n• SQL, MongoDB, PostgreSQL\n\n**Cloud & DevOps:**\n• AWS, Azure, GCP\n• Docker, Kubernetes\n• CI/CD, Terraform\n\n**Data & AI:**\n• Machine Learning, Deep Learning\n• LLMs, Prompt Engineering\n• Data Analysis, Visualization\n\n**Soft Skills:**\n• Communication & Presentation\n• Problem-solving\n• Team Collaboration\n• Adaptability\n\n**Free Learning:**\n📚 Coursera | Udemy | edX\n freeCodeCamp | Codecademy\n LeetCode | HackerRank\n📹 YouTube tutorials\n\nNever stop learning! "
                 ]
             },
 
             contact: {
                 patterns: ['contact', 'reach out', 'support', 'help desk', 'email', 'get in touch', 'feedback', 'query', 'complain', 'report'],
                 responses: [
-                    "📞 **Get In Touch:**\n\n📧 **Email:** anshmittal133@gmail.com\n\n📍 **Contact Page:** [Click Here](/contact.html)\n\n**Response Time:** Within 24-48 hours\n\n**Reach Out For:**\n• 💼 Job posting inquiries\n• 🤝 Partnership opportunities\n• 🐛 Technical issues\n• 💡 Feedback & suggestions\n• ⚠️ Report suspicious listings\n\n**Follow Us:**\n• LinkedIn | Twitter | Instagram\n\nWe'd love to hear from you! 💌"
+                    " **Get In Touch:**\n\n **Email:** anshmittal133@gmail.com\n\n **Contact Page:** [Click Here](/contact.html)\n\n**Response Time:** Within 24-48 hours\n\n**Reach Out For:**\n•  Job posting inquiries\n•  Partnership opportunities\n• 🐛 Technical issues\n•  Feedback & suggestions\n• ⚠️ Report suspicious listings\n\n**Follow Us:**\n• LinkedIn | Twitter | Instagram\n\nWe'd love to hear from you! 💌"
                 ]
             },
 
             free: {
                 patterns: ['free', 'cost', 'price', 'charges', 'fees', 'payment', 'money', 'paid', 'subscription'],
                 responses: [
-                    "🆓 **100% FREE - Forever!**\n\nNaukriForSure is **completely FREE**!\n\n**No Charges For:**\n✅ Browsing all jobs\n✅ Applying to any job\n✅ Using resume screener\n✅ Chatting with Bucks (me! 🐶)\n✅ Any feature on the site\n\n---\n⚠️ **SCAM ALERT:**\nIf anyone asks for money to:\n• Get you a job\n• Process your application\n• Provide interview shortcuts\n\n**IT'S A SCAM!** Report immediately.\n\nLegitimate jobs NEVER require payment! 💪"
+                    "🆓 **100% FREE - Forever!**\n\nNaukriForSure is **completely FREE**!\n\n**No Charges For:**\n Browsing all jobs\n Applying to any job\n Using resume screener\n Chatting with Bucks (me! 🐶)\n Any feature on the site\n\n---\n⚠️ **SCAM ALERT:**\nIf anyone asks for money to:\n• Get you a job\n• Process your application\n• Provide interview shortcuts\n\n**IT'S A SCAM!** Report immediately.\n\nLegitimate jobs NEVER require payment! "
                 ]
             },
 
             thanks: {
                 patterns: ['thank', 'thanks', 'thank you', 'thx', 'thnx', 'appreciate', 'helpful', 'great', 'awesome', 'nice', 'good job', 'well done'],
                 responses: [
-                    "You're very welcome! 😊 Happy to help!\n\nFeel free to ask more questions anytime. I'm here 24/7!\n\n🍀 Best of luck with your job search!",
-                    "Glad I could help! 🌟\n\nRemember, persistence is key in job hunting. You've got this! 💪\n\nAnything else I can assist with?",
-                    "My pleasure! 😊\n\nYour dream job is out there - keep pushing! 🚀\n\nCome back whenever you need guidance!"
+                    "You're very welcome!  Happy to help!\n\nFeel free to ask more questions anytime. I'm here 24/7!\n\n🍀 Best of luck with your job search!",
+                    "Glad I could help! \n\nRemember, persistence is key in job hunting. You've got this! \n\nAnything else I can assist with?",
+                    "My pleasure! \n\nYour dream job is out there - keep pushing! \n\nCome back whenever you need guidance!"
                 ]
             },
 
             goodbye: {
                 patterns: ['bye', 'goodbye', 'see you', 'take care', 'cya', 'gtg', 'good night', 'gn', 'bye bye', 'later'],
                 responses: [
-                    "Goodbye! 👋 Best of luck with your job search!\n\nRemember, I'm always here 24/7 whenever you need help! 🌟\n\nGo get that dream job! 💪",
-                    "Take care! 😊 Wishing you amazing success!\n\nSee you soon! ✨\n\n*Bucks will be waiting... 🐶*",
-                    "Bye! 🎉 May your next application be THE one!\n\nDon't hesitate to return - I love helping!\n\nUntil next time! 🚀"
+                    "Goodbye!  Best of luck with your job search!\n\nRemember, I'm always here 24/7 whenever you need help! \n\nGo get that dream job! ",
+                    "Take care!  Wishing you amazing success!\n\nSee you soon! \n\n*Bucks will be waiting... 🐶*",
+                    "Bye!  May your next application be THE one!\n\nDon't hesitate to return - I love helping!\n\nUntil next time! "
                 ]
             },
 
             who_are_you: {
                 patterns: ['who are you', 'what are you', 'your name', 'introduce yourself', 'what is bucks', 'tell me about you', 'about yourself', 'are you ai', 'are you bot', 'are you human', 'are you real'],
                 responses: [
-                    "🐶 **Hi, I'm Bucks!**\n\nI'm your AI-powered job search companion on NaukriForSure!\n\n**What I Can Do:**\n• 🔍 Help you find the right jobs\n• 📝 Guide through applications\n• 📄 Share resume & interview tips\n• 💼 Provide career advice\n• 🧭 Navigate this website\n• 💬 Answer all your questions!\n\n**Fun Facts:**\n• I'm available 24/7, never sleep! 😴\n• Name 'Bucks' = prosperity in your career! 💰\n• I learn from every conversation! 🧠\n\nSo, how can I help you today? 😊"
+                    "🐶 **Hi, I'm Bucks!**\n\nI'm your AI-powered job search companion on NaukriForSure!\n\n**What I Can Do:**\n• 🔍 Help you find the right jobs\n•  Guide through applications\n• 📄 Share resume & interview tips\n•  Provide career advice\n• 🧭 Navigate this website\n• 💬 Answer all your questions!\n\n**Fun Facts:**\n• I'm available 24/7, never sleep! 😴\n• Name 'Bucks' = prosperity in your career! \n• I learn from every conversation! 🧠\n\nSo, how can I help you today? "
                 ]
             },
 
             help: {
                 patterns: ['help', 'what can you do', 'features', 'capabilities', 'options', 'menu', 'commands', 'guide', 'assist'],
                 responses: [
-                    "🤖 **I'm Here To Help With:**\n\n**🔍 Job Search:**\n• Find jobs → 'show me jobs'\n• Latest openings → 'new jobs'\n• By category → 'IT jobs' / 'marketing jobs'\n• Companies → 'who is hiring'\n\n**📚 Career Guidance:**\n• Resume tips → 'help with resume'\n• Interview prep → 'interview tips'\n• Skills to learn → 'what skills'\n• Salary info → 'salary guide'\n\n**ℹ️ About NaukriForSure:**\n• About us → 'what is NaukriForSure'\n• Is it free → 'is this free'\n• Contact → 'how to contact'\n\n**Quick Actions:**\n• [📋 All Jobs](/jobs.html)\n• [🔥 Latest](/latest-jobs-23-01-2026.html)\n• [📂 Categories](/categories.html)\n\nJust type naturally - I understand! 😊"
+                    "🤖 **I'm Here To Help With:**\n\n**🔍 Job Search:**\n• Find jobs → 'show me jobs'\n• Latest openings → 'new jobs'\n• By category → 'IT jobs' / 'marketing jobs'\n• Companies → 'who is hiring'\n\n**📚 Career Guidance:**\n• Resume tips → 'help with resume'\n• Interview prep → 'interview tips'\n• Skills to learn → 'what skills'\n• Salary info → 'salary guide'\n\n**ℹ️ About NaukriForSure:**\n• About us → 'what is NaukriForSure'\n• Is it free → 'is this free'\n• Contact → 'how to contact'\n\n**Quick Actions:**\n• [📋 All Jobs](/jobs.html)\n• [ Latest](/latest-jobs-23-01-2026.html)\n• [📂 Categories](/categories.html)\n\nJust type naturally - I understand! "
                 ]
             },
 
             joke: {
                 patterns: ['joke', 'funny', 'make me laugh', 'tell joke', 'humor', 'entertain', 'bored'],
                 responses: [
-                    "😄 **Developer Humor:**\n\n*Why do programmers prefer dark mode?*\n\nBecause light attracts bugs! 🐛💡\n\n---\n\n*Interviewer: Where do you see yourself in 5 years?*\n\n*Developer: In a mirror, probably.* 🪞\n\n---\n\nHaha! Now back to finding you that dream job! 🎯\n\nAnything else I can help with?",
-                    "😂 **Job Search Joke:**\n\n*My job search journey:*\n\nApply → Wait → 'We'll keep your resume on file' → Repeat ♻️\n\n---\n\n*Recruiter: What's your biggest weakness?*\n\n*Me: I'm brutally honest.*\n\n*Recruiter: I don't think that's a weakness.*\n\n*Me: I don't care what you think.* 😬\n\n---\n\nDon't worry, YOUR story will have a happy ending! 🌟"
+                    "😄 **Developer Humor:**\n\n*Why do programmers prefer dark mode?*\n\nBecause light attracts bugs! 🐛\n\n---\n\n*Interviewer: Where do you see yourself in 5 years?*\n\n*Developer: In a mirror, probably.* 🪞\n\n---\n\nHaha! Now back to finding you that dream job! \n\nAnything else I can help with?",
+                    "😂 **Job Search Joke:**\n\n*My job search journey:*\n\nApply → Wait → 'We'll keep your resume on file' → Repeat ♻️\n\n---\n\n*Recruiter: What's your biggest weakness?*\n\n*Me: I'm brutally honest.*\n\n*Recruiter: I don't think that's a weakness.*\n\n*Me: I don't care what you think.* 😬\n\n---\n\nDon't worry, YOUR story will have a happy ending! "
                 ]
             },
 
             motivation: {
                 patterns: ['motivate', 'motivation', 'feeling down', 'depressed', 'sad', 'rejected', 'no response', 'not getting job', 'failure', 'stress', 'tired', 'hopeless', 'frustrated'],
                 responses: [
-                    "💪 **Hey, I Hear You!**\n\nJob searching is HARD. Rejection stings. But here's the truth:\n\n**Remember:**\n⭐ Every 'No' brings you closer to 'Yes'\n⭐ Even top achievers faced 100s of rejections\n⭐ Your worth ≠ your job status\n⭐ The right opportunity finds you\n\n**What Helps:**\n1. 📊 Track applications (celebrate small wins)\n2. 🔄 Get resume feedback\n3. 📚 Upskill during free time\n4. 🤝 Network on LinkedIn\n5. 🧘 Take breaks - mental health matters!\n\n**Inspiration:**\n*\"Success is not final, failure is not fatal. It's the courage to continue that counts.\"* - Churchill\n\n🌟 You WILL succeed. I believe in you!\n\nNeed specific help with anything?"
+                    " **Hey, I Hear You!**\n\nJob searching is HARD. Rejection stings. But here's the truth:\n\n**Remember:**\n Every 'No' brings you closer to 'Yes'\n Even top achievers faced 100s of rejections\n Your worth ≠ your job status\n The right opportunity finds you\n\n**What Helps:**\n1.  Track applications (celebrate small wins)\n2. 🔄 Get resume feedback\n3. 📚 Upskill during free time\n4.  Network on LinkedIn\n5. 🧘 Take breaks - mental health matters!\n\n**Inspiration:**\n*\"Success is not final, failure is not fatal. It's the courage to continue that counts.\"* - Churchill\n\n You WILL succeed. I believe in you!\n\nNeed specific help with anything?"
                 ]
             },
 
             linkedin: {
                 patterns: ['linkedin', 'profile', 'networking', 'connections', 'professional network'],
                 responses: [
-                    "💼 **LinkedIn Optimization Tips:**\n\n**Profile Must-Haves:**\n• Professional photo (65% more views!)\n• Compelling headline (not just 'Student')\n• Detailed About section with keywords\n• All experiences + projects\n• Skills endorsements (top 3 matter most)\n\n**Networking Strategy:**\n1. Connect with recruiters in your field\n2. Engage with company posts\n3. Share your achievements\n4. Join relevant groups\n5. Personalize connection requests!\n\n**Job Search on LinkedIn:**\n• Turn on 'Open to Work' (recruiters only)\n• Save job searches\n• Set up alerts\n• Easy Apply when available\n\n🚀 A strong LinkedIn = 40% more opportunities!"
+                    " **LinkedIn Optimization Tips:**\n\n**Profile Must-Haves:**\n• Professional photo (65% more views!)\n• Compelling headline (not just 'Student')\n• Detailed About section with keywords\n• All experiences + projects\n• Skills endorsements (top 3 matter most)\n\n**Networking Strategy:**\n1. Connect with recruiters in your field\n2. Engage with company posts\n3. Share your achievements\n4. Join relevant groups\n5. Personalize connection requests!\n\n**Job Search on LinkedIn:**\n• Turn on 'Open to Work' (recruiters only)\n• Save job searches\n• Set up alerts\n• Easy Apply when available\n\n A strong LinkedIn = 40% more opportunities!"
                 ]
             },
 
             tech_jobs: {
                 patterns: ['software', 'developer', 'programming', 'coding', 'sde', 'engineer', 'tech job', 'it job', 'development'],
                 responses: [
-                    "💻 **Tech/Software Jobs:**\n\n**Hot Roles:**\n• Software Development Engineer (SDE)\n• Full Stack Developer\n• Backend/Frontend Engineer\n• DevOps Engineer\n• Data Engineer\n• Cloud Architect\n\n**Top Hiring Companies:**\n🔷 Microsoft | 🟠 Amazon | 🔴 Google\n💙 Cisco | 🔵 IBM | 🟣 Oracle\n\n**Skills to Highlight:**\n• DSA + Problem Solving\n• System Design (for experienced)\n• Cloud (AWS/Azure/GCP)\n• Git, CI/CD\n\n**Prep Resources:**\n• LeetCode, InterviewBit\n• System Design Primer (GitHub)\n\n[🔗 Browse Tech Jobs](/jobs.html)"
+                    " **Tech/Software Jobs:**\n\n**Hot Roles:**\n• Software Development Engineer (SDE)\n• Full Stack Developer\n• Backend/Frontend Engineer\n• DevOps Engineer\n• Data Engineer\n• Cloud Architect\n\n**Top Hiring Companies:**\n🔷 Microsoft | 🟠 Amazon | 🔴 Google\n💙 Cisco | 🔵 IBM | 🟣 Oracle\n\n**Skills to Highlight:**\n• DSA + Problem Solving\n• System Design (for experienced)\n• Cloud (AWS/Azure/GCP)\n• Git, CI/CD\n\n**Prep Resources:**\n• LeetCode, InterviewBit\n• System Design Primer (GitHub)\n\n[🔗 Browse Tech Jobs](/jobs.html)"
                 ]
             },
 
             data_jobs: {
                 patterns: ['data science', 'data analyst', 'analytics', 'machine learning', 'ml', 'ai', 'artificial intelligence', 'data engineer'],
                 responses: [
-                    "📊 **Data & AI Jobs:**\n\n**In-Demand Roles:**\n• Data Analyst\n• Data Scientist\n• ML Engineer\n• Data Engineer\n• Business Analyst\n• AI/ML Researcher\n\n**Must-Have Skills:**\n• Python, R, SQL\n• Statistics & Mathematics\n• ML frameworks (TensorFlow, PyTorch)\n• Visualization (Tableau, PowerBI)\n• Cloud ML services\n\n**Top Hiring:**\n• Amazon, Google, Microsoft\n• Flipkart, Razorpay, CRED\n• Analytics firms: Fractal, LatentView\n\n**Learning Path:**\n1. Statistics fundamentals\n2. Python for Data Science\n3. ML algorithms\n4. Deep Learning\n5. Kaggle projects\n\n[🔗 Find Data Jobs](/jobs.html)"
+                    " **Data & AI Jobs:**\n\n**In-Demand Roles:**\n• Data Analyst\n• Data Scientist\n• ML Engineer\n• Data Engineer\n• Business Analyst\n• AI/ML Researcher\n\n**Must-Have Skills:**\n• Python, R, SQL\n• Statistics & Mathematics\n• ML frameworks (TensorFlow, PyTorch)\n• Visualization (Tableau, PowerBI)\n• Cloud ML services\n\n**Top Hiring:**\n• Amazon, Google, Microsoft\n• Flipkart, Razorpay, CRED\n• Analytics firms: Fractal, LatentView\n\n**Learning Path:**\n1. Statistics fundamentals\n2. Python for Data Science\n3. ML algorithms\n4. Deep Learning\n5. Kaggle projects\n\n[🔗 Find Data Jobs](/jobs.html)"
                 ]
             }
         },
@@ -240,18 +240,18 @@
         fallback: [
             "🤔 Hmm, I'm not quite sure about that!\n\n**Try asking about:**\n• Finding jobs\n• Resume tips\n• Interview preparation\n• Companies hiring\n\nOr click a quick reply below! 👇",
             "💭 I didn't catch that. Let me help better!\n\n**Popular Questions:**\n• 'How do I apply?'\n• 'Show latest jobs'\n• 'Give me resume tips'\n• 'Interview advice'\n\nWhat would you like to know?",
-            "🌟 Still learning that one!\n\n**I'm great at:**\n• Job search guidance\n• Career advice\n• Website navigation\n\nRephrase or try a quick reply? 😊"
+            " Still learning that one!\n\n**I'm great at:**\n• Job search guidance\n• Career advice\n• Website navigation\n\nRephrase or try a quick reply? "
         ],
 
         // Enhanced quick replies with categories
         quickReplies: [
             { text: "🔍 Find Jobs", query: "how to find jobs" },
-            { text: "🔥 Latest Jobs", query: "latest jobs" },
+            { text: " Latest Jobs", query: "latest jobs" },
             { text: "📄 Resume Tips", query: "resume tips" },
             { text: "🎤 Interview Help", query: "interview tips" },
             { text: "📂 Categories", query: "job categories" },
-            { text: "💰 Salary Guide", query: "salary guide" },
-            { text: "🎓 For Freshers", query: "fresher jobs" },
+            { text: " Salary Guide", query: "salary guide" },
+            { text: " For Freshers", query: "fresher jobs" },
             { text: "💬 About Bucks", query: "who are you" }
         ]
     };
@@ -484,7 +484,7 @@
                     <div class="bucks-input-area">
                         <div class="bucks-input-wrapper">
                             <input type="text" id="bucks-input" placeholder="Ask me anything..." autocomplete="off" aria-label="Type your message">
-                            <button id="bucks-emoji" class="bucks-emoji-btn" title="Add emoji" aria-label="Add emoji">😊</button>
+                            <button id="bucks-emoji" class="bucks-emoji-btn" title="Add emoji" aria-label="Add emoji"></button>
                         </div>
                         <button id="bucks-send" aria-label="Send message">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1303,7 +1303,7 @@
 
             // Emoji button (simple toggle of emojis)
             this.elements.emoji.addEventListener('click', () => {
-                const emojis = ['😊', '👋', '🎯', '💼', '🚀', '💡', '✨', '🔥'];
+                const emojis = ['', '', '', '', '', '', '', ''];
                 const currentEmoji = this.elements.emoji.textContent;
                 const nextIndex = (emojis.indexOf(currentEmoji) + 1) % emojis.length;
                 this.elements.emoji.textContent = emojis[nextIndex];

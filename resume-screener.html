@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,10 +21,10 @@
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
     
-    <!-- Premium Google Fonts -->
+    <!-- Victorian Era Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#7c3aed">
+    <meta name="theme-color" content="#722f37">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
@@ -41,40 +41,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #ec4899;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark: #0f172a;
-            --gray-900: #1e293b;
-            --gray-700: #334155;
-            --gray-500: #64748b;
-            --gray-300: #cbd5e1;
-            --gray-100: #f1f5f9;
-            --gray-50: #f8fafc;
+            --primary: #722f37;
+            --primary-dark: #5a252c;
+            --primary-light: #8b3a42;
+            --secondary: #b8860b;
+            --secondary-light: #d4af37;
+            --success: #1a3d2e;
+            --warning: #b8860b;
+            --danger: #722f37;
+            --dark: #1a1612;
+            --gray-900: #2d2926;
+            --gray-700: #4a4541;
+            --gray-500: #6b6560;
+            --gray-300: #c4bfb8;
+            --gray-100: #f4eed8;
+            --gray-50: #faf7f0;
             --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-            --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-            --gradient-danger: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
+            --gradient-primary: linear-gradient(135deg, #722f37 0%, #8b3a42 50%, #b8860b 100%);
+            --gradient-success: linear-gradient(135deg, #1a3d2e 0%, #2d5a44 100%);
+            --gradient-warning: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
+            --gradient-danger: linear-gradient(135deg, #722f37 0%, #8b3a42 100%);
+            --shadow-sm: 0 1px 2px rgba(114, 47, 55, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(114, 47, 55, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(114, 47, 55, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(114, 47, 55, 0.1);
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+            --radius-xl: 12px;
         }
         
-        * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+        * { font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif; box-sizing: border-box; }
         
         .screener-page { 
             padding: 30px 0; 
-            background: linear-gradient(180deg, var(--gray-50) 0%, #e0e7ff 100%); 
+            background: linear-gradient(180deg, #faf7f0 0%, #f4eed8 100%); 
             min-height: 100vh; 
         }
         
@@ -106,7 +107,9 @@
         .screener-hero > * { position: relative; z-index: 1; }
         .screener-hero h1 { 
             font-size: 2.5rem; 
-            font-weight: 800; 
+            font-weight: 700;
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+            letter-spacing: 2px; 
             margin-bottom: 12px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
@@ -232,10 +235,11 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 30px rgba(114, 47, 55, 0.3);
+            border: 2px solid var(--secondary);
         }
         .drop-zone .upload-icon i { font-size: 1.8rem; color: white; }
-        .drop-zone h3 { color: var(--gray-900); margin-bottom: 8px; font-size: 1.1rem; font-weight: 600; }
+        .drop-zone h3 { color: var(--gray-900); margin-bottom: 8px; font-size: 1.1rem; font-weight: 600; font-family: 'Cinzel', Georgia, serif; }
         .drop-zone p { color: var(--gray-500); font-size: 0.9rem; margin: 0; }
         .drop-zone .formats { 
             margin-top: 12px; 
@@ -324,7 +328,7 @@
             outline: none; 
             border-color: var(--primary); 
             background: var(--white);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 4px rgba(114, 47, 55, 0.1);
         }
         .jd-section textarea::placeholder { color: var(--gray-400); }
         
@@ -368,7 +372,7 @@
         .option-group select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 4px rgba(114, 47, 55, 0.1);
         }
         
         /* Analyze Button */
@@ -377,10 +381,13 @@
             padding: 16px;
             background: var(--gradient-primary);
             color: white;
-            border: none;
+            border: 2px solid var(--secondary);
             border-radius: var(--radius-md);
             font-size: 1.05rem;
-            font-weight: 700;
+            font-weight: 600;
+            font-family: 'Cinzel', Georgia, serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             margin-top: 24px;
             display: flex;
@@ -388,7 +395,7 @@
             justify-content: center;
             gap: 10px;
             transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 20px rgba(114, 47, 55, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -403,7 +410,7 @@
             transition: left 0.5s;
         }
         .analyze-btn:hover::before { left: 100%; }
-        .analyze-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4); }
+        .analyze-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(114, 47, 55, 0.4); }
         .analyze-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
         .analyze-btn.loading i { animation: spin 1s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
@@ -504,9 +511,10 @@
             align-items: center;
             gap: 30px;
             padding: 25px;
-            background: linear-gradient(135deg, var(--gray-50) 0%, #e0e7ff 100%);
+            background: linear-gradient(135deg, #faf7f0 0%, #f4eed8 100%);
             border-radius: var(--radius-lg);
             margin-bottom: 25px;
+            border: 1px solid rgba(184, 134, 11, 0.2);
         }
         .score-ring {
             width: 140px;
@@ -580,7 +588,7 @@
         .breakdown-item .item-icon.ats { background: var(--gradient-primary); }
         .breakdown-item .item-icon.keyword { background: var(--gradient-success); }
         .breakdown-item .item-icon.readability { background: var(--gradient-warning); }
-        .breakdown-item .item-icon.appeal { background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); }
+        .breakdown-item .item-icon.appeal { background: linear-gradient(135deg, #1a365d 0%, #2d4a7c 100%); }
         .breakdown-item .item-info { flex: 1; }
         .breakdown-item .item-label { font-size: 0.75rem; color: var(--gray-500); }
         .breakdown-item .item-value { font-size: 1rem; font-weight: 700; color: var(--gray-900); }
@@ -1243,9 +1251,9 @@
     <svg width="0" height="0" style="position:absolute;">
         <defs>
             <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#6366f1"/>
-                <stop offset="50%" style="stop-color:#8b5cf6"/>
-                <stop offset="100%" style="stop-color:#ec4899"/>
+                <stop offset="0%" style="stop-color:#722f37"/>
+                <stop offset="50%" style="stop-color:#8b3a42"/>
+                <stop offset="100%" style="stop-color:#b8860b"/>
             </linearGradient>
         </defs>
     </svg>
@@ -3059,10 +3067,10 @@
                             <strong>Name:</strong> <span style="${parsed.personalInfo.name ? 'color:#10b981;font-weight:600;' : 'color:var(--gray-400);font-style:italic;'}">${parsed.personalInfo.name || 'Not detected - check first line of resume'}</span>
                             <strong>Email:</strong> <span style="${parsed.personalInfo.email ? '' : 'color:var(--gray-400);'}">${parsed.personalInfo.email || 'Not detected'}</span>
                             <strong>Phone:</strong> <span style="${parsed.personalInfo.phone ? '' : 'color:var(--gray-400);'}">${parsed.personalInfo.phone || 'Not detected'}</span>
-                            <strong>LinkedIn:</strong> <span>${parsed.personalInfo.linkedin ? `<a href="${parsed.personalInfo.linkedin}" target="_blank" style="color:#6366f1;">${parsed.personalInfo.linkedin}</a>` : '<em style="color:var(--gray-400);">Not detected</em>'}</span>
-                            <strong>GitHub:</strong> <span>${parsed.personalInfo.github ? `<a href="${parsed.personalInfo.github}" target="_blank" style="color:#6366f1;">${parsed.personalInfo.github}</a>` : '<em style="color:var(--gray-400);">Not detected</em>'}</span>
+                            <strong>LinkedIn:</strong> <span>${parsed.personalInfo.linkedin ? `<a href="${parsed.personalInfo.linkedin}" target="_blank" style="color:#722f37;">${parsed.personalInfo.linkedin}</a>` : '<em style="color:var(--gray-400);">Not detected</em>'}</span>
+                            <strong>GitHub:</strong> <span>${parsed.personalInfo.github ? `<a href="${parsed.personalInfo.github}" target="_blank" style="color:#722f37;">${parsed.personalInfo.github}</a>` : '<em style="color:var(--gray-400);">Not detected</em>'}</span>
                             ${parsed.personalInfo.location ? `<strong>Location:</strong> <span>${parsed.personalInfo.location}</span>` : ''}
-                            ${parsed.personalInfo.portfolio ? `<strong>Portfolio:</strong> <span><a href="https://${parsed.personalInfo.portfolio}" target="_blank" style="color:#6366f1;">${parsed.personalInfo.portfolio}</a></span>` : ''}
+                            ${parsed.personalInfo.portfolio ? `<strong>Portfolio:</strong> <span><a href="https://${parsed.personalInfo.portfolio}" target="_blank" style="color:#722f37;">${parsed.personalInfo.portfolio}</a></span>` : ''}
                         </div>
                     </div>
                 </div>
@@ -3289,7 +3297,7 @@
                                         <strong style="font-size: 0.9rem; color: #1e293b;">${exp.title || 'Position'}</strong>
                                         <span style="font-size: 0.8rem; color: #64748b; font-style: italic;">${exp.dates || ''}</span>
                                     </div>
-                                    <div style="font-size: 0.85rem; color: #6366f1; margin-bottom: 8px;">${exp.company || ''}</div>
+                                    <div style="font-size: 0.85rem; color: #722f37; margin-bottom: 8px;">${exp.company || ''}</div>
                                     <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; color: #334155;">
                                         ${(exp.bullets || []).slice(0, 4).map(b => `<li style="margin-bottom: 5px;">${b}</li>`).join('')}
                                     </ul>
@@ -3335,20 +3343,20 @@
         function generateModernTemplate(name, contact, summary, skills, experience, p) {
             return `
                 <div style="font-family: 'Inter', sans-serif; color: #1e293b;">
-                    <div style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 25px; margin: -20px -20px 20px -20px; border-radius: 12px 12px 0 0;">
+                    <div style="background: linear-gradient(135deg, #722f37 0%, #8b3a42 100%); color: white; padding: 25px; margin: -20px -20px 20px -20px; border-radius: 12px 12px 0 0;">
                         <h1 style="font-size: 1.6rem; margin: 0 0 8px 0; font-weight: 700;">${name}</h1>
                         <div style="font-size: 0.8rem; opacity: 0.95;">${contact.slice(0, 4).join(' | ')}</div>
                     </div>
                     
                     ${summary ? `
-                    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 18px; border-left: 4px solid #6366f1;">
+                    <div style="background: #faf7f0; padding: 15px; border-radius: 4px; margin-bottom: 18px; border-left: 4px solid #722f37;">
                         <p style="font-size: 0.85rem; line-height: 1.6; margin: 0; color: #475569;">${summary}</p>
                     </div>
                     ` : ''}
                     
                     ${skills.length > 0 ? `
                     <div style="margin-bottom: 18px;">
-                        <h2 style="font-size: 0.85rem; color: #6366f1; margin-bottom: 10px; font-weight: 600; text-transform: uppercase;">Skills</h2>
+                        <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 10px; font-weight: 600; text-transform: uppercase; font-family: 'Cinzel', Georgia, serif;">Skills</h2>
                         <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                             ${skills.slice(0, 12).map(s => `<span style="background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 500;">${s}</span>`).join('')}
                         </div>
@@ -3357,7 +3365,7 @@
                     
                     ${experience.length > 0 ? `
                     <div style="margin-bottom: 18px;">
-                        <h2 style="font-size: 0.85rem; color: #6366f1; margin-bottom: 10px; font-weight: 600; text-transform: uppercase;">Experience</h2>
+                        <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 10px; font-weight: 600; text-transform: uppercase; font-family: 'Cinzel', Georgia, serif;">Experience</h2>
                         <ul style="margin: 0; padding-left: 16px; font-size: 0.82rem; color: #475569;">
                             ${experience.slice(0, 6).map(b => `<li style="margin-bottom: 8px; line-height: 1.5;">${b}</li>`).join('')}
                         </ul>
@@ -3367,14 +3375,14 @@
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                         ${p.education && p.education.length > 0 ? `
                         <div>
-                            <h2 style="font-size: 0.85rem; color: #6366f1; margin-bottom: 8px; font-weight: 600; text-transform: uppercase;">Education</h2>
+                            <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; font-family: 'Cinzel', Georgia, serif;">Education</h2>
                             ${p.education.slice(0, 2).map(e => `<p style="font-size: 0.8rem; margin: 4px 0; color: #475569;">${e}</p>`).join('')}
                         </div>
                         ` : ''}
                         
                         ${p.projects && p.projects.length > 0 ? `
                         <div>
-                            <h2 style="font-size: 0.85rem; color: #6366f1; margin-bottom: 8px; font-weight: 600; text-transform: uppercase;">Projects</h2>
+                            <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; font-family: 'Cinzel', Georgia, serif;">Projects</h2>
                             ${p.projects.slice(0, 2).map(proj => `<p style="font-size: 0.8rem; margin: 4px 0; color: #475569;">• ${proj}</p>`).join('')}
                         </div>
                         ` : ''}
@@ -3445,7 +3453,7 @@
                     ${experience.length > 0 ? `
                     <div style="margin-bottom: 15px;">
                         <div style="color: #22c55e; font-size: 0.7rem; margin-bottom: 8px;">// Experience</div>
-                        ${experience.slice(0, 5).map(b => `<div style="font-size: 0.78rem; color: #e2e8f0; margin: 6px 0; padding-left: 12px; border-left: 2px solid #6366f1;"><span style="color: #fbbf24;">→</span> ${b}</div>`).join('')}
+                        ${experience.slice(0, 5).map(b => `<div style="font-size: 0.78rem; color: #e2e8f0; margin: 6px 0; padding-left: 12px; border-left: 2px solid #b8860b;"><span style="color: #d4af37;">→</span> ${b}</div>`).join('')}
                     </div>
                     ` : ''}
                     
@@ -3504,8 +3512,8 @@
             return `
                 <div style="font-family: 'Segoe UI', sans-serif; color: #2d3748;">
                     <div style="position: relative; margin-bottom: 25px;">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ec4899, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600;">${name.charAt(0)}</div>
-                        <h1 style="font-size: 1.6rem; margin: 10px 0 5px 0; font-weight: 700; background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${name}</h1>
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #722f37, #b8860b); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600; border: 2px solid #b8860b;">${name.charAt(0)}</div>
+                        <h1 style="font-size: 1.6rem; margin: 10px 0 5px 0; font-weight: 700; font-family: 'Cinzel', Georgia, serif; color: #722f37;">${name}</h1>
                         <div style="font-size: 0.8rem; color: #718096;">${contact.slice(0, 3).join(' • ')}</div>
                     </div>
                     
@@ -3517,7 +3525,7 @@
                     
                     ${skills.length > 0 ? `
                     <div style="margin-bottom: 20px;">
-                        <h2 style="font-size: 0.85rem; color: #8b5cf6; margin-bottom: 10px; font-weight: 600;">✦ Skills</h2>
+                        <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 10px; font-weight: 600; font-family: 'Cinzel', Georgia, serif;">Skills</h2>
                         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                             ${skills.slice(0, 10).map((s, i) => `<span style="background: ${i % 2 === 0 ? 'linear-gradient(135deg, #fce7f3, #ddd6fe)' : 'linear-gradient(135deg, #ddd6fe, #fce7f3)'}; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; color: #6b21a8; font-weight: 500;">${s}</span>`).join('')}
                         </div>
@@ -3526,14 +3534,14 @@
                     
                     ${experience.length > 0 ? `
                     <div style="margin-bottom: 20px;">
-                        <h2 style="font-size: 0.85rem; color: #ec4899; margin-bottom: 10px; font-weight: 600;">✦ Experience</h2>
-                        ${experience.slice(0, 5).map(b => `<div style="font-size: 0.82rem; color: #4a5568; margin: 10px 0; padding: 10px; background: #fafafa; border-radius: 8px; border-left: 3px solid #ec4899;">${b}</div>`).join('')}
+                        <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 10px; font-weight: 600; font-family: 'Cinzel', Georgia, serif;">Experience</h2>
+                        ${experience.slice(0, 5).map(b => `<div style="font-size: 0.82rem; color: #4a5568; margin: 10px 0; padding: 10px; background: #faf7f0; border-radius: 4px; border-left: 3px solid #722f37;">${b}</div>`).join('')}
                     </div>
                     ` : ''}
                     
                     ${p.projects && p.projects.length > 0 ? `
                     <div>
-                        <h2 style="font-size: 0.85rem; color: #8b5cf6; margin-bottom: 10px; font-weight: 600;">✦ Projects</h2>
+                        <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 10px; font-weight: 600; font-family: 'Cinzel', Georgia, serif;">Projects</h2>
                         ${p.projects.slice(0, 3).map(proj => `<div style="font-size: 0.82rem; color: #4a5568; margin: 8px 0; padding-left: 12px; border-left: 2px solid #c4b5fd;">→ ${proj}</div>`).join('')}
                     </div>
                     ` : ''}
@@ -3596,11 +3604,11 @@ ${divider}
 `;
             // Contact info
             const contactLines = [];
-            if (email) contactLines.push(`📧 ${email}`);
-            if (phone) contactLines.push(`📱 ${phone}`);
+            if (email) contactLines.push(` ${email}`);
+            if (phone) contactLines.push(` ${phone}`);
             if (linkedin) contactLines.push(`🔗 ${linkedin}`);
-            if (github) contactLines.push(`💻 ${github}`);
-            if (location) contactLines.push(`📍 ${location}`);
+            if (github) contactLines.push(` ${github}`);
+            if (location) contactLines.push(` ${location}`);
             txt += contactLines.join('  |  ') + '\n\n';
             
             // Summary
@@ -3684,7 +3692,7 @@ ${subDivider}
 `;
                 if (p.educationDetails && p.educationDetails.length > 0) {
                     p.educationDetails.forEach(edu => {
-                        txt += `\n🎓 ${edu.degree}`;
+                        txt += `\n ${edu.degree}`;
                         if (edu.year) txt += `  |  ${edu.year}`;
                         txt += '\n';
                         if (edu.institution) txt += `   ${edu.institution}`;
@@ -3718,7 +3726,7 @@ ACHIEVEMENTS & AWARDS
 ${subDivider}
 `;
                 p.achievements.forEach(ach => {
-                    txt += `  🏆 ${ach}\n`;
+                    txt += `   ${ach}\n`;
                 });
                 txt += '\n';
             }
@@ -3741,10 +3749,10 @@ ${divider}`;
             // Build contact parts
             const contactParts = [];
             if (email) contactParts.push(`<span>✉ ${email}</span>`);
-            if (phone) contactParts.push(`<span>📱 ${phone}</span>`);
+            if (phone) contactParts.push(`<span> ${phone}</span>`);
             if (linkedin) contactParts.push(`<span><a href="${linkedin}" style="color:inherit;text-decoration:none;">🔗 LinkedIn</a></span>`);
-            if (github) contactParts.push(`<span><a href="${github}" style="color:inherit;text-decoration:none;">💻 GitHub</a></span>`);
-            if (location) contactParts.push(`<span>📍 ${location}</span>`);
+            if (github) contactParts.push(`<span><a href="${github}" style="color:inherit;text-decoration:none;"> GitHub</a></span>`);
+            if (location) contactParts.push(`<span> ${location}</span>`);
             
             return `<!DOCTYPE html>
 <html>
@@ -3915,7 +3923,7 @@ ${divider}`;
         
         .project-tech {
             font-size: 9pt;
-            color: #6366f1;
+            color: #722f37;
         }
         
         .two-column {
@@ -4037,7 +4045,7 @@ Experience Level: ${expLevel.value.toUpperCase()}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 SCORE SUMMARY
+ SCORE SUMMARY
 ────────────────
 Overall Score:      ${a.overallScore}/100
 ATS Compatibility:  ${a.atsScore}/100
@@ -4051,16 +4059,16 @@ Recruiter Appeal:   ${a.appealScore}/100
 ────────────────────
 ${a.atsIssues.map(i => `[${i.severity.toUpperCase()}] ${i.name}
    → ${i.desc}
-   💡 ${i.fix}`).join('\n\n') || 'No issues found!'}
+    ${i.fix}`).join('\n\n') || 'No issues found!'}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 🏷️ KEYWORD ANALYSIS
 ──────────────────
-✅ Found (${a.foundKeywords.length}):
+ Found (${a.foundKeywords.length}):
 ${a.foundKeywords.map(k => `   • ${k.keyword || k}${k.count ? ` (${k.count}x)` : ''}`).join('\n') || '   None'}
 
-❌ Missing (${a.missingKeywords.length}):
+ Missing (${a.missingKeywords.length}):
 ${a.missingKeywords.slice(0, 15).map(k => `   • ${k}`).join('\n')}
 
 ⚠️ Underused (${a.underusedKeywords.length}):
@@ -4068,7 +4076,7 @@ ${a.underusedKeywords.map(k => `   • ${k}`).join('\n') || '   None'}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-✨ EXPERIENCE ENHANCEMENTS (CAR Framework)
+ EXPERIENCE ENHANCEMENTS (CAR Framework)
 ────────────────────────────────────────
 ${optimizedResume.enhancedBullets ? optimizedResume.enhancedBullets.map((b, i) => 
 `Bullet #${i + 1}:
@@ -4078,7 +4086,7 @@ ${optimizedResume.enhancedBullets ? optimizedResume.enhancedBullets.map((b, i) =
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📝 TOP RECOMMENDATIONS
+ TOP RECOMMENDATIONS
 ─────────────────────
 1. Address all ERROR-level ATS issues first
 2. Add missing keywords naturally in Skills and Experience
@@ -4091,7 +4099,7 @@ ${optimizedResume.enhancedBullets ? optimizedResume.enhancedBullets.map((b, i) =
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Generated by NaukriForSure Advanced Resume Screener
-🌐 https://naukriforsure.vercel.app/resume-screener.html
+ https://naukriforsure.vercel.app/resume-screener.html
 
             `.trim();
             

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,14 +6,17 @@
     <title>Community Q&A - NaukriForSure | Ask Questions, Get Answers</title>
     <meta name="description" content="Join our anonymous community to ask career questions, share experiences, and help fellow job seekers. Get answers from real people!">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Victorian Era Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#722f37">
     <style>
-        /* Community Page Specific Styles */
+        /* Community Page Specific Styles - Victorian Theme */
         .community-hero {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            background: linear-gradient(135deg, #722f37 0%, #8b3a42 50%, #b8860b 100%);
             padding: 80px 0 60px;
             text-align: center;
             position: relative;
@@ -27,21 +30,23 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.08'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.5;
         }
 
         .community-hero h1 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
             font-size: 3rem;
-            font-weight: 800;
+            font-weight: 700;
             color: white;
             margin-bottom: 16px;
             position: relative;
+            letter-spacing: 2px;
         }
 
         .community-hero p {
-            font-size: 1.2rem;
+            font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
             margin: 0 auto;
@@ -94,7 +99,7 @@
         }
 
         .ask-question-card h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: #1e293b;
@@ -102,10 +107,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            letter-spacing: 1px;
         }
 
         .ask-question-card h2 i {
-            color: #6366f1;
+            color: #722f37;
         }
 
         .form-group {
@@ -137,9 +143,9 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #6366f1;
+            border-color: #722f37;
             background: white;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 4px rgba(114, 47, 55, 0.1);
         }
 
         .form-group textarea {
@@ -152,21 +158,22 @@
             align-items: center;
             gap: 12px;
             padding: 16px;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            border-radius: 12px;
+            background: linear-gradient(135deg, #faf7f0, #f4eed8);
+            border-radius: 4px;
             margin-bottom: 20px;
+            border: 1px solid #b8860b;
         }
 
         .identity-toggle input[type="checkbox"] {
             width: 20px;
             height: 20px;
-            accent-color: #6366f1;
+            accent-color: #722f37;
             cursor: pointer;
         }
 
         .identity-toggle label {
             font-weight: 500;
-            color: #0369a1;
+            color: #722f37;
             cursor: pointer;
         }
 
@@ -187,12 +194,15 @@
         .submit-btn {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #722f37, #8b3a42);
             color: white;
-            border: none;
-            border-radius: 12px;
+            border: 2px solid #b8860b;
+            border-radius: 4px;
             font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 600;
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -203,16 +213,18 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 30px rgba(114, 47, 55, 0.4);
+            border-color: #d4af37;
         }
 
         /* Questions List */
         .questions-section h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 20px;
+            letter-spacing: 1px;
         }
 
         .filters-bar {
@@ -224,20 +236,22 @@
 
         .filter-btn {
             padding: 10px 20px;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #b8860b;
             background: white;
-            border-radius: 25px;
+            border-radius: 4px;
             font-weight: 600;
-            color: #64748b;
+            font-family: 'Cinzel', Georgia, serif;
+            color: #722f37;
             cursor: pointer;
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #722f37, #8b3a42);
             color: white;
-            border-color: transparent;
+            border-color: #b8860b;
         }
 
         .search-bar {
@@ -296,13 +310,14 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #722f37, #8b3a42);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 700;
             font-size: 1.1rem;
+            border: 2px solid #b8860b;
         }
 
         .author-avatar.anonymous {
@@ -317,6 +332,7 @@
         .author-name {
             font-weight: 600;
             color: #1e293b;
+            font-family: 'Cinzel', Georgia, serif;
         }
 
         .question-time {
@@ -326,20 +342,22 @@
 
         .question-category {
             padding: 6px 14px;
-            background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
-            color: #6d28d9;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #f4eed8, #e8dfc0);
+            color: #722f37;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 600;
+            border: 1px solid #b8860b;
         }
 
         .question-title {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
             font-size: 1.2rem;
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 10px;
             line-height: 1.4;
+            letter-spacing: 0.5px;
         }
 
         .question-body {
@@ -401,15 +419,15 @@
         }
 
         .answers-count i {
-            color: #22c55e;
+            color: #1a3d2e;
         }
 
         .answer-card {
-            background: #f8fafc;
-            border-radius: 12px;
+            background: #faf7f0;
+            border-radius: 4px;
             padding: 16px;
             margin-bottom: 12px;
-            border-left: 4px solid #6366f1;
+            border-left: 4px solid #722f37;
         }
 
         .answer-header {
@@ -429,13 +447,14 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #1a3d2e, #2d5a44);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 600;
             font-size: 0.8rem;
+            border: 1px solid #b8860b;
         }
 
         .answer-avatar.anonymous {
@@ -478,11 +497,11 @@
         }
 
         .answer-action-btn:hover {
-            color: #6366f1;
+            color: #722f37;
         }
 
         .answer-action-btn.liked {
-            color: #dc2626;
+            color: #722f37;
         }
 
         /* Answer Form */
@@ -499,18 +518,19 @@
         .answer-form textarea {
             width: 100%;
             padding: 14px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 0.95rem;
+            border: 2px solid #b8860b;
+            border-radius: 4px;
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 1rem;
             min-height: 100px;
             resize: vertical;
             margin-bottom: 12px;
+            background: #faf7f0;
         }
 
         .answer-form textarea:focus {
             outline: none;
-            border-color: #6366f1;
+            border-color: #722f37;
         }
 
         .answer-form-footer {
@@ -535,18 +555,21 @@
 
         .submit-answer-btn {
             padding: 10px 24px;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #1a3d2e, #2d5a44);
             color: white;
-            border: none;
-            border-radius: 8px;
+            border: 2px solid #b8860b;
+            border-radius: 4px;
             font-weight: 600;
+            font-family: 'Cinzel', Georgia, serif;
+            letter-spacing: 0.5px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .submit-answer-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 6px 20px rgba(26, 61, 46, 0.4);
+            border-color: #d4af37;
         }
 
         /* Sidebar */
@@ -557,15 +580,15 @@
 
         .sidebar-card {
             background: white;
-            border-radius: 16px;
+            border-radius: 4px;
             padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(114, 47, 55, 0.08);
+            border: 2px solid #b8860b;
             margin-bottom: 20px;
         }
 
         .sidebar-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
             font-size: 1.1rem;
             font-weight: 700;
             color: #1e293b;
@@ -573,10 +596,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            letter-spacing: 0.5px;
         }
 
         .sidebar-card h3 i {
-            color: #6366f1;
+            color: #722f37;
         }
 
         .category-list {
@@ -587,7 +611,7 @@
 
         .category-list li {
             padding: 10px 14px;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
@@ -597,21 +621,23 @@
         }
 
         .category-list li:hover {
-            background: #f1f5f9;
+            background: #f4eed8;
         }
 
         .category-list li.active {
-            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-            color: #6d28d9;
+            background: linear-gradient(135deg, #f4eed8, #e8dfc0);
+            color: #722f37;
             font-weight: 600;
         }
 
         .category-count {
-            background: #e2e8f0;
+            background: #f4eed8;
             padding: 2px 10px;
-            border-radius: 12px;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 600;
+            color: #722f37;
+            border: 1px solid #b8860b;
         }
 
         .guidelines-list {
@@ -635,7 +661,7 @@
         }
 
         .guidelines-list li i {
-            color: #22c55e;
+            color: #1a3d2e;
             margin-top: 3px;
         }
 
@@ -644,8 +670,8 @@
             text-align: center;
             padding: 60px 20px;
             background: white;
-            border-radius: 16px;
-            border: 2px dashed #e2e8f0;
+            border-radius: 4px;
+            border: 2px dashed #b8860b;
         }
 
         .empty-state i {
@@ -850,7 +876,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-icon">💼</span>
+                <span class="logo-icon"></span>
                 <span class="logo-text">NaukriForSure</span>
             </a>
             <ul class="nav-links">
@@ -919,13 +945,13 @@
                             <label for="question-category">Category *</label>
                             <select id="question-category" required>
                                 <option value="">Select a category</option>
-                                <option value="career">💼 Career Advice</option>
+                                <option value="career"> Career Advice</option>
                                 <option value="interview">🎤 Interview Tips</option>
                                 <option value="resume">📄 Resume & CV</option>
-                                <option value="salary">💰 Salary & Negotiation</option>
-                                <option value="technical">💻 Technical Questions</option>
-                                <option value="company">🏢 Company Reviews</option>
-                                <option value="freshers">🎓 Freshers Help</option>
+                                <option value="salary"> Salary & Negotiation</option>
+                                <option value="technical"> Technical Questions</option>
+                                <option value="company"> Company Reviews</option>
+                                <option value="freshers"> Freshers Help</option>
                                 <option value="other">❓ Other</option>
                             </select>
                         </div>
@@ -979,7 +1005,7 @@
                             <span class="category-count" id="count-all">0</span>
                         </li>
                         <li data-category="career">
-                            <span>💼 Career Advice</span>
+                            <span> Career Advice</span>
                             <span class="category-count" id="count-career">0</span>
                         </li>
                         <li data-category="interview">
@@ -991,19 +1017,19 @@
                             <span class="category-count" id="count-resume">0</span>
                         </li>
                         <li data-category="salary">
-                            <span>💰 Salary & Negotiation</span>
+                            <span> Salary & Negotiation</span>
                             <span class="category-count" id="count-salary">0</span>
                         </li>
                         <li data-category="technical">
-                            <span>💻 Technical</span>
+                            <span> Technical</span>
                             <span class="category-count" id="count-technical">0</span>
                         </li>
                         <li data-category="company">
-                            <span>🏢 Company Reviews</span>
+                            <span> Company Reviews</span>
                             <span class="category-count" id="count-company">0</span>
                         </li>
                         <li data-category="freshers">
-                            <span>🎓 Freshers Help</span>
+                            <span> Freshers Help</span>
                             <span class="category-count" id="count-freshers">0</span>
                         </li>
                     </ul>
@@ -1025,9 +1051,9 @@
                 <div class="sidebar-card">
                     <h3><i class="fas fa-link"></i> Quick Links</h3>
                     <ul class="guidelines-list">
-                        <li><a href="jobs.html" style="color: #6366f1; text-decoration: none;"><i class="fas fa-briefcase"></i> Browse Jobs</a></li>
-                        <li><a href="resume-screener.html" style="color: #6366f1; text-decoration: none;"><i class="fas fa-file-alt"></i> Resume Screener</a></li>
-                        <li><a href="categories.html" style="color: #6366f1; text-decoration: none;"><i class="fas fa-th-large"></i> Job Categories</a></li>
+                        <li><a href="jobs.html" style="color: #722f37; text-decoration: none;"><i class="fas fa-briefcase"></i> Browse Jobs</a></li>
+                        <li><a href="resume-screener.html" style="color: #722f37; text-decoration: none;"><i class="fas fa-file-alt"></i> Resume Screener</a></li>
+                        <li><a href="categories.html" style="color: #722f37; text-decoration: none;"><i class="fas fa-th-large"></i> Job Categories</a></li>
                     </ul>
                 </div>
             </aside>
@@ -1061,11 +1087,11 @@
                 </div>
                 <div class="footer-section">
                     <h4>Connect</h4>
-                    <p>📧 anshmittal133@gmail.com</p>
+                    <p> anshmittal133@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 NaukriForSure. Made with ❤️ by Ansh Mittal</p>
+                <p>&copy; 2026 NaukriForSure. Made with  by Ansh Mittal</p>
             </div>
         </div>
     </footer>
@@ -1081,13 +1107,13 @@
 
             // Category Labels
             const CATEGORY_LABELS = {
-                career: '💼 Career Advice',
+                career: ' Career Advice',
                 interview: '🎤 Interview Tips',
                 resume: '📄 Resume & CV',
-                salary: '💰 Salary & Negotiation',
-                technical: '💻 Technical',
-                company: '🏢 Company Reviews',
-                freshers: '🎓 Freshers Help',
+                salary: ' Salary & Negotiation',
+                technical: ' Technical',
+                company: ' Company Reviews',
+                freshers: ' Freshers Help',
                 other: '❓ Other'
             };
 
@@ -1515,7 +1541,7 @@
                     updateStats();
                     
                     // Show success message
-                    showToast('Answer posted successfully! 🎉');
+                    showToast('Answer posted successfully! ');
                 }
             }
 
@@ -1541,7 +1567,7 @@
                 updateStats();
                 
                 // Show success message
-                showToast('Question posted successfully! 🎉');
+                showToast('Question posted successfully! ');
             }
 
             // Show Toast

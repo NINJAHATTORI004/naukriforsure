@@ -1,110 +1,123 @@
-/* ========================================
-   NAUKRIFORSURE - WORLD CLASS UI/UX DESIGN
-   Premium Job Portal Interface v2.0
+﻿/* ========================================
+   NAUKRIFORSURE - VICTORIAN ERA DESIGN
+   Elegant Job Portal Interface v3.0
    ======================================== */
 
-/* ==================== DESIGN TOKENS ==================== */
+/* ==================== VICTORIAN DESIGN TOKENS ==================== */
 :root {
-    /* Primary Colors - Vibrant Indigo Spectrum */
-    --primary-50: #eef2ff;
-    --primary-100: #e0e7ff;
-    --primary-200: #c7d2fe;
-    --primary-300: #a5b4fc;
-    --primary-400: #818cf8;
-    --primary: #6366f1;
-    --primary-600: #4f46e5;
-    --primary-700: #4338ca;
-    --primary-800: #3730a3;
-    --primary-900: #312e81;
-    --primary-dark: #4f46e5;
-    --primary-light: #818cf8;
-    --primary-lighter: #c7d2fe;
+    /* Primary Colors - Royal Burgundy & Gold */
+    --primary-50: #fdf2f4;
+    --primary-100: #fce4e8;
+    --primary-200: #facdd5;
+    --primary-300: #f5a3b5;
+    --primary-400: #ed6b8a;
+    --primary: #722f37;
+    --primary-600: #5c252c;
+    --primary-700: #4a1e23;
+    --primary-800: #3d191d;
+    --primary-900: #2d1215;
+    --primary-dark: #5c252c;
+    --primary-light: #8b4049;
+    --primary-lighter: #a85d66;
     
-    /* Secondary - Emerald Success */
-    --secondary-50: #ecfdf5;
-    --secondary-100: #d1fae5;
-    --secondary-200: #a7f3d0;
-    --secondary-300: #6ee7b7;
-    --secondary-400: #34d399;
-    --secondary: #10b981;
-    --secondary-600: #059669;
-    --secondary-700: #047857;
-    --secondary-light: #34d399;
+    /* Secondary - Victorian Gold */
+    --secondary-50: #fefce8;
+    --secondary-100: #fef9c3;
+    --secondary-200: #fef08a;
+    --secondary-300: #fde047;
+    --secondary-400: #d4af37;
+    --secondary: #b8860b;
+    --secondary-600: #996515;
+    --secondary-700: #7a4f1a;
+    --secondary-light: #d4af37;
     
-    /* Accent - Warm Amber */
-    --accent-50: #fffbeb;
-    --accent-100: #fef3c7;
-    --accent-200: #fde68a;
-    --accent-300: #fcd34d;
-    --accent-400: #fbbf24;
-    --accent: #f59e0b;
-    --accent-600: #d97706;
-    --accent-light: #fbbf24;
+    /* Accent - Victorian Navy & Forest */
+    --accent-50: #f0f4f8;
+    --accent-100: #d9e2ec;
+    --accent-200: #bcccdc;
+    --accent-300: #9fb3c8;
+    --accent-400: #829ab1;
+    --accent: #1a365d;
+    --accent-600: #153e75;
+    --accent-light: #2a4a7f;
     
-    /* Neutrals - Slate Scale */
-    --neutral-50: #f8fafc;
-    --neutral-100: #f1f5f9;
-    --neutral-200: #e2e8f0;
-    --neutral-300: #cbd5e1;
-    --neutral-400: #94a3b8;
-    --neutral-500: #64748b;
-    --neutral-600: #475569;
-    --neutral-700: #334155;
-    --neutral-800: #1e293b;
-    --neutral-900: #0f172a;
-    --neutral-950: #020617;
+    /* Victorian Forest Green */
+    --forest: #1a3d2e;
+    --forest-light: #2d5a45;
     
-    /* Legacy Support */
-    --dark: #0f172a;
-    --dark-light: #1e293b;
-    --gray-900: #1e293b;
-    --gray-800: #334155;
-    --gray: #64748b;
-    --gray-light: #94a3b8;
-    --gray-200: #e2e8f0;
-    --light: #f1f5f9;
-    --lighter: #f8fafc;
-    --white: #ffffff;
+    /* Neutrals - Cream & Sepia Scale */
+    --neutral-50: #faf8f5;
+    --neutral-100: #f5f0e8;
+    --neutral-200: #ebe4d8;
+    --neutral-300: #d9cfc0;
+    --neutral-400: #b8a890;
+    --neutral-500: #8b7355;
+    --neutral-600: #6b5a45;
+    --neutral-700: #4a3f30;
+    --neutral-800: #2d261d;
+    --neutral-900: #1a1612;
+    --neutral-950: #0d0b09;
     
-    /* Gradients - Premium Collection */
-    --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-aurora: linear-gradient(135deg, #6366f1 0%, #8b5cf6 35%, #a855f7 65%, #d946ef 100%);
-    --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ef4444 100%);
-    --gradient-cool: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #6366f1 100%);
-    --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-    --gradient-mesh: radial-gradient(at 40% 20%, hsla(240,100%,74%,0.15) 0px, transparent 50%),
-                     radial-gradient(at 80% 0%, hsla(270,100%,70%,0.1) 0px, transparent 50%),
-                     radial-gradient(at 0% 50%, hsla(200,100%,76%,0.1) 0px, transparent 50%),
-                     radial-gradient(at 80% 50%, hsla(330,100%,76%,0.1) 0px, transparent 50%),
-                     radial-gradient(at 0% 100%, hsla(22,100%,77%,0.1) 0px, transparent 50%);
+    /* Legacy Support - Victorian Palette */
+    --dark: #1a1612;
+    --dark-light: #2d261d;
+    --gray-900: #2d261d;
+    --gray-800: #4a3f30;
+    --gray: #8b7355;
+    --gray-light: #b8a890;
+    --gray-200: #ebe4d8;
+    --light: #f5f0e8;
+    --lighter: #faf8f5;
+    --white: #fffef9;
+    --cream: #faf7f0;
+    --parchment: #f4eed8;
     
-    /* Shadows - Layered Depth System */
-    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --shadow-2xl: 0 35px 60px -15px rgb(0 0 0 / 0.3);
-    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-    --shadow-glow: 0 0 60px -15px rgba(99, 102, 241, 0.4);
-    --shadow-primary: 0 20px 40px -12px rgba(99, 102, 241, 0.35);
-    --shadow-primary-sm: 0 10px 20px -8px rgba(99, 102, 241, 0.3);
-    --shadow-float: 0 22px 70px 4px rgba(0,0,0,0.1);
-    --shadow-card: 0 0 0 1px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05), 0 12px 24px rgba(0,0,0,0.05);
-    --shadow-card-hover: 0 0 0 1px rgba(99,102,241,0.1), 0 4px 8px rgba(0,0,0,0.08), 0 24px 48px rgba(0,0,0,0.1);
+    /* Victorian Gradients */
+    --gradient: linear-gradient(135deg, #722f37 0%, #b8860b 50%, #1a365d 100%);
+    --gradient-primary: linear-gradient(135deg, #722f37 0%, #5c252c 100%);
+    --gradient-aurora: linear-gradient(135deg, #722f37 0%, #8b4049 35%, #b8860b 65%, #d4af37 100%);
+    --gradient-warm: linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #996515 100%);
+    --gradient-cool: linear-gradient(135deg, #1a365d 0%, #2a4a7f 50%, #1a3d2e 100%);
+    --gradient-success: linear-gradient(135deg, #1a3d2e 0%, #2d5a45 100%);
+    --gradient-royal: linear-gradient(135deg, #722f37 0%, #b8860b 100%);
+    --gradient-mesh: radial-gradient(at 40% 20%, rgba(114, 47, 55, 0.08) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, rgba(184, 134, 11, 0.06) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, rgba(26, 54, 93, 0.06) 0px, transparent 50%),
+                     radial-gradient(at 80% 50%, rgba(26, 61, 46, 0.05) 0px, transparent 50%),
+                     radial-gradient(at 0% 100%, rgba(184, 134, 11, 0.08) 0px, transparent 50%);
     
-    /* Border Radius */
-    --radius-xs: 4px;
-    --radius-sm: 8px;
-    --radius: 12px;
-    --radius-md: 16px;
-    --radius-lg: 20px;
-    --radius-xl: 24px;
-    --radius-2xl: 32px;
-    --radius-3xl: 40px;
+    /* Victorian Shadows - Elegant Depth */
+    --shadow-xs: 0 1px 2px 0 rgba(26, 22, 18, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(26, 22, 18, 0.1), 0 1px 2px -1px rgba(26, 22, 18, 0.1);
+    --shadow: 0 4px 6px -1px rgba(26, 22, 18, 0.1), 0 2px 4px -2px rgba(26, 22, 18, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(26, 22, 18, 0.1), 0 4px 6px -4px rgba(26, 22, 18, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(26, 22, 18, 0.1), 0 8px 10px -6px rgba(26, 22, 18, 0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(26, 22, 18, 0.25);
+    --shadow-2xl: 0 35px 60px -15px rgba(26, 22, 18, 0.3);
+    --shadow-inner: inset 0 2px 4px 0 rgba(26, 22, 18, 0.05);
+    --shadow-glow: 0 0 60px -15px rgba(184, 134, 11, 0.4);
+    --shadow-primary: 0 20px 40px -12px rgba(114, 47, 55, 0.35);
+    --shadow-primary-sm: 0 10px 20px -8px rgba(114, 47, 55, 0.3);
+    --shadow-float: 0 22px 70px 4px rgba(26, 22, 18, 0.1);
+    --shadow-card: 0 0 0 1px rgba(26, 22, 18, 0.05), 0 2px 4px rgba(26, 22, 18, 0.08), 0 12px 24px rgba(26, 22, 18, 0.08);
+    --shadow-card-hover: 0 0 0 1px rgba(184, 134, 11, 0.2), 0 4px 8px rgba(26, 22, 18, 0.1), 0 24px 48px rgba(26, 22, 18, 0.15);
+    --shadow-ornate: 0 4px 20px rgba(114, 47, 55, 0.15), 0 0 0 3px rgba(184, 134, 11, 0.1);
+    
+    /* Victorian Border Radius - More Angular/Classic */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-3xl: 20px;
     --radius-full: 9999px;
+    
+    /* Victorian Border Styles */
+    --border-ornate: 2px solid var(--secondary);
+    --border-elegant: 1px solid rgba(184, 134, 11, 0.3);
+    --border-subtle: 1px solid rgba(26, 22, 18, 0.1);
     
     /* Transitions */
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
@@ -118,9 +131,11 @@
     --transition-slow: 500ms var(--ease-in-out);
     --transition-bounce: 500ms var(--ease-bounce);
     
-    /* Typography */
-    --font-sans: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-display: 'Plus Jakarta Sans', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Victorian Typography */
+    --font-sans: 'Cormorant Garamond', 'Playfair Display', 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-display: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Libre Baskerville', 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+    --font-accent: 'Cinzel Decorative', 'Cinzel', 'Playfair Display SC', serif;
 }
 
 /* ==================== CSS RESET & BASE ==================== */
@@ -138,51 +153,54 @@ html {
 }
 
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--white);
+    font-family: 'Libre Baskerville', 'EB Garamond', Georgia, 'Times New Roman', serif;
+    background: var(--cream);
     color: var(--dark);
-    line-height: 1.7;
+    line-height: 1.8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* Selection Styling */
 ::selection {
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--primary-700);
+    background: rgba(184, 134, 11, 0.3);
+    color: var(--primary);
 }
 
 ::-moz-selection {
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--primary-700);
+    background: rgba(184, 134, 11, 0.3);
+    color: var(--primary);
 }
 
-/* Premium Scrollbar */
+/* Victorian Ornate Scrollbar */
 ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--light);
-    border-radius: 6px;
+    background: var(--parchment);
+    border-radius: 0;
+    border-left: 1px solid var(--secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 100%);
-    border-radius: 6px;
-    border: 3px solid var(--light);
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 0;
+    border: 3px solid var(--parchment);
+    border-left: 2px solid var(--secondary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--primary-300) var(--light);
+    scrollbar-color: var(--primary) var(--parchment);
 }
 
 a {
@@ -206,14 +224,16 @@ img {
     padding: 0 24px;
 }
 
-/* Gradient Text - Premium Effect */
+/* Gradient Text - Victorian Gold Effect */
 .gradient-text {
-    background: var(--gradient-aurora);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     background-size: 200% 200%;
     animation: gradient-shift 8s ease infinite;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    font-weight: 700;
 }
 
 @keyframes gradient-shift {
@@ -221,9 +241,9 @@ img {
     50% { background-position: 100% 50%; }
 }
 
-/* Animated Gradient Background */
+/* Victorian Animated Gradient Background */
 .animated-gradient {
-    background: linear-gradient(-45deg, #6366f1, #8b5cf6, #a855f7, #ec4899);
+    background: linear-gradient(-45deg, #722f37, #b8860b, #1a365d, #1a3d2e);
     background-size: 400% 400%;
     animation: gradient-wave 15s ease infinite;
 }
@@ -235,42 +255,44 @@ img {
     75% { background-position: 0% 100%; }
 }
 
-/* Glassmorphism Effect */
+/* Victorian Glassmorphism Effect */
 .glass {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(250, 247, 240, 0.85);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(184, 134, 11, 0.2);
 }
 
 .glass-dark {
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(26, 22, 18, 0.85);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
-/* ==================== BUTTONS ==================== */
+/* ==================== VICTORIAN BUTTONS ==================== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 28px;
-    border-radius: 50px;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius-xs);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: all var(--transition);
-    border: none;
+    border: 2px solid transparent;
     position: relative;
     overflow: hidden;
-    text-transform: capitalize;
-    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     isolation: isolate;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    white-space: nowrap;
 }
 
-/* Shine effect */
+/* Victorian Ornate Shine Effect */
 .btn::before {
     content: '';
     position: absolute;
@@ -278,7 +300,7 @@ img {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
     transition: left 0.6s ease;
     z-index: 1;
 }
@@ -292,7 +314,7 @@ img {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.25) 0%, transparent 60%);
+    background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 60%);
     transform: scale(0);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.3s ease;
@@ -305,16 +327,18 @@ img {
 }
 
 .btn-primary {
-    background: var(--gradient-aurora);
+    background: var(--gradient-royal);
     color: var(--white);
-    box-shadow: var(--shadow-primary-sm);
+    box-shadow: var(--shadow-primary-sm), inset 0 1px 0 rgba(255,255,255,0.1);
     background-size: 200% 200%;
+    border: 2px solid var(--secondary);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--shadow-primary);
+    box-shadow: var(--shadow-primary), 0 0 20px rgba(184, 134, 11, 0.3);
     background-position: 100% 50%;
+    border-color: var(--secondary-light);
 }
 
 .btn-primary:active {
@@ -333,7 +357,7 @@ img {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--gradient-aurora);
+    background: var(--gradient-royal);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -342,7 +366,7 @@ img {
 
 .btn-outline:hover {
     color: var(--white);
-    border-color: transparent;
+    border-color: var(--secondary);
     transform: translateY(-2px);
     box-shadow: var(--shadow-primary-sm);
 }
@@ -352,29 +376,32 @@ img {
 }
 
 .btn-white {
-    background: var(--white);
+    background: var(--cream);
     color: var(--primary);
     box-shadow: var(--shadow-lg);
+    border: 2px solid var(--secondary);
 }
 
 .btn-white:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
+    background: var(--white);
 }
 
 .btn-outline-white {
     background: transparent;
-    border: 2px solid rgba(255,255,255,0.8);
-    color: var(--white);
+    border: 2px solid rgba(212, 175, 55, 0.8);
+    color: var(--secondary-light);
 }
 
 .btn-outline-white:hover {
-    background: var(--white);
-    color: var(--primary);
+    background: var(--secondary);
+    color: var(--dark);
     transform: translateY(-2px);
+    border-color: var(--secondary);
 }
 
-/* ==================== NAVIGATION ==================== */
+/* ==================== VICTORIAN NAVIGATION ==================== */
 header {
     position: fixed;
     top: 0;
@@ -395,27 +422,27 @@ header .navbar {
     z-index: 10000;
     padding: 16px 0;
     transition: all var(--transition);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(250, 247, 240, 0.95);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 3px double var(--secondary);
 }
 
 .navbar::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(250, 247, 240, 0.9);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     opacity: 0;
     transition: opacity var(--transition);
-    border-bottom: 1px solid transparent;
+    border-bottom: 3px double transparent;
 }
 
 .navbar.scrolled::before {
     opacity: 1;
-    border-bottom-color: rgba(0, 0, 0, 0.05);
+    border-bottom-color: var(--secondary);
 }
 
 .navbar.scrolled {
@@ -437,16 +464,18 @@ header .navbar {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.6rem;
+    gap: 8px;
+    font-size: 1.4rem;
     font-weight: 800;
     transition: transform var(--transition);
     color: var(--dark);
     text-decoration: none;
+    font-family: 'Cinzel Decorative', 'Cinzel', 'Playfair Display', Georgia, serif;
+    flex-shrink: 0;
 }
 
 .logo span {
-    background: var(--gradient);
+    background: var(--gradient-royal);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -468,7 +497,7 @@ header .navbar {
 }
 
 .logo .highlight {
-    background: var(--gradient);
+    background: var(--gradient-royal);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -476,10 +505,11 @@ header .navbar {
 
 .nav-links {
     display: flex;
-    gap: 8px;
+    gap: 4px;
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .nav-links li {
@@ -491,19 +521,24 @@ header .navbar {
     color: var(--gray-800);
     transition: all var(--transition);
     position: relative;
-    padding: 12px 18px;
-    border-radius: var(--radius);
+    padding: 10px 12px;
+    border-radius: var(--radius-xs);
     text-decoration: none;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
     color: var(--primary);
-    background: rgba(99, 102, 241, 0.08);
+    background: rgba(184, 134, 11, 0.08);
 }
 
 .nav-links a.active {
     color: var(--primary);
-    background: rgba(99, 102, 241, 0.1);
+    background: rgba(184, 134, 11, 0.12);
 }
 
 .nav-links a::after {
@@ -513,9 +548,9 @@ header .navbar {
     left: 50%;
     transform: translateX(-50%) scaleX(0);
     width: calc(100% - 24px);
-    height: 3px;
-    background: var(--gradient);
-    border-radius: 3px;
+    height: 2px;
+    background: var(--gradient-royal);
+    border-radius: 0;
     transition: transform var(--transition);
     transform-origin: center;
 }
@@ -576,7 +611,7 @@ header .navbar {
     display: none;
 }
 
-/* ==================== HERO SECTION ==================== */
+/* ==================== VICTORIAN HERO SECTION ==================== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -585,10 +620,10 @@ header .navbar {
     position: relative;
     overflow: hidden;
     background: linear-gradient(180deg, 
-        var(--lighter) 0%, 
-        var(--primary-50) 30%,
-        var(--primary-100) 60%,
-        var(--lighter) 100%
+        var(--cream) 0%, 
+        var(--parchment) 30%,
+        var(--neutral-100) 60%,
+        var(--cream) 100%
     );
 }
 
@@ -598,6 +633,8 @@ header .navbar {
     inset: 0;
     background: var(--gradient-mesh);
     animation: mesh-float 20s ease-in-out infinite;
+    /* Victorian ornate pattern overlay */
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.04'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 @keyframes mesh-float {
@@ -614,7 +651,7 @@ header .navbar {
     right: 10%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: orb-pulse 8s ease-in-out infinite;
     filter: blur(40px);
@@ -631,7 +668,7 @@ header .navbar {
     left: 0;
     right: 0;
     height: 40%;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%236366f1' fill-opacity='0.03' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23722f37' fill-opacity='0.03' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
     background-size: cover;
     background-position: bottom;
     pointer-events: none;
@@ -647,16 +684,19 @@ header .navbar {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: var(--white);
+    background: var(--cream);
     padding: 12px 24px;
-    border-radius: 50px;
+    border-radius: var(--radius-xs);
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--primary);
     box-shadow: var(--shadow-card);
     margin-bottom: 24px;
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    border: 2px solid var(--secondary);
     animation: slideInLeft 0.6s ease-out;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .hero-badge span {
@@ -689,7 +729,8 @@ header .navbar {
     margin-bottom: 24px;
     color: var(--dark);
     animation: slideInUp 0.6s ease-out 0.1s both;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 @keyframes slideInUp {
@@ -705,17 +746,17 @@ header .navbar {
     animation: slideInUp 0.6s ease-out 0.2s both;
 }
 
-/* Search Box */
+/* Victorian Search Box */
 .search-box {
     display: flex;
     gap: 12px;
-    background: var(--white);
+    background: var(--cream);
     padding: 14px;
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-sm);
     box-shadow: var(--shadow-xl), var(--shadow-glow);
     margin-bottom: 48px;
     animation: slideInUp 0.6s ease-out 0.3s both;
-    border: 1px solid rgba(99, 102, 241, 0.08);
+    border: 2px solid rgba(184, 134, 11, 0.3);
     position: relative;
 }
 
@@ -723,7 +764,7 @@ header .navbar {
     content: '';
     position: absolute;
     inset: -2px;
-    background: var(--gradient-aurora);
+    background: var(--gradient-royal);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -740,16 +781,16 @@ header .navbar {
     align-items: center;
     gap: 12px;
     padding: 16px 20px;
-    background: var(--light);
-    border-radius: var(--radius-lg);
+    background: var(--parchment);
+    border-radius: var(--radius-xs);
     transition: all var(--transition);
     border: 2px solid transparent;
 }
 
 .search-field:focus-within {
-    background: var(--white);
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    background: var(--cream);
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.1);
 }
 
 .search-field i {
@@ -759,7 +800,7 @@ header .navbar {
 }
 
 .search-field:focus-within i {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .search-field input {
@@ -767,22 +808,26 @@ header .navbar {
     border: none;
     background: transparent;
     font-size: 1rem;
-    font-family: inherit;
+    font-family: 'Libre Baskerville', Georgia, serif;
     outline: none;
     color: var(--dark);
 }
 
 .search-field input::placeholder {
     color: var(--gray-light);
+    font-style: italic;
 }
 
 .btn-search {
-    background: var(--gradient);
-    color: var(--white);
+    background: var(--gradient-royal);
+    color: var(--cream);
     padding: 16px 32px;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xs);
     font-weight: 600;
     box-shadow: var(--shadow-primary-sm);
+    border: 2px solid var(--secondary);
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    letter-spacing: 1px;
 }
 
 .btn-search:hover {
@@ -790,7 +835,7 @@ header .navbar {
     box-shadow: var(--shadow-primary);
 }
 
-/* Hero Stats */
+/* Victorian Hero Stats */
 .hero-stats {
     display: flex;
     gap: 48px;
@@ -908,16 +953,17 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.1), rgba(184, 134, 11, 0.15));
     color: var(--primary);
     padding: 10px 24px;
-    border-radius: 50px;
+    border-radius: var(--radius-xs);
     font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 16px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    letter-spacing: 2px;
+    border: 2px solid rgba(184, 134, 11, 0.3);
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 .section-header h2 {
@@ -925,6 +971,7 @@ section {
     font-weight: 800;
     margin-bottom: 12px;
     letter-spacing: -0.5px;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 .section-header p {
@@ -932,11 +979,12 @@ section {
     font-size: 1.15rem;
     max-width: 600px;
     margin: 0 auto;
+    font-family: 'Libre Baskerville', 'EB Garamond', Georgia, serif;
 }
 
-/* ==================== CATEGORIES SECTION ==================== */
+/* ==================== VICTORIAN CATEGORIES SECTION ==================== */
 .categories-section {
-    background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+    background: linear-gradient(180deg, var(--parchment) 0%, var(--cream) 100%);
 }
 
 .categories-grid {
@@ -946,13 +994,13 @@ section {
 }
 
 .category-card {
-    background: var(--white);
+    background: var(--cream);
     padding: 40px 32px;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-sm);
     text-align: center;
     transition: all var(--transition);
     cursor: pointer;
-    border: 1px solid var(--gray-200);
+    border: 2px solid rgba(184, 134, 11, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -964,7 +1012,7 @@ section {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient);
+    background: var(--gradient-royal);
     transform: scaleX(0);
     transition: transform var(--transition);
 }
@@ -972,7 +1020,7 @@ section {
 .category-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-xl);
-    border-color: var(--primary-lighter);
+    border-color: var(--secondary);
 }
 
 .category-card:hover::before {
@@ -1022,14 +1070,24 @@ section {
 }
 
 .job-card {
-    background: var(--white);
-    border-radius: var(--radius-xl);
+    background: var(--cream);
+    border-radius: var(--radius-sm);
     padding: 32px;
     box-shadow: var(--shadow);
     transition: all var(--transition);
-    border: 1px solid var(--gray-200);
+    border: 2px solid rgba(184, 134, 11, 0.2);
     position: relative;
     overflow: hidden;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1rem;
+    color: var(--secondary);
+    opacity: 0.4;
 }
 
 .job-card::after {
@@ -1038,8 +1096,8 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--gradient);
+    height: 4px;
+    background: var(--gradient-royal);
     transform: scaleX(0);
     transition: transform var(--transition);
 }
@@ -1047,7 +1105,7 @@ section {
 .job-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-xl), var(--shadow-glow);
-    border-color: var(--primary-lighter);
+    border-color: var(--secondary);
 }
 
 .job-card:hover::after {
@@ -1107,23 +1165,26 @@ section {
 }
 
 .job-tag {
-    background: var(--light);
+    background: var(--parchment);
     padding: 6px 14px;
-    border-radius: 50px;
+    border-radius: var(--radius-xs);
     font-size: 0.8rem;
     color: var(--gray-800);
     font-weight: 500;
     transition: all var(--transition);
+    border: 1px solid rgba(184, 134, 11, 0.15);
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
 .job-tag.highlight {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.1), rgba(184, 134, 11, 0.1));
     color: var(--primary);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
 .job-card:hover .job-tag {
-    background: rgba(99, 102, 241, 0.08);
+    background: rgba(184, 134, 11, 0.1);
+    border-color: rgba(184, 134, 11, 0.3);
 }
 
 .job-meta {
@@ -1169,12 +1230,12 @@ section {
 }
 
 .feature-card {
-    background: var(--white);
+    background: var(--cream);
     padding: 48px 36px;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-sm);
     text-align: center;
     transition: all var(--transition);
-    border: 1px solid var(--gray-200);
+    border: 2px solid rgba(184, 134, 11, 0.2);
     position: relative;
 }
 
@@ -1182,9 +1243,9 @@ section {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-sm);
     padding: 2px;
-    background: var(--gradient);
+    background: var(--gradient-royal);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -1196,7 +1257,7 @@ section {
 .feature-card:hover {
     transform: translateY(-12px);
     box-shadow: var(--shadow-xl);
-    border-color: transparent;
+    border-color: var(--secondary);
 }
 
 .feature-card:hover::before {
@@ -1207,17 +1268,19 @@ section {
     width: 88px;
     height: 88px;
     margin: 0 auto 24px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
-    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.1), rgba(184, 134, 11, 0.15));
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all var(--transition);
+    border: 2px solid rgba(184, 134, 11, 0.2);
 }
 
 .feature-card:hover .feature-icon {
-    background: var(--gradient);
+    background: var(--gradient-royal);
     transform: scale(1.1);
+    border-color: var(--secondary);
 }
 
 .feature-icon i {
@@ -1227,7 +1290,7 @@ section {
 }
 
 .feature-card:hover .feature-icon i {
-    color: var(--white);
+    color: var(--cream);
 }
 
 .feature-card h3 {
@@ -1235,15 +1298,17 @@ section {
     margin-bottom: 12px;
     font-weight: 700;
     color: var(--dark);
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 .feature-card p {
     color: var(--gray);
     font-size: 0.95rem;
     line-height: 1.7;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
-/* ==================== COMPANIES SECTION ==================== */
+/* ==================== VICTORIAN COMPANIES SECTION ==================== */
 .companies-slider {
     display: flex;
     justify-content: center;
@@ -1351,12 +1416,14 @@ section {
     color: var(--gray);
 }
 
-/* ==================== CTA SECTION ==================== */
+/* ==================== VICTORIAN CTA SECTION ==================== */
 .cta-section {
-    background: var(--gradient);
+    background: var(--gradient-royal);
     padding: 100px 0;
     position: relative;
     overflow: hidden;
+    border-top: 4px double var(--secondary-light);
+    border-bottom: 4px double var(--secondary-light);
 }
 
 .cta-section::before {
@@ -1366,12 +1433,12 @@ section {
     left: -20%;
     width: 60%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
 }
 
 .cta-content {
     text-align: center;
-    color: var(--white);
+    color: var(--cream);
     position: relative;
     z-index: 2;
 }
@@ -1380,6 +1447,7 @@ section {
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 16px;
     font-weight: 800;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 .cta-content p {
@@ -1389,6 +1457,7 @@ section {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
 .cta-buttons {
@@ -1397,11 +1466,13 @@ section {
     justify-content: center;
 }
 
-/* ==================== FOOTER ==================== */
+/* ==================== VICTORIAN FOOTER ==================== */
 .footer {
     background: var(--dark);
-    color: var(--white);
+    color: var(--cream);
     padding: 100px 0 24px;
+    border-top: 4px double var(--secondary);
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .footer-grid {
@@ -1415,6 +1486,7 @@ section {
     color: var(--gray-light);
     margin: 20px 0;
     line-height: 1.8;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
 .social-links {
@@ -1425,16 +1497,18 @@ section {
 .social-links a {
     width: 44px;
     height: 44px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
+    background: rgba(184, 134, 11, 0.15);
+    border-radius: var(--radius-xs);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all var(--transition);
+    border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
 .social-links a:hover {
-    background: var(--primary);
+    background: var(--secondary);
+    color: var(--dark);
     transform: translateY(-3px);
 }
 
@@ -1442,6 +1516,10 @@ section {
     font-size: 1.1rem;
     margin-bottom: 24px;
     font-weight: 700;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    color: var(--secondary-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .footer-links ul {
@@ -1454,28 +1532,30 @@ section {
     color: var(--gray-light);
     transition: all var(--transition);
     display: inline-block;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
 .footer-links a:hover {
-    color: var(--primary-light);
+    color: var(--secondary-light);
     transform: translateX(5px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 2px solid rgba(184, 134, 11, 0.3);
     color: var(--gray-light);
     font-size: 0.9rem;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
-/* ==================== JOBS PAGE ==================== */
+/* ==================== VICTORIAN JOBS PAGE ==================== */
 .jobs-page {
     padding-top: 100px;
 }
 
 .jobs-header {
-    background: linear-gradient(180deg, var(--lighter) 0%, #e0e7ff 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%);
     padding: 50px 0;
 }
 
@@ -1617,13 +1697,14 @@ section {
     font-weight: 500;
 }
 
-/* Breadcrumb */
+/* Victorian Breadcrumb */
 .breadcrumb {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 24px;
     font-size: 0.9rem;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
 .breadcrumb a {
@@ -1632,7 +1713,7 @@ section {
 }
 
 .breadcrumb a:hover {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .breadcrumb span {
@@ -1640,13 +1721,14 @@ section {
     font-weight: 500;
 }
 
-/* Page Header */
+/* Victorian Page Header */
 .page-header {
-    background: linear-gradient(180deg, var(--lighter) 0%, #e0e7ff 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%);
     padding: 70px 0 50px;
     margin-top: 70px;
     position: relative;
     overflow: hidden;
+    border-bottom: 3px double var(--secondary);
 }
 
 .page-header::before {
@@ -1656,25 +1738,27 @@ section {
     right: -10%;
     width: 50%;
     height: 120%;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.06) 0%, transparent 70%);
 }
 
 .page-header h1 {
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 12px;
     font-weight: 800;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 .page-header p {
     color: var(--gray);
     font-size: 1.15rem;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
-/* ==================== JOB DETAILS PAGE (Job Pages) ==================== */
+/* ==================== VICTORIAN JOB DETAILS PAGE ==================== */
 .job-details-page {
     padding-top: 100px;
     min-height: 100vh;
-    background: var(--lighter);
+    background: var(--cream);
 }
 
 .job-details-page .container {
@@ -1684,12 +1768,12 @@ section {
 }
 
 .job-header {
-    background: var(--white);
-    border-radius: var(--radius-xl);
+    background: var(--cream);
+    border-radius: var(--radius-sm);
     padding: 40px;
     margin-bottom: 32px;
     box-shadow: var(--shadow-card);
-    border: 1px solid var(--gray-200);
+    border: 2px solid rgba(184, 134, 11, 0.2);
 }
 
 .job-title-section h1 {
@@ -1698,6 +1782,7 @@ section {
     color: var(--dark);
     margin-bottom: 12px;
     line-height: 1.2;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 .job-title-section .company-name {
@@ -1707,6 +1792,7 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
+    font-family: 'Libre Baskerville', Georgia, serif;
 }
 
 .job-title-section .company-name i {
@@ -2186,11 +2272,17 @@ footer p {
 }
 
 .contact-form {
-    background: var(--white);
+    background: var(--cream);
     padding: 48px;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-sm);
     box-shadow: var(--shadow-xl);
-    border: 1px solid var(--gray-200);
+    border: 2px solid rgba(184, 134, 11, 0.2);
+}
+
+.contact-form h2 {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    color: var(--primary);
+    margin-bottom: 30px;
 }
 
 .form-group {
@@ -2202,31 +2294,36 @@ footer p {
     margin-bottom: 10px;
     font-weight: 600;
     color: var(--dark);
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 14px 18px;
-    border: 2px solid var(--gray-200);
-    border-radius: var(--radius);
-    font-family: inherit;
+    border: 2px solid rgba(184, 134, 11, 0.2);
+    border-radius: var(--radius-xs);
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 1rem;
     transition: all var(--transition);
-    background: var(--lighter);
+    background: var(--parchment);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary);
-    background: var(--white);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    border-color: var(--secondary);
+    background: var(--cream);
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.1);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--gray-light);
+    font-style: italic;
 }
 
 .form-group textarea {
@@ -2238,6 +2335,7 @@ footer p {
     font-size: 1.8rem;
     margin-bottom: 32px;
     font-weight: 800;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
 }
 
 .contact-item {
@@ -2249,12 +2347,13 @@ footer p {
 .contact-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.1), rgba(184, 134, 11, 0.15));
+    border-radius: var(--radius-xs);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    border: 2px solid rgba(184, 134, 11, 0.2);
 }
 
 .contact-icon i {
@@ -2653,6 +2752,26 @@ a:focus-visible {
     .hero-stats {
         justify-content: center;
     }
+    
+    /* Navigation adjustments for medium screens */
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .nav-links {
+        gap: 2px;
+    }
+    
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.75rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -2685,8 +2804,8 @@ a:focus-visible {
     }
 }
 
-/* MOBILE NAVIGATION - Trigger at 1024px for 7 nav items */
-@media (max-width: 1024px) {
+/* MOBILE NAVIGATION - Trigger at 1100px for 7 nav items to prevent cramping */
+@media (max-width: 1100px) {
     .nav-links {
         display: none !important;
         visibility: hidden;
@@ -2936,85 +3055,147 @@ a:focus-visible {
     }
 }
 
-/* ==================== DARK MODE ==================== */
+/* ==================== VICTORIAN DARK MODE ==================== */
 [data-theme="dark"] {
-    --primary-50: #1e1b4b;
-    --neutral-50: #0f172a;
-    --neutral-100: #1e293b;
-    --neutral-200: #334155;
-    --neutral-700: #e2e8f0;
-    --neutral-800: #f1f5f9;
-    --neutral-900: #f8fafc;
-    --white: #0f172a;
-    --light: #1e293b;
-    --lighter: #1e293b;
-    --dark: #f8fafc;
-    --gray: #94a3b8;
+    --primary-50: #2d1215;
+    --neutral-50: #1a1612;
+    --neutral-100: #2d261d;
+    --neutral-200: #4a3f30;
+    --neutral-700: #ebe4d8;
+    --neutral-800: #f5f0e8;
+    --neutral-900: #faf8f5;
+    --white: #1a1612;
+    --light: #2d261d;
+    --lighter: #2d261d;
+    --dark: #faf8f5;
+    --gray: #b8a890;
+    --cream: #1a1612;
+    --parchment: #2d261d;
 }
 
 [data-theme="dark"] body {
-    background: #0a0f1c;
-    color: #e2e8f0;
+    background: #0d0a08;
+    color: #ebe4d8;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 [data-theme="dark"] .navbar {
-    background: rgba(15, 23, 42, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(26, 22, 18, 0.95);
+    border-bottom: 3px double var(--secondary);
 }
 
 [data-theme="dark"] .job-card,
 [data-theme="dark"] .category-card,
 [data-theme="dark"] .feature-card,
 [data-theme="dark"] .testimonial-card {
-    background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(145deg, rgba(45, 38, 29, 0.9), rgba(26, 22, 18, 0.95));
+    border: 2px solid rgba(184, 134, 11, 0.2);
 }
 
 [data-theme="dark"] .job-list-card {
-    background: rgba(30, 41, 59, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(45, 38, 29, 0.5);
+    border: 2px solid rgba(184, 134, 11, 0.15);
 }
 
 [data-theme="dark"] .search-box {
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(45, 38, 29, 0.8);
+    border: 2px solid rgba(184, 134, 11, 0.3);
 }
 
 [data-theme="dark"] .search-field input {
-    color: #f1f5f9;
+    color: #f5f0e8;
 }
 
 [data-theme="dark"] .footer {
-    background: #0a0f1c;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #0d0a08;
+    border-top: 3px double var(--secondary);
 }
 
 [data-theme="dark"] h1,
 [data-theme="dark"] h2,
 [data-theme="dark"] h3,
 [data-theme="dark"] h4 {
-    color: #f1f5f9;
+    color: #faf8f5;
 }
 
 [data-theme="dark"] .job-tag {
-    background: rgba(99, 102, 241, 0.2);
-    color: #a5b4fc;
+    background: rgba(184, 134, 11, 0.2);
+    color: #d4af37;
+    border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
-/* Dark mode toggle button */
+[data-theme="dark"] .hero {
+    background: linear-gradient(180deg, 
+        #0d0a08 0%, 
+        #1a1612 30%,
+        #2d261d 60%,
+        #0d0a08 100%
+    );
+}
+
+[data-theme="dark"] .hero::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.06'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .page-header {
+    background: linear-gradient(135deg, #1a1612 0%, #2d261d 100%);
+    border-bottom: 3px double var(--secondary);
+}
+
+[data-theme="dark"] .section-badge {
+    background: rgba(184, 134, 11, 0.15);
+    color: #d4af37;
+    border: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] .contact-form,
+[data-theme="dark"] .job-detail-card {
+    background: rgba(45, 38, 29, 0.8);
+    border: 2px solid rgba(184, 134, 11, 0.2);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background: rgba(26, 22, 18, 0.8);
+    border-color: rgba(184, 134, 11, 0.3);
+    color: #ebe4d8;
+}
+
+[data-theme="dark"] .glass {
+    background: rgba(26, 22, 18, 0.85);
+    border: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] ::selection {
+    background: rgba(184, 134, 11, 0.4);
+    color: #faf8f5;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #1a1612;
+    border-left: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+    border: 3px solid #1a1612;
+}
+
+/* Victorian Dark mode toggle button */
 .theme-toggle {
     position: fixed;
     bottom: 100px;
     right: 30px;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    border: none;
+    border-radius: var(--radius-xs);
+    border: 2px solid var(--secondary);
     cursor: pointer;
-    background: var(--gradient);
-    color: white;
+    background: var(--gradient-royal);
+    color: var(--secondary-light);
     font-size: 1.2rem;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.2);
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -3023,8 +3204,8 @@ a:focus-visible {
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: var(--shadow-primary);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-primary), 0 0 30px rgba(184, 134, 11, 0.4);
 }
 
 .theme-toggle .fa-sun {

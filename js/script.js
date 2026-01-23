@@ -1,4 +1,4 @@
-// Script.js - Redirect to main.js functionality for backwards compatibility
+﻿// Script.js - Redirect to main.js functionality for backwards compatibility
 // This file exists for older job page templates that reference script.js
 
 // ==================== SAVED JOBS FEATURE ====================
@@ -73,7 +73,7 @@ function shareOnLinkedIn(url, title) {
 
 // Share on Twitter
 function shareOnTwitter(title, url) {
-    const text = `${title} - Great opportunity for freshers! 🎯`;
+    const text = `${title} - Great opportunity for freshers! `;
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
 }
 
