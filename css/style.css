@@ -198,6 +198,280 @@ body {
     background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
 }
 
+/* ==================== VICTORIAN ORNAMENTAL ELEMENTS ==================== */
+/* Ornate Divider */
+.ornate-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    position: relative;
+}
+
+.ornate-divider::before,
+.ornate-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+}
+
+.ornate-divider-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    font-size: 1.2rem;
+    margin: 0 20px;
+}
+
+/* Victorian Flourish */
+.flourish {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+}
+
+.flourish::before {
+    content: '❦';
+    font-size: 2rem;
+    color: var(--secondary);
+    display: block;
+    opacity: 0.7;
+}
+
+/* Decorative Corner Ornaments */
+.ornate-corners {
+    position: relative;
+}
+
+.ornate-corners::before,
+.ornate-corners::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--secondary);
+    border-style: solid;
+    opacity: 0.5;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.ornate-corners::before {
+    top: -5px;
+    left: -5px;
+    border-width: 2px 0 0 2px;
+}
+
+.ornate-corners::after {
+    bottom: -5px;
+    right: -5px;
+    border-width: 0 2px 2px 0;
+}
+
+.ornate-corners:hover::before,
+.ornate-corners:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Victorian Drop Cap */
+.drop-cap::first-letter {
+    float: left;
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-size: 4rem;
+    line-height: 0.8;
+    padding: 8px 12px 0 0;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Elegant Underline Animation */
+.elegant-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.elegant-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-royal);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-out);
+}
+
+.elegant-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Victorian Quote Style */
+.victorian-quote {
+    position: relative;
+    padding: 30px 40px;
+    background: var(--parchment);
+    border-left: 4px solid var(--secondary);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.2rem;
+    color: var(--gray-800);
+    margin: 30px 0;
+}
+
+.victorian-quote::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 4rem;
+    color: var(--secondary);
+    opacity: 0.3;
+    font-family: 'Cinzel Decorative', serif;
+    line-height: 1;
+}
+
+/* Shimmer Effect for Premium Elements */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.shimmer-effect {
+    background: linear-gradient(90deg, 
+        var(--secondary) 0%, 
+        var(--secondary-light) 25%, 
+        #fff8dc 50%, 
+        var(--secondary-light) 75%, 
+        var(--secondary) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+}
+
+/* Victorian Badge Enhancement */
+.badge-victorian {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--cream);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid var(--secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.badge-victorian::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: badge-shine 3s ease-in-out infinite;
+}
+
+@keyframes badge-shine {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
+
+/* Enhanced Card Hover Glow */
+.card-glow {
+    position: relative;
+}
+
+.card-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-royal);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(15px);
+    transition: opacity 0.4s ease;
+}
+
+.card-glow:hover::before {
+    opacity: 0.4;
+}
+
+/* Victorian Ribbon */
+.ribbon {
+    position: absolute;
+    top: 15px;
+    right: -8px;
+    background: var(--gradient-royal);
+    color: var(--cream);
+    padding: 6px 20px 6px 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 10px rgba(114, 47, 55, 0.3);
+}
+
+.ribbon::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    border: 4px solid transparent;
+    border-top-color: var(--primary-dark);
+    border-right-color: var(--primary-dark);
+}
+
+/* Victorian Section Title Styling */
+.section-title-victorian {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title-victorian h2 {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title-victorian h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-royal);
+    margin: 15px auto 0;
+}
+
+.section-title-victorian p {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--primary) var(--parchment);
@@ -731,6 +1005,7 @@ header .navbar {
     animation: slideInUp 0.6s ease-out 0.1s both;
     letter-spacing: -0.02em;
     font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    text-shadow: 2px 2px 4px rgba(114, 47, 55, 0.1);
 }
 
 @keyframes slideInUp {
@@ -890,16 +1165,19 @@ header .navbar {
 
 .floating-card {
     position: absolute;
-    background: var(--white);
+    background: var(--cream);
     padding: 18px 28px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.1);
     display: flex;
     align-items: center;
     gap: 12px;
     font-weight: 600;
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    border: 2px solid rgba(184, 134, 11, 0.3);
     animation: float 6s ease-in-out infinite;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
 }
 
 .floating-card i {
@@ -908,10 +1186,11 @@ header .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient);
-    border-radius: var(--radius);
-    color: var(--white);
-    font-size: 1.3rem;
+    background: var(--gradient-royal);
+    border-radius: var(--radius-xs);
+    color: var(--cream);
+    font-size: 1.2rem;
+    border: 1px solid var(--secondary);
 }
 
 .card-1 {
@@ -1031,13 +1310,23 @@ section {
     width: 88px;
     height: 88px;
     margin: 0 auto 20px;
-    background: var(--gradient);
-    border-radius: var(--radius-xl);
+    background: var(--gradient-royal);
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all var(--transition-bounce);
     box-shadow: var(--shadow-primary-sm);
+    border: 2px solid var(--secondary);
+    position: relative;
+}
+
+.category-icon::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: inherit;
 }
 
 .category-card:hover .category-icon {
@@ -1104,7 +1393,7 @@ section {
 
 .job-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    box-shadow: var(--shadow-xl), var(--shadow-glow), inset 0 0 30px rgba(184, 134, 11, 0.03);
     border-color: var(--secondary);
 }
 
@@ -1256,7 +1545,7 @@ section {
 
 .feature-card:hover {
     transform: translateY(-12px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-xl), 0 0 40px rgba(184, 134, 11, 0.15);
     border-color: var(--secondary);
 }
 
@@ -1345,12 +1634,12 @@ section {
 }
 
 .testimonial-card {
-    background: var(--white);
+    background: var(--cream);
     padding: 40px;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-card);
     transition: all var(--transition);
-    border: 1px solid var(--gray-200);
+    border: 2px solid rgba(184, 134, 11, 0.2);
     position: relative;
 }
 
@@ -1360,14 +1649,16 @@ section {
     top: 24px;
     right: 30px;
     font-size: 5rem;
-    font-family: Georgia, serif;
-    color: var(--primary-lighter);
+    font-family: 'Cinzel Decorative', Georgia, serif;
+    color: var(--secondary);
+    opacity: 0.3;
     line-height: 1;
 }
 
 .testimonial-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-xl), 0 0 30px rgba(184, 134, 11, 0.1);
+    border-color: var(--secondary);
 }
 
 .testimonial-content {
@@ -1375,7 +1666,7 @@ section {
 }
 
 .stars {
-    color: var(--accent);
+    color: var(--secondary);
     margin-bottom: 16px;
     font-size: 1.1rem;
 }
@@ -1395,14 +1686,15 @@ section {
 .author-avatar {
     width: 56px;
     height: 56px;
-    background: var(--gradient);
+    background: var(--gradient-royal);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    color: var(--cream);
     font-weight: 700;
     font-size: 1.2rem;
+    border: 2px solid var(--secondary);
 }
 
 .author-info h4 {
@@ -1468,11 +1760,23 @@ section {
 
 /* ==================== VICTORIAN FOOTER ==================== */
 .footer {
-    background: var(--dark);
+    background: linear-gradient(180deg, var(--dark) 0%, var(--neutral-950) 100%);
     color: var(--cream);
     padding: 100px 0 24px;
     border-top: 4px double var(--secondary);
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(180deg, rgba(184, 134, 11, 0.08) 0%, transparent 100%);
+    pointer-events: none;
 }
 
 .footer-grid {
@@ -3284,9 +3588,9 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--secondary);
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15);
 }
 
 /* Skip to content link for accessibility */
@@ -3296,13 +3600,444 @@ select:focus-visible {
     left: 50%;
     transform: translateX(-50%);
     background: var(--primary);
-    color: white;
+    color: var(--cream);
     padding: 12px 24px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xs);
     z-index: 10000;
     transition: top 0.3s ease;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    border: 2px solid var(--secondary);
 }
 
 .skip-link:focus {
     top: 10px;
+}
+
+/* ==================== SCROLL ANIMATIONS ==================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.animate-fade-in.animated {
+    opacity: 1;
+}
+
+.animate-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-slide-left.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-slide-right.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-scale.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Staggered Animation Delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* ==================== HOVER MICRO-INTERACTIONS ==================== */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(184, 134, 11, 0.2);
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Icon Rotation on Hover */
+.icon-rotate:hover i {
+    transform: rotate(15deg);
+    transition: transform 0.3s ease;
+}
+
+/* Text Highlight on Hover */
+.text-highlight {
+    position: relative;
+    display: inline;
+}
+
+.text-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: rgba(184, 134, 11, 0.2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.text-highlight:hover::after {
+    transform: scaleX(1);
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .navbar,
+    .footer,
+    .btn,
+    .share-buttons,
+    .cta-section {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .job-card,
+    .feature-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+}
+
+/* ==================== VICTORIAN PAGE TRANSITIONS ==================== */
+.page-transition-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ==================== LOADING SKELETON ==================== */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--neutral-200) 25%,
+        var(--neutral-100) 50%,
+        var(--neutral-200) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+}
+
+.skeleton-title {
+    height: 1.5em;
+    width: 60%;
+    margin-bottom: 1em;
+}
+
+.skeleton-card {
+    padding: 20px;
+    background: var(--cream);
+    border: 1px solid var(--neutral-200);
+    border-radius: 12px;
+}
+
+/* ==================== VICTORIAN SELECTION ==================== */
+::selection {
+    background: rgba(184, 134, 11, 0.3);
+    color: var(--primary);
+}
+
+::-moz-selection {
+    background: rgba(184, 134, 11, 0.3);
+    color: var(--primary);
+}
+
+/* ==================== ELEGANT SCROLLBAR (WEBKIT) ==================== */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--neutral-100);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 6px;
+    border: 2px solid var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--neutral-100);
+}
+
+/* ==================== VICTORIAN GLOWING BUTTON ==================== */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn-glow:hover::before {
+    left: 100%;
+}
+
+/* ==================== VICTORIAN DIVIDER LINES ==================== */
+.divider-ornate {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.divider-ornate::before,
+.divider-ornate::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid var(--secondary);
+    margin: 0 20px;
+}
+
+.divider-ornate span {
+    font-family: 'Cinzel Decorative', serif;
+    color: var(--secondary);
+    font-size: 1.5rem;
+}
+
+/* ==================== VICTORIAN CARD SHIMMER ==================== */
+.card-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shimmer-slide 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmer-slide {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* ==================== VICTORIAN UNDERLINE EFFECT ==================== */
+.underline-victorian {
+    position: relative;
+    display: inline-block;
+}
+
+.underline-victorian::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.underline-victorian:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ==================== ACCESSIBILITY IMPROVEMENTS ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .skeleton {
+        animation: none;
+    }
+    
+    .card-shimmer::after {
+        animation: none;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary: #4a1e23;
+        --secondary: #7a4f1a;
+    }
+    
+    .btn,
+    .job-card,
+    .feature-card {
+        border-width: 2px;
+    }
+}
+
+/* ==================== VICTORIAN EMBOSSED TEXT ==================== */
+.text-embossed {
+    color: var(--primary);
+    text-shadow: 
+        1px 1px 1px rgba(255, 255, 255, 0.8),
+        -1px -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.text-engraved {
+    color: var(--neutral-600);
+    text-shadow: 
+        1px 1px 0 rgba(255, 255, 255, 0.9),
+        -1px -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== VICTORIAN GRADIENT TEXT ==================== */
+.text-gradient-victorian {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ==================== ELEGANT INPUT FOCUS ==================== */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--secondary) !important;
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15), 0 2px 8px rgba(114, 47, 55, 0.1) !important;
+}
+
+/* ==================== VICTORIAN DECORATIVE BORDER ==================== */
+.border-victorian {
+    border: double 4px var(--secondary);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+}
+
+.border-victorian::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(184, 134, 11, 0.3);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+/* ==================== RESPONSIVE TYPOGRAPHY FINE-TUNING ==================== */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
 }
