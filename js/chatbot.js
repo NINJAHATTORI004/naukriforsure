@@ -4,11 +4,11 @@
     'use strict';
 
     // ==========================================
-    // CONFIGURATION
+    // CONFIGURATION - VICTORIAN THEME
     // ==========================================
     const CONFIG = {
-        botName: 'Bucks',
-        botEmoji: '🐶',
+        botName: 'Sir Bucks',
+        botEmoji: '🎩',
         typingDelay: { min: 800, max: 1500 },
         storageKey: 'bucks_chat_history',
         userNameKey: 'bucks_user_name',
@@ -20,27 +20,27 @@
     // ADVANCED KNOWLEDGE BASE
     // ==========================================
     const knowledgeBase = {
-        // Time-based greetings
+        // Time-based greetings - Victorian Style
         greetings: {
             morning: [
-                "Good morning! ☀️ I'm Bucks, your job search companion! Ready to find amazing opportunities?",
-                "Morning! 🌅 Rise and grind! I'm Bucks - let's make today productive. What can I help you with?",
-                "Hey, early bird! 🐦 I'm Bucks. The best jobs go to those who start early. How can I assist?"
+                "Good morning, dear seeker! ☀️ I am Sir Bucks, your distinguished career companion! Ready to discover splendid opportunities?",
+                "A fine morning to you! 🌅 I am Sir Bucks - let us make this day most productive. How may I be of service?",
+                "Greetings, early riser! 🎩 I am Sir Bucks. Fortune favours those who begin early. How may I assist?"
             ],
             afternoon: [
-                "Good afternoon!  I'm Bucks, here to power up your job search. What would you like to know?",
-                "Hey there! 🌞 Afternoon vibes! I'm Bucks, your friendly job assistant. How can I help today?",
-                "Hello! ☕ Taking a break to job hunt? Smart move! I'm Bucks - ask me anything!"
+                "Good afternoon! ☕ I am Sir Bucks, here to empower your career endeavours. What would you like to know?",
+                "A pleasant afternoon! 🌞 I am Sir Bucks, your distinguished job assistant. How may I help today?",
+                "Salutations! ☕ Taking respite to seek employment? A wise decision! I am Sir Bucks - ask me anything!"
             ],
             evening: [
-                "Good evening! 🌆 I'm Bucks! Winding down but still job hunting? I'm here to help!",
-                "Evening!  I'm Bucks, your AI career assistant. Let's find your dream opportunity together!",
-                "Hey! 🌙 Evening job search session? Perfect timing! I'm Bucks - what can I help you with?"
+                "Good evening! 🌆 I am Sir Bucks! Still pursuing your career aspirations? I am here to assist!",
+                "A fine evening to you! 🎩 I am Sir Bucks, your AI career assistant. Let us find your dream opportunity together!",
+                "Greetings! 🌙 An evening session of job pursuit? Perfect timing! I am Sir Bucks - what can I help you with?"
             ],
             night: [
-                "Hey night owl! 🦉 I'm Bucks! Burning the midnight oil? Let's make it count!",
-                "Hello! 🌃 Working late? I'm Bucks, always here 24/7 to assist with your career journey!",
-                "Still up? 💫 I'm Bucks! Let's find you that perfect job while the world sleeps!"
+                "Greetings, night owl! 🦉 I am Sir Bucks! Burning the midnight oil? Let us make it worthwhile!",
+                "Good evening! 🌃 Working late? I am Sir Bucks, always at your service to assist with your career journey!",
+                "Still awake? 💫 I am Sir Bucks! Let us find you that perfect position while the world slumbers!"
             ]
         },
 
@@ -49,9 +49,9 @@
             greeting: {
                 patterns: ['hi', 'hello', 'hey', 'hola', 'howdy', 'sup', 'yo', 'hii', 'hiii', 'namaste', 'good morning', 'good afternoon', 'good evening', 'whats up', "what's up"],
                 responses: [
-                    "Hello!  Great to have you here! How can I make your job search easier today?",
-                    "Hey there!  Welcome! I'm all ears - what would you like to know?",
-                    "Hi!  Excited to help you! What brings you here today?"
+                    "Salutations! 🎩 A pleasure to have you here! How may I assist your career endeavours today?",
+                    "Greetings, dear visitor! 📜 Welcome! I am at your service - what would you like to know?",
+                    "Hello there! 🎩 Most delighted to assist you! What brings you to our establishment today?"
                 ]
             },
 
@@ -170,25 +170,25 @@
             thanks: {
                 patterns: ['thank', 'thanks', 'thank you', 'thx', 'thnx', 'appreciate', 'helpful', 'great', 'awesome', 'nice', 'good job', 'well done'],
                 responses: [
-                    "You're very welcome!  Happy to help!\n\nFeel free to ask more questions anytime. I'm here 24/7!\n\n🍀 Best of luck with your job search!",
-                    "Glad I could help! \n\nRemember, persistence is key in job hunting. You've got this! \n\nAnything else I can assist with?",
-                    "My pleasure! \n\nYour dream job is out there - keep pushing! \n\nCome back whenever you need guidance!"
+                    "You are most welcome! 🎩 It is my pleasure to be of service!\n\nPray, feel free to enquire further anytime. I am here at all hours!\n\n🍀 Best of fortune with your career pursuits!",
+                    "Most delighted I could assist! 📜\n\nRemember, persistence is paramount in the pursuit of employment. You shall succeed! 💼\n\nAnything else I may help with?",
+                    "The pleasure is entirely mine! 🎩\n\nYour dream position awaits - continue your endeavours! 💼\n\nReturn whenever you require counsel!"
                 ]
             },
 
             goodbye: {
                 patterns: ['bye', 'goodbye', 'see you', 'take care', 'cya', 'gtg', 'good night', 'gn', 'bye bye', 'later'],
                 responses: [
-                    "Goodbye!  Best of luck with your job search!\n\nRemember, I'm always here 24/7 whenever you need help! \n\nGo get that dream job! ",
-                    "Take care!  Wishing you amazing success!\n\nSee you soon! \n\n*Bucks will be waiting... 🐶*",
-                    "Bye!  May your next application be THE one!\n\nDon't hesitate to return - I love helping!\n\nUntil next time! "
+                    "Farewell! 🎩 Best of fortune with your career pursuits!\n\nRemember, I am always here at your service whenever you require assistance! 📜\n\nGo forth and secure that splendid position! 💼",
+                    "Take care! 🎩 Wishing you tremendous success!\n\nUntil we meet again! 📜\n\n*Sir Bucks shall await your return... 🎩*",
+                    "Goodbye! 🎩 May your next application be THE one!\n\nDo not hesitate to return - I am most delighted to assist!\n\nUntil next time! 📜"
                 ]
             },
 
             who_are_you: {
                 patterns: ['who are you', 'what are you', 'your name', 'introduce yourself', 'what is bucks', 'tell me about you', 'about yourself', 'are you ai', 'are you bot', 'are you human', 'are you real'],
                 responses: [
-                    "🐶 **Hi, I'm Bucks!**\n\nI'm your AI-powered job search companion on NaukriForSure!\n\n**What I Can Do:**\n• 🔍 Help you find the right jobs\n•  Guide through applications\n• 📄 Share resume & interview tips\n•  Provide career advice\n• 🧭 Navigate this website\n• 💬 Answer all your questions!\n\n**Fun Facts:**\n• I'm available 24/7, never sleep! 😴\n• Name 'Bucks' = prosperity in your career! \n• I learn from every conversation! 🧠\n\nSo, how can I help you today? "
+                    "🎩 **Greetings, I am Sir Bucks!**\n\nI am your distinguished AI-powered career companion at NaukriForSure!\n\n**My Services:**\n• 🔍 Assist you in finding suitable positions\n• 📋 Guide through application processes\n• 📄 Share resume & interview counsel\n• 🎓 Provide career guidance\n• 🧭 Navigate this establishment\n• 💬 Answer all your enquiries!\n\n**Distinguished Facts:**\n• I am available at all hours, never requiring rest! 😴\n• The name 'Bucks' represents prosperity in your career! 💰\n• I learn from every conversation! 🧠\n\nPray tell, how may I assist you today? 🎩"
                 ]
             },
 
@@ -236,23 +236,23 @@
             }
         },
 
-        // Intelligent fallback responses
+        // Intelligent fallback responses - Victorian Style
         fallback: [
-            "🤔 Hmm, I'm not quite sure about that!\n\n**Try asking about:**\n• Finding jobs\n• Resume tips\n• Interview preparation\n• Companies hiring\n\nOr click a quick reply below! 👇",
-            "💭 I didn't catch that. Let me help better!\n\n**Popular Questions:**\n• 'How do I apply?'\n• 'Show latest jobs'\n• 'Give me resume tips'\n• 'Interview advice'\n\nWhat would you like to know?",
-            " Still learning that one!\n\n**I'm great at:**\n• Job search guidance\n• Career advice\n• Website navigation\n\nRephrase or try a quick reply? "
+            "🎩 Hmm, I am not quite certain about that matter!\n\n**Pray try enquiring about:**\n• Finding positions\n• Resume counsel\n• Interview preparation\n• Companies seeking candidates\n\nOr select a quick reply below! 👇",
+            "📜 I did not quite catch that. Allow me to assist better!\n\n**Popular Enquiries:**\n• 'How do I apply?'\n• 'Show latest positions'\n• 'Provide resume counsel'\n• 'Interview guidance'\n\nWhat would you like to know?",
+            "🎩 Still learning that particular matter!\n\n**I excel at:**\n• Career search guidance\n• Professional counsel\n• Website navigation\n\nPerhaps rephrase or try a quick reply? 📜"
         ],
 
-        // Enhanced quick replies with categories
+        // Enhanced quick replies with categories - Victorian Style
         quickReplies: [
-            { text: "🔍 Find Jobs", query: "how to find jobs" },
-            { text: " Latest Jobs", query: "latest jobs" },
-            { text: "📄 Resume Tips", query: "resume tips" },
-            { text: "🎤 Interview Help", query: "interview tips" },
+            { text: "🔍 Find Positions", query: "how to find jobs" },
+            { text: "📜 Latest Posts", query: "latest jobs" },
+            { text: "📄 Resume Counsel", query: "resume tips" },
+            { text: "🎤 Interview Guide", query: "interview tips" },
             { text: "📂 Categories", query: "job categories" },
-            { text: " Salary Guide", query: "salary guide" },
-            { text: " For Freshers", query: "fresher jobs" },
-            { text: "💬 About Bucks", query: "who are you" }
+            { text: "💰 Salary Guide", query: "salary guide" },
+            { text: "🎓 For Freshers", query: "fresher jobs" },
+            { text: "🎩 About Sir Bucks", query: "who are you" }
         ]
     };
 
@@ -512,7 +512,7 @@
         const styles = `
             <style id="bucks-styles">
                 /* ==========================================
-                   BUCKS CHATBOT v2.0 - ADVANCED STYLES
+                   BUCKS CHATBOT v2.0 - VICTORIAN THEME
                 ========================================== */
 
                 .bucks-chatbot {
@@ -520,21 +520,21 @@
                     bottom: 24px;
                     right: 24px;
                     z-index: 999999;
-                    font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+                    font-family: 'Cormorant Garamond', 'Libre Baskerville', Georgia, serif;
                 }
 
-                /* Toggle Button */
+                /* Toggle Button - Victorian Style */
                 .bucks-toggle {
                     width: 68px;
                     height: 68px;
-                    border-radius: 50%;
-                    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-                    border: none;
+                    border-radius: 4px;
+                    background: linear-gradient(135deg, #722f37 0%, #8b4049 50%, #b8860b 100%);
+                    border: 3px solid #b8860b;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.45), 0 0 0 4px rgba(139, 92, 246, 0.2);
+                    box-shadow: 0 8px 32px rgba(114, 47, 55, 0.45), 0 0 0 4px rgba(184, 134, 11, 0.2);
                     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                     position: relative;
                     overflow: visible;
@@ -542,7 +542,7 @@
 
                 .bucks-toggle:hover {
                     transform: scale(1.1) rotate(5deg);
-                    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.55), 0 0 0 6px rgba(139, 92, 246, 0.3);
+                    box-shadow: 0 12px 40px rgba(114, 47, 55, 0.55), 0 0 0 6px rgba(184, 134, 11, 0.3);
                 }
 
                 .bucks-toggle:active {
@@ -571,8 +571,8 @@
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    border-radius: 50%;
-                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                    border-radius: 4px;
+                    background: linear-gradient(135deg, #722f37, #b8860b);
                     animation: bucksPulse 2.5s ease-out infinite;
                     z-index: -1;
                 }
@@ -588,17 +588,17 @@
                     right: -5px;
                     width: 24px;
                     height: 24px;
-                    background: linear-gradient(135deg, #ef4444, #f97316);
-                    border-radius: 50%;
+                    background: linear-gradient(135deg, #722f37, #b8860b);
+                    border-radius: 4px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     font-size: 12px;
                     font-weight: 700;
-                    color: white;
-                    border: 3px solid white;
+                    color: #faf7f0;
+                    border: 2px solid #d4af37;
                     animation: badgePop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+                    box-shadow: 0 2px 8px rgba(114, 47, 55, 0.4);
                 }
 
                 @keyframes badgePop {
@@ -606,20 +606,21 @@
                     100% { transform: scale(1); }
                 }
 
-                /* Chat Window */
+                /* Chat Window - Victorian Style */
                 .bucks-window {
                     position: absolute;
                     bottom: 85px;
                     right: 0;
                     width: 400px;
                     height: 580px;
-                    background: #ffffff;
-                    border-radius: 24px;
-                    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(99, 102, 241, 0.1);
+                    background: #faf7f0;
+                    border-radius: 8px;
+                    box-shadow: 0 25px 80px rgba(26, 22, 18, 0.25), 0 0 0 1px rgba(184, 134, 11, 0.3);
                     display: none;
                     flex-direction: column;
                     overflow: hidden;
                     transform-origin: bottom right;
+                    border: 2px solid #b8860b;
                 }
 
                 .bucks-window.active {
@@ -638,16 +639,17 @@
                     }
                 }
 
-                /* Header */
+                /* Header - Victorian Style */
                 .bucks-header {
-                    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+                    background: linear-gradient(135deg, #722f37 0%, #8b4049 50%, #b8860b 100%);
                     padding: 16px 20px;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    color: white;
+                    color: #faf7f0;
                     position: relative;
                     overflow: hidden;
+                    border-bottom: 2px solid #d4af37;
                 }
 
                 .bucks-header::before {
@@ -657,7 +659,7 @@
                     right: -50%;
                     width: 100%;
                     height: 200%;
-                    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+                    background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 60%);
                     animation: headerShine 8s linear infinite;
                 }
 
@@ -676,21 +678,22 @@
                 .bucks-header-avatar {
                     width: 48px;
                     height: 48px;
-                    background: rgba(255, 255, 255, 0.2);
+                    background: rgba(250, 247, 240, 0.2);
                     backdrop-filter: blur(10px);
-                    border-radius: 50%;
+                    border-radius: 4px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     font-size: 26px;
-                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    border: 2px solid rgba(212, 175, 55, 0.5);
                 }
 
                 .bucks-header-text h4 {
                     margin: 0;
                     font-size: 18px;
                     font-weight: 700;
-                    letter-spacing: -0.3px;
+                    letter-spacing: 1px;
+                    font-family: 'Cinzel', Georgia, serif;
                 }
 
                 .bucks-status {
@@ -704,9 +707,9 @@
                 .status-dot {
                     width: 8px;
                     height: 8px;
-                    background: #4ade80;
+                    background: #d4af37;
                     border-radius: 50%;
-                    box-shadow: 0 0 8px #4ade80;
+                    box-shadow: 0 0 8px #d4af37;
                     animation: statusPulse 2s ease-in-out infinite;
                 }
 
@@ -722,46 +725,46 @@
                 }
 
                 .bucks-header-btn {
-                    background: rgba(255, 255, 255, 0.15);
+                    background: rgba(250, 247, 240, 0.15);
                     backdrop-filter: blur(10px);
-                    border: none;
+                    border: 1px solid rgba(212, 175, 55, 0.3);
                     width: 36px;
                     height: 36px;
-                    border-radius: 10px;
+                    border-radius: 4px;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: white;
+                    color: #faf7f0;
                     transition: all 0.3s ease;
                 }
 
                 .bucks-header-btn:hover {
-                    background: rgba(255, 255, 255, 0.25);
+                    background: rgba(212, 175, 55, 0.3);
                     transform: translateY(-2px);
                 }
 
                 .bucks-close {
-                    background: rgba(255, 255, 255, 0.15);
+                    background: rgba(250, 247, 240, 0.15);
                     backdrop-filter: blur(10px);
-                    border: none;
+                    border: 1px solid rgba(212, 175, 55, 0.3);
                     width: 36px;
                     height: 36px;
-                    border-radius: 10px;
+                    border-radius: 4px;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: white;
+                    color: #faf7f0;
                     transition: all 0.3s ease;
                 }
 
                 .bucks-close:hover {
-                    background: rgba(239, 68, 68, 0.8);
+                    background: rgba(114, 47, 55, 0.8);
                     transform: scale(1.1) rotate(90deg);
                 }
 
-                /* Messages Area */
+                /* Messages Area - Victorian Style */
                 .bucks-messages {
                     flex: 1;
                     overflow-y: auto;
@@ -769,7 +772,7 @@
                     display: flex;
                     flex-direction: column;
                     gap: 16px;
-                    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+                    background: linear-gradient(180deg, #faf7f0 0%, #f4eed8 100%);
                     scroll-behavior: smooth;
                 }
 
@@ -782,7 +785,7 @@
                 }
 
                 .bucks-messages::-webkit-scrollbar-thumb {
-                    background: linear-gradient(180deg, #cbd5e1, #94a3b8);
+                    background: linear-gradient(180deg, #b8860b, #8b7355);
                     border-radius: 3px;
                 }
 
@@ -812,82 +815,87 @@
                     }
                 }
 
-                /* Message Bubble */
+                /* Message Bubble - Victorian Style */
                 .bucks-message {
                     max-width: 85%;
                     padding: 14px 18px;
-                    border-radius: 20px;
+                    border-radius: 4px;
                     font-size: 14px;
-                    line-height: 1.65;
+                    line-height: 1.7;
                     word-wrap: break-word;
                     position: relative;
+                    font-family: 'Libre Baskerville', Georgia, serif;
                 }
 
                 .bucks-message.bot {
-                    background: white;
-                    color: #1e293b;
-                    border-bottom-left-radius: 6px;
-                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                    background: #fffef9;
+                    color: #2d261d;
+                    border-bottom-left-radius: 2px;
+                    box-shadow: 0 2px 12px rgba(26, 22, 18, 0.08);
+                    border: 1px solid rgba(184, 134, 11, 0.2);
                 }
 
                 .bucks-message.user {
-                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-                    color: white;
-                    border-bottom-right-radius: 6px;
-                    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+                    background: linear-gradient(135deg, #722f37, #8b4049);
+                    color: #faf7f0;
+                    border-bottom-right-radius: 2px;
+                    box-shadow: 0 4px 15px rgba(114, 47, 55, 0.35);
+                    border: 1px solid #b8860b;
                 }
 
-                /* Message Links */
+                /* Message Links - Victorian Style */
                 .bucks-message .bucks-link {
-                    color: #6366f1;
+                    color: #722f37;
                     text-decoration: none;
                     font-weight: 600;
-                    border-bottom: 1px dashed #6366f1;
+                    border-bottom: 1px dashed #b8860b;
                     transition: all 0.2s ease;
                 }
 
                 .bucks-message .bucks-link:hover {
-                    color: #4f46e5;
+                    color: #b8860b;
                     border-bottom-style: solid;
                 }
 
                 .bucks-message.user .bucks-link {
-                    color: white;
-                    border-bottom-color: rgba(255, 255, 255, 0.5);
+                    color: #faf7f0;
+                    border-bottom-color: rgba(212, 175, 55, 0.5);
                 }
 
                 .bucks-message .bucks-hr {
                     border: none;
-                    border-top: 1px solid #e2e8f0;
+                    border-top: 1px solid rgba(184, 134, 11, 0.3);
                     margin: 10px 0;
                 }
 
                 /* Message Timestamp */
                 .bucks-msg-time {
                     font-size: 10px;
-                    color: #94a3b8;
+                    color: #8b7355;
                     margin-top: 4px;
                     padding: 0 4px;
+                    font-family: 'Cormorant Garamond', serif;
                 }
 
-                /* Typing Indicator */
+                /* Typing Indicator - Victorian Style */
                 .bucks-typing {
                     display: flex;
                     align-items: center;
                     gap: 5px;
                     padding: 16px 20px;
-                    background: white;
-                    border-radius: 20px;
-                    border-bottom-left-radius: 6px;
-                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+                    background: #fffef9;
+                    border-radius: 4px;
+                    border-bottom-left-radius: 2px;
+                    box-shadow: 0 2px 12px rgba(26, 22, 18, 0.08);
                     align-self: flex-start;
                     animation: messageIn 0.3s ease;
+                    border: 1px solid rgba(184, 134, 11, 0.2);
                 }
 
                 .bucks-typing span {
                     width: 8px;
                     height: 8px;
-                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                    background: linear-gradient(135deg, #722f37, #b8860b);
                     border-radius: 50%;
                     animation: typingBounce 1.4s infinite ease-in-out;
                 }
@@ -901,44 +909,46 @@
                     30% { transform: translateY(-10px); }
                 }
 
-                /* Quick Replies */
+                /* Quick Replies - Victorian Style */
                 .bucks-quick-replies {
                     padding: 12px 16px;
                     display: flex;
                     flex-wrap: wrap;
                     gap: 8px;
-                    background: #f8fafc;
-                    border-top: 1px solid #e2e8f0;
+                    background: #f4eed8;
+                    border-top: 1px solid rgba(184, 134, 11, 0.3);
                     max-height: 85px;
                     overflow-y: auto;
                 }
 
                 .bucks-quick-reply {
-                    background: white;
-                    border: 2px solid #e2e8f0;
+                    background: #fffef9;
+                    border: 2px solid rgba(184, 134, 11, 0.3);
                     padding: 8px 14px;
-                    border-radius: 20px;
+                    border-radius: 4px;
                     font-size: 12px;
-                    color: #6366f1;
+                    color: #722f37;
                     cursor: pointer;
                     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     font-weight: 600;
                     white-space: nowrap;
+                    font-family: 'Cinzel', serif;
+                    letter-spacing: 0.5px;
                 }
 
                 .bucks-quick-reply:hover {
-                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-                    color: white;
-                    border-color: transparent;
+                    background: linear-gradient(135deg, #722f37, #b8860b);
+                    color: #faf7f0;
+                    border-color: #b8860b;
                     transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+                    box-shadow: 0 4px 12px rgba(114, 47, 55, 0.35);
                 }
 
-                /* Input Area */
+                /* Input Area - Victorian Style */
                 .bucks-input-area {
                     padding: 16px 20px;
-                    background: white;
-                    border-top: 1px solid #e2e8f0;
+                    background: #faf7f0;
+                    border-top: 1px solid rgba(184, 134, 11, 0.3);
                     display: flex;
                     gap: 12px;
                     align-items: center;
@@ -951,24 +961,25 @@
 
                 #bucks-input {
                     width: 100%;
-                    border: 2px solid #e2e8f0;
-                    border-radius: 24px;
+                    border: 2px solid rgba(184, 134, 11, 0.3);
+                    border-radius: 4px;
                     padding: 14px 50px 14px 20px;
                     font-size: 14px;
                     outline: none;
                     transition: all 0.3s ease;
-                    font-family: inherit;
-                    background: #f8fafc;
+                    font-family: 'Libre Baskerville', Georgia, serif;
+                    background: #fffef9;
+                    color: #2d261d;
                 }
 
                 #bucks-input:focus {
-                    border-color: #6366f1;
-                    background: white;
-                    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+                    border-color: #b8860b;
+                    background: #fffef9;
+                    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15);
                 }
 
                 #bucks-input::placeholder {
-                    color: #94a3b8;
+                    color: #8b7355;
                 }
 
                 .bucks-emoji-btn {
@@ -993,49 +1004,51 @@
                 #bucks-send {
                     width: 48px;
                     height: 48px;
-                    border-radius: 50%;
-                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-                    border: none;
+                    border-radius: 4px;
+                    background: linear-gradient(135deg, #722f37, #b8860b);
+                    border: 2px solid #b8860b;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: white;
+                    color: #faf7f0;
                     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     flex-shrink: 0;
-                    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+                    box-shadow: 0 4px 15px rgba(114, 47, 55, 0.35);
                 }
 
                 #bucks-send:hover {
                     transform: scale(1.1) rotate(15deg);
-                    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+                    box-shadow: 0 6px 20px rgba(114, 47, 55, 0.45);
                 }
 
                 #bucks-send:active {
                     transform: scale(0.95);
                 }
 
-                /* Footer */
+                /* Footer - Victorian Style */
                 .bucks-footer {
                     padding: 8px 16px;
                     text-align: center;
                     font-size: 10px;
-                    color: #94a3b8;
-                    background: #f8fafc;
-                    border-top: 1px solid #e2e8f0;
+                    color: #8b7355;
+                    background: #f4eed8;
+                    border-top: 1px solid rgba(184, 134, 11, 0.3);
+                    font-family: 'Cormorant Garamond', serif;
                 }
 
                 .bucks-footer-link {
-                    color: #6366f1;
+                    color: #722f37;
                     text-decoration: none;
                     font-weight: 600;
                 }
 
                 .bucks-footer-link:hover {
                     text-decoration: underline;
+                    color: #b8860b;
                 }
 
-                /* Date Separator */
+                /* Date Separator - Victorian Style */
                 .bucks-date-separator {
                     display: flex;
                     align-items: center;
@@ -1048,13 +1061,15 @@
                     content: '';
                     flex: 1;
                     height: 1px;
-                    background: #e2e8f0;
+                    background: rgba(184, 134, 11, 0.4);
                 }
 
                 .bucks-date-separator span {
                     font-size: 11px;
-                    color: #94a3b8;
+                    color: #8b7355;
                     font-weight: 500;
+                    font-family: 'Cinzel', serif;
+                    letter-spacing: 1px;
                 }
 
                 /* Mobile Responsive */
