@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Blog - NaukriForSure | Tips, Guides & Industry Insights</title>
+    <meta name="description" content="Expert career advice, interview tips, resume guides, salary insights and industry trends for freshers and job seekers. Free resources to land your dream job.">
+    <meta name="keywords" content="career blog, interview tips, resume guide, salary comparison, fresher career advice, job search tips, IT career guide">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/blog/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://naukriforsure.vercel.app/blog/">
+    <meta property="og:title" content="Career Blog - NaukriForSure">
+    <meta property="og:description" content="Expert career advice, interview tips, and industry insights for freshers.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Career Blog - NaukriForSure">
+    <meta name="twitter:description" content="Expert career advice, interview tips, and industry insights for freshers.">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6055589762174170",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+    <!-- Victorian Era Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .blog-card {
+            background: #fffef9;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(26, 22, 18, 0.08);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(114, 47, 55, 0.15);
+            border-color: #b8860b;
+        }
+        .blog-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, #722f37, #b8860b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-card-image i {
+            font-size: 60px;
+            color: rgba(250, 247, 240, 0.3);
+        }
+        .blog-card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><path d="M20 0L40 20L20 40L0 20Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+        }
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #d4af37;
+            color: #1a1612;
+            padding: 5px 12px;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+        .blog-card-content {
+            padding: 25px;
+        }
+        .blog-card-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: #722f37;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .blog-card-content p {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            color: #6b5a45;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #8b7355;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .blog-meta i {
+            color: #b8860b;
+            margin-right: 5px;
+        }
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #722f37;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 15px;
+            padding: 10px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .read-more:hover {
+            color: #b8860b;
+            border-bottom-color: #b8860b;
+        }
+        .featured-post {
+            background: linear-gradient(135deg, #722f37, #8b4049, #b8860b);
+            border-radius: 4px;
+            padding: 50px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #b8860b;
+        }
+        .featured-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="28" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+        }
+        .featured-badge {
+            background: #d4af37;
+            color: #1a1612;
+            padding: 8px 20px;
+            border-radius: 2px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .featured-post h2 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2rem;
+            color: #faf7f0;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .featured-post p {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            color: rgba(250, 247, 240, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        .featured-post .read-more {
+            background: #faf7f0;
+            color: #722f37;
+            padding: 15px 30px;
+            border-radius: 4px;
+            margin-top: 25px;
+            border: 2px solid #d4af37;
+        }
+        .featured-post .read-more:hover {
+            background: #d4af37;
+            color: #1a1612;
+        }
+        .blog-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        .category-tag {
+            background: #fffef9;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: #722f37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .category-tag:hover, .category-tag.active {
+            background: linear-gradient(135deg, #722f37, #b8860b);
+            color: #faf7f0;
+            border-color: #b8860b;
+        }
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .featured-post {
+                padding: 30px 20px;
+            }
+            .featured-post h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../categories.html">Categories</a></li>
+                <li><a href="index.html" class="active">Blog</a></li>
+                <li><a href="../resume-screener.html">Resume Screener</a></li>
+                <li><a href="../about.html">About Us</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <span>Career Blog</span>
+            </div>
+            <h1 style="font-family: 'Cinzel Decorative', serif;">Career <span class="gradient-text">Insights & Guides</span></h1>
+            <p style="font-family: 'Libre Baskerville', Georgia, serif;">Expert advice to accelerate your career journey</p>
+        </div>
+    </div>
+
+    <main style="padding: 60px 0; background: linear-gradient(180deg, #faf7f0 0%, #f4eed8 100%);">
+        <div class="container">
+            
+            <!-- AdSense Ad Unit - Top -->
+            <div style="text-align: center; margin-bottom: 40px;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <!-- Featured Post -->
+            <div class="featured-post">
+                <span class="featured-badge">✦ FEATURED ARTICLE</span>
+                <h2>Complete Guide: How to Crack TCS, Infosys & Wipro Interviews in 2026</h2>
+                <p>Master the recruitment process of India's top IT giants. From aptitude tests to HR rounds, we cover everything you need to know to secure your dream offer.</p>
+                <a href="how-to-crack-tcs-infosys-wipro-interview.html" class="read-more">
+                    Read Complete Guide <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Blog Categories -->
+            <div class="blog-categories">
+                <a href="#" class="category-tag active">All Posts</a>
+                <a href="#" class="category-tag">Interview Tips</a>
+                <a href="#" class="category-tag">Resume Guide</a>
+                <a href="#" class="category-tag">Salary Insights</a>
+                <a href="#" class="category-tag">Skills & Courses</a>
+                <a href="#" class="category-tag">Company Reviews</a>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <span class="blog-category">Interview Tips</span>
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>How to Crack TCS, Infosys & Wipro Interviews</h3>
+                        <p>Complete guide covering aptitude tests, technical rounds, HR questions, and insider tips from successful candidates.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 20, 2026</span>
+                            <span><i class="fas fa-clock"></i> 15 min read</span>
+                        </div>
+                        <a href="how-to-crack-tcs-infosys-wipro-interview.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #1a3d2e, #2d5a45);">
+                        <span class="blog-category">Skills</span>
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Top 10 Programming Languages to Learn in 2026</h3>
+                        <p>From Python to Rust, discover which languages are in highest demand and offer the best salary potential for freshers.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 18, 2026</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <a href="top-programming-languages-2026.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #1a365d, #2a4a7f);">
+                        <span class="blog-category">Salary Guide</span>
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Google vs Microsoft vs Amazon: Salary Comparison India 2026</h3>
+                        <p>Detailed breakdown of packages at FAANG companies including base salary, stocks, bonuses, and growth trajectory.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 15, 2026</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <a href="../compare/google-vs-microsoft-vs-amazon.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 4 -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #8b4049, #722f37);">
+                        <span class="blog-category">Resume</span>
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>ATS-Friendly Resume: Complete Guide for Freshers</h3>
+                        <p>Learn how to create a resume that passes Applicant Tracking Systems and lands you more interviews.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 12, 2026</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <a href="ats-friendly-resume-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 5 -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #b8860b, #d4af37);">
+                        <span class="blog-category">Certifications</span>
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Best AWS Certifications for Beginners in 2026</h3>
+                        <p>Complete roadmap to AWS certifications - which ones to pursue, preparation tips, and expected salary boost.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 10, 2026</span>
+                            <span><i class="fas fa-clock"></i> 11 min read</span>
+                        </div>
+                        <a href="best-aws-certifications-beginners.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 6 -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #2d5a45, #1a3d2e);">
+                        <span class="blog-category">Work from Home</span>
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Remote Jobs for Freshers: Complete 2026 Guide</h3>
+                        <p>Find legitimate work-from-home opportunities, companies hiring remotely, and tips to succeed in remote roles.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 8, 2026</span>
+                            <span><i class="fas fa-clock"></i> 9 min read</span>
+                        </div>
+                        <a href="remote-jobs-freshers-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 5: LinkedIn Guide -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #0077b5, #004182);">
+                        <span class="blog-category">Career</span>
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>LinkedIn Profile Optimization: Get 10x More Views</h3>
+                        <p>Complete guide to creating a LinkedIn profile that attracts recruiters and lands interview calls.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 16, 2026</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <a href="linkedin-profile-optimization-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 6: Data Science -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #6b21a8, #9333ea);">
+                        <span class="blog-category">Career Guide</span>
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Data Science Career Roadmap 2026</h3>
+                        <p>From zero to data scientist: skills, certifications, salaries, and step-by-step learning path.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 14, 2026</span>
+                            <span><i class="fas fa-clock"></i> 15 min read</span>
+                        </div>
+                        <a href="data-science-career-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- AdSense Ad Unit - Middle -->
+            <div style="text-align: center; margin: 50px 0;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- More Blog Cards Section 2 -->
+            <div class="blog-grid">
+                
+                <!-- WFH Tips -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #2d5a45, #1a3d2e);">
+                        <span class="blog-category">WFH</span>
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Work from Home Productivity Tips for Freshers</h3>
+                        <p>Master remote work: home office setup, productivity hacks, and maintaining work-life balance.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 12, 2026</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <a href="work-from-home-tips.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- First Job Guide -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #722f37, #8b4049);">
+                        <span class="blog-category">Fresher Guide</span>
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>First Job Survival Guide: What They Don't Teach in College</h3>
+                        <p>Navigate your first 90 days: corporate culture, building relationships, and accelerating growth.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 10, 2026</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <a href="first-job-survival-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- DevOps Guide -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">
+                        <span class="blog-category">Career Guide</span>
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>DevOps Career Roadmap 2026: Complete Guide</h3>
+                        <p>Master DevOps: tools, certifications, salary expectations, and how to transition into this field.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 8, 2026</span>
+                            <span><i class="fas fa-clock"></i> 14 min read</span>
+                        </div>
+                        <a href="devops-career-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Salary Negotiation -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #b8860b, #d4af37);">
+                        <span class="blog-category">Salary</span>
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Salary Negotiation: Scripts & Strategies That Work</h3>
+                        <p>Negotiate like a pro: proven scripts, counter-offer tactics, and when to walk away.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 6, 2026</span>
+                            <span><i class="fas fa-clock"></i> 11 min read</span>
+                        </div>
+                        <a href="salary-negotiation-tips.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Free Courses -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #4285f4, #1a73e8);">
+                        <span class="blog-category">Courses</span>
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Best Free Online Courses with Certificates 2026</h3>
+                        <p>Free courses from Google, Microsoft, IBM, and Meta that actually boost your resume.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Jan 4, 2026</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <a href="best-free-online-courses.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- DSA Guide -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #dc2626, #ef4444);">
+                        <span class="blog-category">Coding</span>
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>DSA Preparation Guide: Complete Roadmap for Placements</h3>
+                        <p>Master Data Structures & Algorithms: topic-wise guide, resources, and preparation schedule.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 28, 2025</span>
+                            <span><i class="fas fa-clock"></i> 15 min read</span>
+                        </div>
+                        <a href="dsa-preparation-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- AdSense Ad Unit -->
+            <div style="text-align: center; margin: 50px 0;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- More Blog Cards Section 3 -->
+            <div class="blog-grid">
+
+                <!-- Web Development -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #f97316, #ea580c);">
+                        <span class="blog-category">Career Guide</span>
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Web Development Career Guide 2026</h3>
+                        <p>Frontend, Backend, or Fullstack? Complete roadmap with salaries, stacks, and job tips.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 24, 2025</span>
+                            <span><i class="fas fa-clock"></i> 14 min read</span>
+                        </div>
+                        <a href="web-development-career-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Startup vs MNC -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #722f37, #b8860b);">
+                        <span class="blog-category">Career Advice</span>
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Startup vs MNC: Which is Better for Freshers?</h3>
+                        <p>Pros, cons, salaries, and growth comparison to help you make the right choice.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 20, 2025</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <a href="startup-vs-mnc.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Cloud Computing -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #ff9900, #232f3e);">
+                        <span class="blog-category">Career Guide</span>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Cloud Computing Career Guide: AWS, Azure & GCP</h3>
+                        <p>Complete cloud career roadmap: certifications, salaries, and how to get started.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 16, 2025</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <a href="cloud-computing-career-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Machine Learning -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+                        <span class="blog-category">AI/ML</span>
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Machine Learning Career Guide: Zero to ML Engineer</h3>
+                        <p>Complete ML roadmap: math, coding, deep learning, LLMs, and getting your first job.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 12, 2025</span>
+                            <span><i class="fas fa-clock"></i> 15 min read</span>
+                        </div>
+                        <a href="machine-learning-career-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Internship Guide -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #059669, #10b981);">
+                        <span class="blog-category">Students</span>
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Complete Internship Guide for College Students</h3>
+                        <p>Where to find internships, how to apply, ace interviews, and convert to full-time.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 8, 2025</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <a href="internship-guide-students.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Soft Skills -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #ec4899, #db2777);">
+                        <span class="blog-category">Professional</span>
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Soft Skills Guide: What Actually Gets You Promoted</h3>
+                        <p>Communication, leadership, teamwork, and other skills employers value most.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 4, 2025</span>
+                            <span><i class="fas fa-clock"></i> 11 min read</span>
+                        </div>
+                        <a href="soft-skills-career-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- AdSense Ad Unit -->
+            <div style="text-align: center; margin: 50px 0;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <!-- More Blog Cards Section 4 -->
+            <div class="blog-grid">
+
+                <!-- Freelancing -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">
+                        <span class="blog-category">Side Income</span>
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Freelancing Guide: Start Earning Online</h3>
+                        <p>Complete guide to tech freelancing: platforms, rates, clients, and building a business.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Nov 28, 2025</span>
+                            <span><i class="fas fa-clock"></i> 14 min read</span>
+                        </div>
+                        <a href="freelancing-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Cybersecurity -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #1e3a5f, #0f172a);">
+                        <span class="blog-category">Career Guide</span>
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Cybersecurity Career Guide: Ethical Hacking & SOC</h3>
+                        <p>Complete cybersecurity roadmap: roles, certifications, salaries, and how to break in.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Nov 24, 2025</span>
+                            <span><i class="fas fa-clock"></i> 14 min read</span>
+                        </div>
+                        <a href="cybersecurity-career-guide.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Interview Questions -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #722f37, #5c252c);">
+                        <span class="blog-category">Interview</span>
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>50 Most Asked HR Interview Questions & Answers</h3>
+                        <p>Comprehensive list of HR questions with sample answers. From "Tell me about yourself" to salary negotiation.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Nov 20, 2025</span>
+                            <span><i class="fas fa-clock"></i> 20 min read</span>
+                        </div>
+                        <a href="../interview-questions.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Salary Calculator -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #1a365d, #153e75);">
+                        <span class="blog-category">Tools</span>
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Salary Calculator: Know Your Worth in 2026</h3>
+                        <p>Interactive tool to calculate expected salary based on your skills, experience, location, and company type.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Nov 16, 2025</span>
+                            <span><i class="fas fa-clock"></i> Tool</span>
+                        </div>
+                        <a href="../salary-calculator.html" class="read-more">
+                            Use Calculator <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- TCS vs Infosys -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #8b4049, #b8860b);">
+                        <span class="blog-category">Company Reviews</span>
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>TCS vs Infosys vs Wipro: Which is Best for Freshers?</h3>
+                        <p>Honest comparison of work culture, salary, growth opportunities, and work-life balance at India's IT giants.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Nov 12, 2025</span>
+                            <span><i class="fas fa-clock"></i> 14 min read</span>
+                        </div>
+                        <a href="../compare/tcs-vs-infosys-vs-wipro.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- FAANG Comparison -->
+                <article class="blog-card">
+                    <div class="blog-card-image" style="background: linear-gradient(135deg, #1a365d, #2a4a7f);">
+                        <span class="blog-category">Salary Guide</span>
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Google vs Microsoft vs Amazon: Salary Comparison India</h3>
+                        <p>Detailed breakdown of packages at FAANG companies including base salary, stocks, bonuses, and growth trajectory.</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Nov 8, 2025</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <a href="../compare/google-vs-microsoft-vs-amazon.html" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div style="background: linear-gradient(135deg, #722f37, #8b4049, #b8860b); border-radius: 4px; padding: 50px; margin-top: 60px; text-align: center; border: 2px solid #b8860b; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2250%22><path d=%22M25 0L50 25L25 50L0 25Z%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.05)%22 stroke-width=%221%22/></svg>');"></div>
+                <div style="position: relative; z-index: 1;">
+                    <h3 style="font-family: 'Cinzel Decorative', serif; color: #faf7f0; font-size: 1.8rem; margin-bottom: 15px;">📬 Get Career Tips in Your Inbox</h3>
+                    <p style="font-family: 'Libre Baskerville', Georgia, serif; color: rgba(250,247,240,0.9); margin-bottom: 25px;">Join 10,000+ job seekers receiving weekly career insights and job alerts.</p>
+                    <a href="https://chat.whatsapp.com/D7KyWoS8EorL0piBfGtw8G" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #faf7f0; color: #722f37; padding: 15px 35px; border-radius: 4px; font-family: 'Cinzel', serif; font-weight: 600; text-decoration: none; border: 2px solid #d4af37; transition: all 0.3s ease;">
+                        <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Join WhatsApp Community
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <span class="logo-icon"></span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>A free platform helping freshers and job seekers find jobs. Built with ❤ by NaukriForSure.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../jobs.html">All Jobs</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../salary-calculator.html">Salary Calculator</a></li>
+                        <li><a href="../interview-questions.html">Interview Questions</a></li>
+                        <li><a href="../resume-screener.html">Resume Screener</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company Comparisons</h4>
+                    <ul>
+                        <li><a href="../compare/tcs-vs-infosys-vs-wipro.html">TCS vs Infosys vs Wipro</a></li>
+                        <li><a href="../compare/google-vs-microsoft-vs-amazon.html">Google vs Microsoft vs Amazon</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved. Made with ❤ for Freshers by NaukriForSure</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/chatbot.js"></script>
+</body>
+</html>

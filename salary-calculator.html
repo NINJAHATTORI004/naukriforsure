@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator India 2026 - Know Your Worth | NaukriForSure</title>
+    <meta name="description" content="Free salary calculator for IT professionals in India. Calculate expected salary based on skills, experience, location, and company type. Updated for 2026.">
+    <meta name="keywords" content="salary calculator India, IT salary calculator, fresher salary, software engineer salary, data scientist salary, developer salary India 2026">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/salary-calculator.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://naukriforsure.vercel.app/salary-calculator.html">
+    <meta property="og:title" content="Salary Calculator India 2026 - Know Your Worth">
+    <meta property="og:description" content="Calculate your expected salary based on skills, experience, and location.">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6055589762174170",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+    <!-- Victorian Era Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .calculator-card {
+            background: #fffef9;
+            border-radius: 4px;
+            padding: 40px;
+            border: 2px solid #b8860b;
+            box-shadow: 0 20px 50px rgba(26, 22, 18, 0.12);
+            position: relative;
+        }
+        .calculator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #722f37, #b8860b, #722f37);
+        }
+        .form-section {
+            margin-bottom: 30px;
+        }
+        .form-section h3 {
+            font-family: 'Cinzel', serif;
+            color: #722f37;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-section h3 i {
+            color: #b8860b;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            color: #4a3f30;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            border-radius: 4px;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 0.95rem;
+            background: #faf7f0;
+            color: #2d261d;
+            transition: all 0.3s ease;
+        }
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #b8860b;
+            box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.15);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        .skill-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #faf7f0;
+            border: 2px solid rgba(184, 134, 11, 0.2);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+        }
+        .skill-checkbox:hover {
+            border-color: #b8860b;
+        }
+        .skill-checkbox input {
+            width: 18px;
+            height: 18px;
+            accent-color: #722f37;
+        }
+        .skill-checkbox.selected {
+            background: linear-gradient(135deg, #722f37, #8b4049);
+            color: #faf7f0;
+            border-color: #b8860b;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, #722f37, #b8860b);
+            color: #faf7f0;
+            border: 2px solid #b8860b;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(114, 47, 55, 0.3);
+        }
+        .result-card {
+            display: none;
+            background: linear-gradient(135deg, #722f37, #8b4049, #b8860b);
+            border-radius: 4px;
+            padding: 40px;
+            margin-top: 30px;
+            text-align: center;
+            border: 2px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="28" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+        }
+        .result-card.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .result-label {
+            font-family: 'Cinzel', serif;
+            color: rgba(250, 247, 240, 0.8);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .result-amount {
+            font-family: 'Cinzel Decorative', serif;
+            color: #faf7f0;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        .result-range {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            color: rgba(250, 247, 240, 0.9);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .result-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        .breakdown-item {
+            text-align: center;
+        }
+        .breakdown-item span {
+            display: block;
+            color: rgba(250, 247, 240, 0.7);
+            font-size: 0.85rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .breakdown-item strong {
+            color: #faf7f0;
+            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+        }
+        .salary-insights {
+            background: #fffef9;
+            border-radius: 4px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        .salary-insights h4 {
+            font-family: 'Cinzel', serif;
+            color: #722f37;
+            margin-bottom: 20px;
+        }
+        .insight-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            font-family: 'Libre Baskerville', Georgia, serif;
+        }
+        .insight-row:last-child {
+            border-bottom: none;
+        }
+        .insight-row span:first-child {
+            color: #6b5a45;
+        }
+        .insight-row span:last-child {
+            color: #722f37;
+            font-weight: 600;
+        }
+        .disclaimer {
+            background: #f4eed8;
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #b8860b;
+        }
+        .disclaimer p {
+            font-family: 'Cormorant Garamond', serif;
+            color: #6b5a45;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .calculator-card {
+                padding: 25px;
+            }
+            .result-amount {
+                font-size: 2.5rem;
+            }
+            .result-breakdown {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="blog/">Blog</a></li>
+                <li><a href="resume-screener.html">Resume Screener</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Salary Calculator</span>
+            </div>
+            <h1 style="font-family: 'Cinzel Decorative', serif;">Salary <span class="gradient-text">Calculator</span></h1>
+            <p style="font-family: 'Libre Baskerville', Georgia, serif;">Know your worth in the Indian job market • Updated for 2026</p>
+        </div>
+    </div>
+
+    <main style="padding: 60px 0; background: linear-gradient(180deg, #faf7f0 0%, #f4eed8 100%);">
+        <div class="container">
+            
+            <!-- AdSense Ad Unit - Top -->
+            <div style="text-align: center; margin-bottom: 40px;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <form id="salaryForm">
+                        
+                        <!-- Basic Info -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-user"></i> Basic Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="experience">Years of Experience</label>
+                                    <select id="experience" required>
+                                        <option value="">Select experience</option>
+                                        <option value="0">Fresher (0 years)</option>
+                                        <option value="1">1 year</option>
+                                        <option value="2">2 years</option>
+                                        <option value="3">3 years</option>
+                                        <option value="4">4 years</option>
+                                        <option value="5">5+ years</option>
+                                        <option value="7">7+ years</option>
+                                        <option value="10">10+ years</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Job Role</label>
+                                    <select id="role" required>
+                                        <option value="">Select role</option>
+                                        <option value="sde">Software Developer/Engineer</option>
+                                        <option value="frontend">Frontend Developer</option>
+                                        <option value="backend">Backend Developer</option>
+                                        <option value="fullstack">Full Stack Developer</option>
+                                        <option value="data_analyst">Data Analyst</option>
+                                        <option value="data_scientist">Data Scientist</option>
+                                        <option value="devops">DevOps Engineer</option>
+                                        <option value="qa">QA/Test Engineer</option>
+                                        <option value="product">Product Manager</option>
+                                        <option value="ui_ux">UI/UX Designer</option>
+                                        <option value="ml_engineer">ML Engineer</option>
+                                        <option value="cloud">Cloud Engineer</option>
+                                        <option value="cyber">Cybersecurity Analyst</option>
+                                        <option value="business_analyst">Business Analyst</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location & Company -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-map-marker-alt"></i> Location & Company</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="location">City</label>
+                                    <select id="location" required>
+                                        <option value="">Select city</option>
+                                        <option value="bangalore">Bangalore</option>
+                                        <option value="hyderabad">Hyderabad</option>
+                                        <option value="mumbai">Mumbai</option>
+                                        <option value="pune">Pune</option>
+                                        <option value="delhi_ncr">Delhi NCR (Gurgaon/Noida)</option>
+                                        <option value="chennai">Chennai</option>
+                                        <option value="kolkata">Kolkata</option>
+                                        <option value="ahmedabad">Ahmedabad</option>
+                                        <option value="other">Other Cities</option>
+                                        <option value="remote">Remote/WFH</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="companyType">Company Type</label>
+                                    <select id="companyType" required>
+                                        <option value="">Select company type</option>
+                                        <option value="faang">FAANG (Google, Amazon, Meta, etc.)</option>
+                                        <option value="product">Product Companies</option>
+                                        <option value="unicorn">Indian Unicorns (Flipkart, Swiggy, etc.)</option>
+                                        <option value="mnc">MNCs (Microsoft, Oracle, etc.)</option>
+                                        <option value="service_tier1">IT Services Tier 1 (TCS, Infosys, Wipro)</option>
+                                        <option value="service_tier2">IT Services Tier 2</option>
+                                        <option value="startup_funded">Funded Startups</option>
+                                        <option value="startup_early">Early Stage Startups</option>
+                                        <option value="consulting">Consulting (Big 4)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-code"></i> Skills (Select all that apply)</h3>
+                            <div class="skills-grid">
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="python"> Python
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="javascript"> JavaScript
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="java"> Java
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="react"> React
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="node"> Node.js
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="aws"> AWS
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="docker"> Docker/K8s
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="sql"> SQL
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="ml"> Machine Learning
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="go"> Go/Golang
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="typescript"> TypeScript
+                                </label>
+                                <label class="skill-checkbox">
+                                    <input type="checkbox" name="skills" value="system_design"> System Design
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="degree">Highest Degree</label>
+                                    <select id="degree">
+                                        <option value="btech">B.Tech/B.E.</option>
+                                        <option value="mtech">M.Tech/M.E.</option>
+                                        <option value="mca">MCA</option>
+                                        <option value="bca">BCA</option>
+                                        <option value="bsc">B.Sc Computer Science</option>
+                                        <option value="mba">MBA</option>
+                                        <option value="phd">PhD</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="college">College Tier</label>
+                                    <select id="college">
+                                        <option value="tier1">IIT/NIT/BITS/IIIT</option>
+                                        <option value="tier2">Top State Universities</option>
+                                        <option value="tier3">Other Universities</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="calculate-btn">
+                            <i class="fas fa-calculator"></i> Calculate My Salary
+                        </button>
+                    </form>
+
+                    <!-- Result Card -->
+                    <div class="result-card" id="resultCard">
+                        <div class="result-label">YOUR ESTIMATED ANNUAL SALARY</div>
+                        <div class="result-amount" id="salaryAmount">₹12,00,000</div>
+                        <div class="result-range" id="salaryRange">Range: ₹10,00,000 - ₹15,00,000 per annum</div>
+                        
+                        <div class="result-breakdown">
+                            <div class="breakdown-item">
+                                <span>Monthly (Gross)</span>
+                                <strong id="monthly">₹1,00,000</strong>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Monthly (In-hand)</span>
+                                <strong id="inHand">₹75,000</strong>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Market Percentile</span>
+                                <strong id="percentile">65th</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Salary Insights -->
+                    <div class="salary-insights" id="insights" style="display: none;">
+                        <h4><i class="fas fa-chart-line" style="color: #b8860b; margin-right: 10px;"></i> Salary Insights</h4>
+                        <div class="insight-row">
+                            <span>Industry Average for this role</span>
+                            <span id="industryAvg">₹10,00,000</span>
+                        </div>
+                        <div class="insight-row">
+                            <span>Top 10% earn above</span>
+                            <span id="top10">₹18,00,000</span>
+                        </div>
+                        <div class="insight-row">
+                            <span>Expected raise in 1 year</span>
+                            <span id="raise">15-25%</span>
+                        </div>
+                        <div class="insight-row">
+                            <span>Skill with highest impact</span>
+                            <span id="topSkill">System Design</span>
+                        </div>
+                    </div>
+
+                    <div class="disclaimer">
+                        <p><i class="fas fa-info-circle" style="color: #b8860b; margin-right: 8px;"></i> <strong>Disclaimer:</strong> This calculator provides estimates based on market data and may vary based on individual negotiations, company policies, and market conditions. Actual salaries may differ.</p>
+                    </div>
+                </div>
+
+                <!-- AdSense Ad Unit - After Calculator -->
+                <div style="text-align: center; margin: 40px 0;">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6055589762174170"
+                         data-ad-slot="auto"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+                <!-- Related Resources -->
+                <div style="margin-top: 50px;">
+                    <h3 style="font-family: 'Cinzel', serif; color: #722f37; text-align: center; margin-bottom: 30px;">📚 Related Resources</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                        <a href="compare/google-vs-microsoft-vs-amazon.html" style="background: #fffef9; padding: 25px; border-radius: 4px; border: 1px solid rgba(184,134,11,0.2); text-decoration: none; transition: all 0.3s ease;">
+                            <h4 style="font-family: 'Cinzel', serif; color: #722f37; margin-bottom: 10px;">Google vs Microsoft vs Amazon</h4>
+                            <p style="font-family: 'Libre Baskerville', serif; color: #6b5a45; font-size: 0.9rem;">Detailed salary comparison at FAANG companies</p>
+                        </a>
+                        <a href="compare/tcs-vs-infosys-vs-wipro.html" style="background: #fffef9; padding: 25px; border-radius: 4px; border: 1px solid rgba(184,134,11,0.2); text-decoration: none; transition: all 0.3s ease;">
+                            <h4 style="font-family: 'Cinzel', serif; color: #722f37; margin-bottom: 10px;">TCS vs Infosys vs Wipro</h4>
+                            <p style="font-family: 'Libre Baskerville', serif; color: #6b5a45; font-size: 0.9rem;">IT Services salary & growth comparison</p>
+                        </a>
+                        <a href="interview-questions.html" style="background: #fffef9; padding: 25px; border-radius: 4px; border: 1px solid rgba(184,134,11,0.2); text-decoration: none; transition: all 0.3s ease;">
+                            <h4 style="font-family: 'Cinzel', serif; color: #722f37; margin-bottom: 10px;">Salary Negotiation Tips</h4>
+                            <p style="font-family: 'Libre Baskerville', serif; color: #6b5a45; font-size: 0.9rem;">How to negotiate your offer effectively</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"></span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>A free platform helping freshers and job seekers find jobs. Built with ❤ by NaukriForSure.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="blog/">Blog</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
+                        <li><a href="interview-questions.html">Interview Questions</a></li>
+                        <li><a href="resume-screener.html">Resume Screener</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    
+    <script>
+        // Salary Calculator Logic
+        const salaryData = {
+            baseByRole: {
+                sde: 600000, frontend: 550000, backend: 580000, fullstack: 620000,
+                data_analyst: 500000, data_scientist: 800000, devops: 700000,
+                qa: 450000, product: 900000, ui_ux: 500000, ml_engineer: 900000,
+                cloud: 750000, cyber: 650000, business_analyst: 550000
+            },
+            experienceMultiplier: {
+                0: 1, 1: 1.3, 2: 1.6, 3: 2, 4: 2.4, 5: 2.9, 7: 3.5, 10: 4.5
+            },
+            locationMultiplier: {
+                bangalore: 1.15, hyderabad: 1.05, mumbai: 1.1, pune: 1,
+                delhi_ncr: 1.08, chennai: 0.98, kolkata: 0.9, ahmedabad: 0.88,
+                other: 0.85, remote: 1.05
+            },
+            companyMultiplier: {
+                faang: 2.5, product: 1.8, unicorn: 1.6, mnc: 1.4,
+                service_tier1: 1, service_tier2: 0.85, startup_funded: 1.5,
+                startup_early: 1.1, consulting: 1.7
+            },
+            skillBonus: {
+                python: 50000, javascript: 40000, java: 45000, react: 50000,
+                node: 45000, aws: 80000, docker: 60000, sql: 30000,
+                ml: 100000, go: 70000, typescript: 40000, system_design: 120000
+            },
+            collegeBonus: { tier1: 200000, tier2: 50000, tier3: 0 },
+            degreeBonus: { btech: 0, mtech: 100000, mca: 0, bca: -50000, bsc: -30000, mba: 150000, phd: 200000, other: 0 }
+        };
+
+        // Skill checkbox styling
+        document.querySelectorAll('.skill-checkbox input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                this.parentElement.classList.toggle('selected', this.checked);
+            });
+        });
+
+        document.getElementById('salaryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const experience = document.getElementById('experience').value;
+            const role = document.getElementById('role').value;
+            const location = document.getElementById('location').value;
+            const companyType = document.getElementById('companyType').value;
+            const degree = document.getElementById('degree').value;
+            const college = document.getElementById('college').value;
+            
+            const selectedSkills = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value);
+            
+            // Calculate base salary
+            let baseSalary = salaryData.baseByRole[role] || 500000;
+            
+            // Apply multipliers
+            baseSalary *= salaryData.experienceMultiplier[experience] || 1;
+            baseSalary *= salaryData.locationMultiplier[location] || 1;
+            baseSalary *= salaryData.companyMultiplier[companyType] || 1;
+            
+            // Add bonuses
+            baseSalary += salaryData.collegeBonus[college] || 0;
+            baseSalary += salaryData.degreeBonus[degree] || 0;
+            
+            // Add skill bonuses (max 3 skills count)
+            let skillBonus = 0;
+            selectedSkills.slice(0, 3).forEach(skill => {
+                skillBonus += salaryData.skillBonus[skill] || 0;
+            });
+            baseSalary += skillBonus;
+            
+            // Calculate range
+            const minSalary = Math.round(baseSalary * 0.85);
+            const maxSalary = Math.round(baseSalary * 1.2);
+            const avgSalary = Math.round(baseSalary);
+            
+            // Update UI
+            document.getElementById('salaryAmount').textContent = '₹' + avgSalary.toLocaleString('en-IN');
+            document.getElementById('salaryRange').textContent = `Range: ₹${minSalary.toLocaleString('en-IN')} - ₹${maxSalary.toLocaleString('en-IN')} per annum`;
+            document.getElementById('monthly').textContent = '₹' + Math.round(avgSalary / 12).toLocaleString('en-IN');
+            document.getElementById('inHand').textContent = '₹' + Math.round((avgSalary / 12) * 0.72).toLocaleString('en-IN');
+            
+            // Percentile (simplified)
+            const percentile = Math.min(95, Math.round(50 + (avgSalary / 100000)));
+            document.getElementById('percentile').textContent = percentile + 'th';
+            
+            // Insights
+            document.getElementById('industryAvg').textContent = '₹' + Math.round(salaryData.baseByRole[role] * salaryData.experienceMultiplier[experience]).toLocaleString('en-IN');
+            document.getElementById('top10').textContent = '₹' + Math.round(maxSalary * 1.5).toLocaleString('en-IN');
+            document.getElementById('raise').textContent = experience < 3 ? '20-35%' : '15-25%';
+            document.getElementById('topSkill').textContent = selectedSkills.length > 0 ? selectedSkills[0].toUpperCase() : 'Add more skills';
+            
+            // Show results
+            document.getElementById('resultCard').classList.add('show');
+            document.getElementById('insights').style.display = 'block';
+            
+            // Scroll to result
+            document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+</html>

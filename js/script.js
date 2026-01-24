@@ -1,4 +1,4 @@
-﻿// Script.js - Redirect to main.js functionality for backwards compatibility
+// Script.js - Redirect to main.js functionality for backwards compatibility
 // This file exists for older job page templates that reference script.js
 
 // ==================== SAVED JOBS FEATURE ====================

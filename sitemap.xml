@@ -44,6 +44,42 @@
         <priority>0.9</priority>
     </url>
     
+    <!-- Blog Section -->
+    <url>
+        <loc>https://naukriforsure.vercel.app/blog/</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Tools & Resources -->
+    <url>
+        <loc>https://naukriforsure.vercel.app/salary-calculator.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/interview-questions.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Company Comparisons -->
+    <url>
+        <loc>https://naukriforsure.vercel.app/compare/tcs-vs-infosys-vs-wipro.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/compare/google-vs-microsoft-vs-amazon.html</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
     <!-- Job Pages -->
     <url><loc>https://naukriforsure.vercel.app/job/devops-intern-streamline-001.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
     <url><loc>https://naukriforsure.vercel.app/job/cyber-security-analyst-cloudsek-002.html</loc><lastmod>2026-01-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>

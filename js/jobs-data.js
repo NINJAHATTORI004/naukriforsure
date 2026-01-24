@@ -1,4 +1,4 @@
-﻿// Jobs Data - Each job has a unique ID for URL routing
+// Jobs Data - Each job has a unique ID for URL routing
 const jobsData = [
     {
         id: "devops-intern-streamline-001",
@@ -1102,7 +1102,7 @@ const jobsData = [
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Python", "AI/ML", "NumPy", "Pandas", "Scikit-learn", "TensorFlow", "NLP"],
-        description: `<h3>About the Role</h3><p>Evnek Technologies Pvt Ltd is looking for a passionate and motivated AI Intern to join their team. This internship offers hands-on experience in Artificial Intelligence and Machine Learning, providing exposure to real-world projects and industry practices.</p><h3>Key Responsibilities</h3><ul><li>Assist in developing and testing AI/ML models</li><li>Work with data collection, cleaning, and preprocessing</li><li>Support implementation of algorithms related to machine learning, NLP, or computer vision</li><li>Collaborate with the development team on AI-driven solutions</li></ul><h3>Job Details</h3><ul><li>Job Role: Generative AI Intern</li><li>Experience: 0-1 Year</li><li>Location: Remote � Bangalore</li><li>Industry: IT Services</li></ul>`,
+        description: `<h3>About the Role</h3><p>Evnek Technologies Pvt Ltd is looking for a passionate and motivated AI Intern to join their team. This internship offers hands-on experience in Artificial Intelligence and Machine Learning, providing exposure to real-world projects and industry practices.</p><h3>Key Responsibilities</h3><ul><li>Assist in developing and testing AI/ML models</li><li>Work with data collection, cleaning, and preprocessing</li><li>Support implementation of algorithms related to machine learning, NLP, or computer vision</li><li>Collaborate with the development team on AI-driven solutions</li></ul><h3>Job Details</h3><ul><li>Job Role: Generative AI Intern</li><li>Experience: 0-1 Year</li><li>Location: Remote ? Bangalore</li><li>Industry: IT Services</li></ul>`,
         applyLink: "https://career.evnek.com/jobs/Careers/126220000015723175/Generative-AI-Intern?source=CareerSite"
     },
     {

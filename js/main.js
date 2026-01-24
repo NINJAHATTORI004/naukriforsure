@@ -1,4 +1,4 @@
-﻿// Main JavaScript file for NaukriForSure
+// Main JavaScript file for NaukriForSure
 // Premium UI/UX Interactions v2.0
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -50,7 +50,7 @@ function initDarkMode() {
             document.body.classList.remove('theme-transitioning');
         }, 300);
         
-        showToast(`${newTheme === 'dark' ? '🌙 Dark' : '☀️ Light'} mode activated`, 'success');
+        showToast(`${newTheme === 'dark' ? '?? Dark' : '?? Light'} mode activated`, 'success');
     });
     
     // Listen for system theme changes
