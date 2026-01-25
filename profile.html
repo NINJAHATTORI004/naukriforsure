@@ -1974,143 +1974,163 @@
         function downloadProfile() {
             saveProfile(); // Save first
             
+            // Debug: log profile data
+            console.log('Profile Data for PDF:', profileData);
+            
             // Generate resume HTML
             const resumeHTML = generateResumeHTML();
+            console.log('Generated HTML:', resumeHTML);
             
-            // Create a hidden container for the resume
+            // Create a container for the resume
             const container = document.createElement('div');
+            container.id = 'resume-pdf-container';
             container.innerHTML = resumeHTML;
-            container.style.position = 'absolute';
-            container.style.left = '-9999px';
-            container.style.top = '0';
+            container.style.cssText = 'position: fixed; left: 0; top: 0; width: 210mm; background: white; z-index: -1; opacity: 0;';
             document.body.appendChild(container);
             
-            // PDF options
-            const opt = {
-                margin: [10, 10, 10, 10],
-                filename: `${profileData.personal.fullName || 'resume'}_resume.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            
-            // Generate PDF
-            html2pdf().set(opt).from(container).save().then(() => {
-                document.body.removeChild(container);
-                showToast('Resume downloaded as PDF!', 'success');
-            }).catch(err => {
-                console.error('PDF generation error:', err);
-                document.body.removeChild(container);
-                showToast('Error generating PDF', 'error');
-            });
+            // Wait for DOM to render
+            setTimeout(() => {
+                // PDF options
+                const opt = {
+                    margin: [10, 15, 10, 15],
+                    filename: `${(profileData.personal.fullName || 'resume').replace(/\s+/g, '_')}_resume.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { 
+                        scale: 2, 
+                        useCORS: true, 
+                        letterRendering: true,
+                        logging: true,
+                        width: 794,
+                        windowWidth: 794
+                    },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+                
+                // Generate PDF
+                html2pdf().set(opt).from(container).save().then(() => {
+                    document.body.removeChild(container);
+                    showToast('Resume downloaded as PDF!', 'success');
+                }).catch(err => {
+                    console.error('PDF generation error:', err);
+                    document.body.removeChild(container);
+                    showToast('Error generating PDF', 'error');
+                });
+            }, 100);
         }
         
         // Generate Resume HTML for PDF
         function generateResumeHTML() {
-            const p = profileData.personal;
-            const pr = profileData.professional;
+            const p = profileData.personal || {};
+            const pr = profileData.professional || {};
+            const skills = profileData.skills || [];
+            const workExp = profileData.workExperience || [];
+            const education = profileData.education || [];
+            const projects = profileData.projects || [];
+            const certs = profileData.certifications || [];
+            const langs = profileData.languages || [];
             
             return `
-            <div style="font-family: 'Georgia', 'Times New Roman', serif; max-width: 800px; padding: 40px; background: white; color: #333; line-height: 1.5;">
+            <div style="font-family: Georgia, 'Times New Roman', Times, serif; width: 100%; padding: 30px 40px; background: white; color: #333; line-height: 1.6; box-sizing: border-box;">
                 <!-- Header -->
-                <div style="border-bottom: 3px solid #722f37; padding-bottom: 20px; margin-bottom: 25px;">
-                    <h1 style="font-size: 28px; color: #722f37; margin: 0 0 5px 0; font-weight: 700;">${p.fullName || 'Your Name'}</h1>
-                    <p style="font-size: 16px; color: #b8860b; margin: 0 0 10px 0; font-weight: 600;">${pr.currentTitle || 'Professional Title'}</p>
-                    <div style="font-size: 12px; color: #666;">
-                        ${p.email ? `<span>✉ ${p.email}</span>` : ''}
-                        ${p.phone ? `<span style="margin-left: 15px;">📞 ${p.phone}</span>` : ''}
-                        ${p.location ? `<span style="margin-left: 15px;">📍 ${p.location}</span>` : ''}
+                <div style="border-bottom: 3px solid #722f37; padding-bottom: 15px; margin-bottom: 20px;">
+                    <h1 style="font-size: 26px; color: #722f37; margin: 0 0 5px 0; font-weight: bold;">${p.fullName || 'Your Name'}</h1>
+                    ${pr.currentTitle ? `<p style="font-size: 14px; color: #b8860b; margin: 0 0 8px 0; font-weight: bold;">${pr.currentTitle}</p>` : ''}
+                    <div style="font-size: 11px; color: #555;">
+                        ${p.email ? `✉ ${p.email}` : ''}
+                        ${p.phone ? ` &nbsp;|&nbsp; 📞 ${p.phone}` : ''}
+                        ${p.location ? ` &nbsp;|&nbsp; 📍 ${p.location}` : ''}
                     </div>
-                    <div style="font-size: 11px; color: #666; margin-top: 5px;">
-                        ${p.linkedin ? `<span>LinkedIn: ${p.linkedin}</span>` : ''}
-                        ${p.github ? `<span style="margin-left: 15px;">GitHub: ${p.github}</span>` : ''}
-                        ${p.portfolio ? `<span style="margin-left: 15px;">Portfolio: ${p.portfolio}</span>` : ''}
+                    ${(p.linkedin || p.github || p.portfolio) ? `
+                    <div style="font-size: 10px; color: #666; margin-top: 5px;">
+                        ${p.linkedin ? `LinkedIn: ${p.linkedin}` : ''}
+                        ${p.github ? ` &nbsp;|&nbsp; GitHub: ${p.github}` : ''}
+                        ${p.portfolio ? ` &nbsp;|&nbsp; Portfolio: ${p.portfolio}` : ''}
                     </div>
+                    ` : ''}
                 </div>
                 
                 <!-- Professional Summary -->
                 ${pr.summary ? `
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Professional Summary</h2>
-                    <p style="font-size: 12px; text-align: justify;">${pr.summary}</p>
+                <div style="margin-bottom: 18px;">
+                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Professional Summary</h2>
+                    <p style="font-size: 11px; margin: 0; text-align: justify;">${pr.summary}</p>
                 </div>
                 ` : ''}
                 
                 <!-- Skills -->
-                ${profileData.skills.length > 0 ? `
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Technical Skills</h2>
-                    <p style="font-size: 12px;">${profileData.skills.join(' • ')}</p>
+                ${skills.length > 0 ? `
+                <div style="margin-bottom: 18px;">
+                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Technical Skills</h2>
+                    <p style="font-size: 11px; margin: 0;">${skills.join(' • ')}</p>
                 </div>
                 ` : ''}
                 
                 <!-- Work Experience -->
-                ${profileData.workExperience.length > 0 ? `
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Work Experience</h2>
-                    ${profileData.workExperience.map(exp => `
-                        <div style="margin-bottom: 15px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <h3 style="font-size: 13px; color: #333; margin: 0; font-weight: 700;">${exp.title}</h3>
-                                <span style="font-size: 11px; color: #666;">${formatDate(exp.startDate)} - ${formatDate(exp.endDate) || 'Present'}</span>
+                ${workExp.length > 0 ? `
+                <div style="margin-bottom: 18px;">
+                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Work Experience</h2>
+                    ${workExp.map(exp => `
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong style="font-size: 12px; color: #333;">${exp.title || 'Position'}</strong>
+                                <span style="font-size: 10px; color: #666;">${exp.startDate || ''} - ${exp.endDate || 'Present'}</span>
                             </div>
-                            <p style="font-size: 12px; color: #b8860b; margin: 2px 0; font-weight: 600;">${exp.company}${exp.location ? ` | ${exp.location}` : ''}</p>
-                            ${exp.description ? `<p style="font-size: 11px; margin-top: 5px; color: #555;">${exp.description}</p>` : ''}
+                            <p style="font-size: 11px; color: #b8860b; margin: 2px 0; font-weight: bold;">${exp.company || ''}${exp.location ? ' | ' + exp.location : ''}</p>
+                            ${exp.description ? `<p style="font-size: 10px; margin: 4px 0 0 0; color: #555;">${exp.description}</p>` : ''}
                         </div>
                     `).join('')}
                 </div>
                 ` : ''}
                 
                 <!-- Education -->
-                ${profileData.education.length > 0 ? `
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Education</h2>
-                    ${profileData.education.map(edu => `
-                        <div style="margin-bottom: 12px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <h3 style="font-size: 13px; color: #333; margin: 0; font-weight: 700;">${edu.degree}</h3>
-                                <span style="font-size: 11px; color: #666;">${edu.year}</span>
+                ${education.length > 0 ? `
+                <div style="margin-bottom: 18px;">
+                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Education</h2>
+                    ${education.map(edu => `
+                        <div style="margin-bottom: 10px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <strong style="font-size: 12px; color: #333;">${edu.degree || 'Degree'}</strong>
+                                <span style="font-size: 10px; color: #666;">${edu.year || ''}</span>
                             </div>
-                            <p style="font-size: 12px; color: #b8860b; margin: 2px 0;">${edu.institution}</p>
-                            ${edu.grade ? `<p style="font-size: 11px; color: #666;">Grade/CGPA: ${edu.grade}</p>` : ''}
+                            <p style="font-size: 11px; color: #b8860b; margin: 2px 0;">${edu.institution || ''}</p>
+                            ${edu.grade ? `<p style="font-size: 10px; color: #666; margin: 0;">Grade/CGPA: ${edu.grade}</p>` : ''}
                         </div>
                     `).join('')}
                 </div>
                 ` : ''}
                 
                 <!-- Projects -->
-                ${profileData.projects.length > 0 ? `
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Projects</h2>
-                    ${profileData.projects.map(proj => `
-                        <div style="margin-bottom: 12px;">
-                            <h3 style="font-size: 13px; color: #333; margin: 0; font-weight: 700;">${proj.name}</h3>
-                            ${proj.technologies ? `<p style="font-size: 10px; color: #b8860b; margin: 2px 0;">Technologies: ${proj.technologies}</p>` : ''}
-                            ${proj.description ? `<p style="font-size: 11px; margin-top: 3px; color: #555;">${proj.description}</p>` : ''}
-                            ${proj.link ? `<p style="font-size: 10px; color: #666;">🔗 ${proj.link}</p>` : ''}
+                ${projects.length > 0 ? `
+                <div style="margin-bottom: 18px;">
+                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Projects</h2>
+                    ${projects.map(proj => `
+                        <div style="margin-bottom: 10px;">
+                            <strong style="font-size: 12px; color: #333;">${proj.name || 'Project'}</strong>
+                            ${proj.technologies ? `<span style="font-size: 10px; color: #b8860b;"> (${proj.technologies})</span>` : ''}
+                            ${proj.description ? `<p style="font-size: 10px; margin: 3px 0 0 0; color: #555;">${proj.description}</p>` : ''}
+                            ${proj.link ? `<p style="font-size: 9px; color: #666; margin: 2px 0 0 0;">🔗 ${proj.link}</p>` : ''}
                         </div>
                     `).join('')}
                 </div>
                 ` : ''}
                 
                 <!-- Certifications -->
-                ${profileData.certifications.length > 0 ? `
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Certifications</h2>
-                    ${profileData.certifications.map(cert => `
-                        <div style="margin-bottom: 8px;">
-                            <span style="font-size: 12px; font-weight: 600;">${cert.name}</span>
-                            <span style="font-size: 11px; color: #666;"> - ${cert.issuer} (${cert.year})</span>
-                        </div>
+                ${certs.length > 0 ? `
+                <div style="margin-bottom: 18px;">
+                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Certifications</h2>
+                    ${certs.map(cert => `
+                        <p style="font-size: 11px; margin: 0 0 5px 0;">
+                            <strong>${cert.name || 'Certification'}</strong> - ${cert.issuer || ''} ${cert.year ? '(' + cert.year + ')' : ''}
+                        </p>
                     `).join('')}
                 </div>
                 ` : ''}
                 
                 <!-- Languages -->
-                ${profileData.languages && profileData.languages.length > 0 ? `
-                <div style="margin-bottom: 20px;">
-                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Languages</h2>
-                    <p style="font-size: 12px;">${profileData.languages.join(' • ')}</p>
+                ${langs.length > 0 ? `
+                <div style="margin-bottom: 15px;">
+                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Languages</h2>
+                    <p style="font-size: 11px; margin: 0;">${langs.join(' • ')}</p>
                 </div>
                 ` : ''}
             </div>
