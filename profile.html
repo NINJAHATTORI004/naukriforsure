@@ -12,8 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <!-- Mammoth.js for DOCX parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-    <!-- html2pdf.js for PDF generation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
     <style>
         :root {
@@ -1970,56 +1970,13 @@
             }
         }
 
-        // Download Profile as PDF Resume
+        // Download Profile as PDF Resume using jsPDF
         function downloadProfile() {
             saveProfile(); // Save first
             
-            // Debug: log profile data
-            console.log('Profile Data for PDF:', profileData);
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', 'a4');
             
-            // Generate resume HTML
-            const resumeHTML = generateResumeHTML();
-            console.log('Generated HTML:', resumeHTML);
-            
-            // Create a container for the resume
-            const container = document.createElement('div');
-            container.id = 'resume-pdf-container';
-            container.innerHTML = resumeHTML;
-            container.style.cssText = 'position: fixed; left: 0; top: 0; width: 210mm; background: white; z-index: -1; opacity: 0;';
-            document.body.appendChild(container);
-            
-            // Wait for DOM to render
-            setTimeout(() => {
-                // PDF options
-                const opt = {
-                    margin: [10, 15, 10, 15],
-                    filename: `${(profileData.personal.fullName || 'resume').replace(/\s+/g, '_')}_resume.pdf`,
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { 
-                        scale: 2, 
-                        useCORS: true, 
-                        letterRendering: true,
-                        logging: true,
-                        width: 794,
-                        windowWidth: 794
-                    },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                };
-                
-                // Generate PDF
-                html2pdf().set(opt).from(container).save().then(() => {
-                    document.body.removeChild(container);
-                    showToast('Resume downloaded as PDF!', 'success');
-                }).catch(err => {
-                    console.error('PDF generation error:', err);
-                    document.body.removeChild(container);
-                    showToast('Error generating PDF', 'error');
-                });
-            }, 100);
-        }
-        
-        // Generate Resume HTML for PDF
-        function generateResumeHTML() {
             const p = profileData.personal || {};
             const pr = profileData.professional || {};
             const skills = profileData.skills || [];
@@ -2029,112 +1986,255 @@
             const certs = profileData.certifications || [];
             const langs = profileData.languages || [];
             
-            return `
-            <div style="font-family: Georgia, 'Times New Roman', Times, serif; width: 100%; padding: 30px 40px; background: white; color: #333; line-height: 1.6; box-sizing: border-box;">
-                <!-- Header -->
-                <div style="border-bottom: 3px solid #722f37; padding-bottom: 15px; margin-bottom: 20px;">
-                    <h1 style="font-size: 26px; color: #722f37; margin: 0 0 5px 0; font-weight: bold;">${p.fullName || 'Your Name'}</h1>
-                    ${pr.currentTitle ? `<p style="font-size: 14px; color: #b8860b; margin: 0 0 8px 0; font-weight: bold;">${pr.currentTitle}</p>` : ''}
-                    <div style="font-size: 11px; color: #555;">
-                        ${p.email ? `✉ ${p.email}` : ''}
-                        ${p.phone ? ` &nbsp;|&nbsp; 📞 ${p.phone}` : ''}
-                        ${p.location ? ` &nbsp;|&nbsp; 📍 ${p.location}` : ''}
-                    </div>
-                    ${(p.linkedin || p.github || p.portfolio) ? `
-                    <div style="font-size: 10px; color: #666; margin-top: 5px;">
-                        ${p.linkedin ? `LinkedIn: ${p.linkedin}` : ''}
-                        ${p.github ? ` &nbsp;|&nbsp; GitHub: ${p.github}` : ''}
-                        ${p.portfolio ? ` &nbsp;|&nbsp; Portfolio: ${p.portfolio}` : ''}
-                    </div>
-                    ` : ''}
-                </div>
-                
-                <!-- Professional Summary -->
-                ${pr.summary ? `
-                <div style="margin-bottom: 18px;">
-                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Professional Summary</h2>
-                    <p style="font-size: 11px; margin: 0; text-align: justify;">${pr.summary}</p>
-                </div>
-                ` : ''}
-                
-                <!-- Skills -->
-                ${skills.length > 0 ? `
-                <div style="margin-bottom: 18px;">
-                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Technical Skills</h2>
-                    <p style="font-size: 11px; margin: 0;">${skills.join(' • ')}</p>
-                </div>
-                ` : ''}
-                
-                <!-- Work Experience -->
-                ${workExp.length > 0 ? `
-                <div style="margin-bottom: 18px;">
-                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Work Experience</h2>
-                    ${workExp.map(exp => `
-                        <div style="margin-bottom: 12px;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <strong style="font-size: 12px; color: #333;">${exp.title || 'Position'}</strong>
-                                <span style="font-size: 10px; color: #666;">${exp.startDate || ''} - ${exp.endDate || 'Present'}</span>
-                            </div>
-                            <p style="font-size: 11px; color: #b8860b; margin: 2px 0; font-weight: bold;">${exp.company || ''}${exp.location ? ' | ' + exp.location : ''}</p>
-                            ${exp.description ? `<p style="font-size: 10px; margin: 4px 0 0 0; color: #555;">${exp.description}</p>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-                ` : ''}
-                
-                <!-- Education -->
-                ${education.length > 0 ? `
-                <div style="margin-bottom: 18px;">
-                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Education</h2>
-                    ${education.map(edu => `
-                        <div style="margin-bottom: 10px;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <strong style="font-size: 12px; color: #333;">${edu.degree || 'Degree'}</strong>
-                                <span style="font-size: 10px; color: #666;">${edu.year || ''}</span>
-                            </div>
-                            <p style="font-size: 11px; color: #b8860b; margin: 2px 0;">${edu.institution || ''}</p>
-                            ${edu.grade ? `<p style="font-size: 10px; color: #666; margin: 0;">Grade/CGPA: ${edu.grade}</p>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-                ` : ''}
-                
-                <!-- Projects -->
-                ${projects.length > 0 ? `
-                <div style="margin-bottom: 18px;">
-                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Projects</h2>
-                    ${projects.map(proj => `
-                        <div style="margin-bottom: 10px;">
-                            <strong style="font-size: 12px; color: #333;">${proj.name || 'Project'}</strong>
-                            ${proj.technologies ? `<span style="font-size: 10px; color: #b8860b;"> (${proj.technologies})</span>` : ''}
-                            ${proj.description ? `<p style="font-size: 10px; margin: 3px 0 0 0; color: #555;">${proj.description}</p>` : ''}
-                            ${proj.link ? `<p style="font-size: 9px; color: #666; margin: 2px 0 0 0;">🔗 ${proj.link}</p>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-                ` : ''}
-                
-                <!-- Certifications -->
-                ${certs.length > 0 ? `
-                <div style="margin-bottom: 18px;">
-                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Certifications</h2>
-                    ${certs.map(cert => `
-                        <p style="font-size: 11px; margin: 0 0 5px 0;">
-                            <strong>${cert.name || 'Certification'}</strong> - ${cert.issuer || ''} ${cert.year ? '(' + cert.year + ')' : ''}
-                        </p>
-                    `).join('')}
-                </div>
-                ` : ''}
-                
-                <!-- Languages -->
-                ${langs.length > 0 ? `
-                <div style="margin-bottom: 15px;">
-                    <h2 style="font-size: 13px; color: #722f37; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;">Languages</h2>
-                    <p style="font-size: 11px; margin: 0;">${langs.join(' • ')}</p>
-                </div>
-                ` : ''}
-            </div>
-            `;
+            let y = 20; // Starting Y position
+            const leftMargin = 20;
+            const rightMargin = 190;
+            const pageHeight = 280;
+            
+            // Colors
+            const burgundy = [114, 47, 55];
+            const gold = [184, 134, 11];
+            const darkGray = [51, 51, 51];
+            const gray = [102, 102, 102];
+            
+            // Helper function to check page break
+            function checkPageBreak(needed) {
+                if (y + needed > pageHeight) {
+                    doc.addPage();
+                    y = 20;
+                }
+            }
+            
+            // Helper function to add section header
+            function addSectionHeader(title) {
+                checkPageBreak(15);
+                doc.setFontSize(11);
+                doc.setTextColor(...burgundy);
+                doc.setFont('helvetica', 'bold');
+                doc.text(title.toUpperCase(), leftMargin, y);
+                y += 1;
+                doc.setDrawColor(...burgundy);
+                doc.setLineWidth(0.3);
+                doc.line(leftMargin, y, rightMargin, y);
+                y += 6;
+            }
+            
+            // === HEADER ===
+            doc.setFontSize(22);
+            doc.setTextColor(...burgundy);
+            doc.setFont('helvetica', 'bold');
+            doc.text(p.fullName || 'Your Name', leftMargin, y);
+            y += 8;
+            
+            if (pr.currentTitle) {
+                doc.setFontSize(12);
+                doc.setTextColor(...gold);
+                doc.setFont('helvetica', 'bold');
+                doc.text(pr.currentTitle, leftMargin, y);
+                y += 6;
+            }
+            
+            // Contact info
+            doc.setFontSize(9);
+            doc.setTextColor(...gray);
+            doc.setFont('helvetica', 'normal');
+            let contactLine = [];
+            if (p.email) contactLine.push(p.email);
+            if (p.phone) contactLine.push(p.phone);
+            if (p.location) contactLine.push(p.location);
+            if (contactLine.length > 0) {
+                doc.text(contactLine.join('  |  '), leftMargin, y);
+                y += 5;
+            }
+            
+            // Links
+            let linksLine = [];
+            if (p.linkedin) linksLine.push('LinkedIn: ' + p.linkedin);
+            if (p.github) linksLine.push('GitHub: ' + p.github);
+            if (p.portfolio) linksLine.push('Portfolio: ' + p.portfolio);
+            if (linksLine.length > 0) {
+                doc.setFontSize(8);
+                doc.text(linksLine.join('  |  '), leftMargin, y);
+                y += 5;
+            }
+            
+            // Header line
+            doc.setDrawColor(...burgundy);
+            doc.setLineWidth(0.8);
+            doc.line(leftMargin, y, rightMargin, y);
+            y += 10;
+            
+            // === PROFESSIONAL SUMMARY ===
+            if (pr.summary) {
+                addSectionHeader('Professional Summary');
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont('helvetica', 'normal');
+                const summaryLines = doc.splitTextToSize(pr.summary, rightMargin - leftMargin);
+                checkPageBreak(summaryLines.length * 4 + 5);
+                doc.text(summaryLines, leftMargin, y);
+                y += summaryLines.length * 4 + 8;
+            }
+            
+            // === SKILLS ===
+            if (skills.length > 0) {
+                addSectionHeader('Technical Skills');
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont('helvetica', 'normal');
+                const skillsText = skills.join('  •  ');
+                const skillsLines = doc.splitTextToSize(skillsText, rightMargin - leftMargin);
+                checkPageBreak(skillsLines.length * 4 + 5);
+                doc.text(skillsLines, leftMargin, y);
+                y += skillsLines.length * 4 + 8;
+            }
+            
+            // === WORK EXPERIENCE ===
+            if (workExp.length > 0) {
+                addSectionHeader('Work Experience');
+                workExp.forEach(exp => {
+                    checkPageBreak(20);
+                    
+                    // Title and dates on same line
+                    doc.setFontSize(10);
+                    doc.setTextColor(...darkGray);
+                    doc.setFont('helvetica', 'bold');
+                    doc.text(exp.title || 'Position', leftMargin, y);
+                    
+                    doc.setFontSize(8);
+                    doc.setTextColor(...gray);
+                    doc.setFont('helvetica', 'normal');
+                    const dateText = (exp.startDate || '') + ' - ' + (exp.endDate || 'Present');
+                    doc.text(dateText, rightMargin, y, { align: 'right' });
+                    y += 5;
+                    
+                    // Company
+                    doc.setFontSize(9);
+                    doc.setTextColor(...gold);
+                    doc.setFont('helvetica', 'bold');
+                    const companyText = (exp.company || '') + (exp.location ? ' | ' + exp.location : '');
+                    doc.text(companyText, leftMargin, y);
+                    y += 5;
+                    
+                    // Description
+                    if (exp.description) {
+                        doc.setFontSize(8);
+                        doc.setTextColor(...gray);
+                        doc.setFont('helvetica', 'normal');
+                        const descLines = doc.splitTextToSize(exp.description, rightMargin - leftMargin);
+                        checkPageBreak(descLines.length * 3.5);
+                        doc.text(descLines, leftMargin, y);
+                        y += descLines.length * 3.5;
+                    }
+                    y += 5;
+                });
+                y += 3;
+            }
+            
+            // === EDUCATION ===
+            if (education.length > 0) {
+                addSectionHeader('Education');
+                education.forEach(edu => {
+                    checkPageBreak(15);
+                    
+                    doc.setFontSize(10);
+                    doc.setTextColor(...darkGray);
+                    doc.setFont('helvetica', 'bold');
+                    doc.text(edu.degree || 'Degree', leftMargin, y);
+                    
+                    doc.setFontSize(8);
+                    doc.setTextColor(...gray);
+                    doc.setFont('helvetica', 'normal');
+                    doc.text(edu.year || '', rightMargin, y, { align: 'right' });
+                    y += 5;
+                    
+                    doc.setFontSize(9);
+                    doc.setTextColor(...gold);
+                    doc.text(edu.institution || '', leftMargin, y);
+                    y += 4;
+                    
+                    if (edu.grade) {
+                        doc.setFontSize(8);
+                        doc.setTextColor(...gray);
+                        doc.text('Grade/CGPA: ' + edu.grade, leftMargin, y);
+                        y += 4;
+                    }
+                    y += 3;
+                });
+                y += 3;
+            }
+            
+            // === PROJECTS ===
+            if (projects.length > 0) {
+                addSectionHeader('Projects');
+                projects.forEach(proj => {
+                    checkPageBreak(15);
+                    
+                    doc.setFontSize(10);
+                    doc.setTextColor(...darkGray);
+                    doc.setFont('helvetica', 'bold');
+                    let projTitle = proj.name || 'Project';
+                    if (proj.technologies) {
+                        doc.text(projTitle, leftMargin, y);
+                        doc.setFontSize(8);
+                        doc.setTextColor(...gold);
+                        doc.setFont('helvetica', 'normal');
+                        doc.text(' (' + proj.technologies + ')', leftMargin + doc.getTextWidth(projTitle) + 2, y);
+                    } else {
+                        doc.text(projTitle, leftMargin, y);
+                    }
+                    y += 5;
+                    
+                    if (proj.description) {
+                        doc.setFontSize(8);
+                        doc.setTextColor(...gray);
+                        doc.setFont('helvetica', 'normal');
+                        const projDescLines = doc.splitTextToSize(proj.description, rightMargin - leftMargin);
+                        checkPageBreak(projDescLines.length * 3.5);
+                        doc.text(projDescLines, leftMargin, y);
+                        y += projDescLines.length * 3.5;
+                    }
+                    
+                    if (proj.link) {
+                        doc.setFontSize(7);
+                        doc.setTextColor(0, 0, 255);
+                        doc.text(proj.link, leftMargin, y);
+                        y += 3;
+                    }
+                    y += 3;
+                });
+                y += 3;
+            }
+            
+            // === CERTIFICATIONS ===
+            if (certs.length > 0) {
+                addSectionHeader('Certifications');
+                certs.forEach(cert => {
+                    checkPageBreak(8);
+                    doc.setFontSize(9);
+                    doc.setTextColor(...darkGray);
+                    doc.setFont('helvetica', 'bold');
+                    const certText = (cert.name || 'Certification') + ' - ' + (cert.issuer || '') + (cert.year ? ' (' + cert.year + ')' : '');
+                    doc.text(certText, leftMargin, y);
+                    y += 5;
+                });
+                y += 5;
+            }
+            
+            // === LANGUAGES ===
+            if (langs.length > 0) {
+                addSectionHeader('Languages');
+                doc.setFontSize(9);
+                doc.setTextColor(...darkGray);
+                doc.setFont('helvetica', 'normal');
+                doc.text(langs.join('  •  '), leftMargin, y);
+                y += 8;
+            }
+            
+            // Save the PDF
+            const filename = (p.fullName || 'resume').replace(/\s+/g, '_') + '_resume.pdf';
+            doc.save(filename);
+            showToast('Resume downloaded as PDF!', 'success');
         }
 
         // Utility Functions
