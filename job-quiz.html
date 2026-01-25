@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Match Quiz - Find Your Perfect Job | NaukriForSure</title>
+    <meta name="description" content="Take our 2-minute career quiz to discover jobs that match your skills, interests and personality. Get personalized job recommendations with salary insights.">
+    <meta name="keywords" content="career quiz, job match quiz, personality test career, find my job, career assessment, what job suits me">
+    <meta name="author" content="NaukriForSure">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/job-quiz.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://naukriforsure.vercel.app/job-quiz.html">
+    <meta property="og:title" content="Career Match Quiz - Find Your Perfect Job">
+    <meta property="og:description" content="Take our 2-minute quiz to discover jobs that match your skills and interests!">
+    <meta property="og:image" content="https://naukriforsure.vercel.app/images/quiz-og.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Career Match Quiz - Find Your Perfect Job">
+    <meta name="twitter:description" content="Discover jobs matching your skills in 2 minutes!">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6055589762174170",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .quiz-header h1 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .quiz-header p {
+            color: var(--neutral-600);
+            font-size: 1.1rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--neutral-200);
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-royal);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: var(--neutral-600);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        
+        .quiz-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            border: 2px solid var(--neutral-200);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .question {
+            display: none;
+        }
+        
+        .question.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: var(--gradient-royal);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .option {
+            padding: 20px 25px;
+            border: 2px solid var(--neutral-200);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .option:hover {
+            border-color: var(--secondary);
+            background: var(--neutral-50);
+            transform: translateX(5px);
+        }
+        
+        .option.selected {
+            border-color: var(--primary);
+            background: rgba(114, 47, 55, 0.1);
+        }
+        
+        .option-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .option-text {
+            flex: 1;
+        }
+        
+        .option-text strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+        
+        .option-text span {
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+        
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .quiz-navigation .btn {
+            padding: 15px 30px;
+        }
+        
+        .btn-back {
+            background: var(--neutral-200);
+            color: var(--neutral-700);
+        }
+        
+        .btn-back:hover {
+            background: var(--neutral-300);
+        }
+        
+        /* Results Section */
+        .results-section {
+            display: none;
+        }
+        
+        .results-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .results-header {
+            text-align: center;
+            padding: 40px;
+            background: var(--gradient-royal);
+            border-radius: 16px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .results-header h2 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .result-type {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .match-percentage {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .career-matches {
+            margin: 30px 0;
+        }
+        
+        .career-matches h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .career-card {
+            background: var(--white);
+            border: 2px solid var(--neutral-200);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .career-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .career-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .career-info {
+            flex: 1;
+        }
+        
+        .career-info h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .career-info .salary {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .career-info .jobs-count {
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+        
+        .career-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .career-actions .btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .share-results {
+            text-align: center;
+            padding: 30px;
+            background: var(--parchment);
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid var(--secondary);
+        }
+        
+        .share-results h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .share-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0077B5; }
+        .share-btn.whatsapp { background: #25D366; }
+        .share-btn.copy { background: var(--primary); }
+        
+        .skills-breakdown {
+            margin: 30px 0;
+            padding: 25px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--neutral-200);
+        }
+        
+        .skills-breakdown h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            gap: 15px;
+        }
+        
+        .skill-name {
+            width: 120px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .skill-bar {
+            flex: 1;
+            height: 20px;
+            background: var(--neutral-200);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        
+        .start-over {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Intro Section */
+        .quiz-intro {
+            text-align: center;
+            padding: 50px 30px;
+        }
+        
+        .quiz-intro-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-royal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .quiz-intro h2 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .quiz-intro p {
+            color: var(--neutral-600);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .quiz-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .quiz-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--neutral-600);
+        }
+        
+        .quiz-feature i {
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .quiz-card {
+                padding: 25px;
+            }
+            
+            .option {
+                padding: 15px;
+            }
+            
+            .career-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .career-actions {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="blog/">Blog</a></li>
+                <li><a href="resume-screener.html">Resume Screener</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Career Quiz</span>
+            </div>
+            <h1>Discover Your <span class="gradient-text">Dream Career</span></h1>
+            <p>Answer 10 questions and find jobs that match your personality</p>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <div class="quiz-container">
+            
+            <!-- Quiz Card -->
+            <div class="quiz-card" id="quizCard">
+                
+                <!-- Intro Screen -->
+                <div class="quiz-intro" id="quizIntro">
+                    <div class="quiz-intro-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h2>Find Your Perfect Career Match</h2>
+                    <p>Our AI-powered quiz analyzes your interests, skills, and work preferences to recommend the best career paths for you.</p>
+                    
+                    <div class="quiz-features">
+                        <div class="quiz-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>2 Minutes</span>
+                        </div>
+                        <div class="quiz-feature">
+                            <i class="fas fa-question-circle"></i>
+                            <span>10 Questions</span>
+                        </div>
+                        <div class="quiz-feature">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Personalized Results</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="startQuiz()" style="padding: 18px 50px; font-size: 1.1rem;">
+                        <i class="fas fa-play-circle"></i> Start Quiz
+                    </button>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="progress-bar" id="progressBar" style="display: none;">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText" style="display: none;">Question 1 of 10</div>
+                
+                <!-- Questions -->
+                <div id="questionsContainer">
+                    <!-- Question 1 -->
+                    <div class="question" data-question="1">
+                        <h2><span class="question-number">1</span>What type of work environment do you prefer?</h2>
+                        <div class="options">
+                            <div class="option" data-value="tech" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Tech-focused office</strong>
+                                    <span>Multiple screens, latest gadgets, quiet focus time</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="creative" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #EC4899, #9333EA); color: white;">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Creative studio</strong>
+                                    <span>Open spaces, collaborative, design-oriented</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="business" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #10B981, #047857); color: white;">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Corporate office</strong>
+                                    <span>Professional, structured, meeting rooms</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="remote" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Remote / Work from home</strong>
+                                    <span>Flexibility, own schedule, comfort</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="question" data-question="2">
+                        <h2><span class="question-number">2</span>Which activity sounds most interesting to you?</h2>
+                        <div class="options">
+                            <div class="option" data-value="code" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #6366F1, #4F46E5); color: white;">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Building software & apps</strong>
+                                    <span>Creating products people use daily</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="data" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #14B8A6, #0D9488); color: white;">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Analyzing data & trends</strong>
+                                    <span>Finding patterns and insights</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="design" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F472B6, #EC4899); color: white;">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Designing experiences</strong>
+                                    <span>Creating beautiful, user-friendly interfaces</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="business" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Managing & leading teams</strong>
+                                    <span>Strategy, planning, and coordination</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 3 -->
+                    <div class="question" data-question="3">
+                        <h2><span class="question-number">3</span>How do you prefer to solve problems?</h2>
+                        <div class="options">
+                            <div class="option" data-value="logical" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Logical analysis</strong>
+                                    <span>Break down, analyze, find patterns</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="creative" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #EC4899, #9333EA); color: white;">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Creative thinking</strong>
+                                    <span>Innovative, out-of-the-box solutions</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="collaborative" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #10B981, #047857); color: white;">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Team collaboration</strong>
+                                    <span>Discuss, brainstorm, decide together</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="research" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white;">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Research & learning</strong>
+                                    <span>Deep dive, study, understand thoroughly</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 4 -->
+                    <div class="question" data-question="4">
+                        <h2><span class="question-number">4</span>What motivates you the most?</h2>
+                        <div class="options">
+                            <div class="option" data-value="money" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white;">
+                                    <i class="fas fa-rupee-sign"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>High salary & financial growth</strong>
+                                    <span>Earning potential is key priority</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="impact" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Making an impact</strong>
+                                    <span>Work that changes lives</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="learning" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white;">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Learning & growth</strong>
+                                    <span>Constantly developing new skills</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="balance" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Work-life balance</strong>
+                                    <span>Time for family and hobbies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 5 -->
+                    <div class="question" data-question="5">
+                        <h2><span class="question-number">5</span>Which subject did you enjoy most in school/college?</h2>
+                        <div class="options">
+                            <div class="option" data-value="math" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Mathematics & Statistics</strong>
+                                    <span>Numbers, formulas, problem-solving</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="science" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #10B981, #047857); color: white;">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Science & Technology</strong>
+                                    <span>Experiments, innovation, discovery</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="arts" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #EC4899, #9333EA); color: white;">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Arts & Humanities</strong>
+                                    <span>Creativity, expression, communication</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="commerce" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Commerce & Economics</strong>
+                                    <span>Business, finance, markets</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 6 -->
+                    <div class="question" data-question="6">
+                        <h2><span class="question-number">6</span>How do you feel about learning new technologies?</h2>
+                        <div class="options">
+                            <div class="option" data-value="love" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white;">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>I love it!</strong>
+                                    <span>Always excited about new tech</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="comfortable" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-thumbs-up"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Comfortable with it</strong>
+                                    <span>Can adapt when needed</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="selective" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-filter"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Selective about it</strong>
+                                    <span>Learn what's necessary for work</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="prefer-stable" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #6B7280, #4B5563); color: white;">
+                                    <i class="fas fa-anchor"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Prefer stable tech</strong>
+                                    <span>Focus on mastering existing tools</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 7 -->
+                    <div class="question" data-question="7">
+                        <h2><span class="question-number">7</span>What's your experience level?</h2>
+                        <div class="options">
+                            <div class="option" data-value="student" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white;">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Student / Final Year</strong>
+                                    <span>Looking for internships or first job</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="fresher" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Fresher (0-1 year)</strong>
+                                    <span>Recently graduated, building experience</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="junior" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #10B981, #047857); color: white;">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Junior (1-3 years)</strong>
+                                    <span>Some experience, looking to grow</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="experienced" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Experienced (3+ years)</strong>
+                                    <span>Looking for senior roles</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 8 -->
+                    <div class="question" data-question="8">
+                        <h2><span class="question-number">8</span>Which industry interests you most?</h2>
+                        <div class="options">
+                            <div class="option" data-value="it" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>IT & Software</strong>
+                                    <span>Tech companies, startups, product</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="finance" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white;">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Banking & Finance</strong>
+                                    <span>Banks, fintech, investment</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="consulting" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white;">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Consulting & Services</strong>
+                                    <span>Big 4, management consulting</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="ecommerce" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>E-commerce & Retail</strong>
+                                    <span>Amazon, Flipkart, D2C brands</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 9 -->
+                    <div class="question" data-question="9">
+                        <h2><span class="question-number">9</span>How important is job security to you?</h2>
+                        <div class="options">
+                            <div class="option" data-value="very" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white;">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Very important</strong>
+                                    <span>Prefer stable MNCs or government</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="moderate" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Moderately important</strong>
+                                    <span>Balance between stability and growth</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="low" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Less important</strong>
+                                    <span>Prefer high-growth startups</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="none" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #EC4899, #9333EA); color: white;">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>Not important at all</strong>
+                                    <span>Open to freelancing or entrepreneurship</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 10 -->
+                    <div class="question" data-question="10">
+                        <h2><span class="question-number">10</span>What's your salary expectation?</h2>
+                        <div class="options">
+                            <div class="option" data-value="3-5" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #6B7280, #4B5563); color: white;">
+                                    <i class="fas fa-rupee-sign"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>₹3-5 LPA</strong>
+                                    <span>Entry-level, learning focused</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="5-10" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white;">
+                                    <i class="fas fa-rupee-sign"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>₹5-10 LPA</strong>
+                                    <span>Good starting salary</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="10-20" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white;">
+                                    <i class="fas fa-rupee-sign"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>₹10-20 LPA</strong>
+                                    <span>Above average, product companies</span>
+                                </div>
+                            </div>
+                            <div class="option" data-value="20+" onclick="selectOption(this)">
+                                <div class="option-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white;">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div class="option-text">
+                                    <strong>₹20+ LPA</strong>
+                                    <span>FAANG, top startups</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="quiz-navigation" id="quizNav" style="display: none;">
+                    <button class="btn btn-back" onclick="prevQuestion()" id="backBtn" style="display: none;">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn" disabled>
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2><i class="fas fa-trophy"></i> Your Career Match Results</h2>
+                    <div class="result-type" id="resultType">Tech Innovator</div>
+                    <div class="match-percentage" id="matchPercentage">92%</div>
+                    <p>Match with recommended careers</p>
+                </div>
+                
+                <!-- Skills Breakdown -->
+                <div class="skills-breakdown">
+                    <h3><i class="fas fa-chart-pie"></i> Your Strengths Profile</h3>
+                    <div id="skillsBreakdown">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Career Matches -->
+                <div class="career-matches">
+                    <h3><i class="fas fa-briefcase"></i> Top Career Matches For You</h3>
+                    <div id="careerMatches">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- AdSense Ad Unit -->
+                <div style="text-align: center; margin: 30px 0;">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-6055589762174170"
+                         data-ad-slot="auto"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+                
+                <!-- Share Results -->
+                <div class="share-results">
+                    <h3><i class="fas fa-share-alt"></i> Share Your Results</h3>
+                    <p>Let your friends discover their career match too!</p>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn twitter" id="shareTwitter">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="#" class="share-btn linkedin" id="shareLinkedIn">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="#" class="share-btn whatsapp" id="shareWhatsApp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button class="share-btn copy" onclick="copyResults()">
+                            <i class="fas fa-copy"></i> Copy Link
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Start Over -->
+                <div class="start-over">
+                    <button class="btn btn-outline" onclick="restartQuiz()">
+                        <i class="fas fa-redo"></i> Take Quiz Again
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"></span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>A free platform helping freshers find their dream careers.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="jobs-by-city.html">Jobs by City</a></li>
+                        <li><a href="jobs-by-skills.html">Jobs by Skills</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="job-quiz.html">Career Quiz</a></li>
+                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
+                        <li><a href="resume-screener.html">Resume Screener</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        let currentQuestion = 0;
+        let answers = {};
+        const totalQuestions = 10;
+        
+        function startQuiz() {
+            document.getElementById('quizIntro').style.display = 'none';
+            document.getElementById('progressBar').style.display = 'block';
+            document.getElementById('progressText').style.display = 'block';
+            document.getElementById('quizNav').style.display = 'flex';
+            showQuestion(1);
+        }
+        
+        function showQuestion(num) {
+            currentQuestion = num;
+            
+            // Hide all questions
+            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+            
+            // Show current question
+            const question = document.querySelector(`.question[data-question="${num}"]`);
+            if (question) {
+                question.classList.add('active');
+            }
+            
+            // Update progress
+            const progress = (num / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Question ${num} of ${totalQuestions}`;
+            
+            // Update navigation buttons
+            document.getElementById('backBtn').style.display = num > 1 ? 'block' : 'none';
+            document.getElementById('nextBtn').textContent = num === totalQuestions ? 'See Results' : 'Next';
+            document.getElementById('nextBtn').innerHTML = num === totalQuestions ? 
+                'See Results <i class="fas fa-trophy"></i>' : 
+                'Next <i class="fas fa-arrow-right"></i>';
+            
+            // Check if answer exists for this question
+            const hasAnswer = answers[num] !== undefined;
+            document.getElementById('nextBtn').disabled = !hasAnswer;
+            
+            // Restore selection if exists
+            if (hasAnswer) {
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                    if (opt.dataset.value === answers[num]) {
+                        opt.classList.add('selected');
+                    }
+                });
+            }
+        }
+        
+        function selectOption(element) {
+            // Remove selection from siblings
+            element.parentElement.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Select clicked option
+            element.classList.add('selected');
+            
+            // Store answer
+            answers[currentQuestion] = element.dataset.value;
+            
+            // Enable next button
+            document.getElementById('nextBtn').disabled = false;
+        }
+        
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                showQuestion(currentQuestion + 1);
+            } else {
+                showResults();
+            }
+        }
+        
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                showQuestion(currentQuestion - 1);
+            }
+        }
+        
+        function showResults() {
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('active');
+            
+            // Analyze answers and generate results
+            const results = analyzeAnswers();
+            
+            // Display result type
+            document.getElementById('resultType').textContent = results.type;
+            document.getElementById('matchPercentage').textContent = results.matchPercentage + '%';
+            
+            // Display skills breakdown
+            displaySkillsBreakdown(results.skills);
+            
+            // Display career matches
+            displayCareerMatches(results.careers);
+            
+            // Set up share links
+            setupShareLinks(results);
+        }
+        
+        function analyzeAnswers() {
+            // Career profiles based on answers
+            const profiles = {
+                techDeveloper: 0,
+                dataScientist: 0,
+                designer: 0,
+                productManager: 0,
+                businessAnalyst: 0,
+                devOps: 0
+            };
+            
+            // Analyze answers (simplified logic)
+            if (answers[1] === 'tech' || answers[1] === 'remote') profiles.techDeveloper += 2;
+            if (answers[1] === 'creative') profiles.designer += 2;
+            if (answers[1] === 'business') profiles.businessAnalyst += 2;
+            
+            if (answers[2] === 'code') { profiles.techDeveloper += 3; profiles.devOps += 1; }
+            if (answers[2] === 'data') { profiles.dataScientist += 3; profiles.businessAnalyst += 1; }
+            if (answers[2] === 'design') profiles.designer += 3;
+            if (answers[2] === 'business') profiles.productManager += 3;
+            
+            if (answers[3] === 'logical') { profiles.techDeveloper += 2; profiles.dataScientist += 2; }
+            if (answers[3] === 'creative') { profiles.designer += 2; profiles.productManager += 1; }
+            if (answers[3] === 'collaborative') profiles.productManager += 2;
+            if (answers[3] === 'research') profiles.dataScientist += 2;
+            
+            if (answers[5] === 'math') { profiles.dataScientist += 2; profiles.techDeveloper += 1; }
+            if (answers[5] === 'science') { profiles.techDeveloper += 2; profiles.devOps += 1; }
+            if (answers[5] === 'arts') profiles.designer += 2;
+            if (answers[5] === 'commerce') { profiles.businessAnalyst += 2; profiles.productManager += 1; }
+            
+            if (answers[6] === 'love') { profiles.techDeveloper += 2; profiles.devOps += 2; }
+            
+            // Find top profile
+            const topProfile = Object.entries(profiles).sort((a, b) => b[1] - a[1])[0];
+            
+            const resultTypes = {
+                techDeveloper: { 
+                    type: 'Tech Innovator 💻', 
+                    careers: [
+                        { name: 'Software Developer', salary: '₹6-18 LPA', jobs: '2,500+', icon: 'fas fa-code', color: '#3B82F6', skill: 'coding' },
+                        { name: 'Full Stack Developer', salary: '₹8-22 LPA', jobs: '1,800+', icon: 'fas fa-layer-group', color: '#6366F1', skill: 'fullstack' },
+                        { name: 'Backend Engineer', salary: '₹7-20 LPA', jobs: '1,500+', icon: 'fas fa-server', color: '#10B981', skill: 'backend' }
+                    ],
+                    skills: { Technical: 90, 'Problem Solving': 85, Analytical: 80, Creative: 60 }
+                },
+                dataScientist: { 
+                    type: 'Data Wizard 📊', 
+                    careers: [
+                        { name: 'Data Scientist', salary: '₹10-28 LPA', jobs: '1,200+', icon: 'fas fa-chart-bar', color: '#8B5CF6', skill: 'datascience' },
+                        { name: 'ML Engineer', salary: '₹12-35 LPA', jobs: '900+', icon: 'fas fa-robot', color: '#EC4899', skill: 'ml' },
+                        { name: 'Data Analyst', salary: '₹5-15 LPA', jobs: '1,400+', icon: 'fas fa-chart-line', color: '#14B8A6', skill: 'analytics' }
+                    ],
+                    skills: { Analytical: 95, Technical: 85, 'Problem Solving': 90, Creative: 65 }
+                },
+                designer: { 
+                    type: 'Creative Visionary 🎨', 
+                    careers: [
+                        { name: 'UI/UX Designer', salary: '₹6-18 LPA', jobs: '800+', icon: 'fas fa-pencil-ruler', color: '#EC4899', skill: 'design' },
+                        { name: 'Product Designer', salary: '₹8-22 LPA', jobs: '600+', icon: 'fas fa-paint-brush', color: '#8B5CF6', skill: 'design' },
+                        { name: 'Frontend Developer', salary: '₹5-15 LPA', jobs: '1,400+', icon: 'fab fa-react', color: '#06B6D4', skill: 'react' }
+                    ],
+                    skills: { Creative: 95, Technical: 70, 'Problem Solving': 75, Communication: 85 }
+                },
+                productManager: { 
+                    type: 'Strategic Leader 🚀', 
+                    careers: [
+                        { name: 'Product Manager', salary: '₹12-30 LPA', jobs: '500+', icon: 'fas fa-tasks', color: '#F59E0B', skill: 'product' },
+                        { name: 'Project Manager', salary: '₹8-20 LPA', jobs: '700+', icon: 'fas fa-project-diagram', color: '#10B981', skill: 'management' },
+                        { name: 'Business Analyst', salary: '₹6-15 LPA', jobs: '900+', icon: 'fas fa-briefcase', color: '#3B82F6', skill: 'business' }
+                    ],
+                    skills: { Communication: 95, 'Problem Solving': 85, Analytical: 80, Leadership: 90 }
+                },
+                businessAnalyst: { 
+                    type: 'Business Strategist 📈', 
+                    careers: [
+                        { name: 'Business Analyst', salary: '₹6-15 LPA', jobs: '900+', icon: 'fas fa-chart-pie', color: '#3B82F6', skill: 'business' },
+                        { name: 'Financial Analyst', salary: '₹5-12 LPA', jobs: '600+', icon: 'fas fa-rupee-sign', color: '#22C55E', skill: 'finance' },
+                        { name: 'Management Consultant', salary: '₹10-25 LPA', jobs: '400+', icon: 'fas fa-users-cog', color: '#8B5CF6', skill: 'consulting' }
+                    ],
+                    skills: { Analytical: 90, Communication: 85, 'Problem Solving': 80, Technical: 65 }
+                },
+                devOps: { 
+                    type: 'Infrastructure Architect ⚙️', 
+                    careers: [
+                        { name: 'DevOps Engineer', salary: '₹8-25 LPA', jobs: '1,100+', icon: 'fas fa-infinity', color: '#326CE5', skill: 'devops' },
+                        { name: 'Cloud Engineer', salary: '₹8-22 LPA', jobs: '1,300+', icon: 'fas fa-cloud', color: '#FF9900', skill: 'cloud' },
+                        { name: 'SRE Engineer', salary: '₹10-28 LPA', jobs: '500+', icon: 'fas fa-server', color: '#10B981', skill: 'sre' }
+                    ],
+                    skills: { Technical: 95, 'Problem Solving': 90, Analytical: 85, Automation: 90 }
+                }
+            };
+            
+            const result = resultTypes[topProfile[0]];
+            
+            return {
+                type: result.type,
+                matchPercentage: Math.min(95, 70 + Math.floor(Math.random() * 25)),
+                careers: result.careers,
+                skills: result.skills
+            };
+        }
+        
+        function displaySkillsBreakdown(skills) {
+            const container = document.getElementById('skillsBreakdown');
+            container.innerHTML = '';
+            
+            const colors = ['#3B82F6', '#10B981', '#F59E0B', '#EC4899', '#8B5CF6'];
+            let i = 0;
+            
+            for (const [skill, value] of Object.entries(skills)) {
+                const skillHtml = `
+                    <div class="skill-item">
+                        <span class="skill-name">${skill}</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: ${value}%; background: ${colors[i % colors.length]};"></div>
+                        </div>
+                        <span style="width: 50px; text-align: right; font-weight: 600; color: ${colors[i % colors.length]};">${value}%</span>
+                    </div>
+                `;
+                container.innerHTML += skillHtml;
+                i++;
+            }
+        }
+        
+        function displayCareerMatches(careers) {
+            const container = document.getElementById('careerMatches');
+            container.innerHTML = '';
+            
+            careers.forEach((career, index) => {
+                const careerHtml = `
+                    <div class="career-card">
+                        <div class="career-icon" style="background: ${career.color}; color: white;">
+                            <i class="${career.icon}"></i>
+                        </div>
+                        <div class="career-info">
+                            <h4>${career.name}</h4>
+                            <div class="salary">${career.salary}</div>
+                            <div class="jobs-count">${career.jobs} jobs available</div>
+                        </div>
+                        <div class="career-actions">
+                            <a href="jobs.html?skill=${career.skill}" class="btn btn-primary">View Jobs</a>
+                            <a href="blog/" class="btn btn-outline" style="font-size: 0.85rem;">Learn More</a>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += careerHtml;
+            });
+        }
+        
+        function setupShareLinks(results) {
+            const shareText = `🎯 I'm a ${results.type}! My career match is ${results.matchPercentage}%. Take the quiz to find your perfect career!`;
+            const shareUrl = 'https://naukriforsure.vercel.app/job-quiz.html';
+            
+            document.getElementById('shareTwitter').href = 
+                `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+            
+            document.getElementById('shareLinkedIn').href = 
+                `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent('Career Match Quiz Results')}&summary=${encodeURIComponent(shareText)}`;
+            
+            document.getElementById('shareWhatsApp').href = 
+                `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+        }
+        
+        function copyResults() {
+            const text = 'Take the Career Match Quiz at NaukriForSure: https://naukriforsure.vercel.app/job-quiz.html';
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+        
+        function restartQuiz() {
+            answers = {};
+            currentQuestion = 0;
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('quizCard').style.display = 'block';
+            document.getElementById('quizIntro').style.display = 'block';
+            document.getElementById('progressBar').style.display = 'none';
+            document.getElementById('progressText').style.display = 'none';
+            document.getElementById('quizNav').style.display = 'none';
+            
+            // Clear selections
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+        }
+    </script>
+</body>
+</html>

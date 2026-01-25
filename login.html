@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NaukriForSure</title>
+    <meta name="description" content="Sign in to NaukriForSure to track your job applications, referrals, and rewards.">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/login.html">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #722f37 0%, #4a1f24 30%, #1a365d 70%, #1a3d2e 100%);
+            position: relative;
+            padding: 20px;
+        }
+        
+        .login-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(184,134,11,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+        
+        .login-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        .login-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+            border: 3px solid var(--secondary);
+        }
+        
+        .login-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-logo a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .login-logo .logo-text {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .login-logo .highlight {
+            color: var(--secondary);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        
+        .login-header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        
+        .login-header p {
+            color: var(--neutral-600);
+            font-size: 0.95rem;
+        }
+        
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+        
+        .social-btn i {
+            font-size: 1.3rem;
+        }
+        
+        .google-btn {
+            background: white;
+            border-color: var(--neutral-200);
+            color: var(--dark);
+        }
+        
+        .google-btn:hover {
+            border-color: #4285f4;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.2);
+        }
+        
+        .google-btn i {
+            background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .github-btn {
+            background: #24292e;
+            color: white;
+        }
+        
+        .github-btn:hover {
+            background: #1a1e22;
+            box-shadow: 0 4px 15px rgba(36, 41, 46, 0.3);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--neutral-200);
+        }
+        
+        .divider span {
+            padding: 0 20px;
+            color: var(--neutral-500);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .guest-section {
+            text-align: center;
+        }
+        
+        .guest-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: var(--parchment);
+            border: 2px solid var(--neutral-200);
+            border-radius: 10px;
+            color: var(--neutral-700);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .guest-btn:hover {
+            border-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .login-benefits {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 2px solid var(--neutral-100);
+        }
+        
+        .login-benefits h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .benefits-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+        
+        .benefit-item i {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .login-footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: var(--neutral-500);
+        }
+        
+        .login-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Already logged in state */
+        .logged-in-card {
+            text-align: center;
+        }
+        
+        .user-avatar-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid var(--secondary);
+            overflow: hidden;
+        }
+        
+        .user-avatar-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .welcome-text {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .user-email {
+            color: var(--neutral-600);
+            margin-bottom: 25px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn.primary {
+            background: var(--gradient-royal);
+            color: white;
+        }
+        
+        .action-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-sm);
+        }
+        
+        .action-btn.secondary {
+            background: var(--parchment);
+            color: var(--primary);
+            border: 2px solid var(--neutral-200);
+        }
+        
+        .action-btn.secondary:hover {
+            border-color: var(--secondary);
+        }
+        
+        .logout-btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: transparent;
+            border: 2px solid var(--neutral-300);
+            border-radius: 8px;
+            color: var(--neutral-600);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .logout-btn:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+        
+        /* Back to home link */
+        .back-home {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+        
+        .back-home:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 500px) {
+            .login-card {
+                padding: 35px 25px;
+            }
+            
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <div class="login-container">
+            <div class="login-card" id="loginCard">
+                <div class="login-logo">
+                    <a href="index.html">
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                </div>
+                
+                <!-- Guest/Login View -->
+                <div id="guestView">
+                    <div class="login-header">
+                        <h1>Welcome Back!</h1>
+                        <p>Sign in to track your referrals, rewards, and job applications</p>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button class="social-btn google-btn" onclick="signInWithGoogle()">
+                            <i class="fab fa-google"></i>
+                            Continue with Google
+                        </button>
+                        
+                        <button class="social-btn github-btn" onclick="showComingSoon('GitHub')">
+                            <i class="fab fa-github"></i>
+                            Continue with GitHub
+                        </button>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <div class="guest-section">
+                        <a href="index.html" class="guest-btn">
+                            <i class="fas fa-user"></i>
+                            Continue as Guest
+                        </a>
+                    </div>
+                    
+                    <div class="login-benefits">
+                        <h3><i class="fas fa-star" style="color: var(--secondary);"></i> Why Sign In?</h3>
+                        <div class="benefits-list">
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Track Referrals</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Earn Rewards</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Save Job Lists</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Unlock Badges</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Leaderboard Access</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Premium Features</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="login-footer">
+                        <p>By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+                    </div>
+                </div>
+                
+                <!-- Logged In View -->
+                <div id="loggedInView" style="display: none;">
+                    <div class="logged-in-card">
+                        <div class="user-avatar-large" id="userAvatarLarge">
+                            <img src="" alt="" id="userAvatarImg">
+                        </div>
+                        <h2 class="welcome-text">Welcome, <span id="userDisplayName">User</span>!</h2>
+                        <p class="user-email" id="userEmail">user@example.com</p>
+                        
+                        <div class="action-buttons">
+                            <a href="referral-dashboard.html" class="action-btn primary">
+                                <i class="fas fa-chart-line"></i> Go to Dashboard
+                            </a>
+                            <a href="jobs.html" class="action-btn secondary">
+                                <i class="fas fa-briefcase"></i> Browse Jobs
+                            </a>
+                            <a href="referral.html" class="action-btn secondary">
+                                <i class="fas fa-gift"></i> Referral Program
+                            </a>
+                        </div>
+                        
+                        <button class="logout-btn" onclick="handleLogout()">
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Check if redirected from somewhere
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectTo = urlParams.get('redirect') || 'index.html';
+        
+        // Sign in with Google
+        function signInWithGoogle() {
+            if (typeof google !== 'undefined' && google.accounts) {
+                google.accounts.id.prompt((notification) => {
+                    if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+                        // Show one-tap or button wasn't displayed, try rendering button
+                        showGoogleButtonFallback();
+                    }
+                });
+            } else {
+                // Google library not loaded yet, wait and retry
+                setTimeout(signInWithGoogle, 500);
+            }
+        }
+        
+        function showGoogleButtonFallback() {
+            const btn = document.querySelector('.google-btn');
+            btn.innerHTML = '<div id="googleButtonContainer"></div>';
+            
+            if (typeof google !== 'undefined') {
+                google.accounts.id.renderButton(
+                    document.getElementById('googleButtonContainer'),
+                    { 
+                        theme: 'outline', 
+                        size: 'large',
+                        type: 'standard',
+                        text: 'signin_with',
+                        width: '100%'
+                    }
+                );
+            }
+        }
+        
+        function showComingSoon(provider) {
+            alert(`${provider} authentication coming soon! Please use Google Sign-In for now.`);
+        }
+        
+        function handleLogout() {
+            if (window.NaukriAuth) {
+                window.NaukriAuth.logout();
+            }
+            updateLoginUI(null);
+        }
+        
+        function updateLoginUI(user) {
+            const guestView = document.getElementById('guestView');
+            const loggedInView = document.getElementById('loggedInView');
+            
+            if (user) {
+                guestView.style.display = 'none';
+                loggedInView.style.display = 'block';
+                
+                document.getElementById('userDisplayName').textContent = user.name.split(' ')[0];
+                document.getElementById('userEmail').textContent = user.email;
+                
+                if (user.picture) {
+                    document.getElementById('userAvatarImg').src = user.picture;
+                    document.getElementById('userAvatarImg').style.display = 'block';
+                } else {
+                    document.getElementById('userAvatarLarge').innerHTML = `
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--gradient-royal); color: white; font-size: 2.5rem; font-family: 'Cinzel', serif;">
+                            ${user.name.charAt(0).toUpperCase()}
+                        </div>
+                    `;
+                }
+            } else {
+                guestView.style.display = 'block';
+                loggedInView.style.display = 'none';
+            }
+        }
+        
+        // Listen for auth state changes
+        document.addEventListener('authStateChanged', (e) => {
+            updateLoginUI(e.detail.user);
+        });
+        
+        // Check initial state
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const user = window.NaukriAuth?.getCurrentUser();
+                updateLoginUI(user);
+            }, 500);
+        });
+    </script>
+</body>
+</html>

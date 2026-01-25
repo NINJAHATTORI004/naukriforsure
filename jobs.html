@@ -55,11 +55,26 @@
                 </li>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html" class="active">All Jobs</a></li>
-                <li><a href="categories.html">Categories</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="resume-screener.html">Resume Screener</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-dropdown">
+                    <a href="categories.html">Explore <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="jobs-by-city.html"><i class="fas fa-city"></i> Jobs by City</a></li>
+                        <li><a href="jobs-by-skills.html"><i class="fas fa-cogs"></i> Jobs by Skills</a></li>
+                        <li><a href="remote-jobs.html"><i class="fas fa-home"></i> Remote Jobs</a></li>
+                        <li><a href="categories.html"><i class="fas fa-th-large"></i> All Categories</a></li>
+                    </ul>
+                </li>
+                <li><a href="blog/">Blog</a></li>
+                <li class="nav-dropdown">
+                    <a href="#">Tools <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="resume-screener.html"><i class="fas fa-file-alt"></i> Resume Screener</a></li>
+                        <li><a href="job-quiz.html"><i class="fas fa-question-circle"></i> Career Quiz</a></li>
+                        <li><a href="salary-calculator.html"><i class="fas fa-calculator"></i> Salary Calculator</a></li>
+                    </ul>
+                </li>
+                <li><a href="referral.html" style="color: var(--secondary);"><i class="fas fa-gift"></i> Rewards</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
@@ -147,6 +162,29 @@
             <!-- Jobs List -->
             <div class="jobs-list" id="jobsList">
                 <!-- Jobs will be loaded dynamically -->
+            </div>
+            
+            <!-- Share Jobs Page -->
+            <div style="background: var(--parchment); border: 2px solid var(--secondary); border-radius: 16px; padding: 30px; margin-top: 40px; text-align: center;">
+                <h3 style="font-family: 'Cinzel', serif; color: var(--primary); margin-bottom: 15px;">
+                    <i class="fas fa-share-alt"></i> Help Your Friends Find Jobs!
+                </h3>
+                <p style="color: var(--neutral-600); margin-bottom: 20px;">Share this page with friends who are looking for job opportunities</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://twitter.com/intent/tweet?text=Check%20out%20these%20amazing%20fresher%20jobs!&url=https://naukriforsure.vercel.app/jobs.html" target="_blank" style="padding: 12px 20px; background: #1DA1F2; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://naukriforsure.vercel.app/jobs.html&title=Fresher%20Jobs" target="_blank" style="padding: 12px 20px; background: #0077B5; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://wa.me/?text=Check%20out%20these%20fresher%20jobs%20https://naukriforsure.vercel.app/jobs.html" target="_blank" style="padding: 12px 20px; background: #25D366; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://t.me/share/url?url=https://naukriforsure.vercel.app/jobs.html&text=Fresher%20Jobs" target="_blank" style="padding: 12px 20px; background: #0088cc; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;"><i class="fab fa-telegram"></i> Telegram</a>
+                </div>
+            </div>
+            
+            <!-- Career Quiz CTA -->
+            <div style="background: linear-gradient(135deg, #b8860b, #d4a017); border-radius: 16px; padding: 40px; margin-top: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                <div style="color: white;">
+                    <h3 style="font-family: 'Cinzel Decorative', serif; font-size: 1.5rem; margin-bottom: 10px;"><i class="fas fa-lightbulb" style="margin-right: 10px;"></i> Not Sure Which Job Fits You?</h3>
+                    <p style="opacity: 0.9;">Take our 2-minute career quiz and discover your ideal role based on your skills!</p>
+                </div>
+                <a href="job-quiz.html" style="background: white; color: #b8860b; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-family: 'Cinzel', serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Take Quiz <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>

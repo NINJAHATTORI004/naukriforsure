@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs by Skills 2026 - Find Jobs Matching Your Skills | NaukriForSure</title>
+    <meta name="description" content="Browse 10,000+ jobs by skills - Python, Java, JavaScript, Data Science, Machine Learning, Cloud Computing, DevOps, Digital Marketing & more. Find jobs that match your expertise.">
+    <meta name="keywords" content="jobs by skills, python jobs, java jobs, javascript jobs, data science jobs, machine learning jobs, cloud jobs, devops jobs, fresher jobs by skills">
+    <meta name="author" content="NaukriForSure">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/jobs-by-skills.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://naukriforsure.vercel.app/jobs-by-skills.html">
+    <meta property="og:title" content="Jobs by Skills 2026 - Find Jobs Matching Your Skills">
+    <meta property="og:description" content="Browse 10,000+ jobs by skills - Python, Java, JavaScript, Data Science, ML, Cloud & more.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jobs by Skills 2026 - Find Jobs Matching Your Skills">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Jobs by Skills",
+        "description": "Browse fresher jobs organized by technical and soft skills",
+        "url": "https://naukriforsure.vercel.app/jobs-by-skills.html"
+    }
+    </script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6055589762174170",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .skill-category {
+            margin: 50px 0;
+        }
+        
+        .skill-category-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .skill-category-title i {
+            color: var(--secondary);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-card {
+            background: var(--white);
+            border: 2px solid var(--neutral-200);
+            border-radius: 12px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .skill-card .skill-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .skill-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .skill-card .job-count {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Cinzel', serif;
+        }
+        
+        .skill-card .salary-range {
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--neutral-200);
+        }
+        
+        .skill-card .hot-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .skill-card .growth-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #22c55e, #10b981);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .skill-card .view-link {
+            margin-top: auto;
+            padding-top: 15px;
+            color: var(--primary);
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-card:hover .view-link {
+            color: var(--secondary);
+        }
+        
+        /* Icon colors */
+        .icon-python { background: linear-gradient(135deg, #3776AB, #FFD43B); color: white; }
+        .icon-java { background: linear-gradient(135deg, #007396, #ED8B00); color: white; }
+        .icon-javascript { background: linear-gradient(135deg, #F7DF1E, #323330); color: #323330; }
+        .icon-react { background: linear-gradient(135deg, #61DAFB, #20232A); color: white; }
+        .icon-data { background: linear-gradient(135deg, #FF6F61, #6B5B95); color: white; }
+        .icon-cloud { background: linear-gradient(135deg, #0089D6, #4285F4); color: white; }
+        .icon-devops { background: linear-gradient(135deg, #326CE5, #2496ED); color: white; }
+        .icon-ml { background: linear-gradient(135deg, #FF6F00, #FFC107); color: white; }
+        .icon-security { background: linear-gradient(135deg, #1A1A2E, #E94560); color: white; }
+        .icon-marketing { background: linear-gradient(135deg, #FF5722, #E91E63); color: white; }
+        .icon-design { background: linear-gradient(135deg, #00C4CC, #7B68EE); color: white; }
+        .icon-sales { background: linear-gradient(135deg, #00BFA5, #1DE9B6); color: white; }
+        .icon-hr { background: linear-gradient(135deg, #9C27B0, #E040FB); color: white; }
+        .icon-sql { background: linear-gradient(135deg, #336791, #F29111); color: white; }
+        .icon-node { background: linear-gradient(135deg, #339933, #68A063); color: white; }
+        .icon-angular { background: linear-gradient(135deg, #DD0031, #C3002F); color: white; }
+        .icon-dotnet { background: linear-gradient(135deg, #512BD4, #68217A); color: white; }
+        .icon-mobile { background: linear-gradient(135deg, #3DDC84, #4285F4); color: white; }
+        
+        .trending-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            margin: 40px 0;
+        }
+        
+        .trending-section h3 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .trending-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .trending-skill {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .trending-skill:hover {
+            background: white;
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .skill-quiz-cta {
+            background: var(--parchment);
+            border: 2px solid var(--secondary);
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .skill-quiz-cta h3 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .skill-quiz-cta p {
+            color: var(--neutral-600);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .salary-comparison {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid var(--neutral-200);
+        }
+        
+        .salary-comparison h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .salary-bar {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            gap: 15px;
+        }
+        
+        .salary-bar .skill-name {
+            width: 150px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .salary-bar .bar-container {
+            flex: 1;
+            height: 30px;
+            background: var(--neutral-100);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .salary-bar .bar-fill {
+            height: 100%;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="blog/">Blog</a></li>
+                <li><a href="resume-screener.html">Resume Screener</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Jobs by Skills</span>
+            </div>
+            <h1>Find Jobs by <span class="gradient-text">Skills</span></h1>
+            <p>Discover opportunities that match your expertise and interests</p>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <div class="container" style="padding: 40px 20px;">
+            
+            <!-- Trending Skills Banner -->
+            <div class="trending-section">
+                <h3><i class="fas fa-fire"></i> Trending Skills in 2026</h3>
+                <div class="trending-skills">
+                    <a href="jobs.html?skill=ai" class="trending-skill">
+                        <i class="fas fa-robot"></i> AI/ML
+                        <span style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">+45% Growth</span>
+                    </a>
+                    <a href="jobs.html?skill=cloud" class="trending-skill">
+                        <i class="fas fa-cloud"></i> Cloud Computing
+                        <span style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">+38% Growth</span>
+                    </a>
+                    <a href="jobs.html?skill=devops" class="trending-skill">
+                        <i class="fas fa-infinity"></i> DevOps
+                        <span style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">+35% Growth</span>
+                    </a>
+                    <a href="jobs.html?skill=cybersecurity" class="trending-skill">
+                        <i class="fas fa-shield-alt"></i> Cybersecurity
+                        <span style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">+42% Growth</span>
+                    </a>
+                    <a href="jobs.html?skill=react" class="trending-skill">
+                        <i class="fab fa-react"></i> React.js
+                        <span style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">+30% Growth</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- AdSense Ad Unit -->
+            <div style="text-align: center; margin: 30px 0;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <!-- Programming Languages -->
+            <div class="skill-category">
+                <h2 class="skill-category-title">
+                    <i class="fas fa-code"></i>
+                    Programming Languages
+                </h2>
+                
+                <div class="skills-grid">
+                    <a href="jobs.html?skill=python" class="skill-card">
+                        <span class="hot-badge">🔥 Hot</span>
+                        <div class="skill-icon icon-python"><i class="fab fa-python"></i></div>
+                        <h3>Python</h3>
+                        <span class="job-count">2,500+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹6-15 LPA</div>
+                        <span class="view-link">View Python Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=java" class="skill-card">
+                        <div class="skill-icon icon-java"><i class="fab fa-java"></i></div>
+                        <h3>Java</h3>
+                        <span class="job-count">2,200+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹5-14 LPA</div>
+                        <span class="view-link">View Java Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=javascript" class="skill-card">
+                        <span class="hot-badge">🔥 Hot</span>
+                        <div class="skill-icon icon-javascript"><i class="fab fa-js"></i></div>
+                        <h3>JavaScript</h3>
+                        <span class="job-count">1,800+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹5-12 LPA</div>
+                        <span class="view-link">View JS Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=sql" class="skill-card">
+                        <div class="skill-icon icon-sql"><i class="fas fa-database"></i></div>
+                        <h3>SQL</h3>
+                        <span class="job-count">1,500+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹4-10 LPA</div>
+                        <span class="view-link">View SQL Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=csharp" class="skill-card">
+                        <div class="skill-icon icon-dotnet"><i class="fab fa-microsoft"></i></div>
+                        <h3>C# / .NET</h3>
+                        <span class="job-count">1,200+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹5-13 LPA</div>
+                        <span class="view-link">View .NET Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=cpp" class="skill-card">
+                        <div class="skill-icon" style="background: linear-gradient(135deg, #00599C, #004482); color: white;"><i class="fas fa-copyright"></i></div>
+                        <h3>C/C++</h3>
+                        <span class="job-count">900+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹6-16 LPA</div>
+                        <span class="view-link">View C++ Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Web Development -->
+            <div class="skill-category">
+                <h2 class="skill-category-title">
+                    <i class="fas fa-globe"></i>
+                    Web Development
+                </h2>
+                
+                <div class="skills-grid">
+                    <a href="jobs.html?skill=react" class="skill-card">
+                        <span class="hot-badge">🔥 Hot</span>
+                        <div class="skill-icon icon-react"><i class="fab fa-react"></i></div>
+                        <h3>React.js</h3>
+                        <span class="job-count">1,600+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹6-18 LPA</div>
+                        <span class="view-link">View React Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=nodejs" class="skill-card">
+                        <div class="skill-icon icon-node"><i class="fab fa-node-js"></i></div>
+                        <h3>Node.js</h3>
+                        <span class="job-count">1,400+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹6-16 LPA</div>
+                        <span class="view-link">View Node.js Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=angular" class="skill-card">
+                        <div class="skill-icon icon-angular"><i class="fab fa-angular"></i></div>
+                        <h3>Angular</h3>
+                        <span class="job-count">1,100+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹5-15 LPA</div>
+                        <span class="view-link">View Angular Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=fullstack" class="skill-card">
+                        <span class="growth-badge">↑ High Demand</span>
+                        <div class="skill-icon" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;"><i class="fas fa-layer-group"></i></div>
+                        <h3>Full Stack</h3>
+                        <span class="job-count">1,800+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹8-20 LPA</div>
+                        <span class="view-link">View Full Stack Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- AdSense Ad Unit -->
+            <div style="text-align: center; margin: 30px 0;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <!-- Data & AI -->
+            <div class="skill-category">
+                <h2 class="skill-category-title">
+                    <i class="fas fa-brain"></i>
+                    Data Science & AI
+                </h2>
+                
+                <div class="skills-grid">
+                    <a href="jobs.html?skill=datascience" class="skill-card">
+                        <span class="hot-badge">🔥 Hot</span>
+                        <div class="skill-icon icon-data"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Data Science</h3>
+                        <span class="job-count">1,400+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹8-25 LPA</div>
+                        <span class="view-link">View Data Science Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=ml" class="skill-card">
+                        <span class="hot-badge">🔥 Hot</span>
+                        <div class="skill-icon icon-ml"><i class="fas fa-robot"></i></div>
+                        <h3>Machine Learning</h3>
+                        <span class="job-count">1,200+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹10-30 LPA</div>
+                        <span class="view-link">View ML Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=ai" class="skill-card">
+                        <span class="growth-badge">↑ 45% Growth</span>
+                        <div class="skill-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white;"><i class="fas fa-microchip"></i></div>
+                        <h3>Artificial Intelligence</h3>
+                        <span class="job-count">900+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹12-35 LPA</div>
+                        <span class="view-link">View AI Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=analytics" class="skill-card">
+                        <div class="skill-icon" style="background: linear-gradient(135deg, #14b8a6, #06b6d4); color: white;"><i class="fas fa-analytics"></i></div>
+                        <h3>Data Analytics</h3>
+                        <span class="job-count">1,100+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹5-15 LPA</div>
+                        <span class="view-link">View Analytics Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Cloud & DevOps -->
+            <div class="skill-category">
+                <h2 class="skill-category-title">
+                    <i class="fas fa-cloud"></i>
+                    Cloud & DevOps
+                </h2>
+                
+                <div class="skills-grid">
+                    <a href="jobs.html?skill=aws" class="skill-card">
+                        <span class="hot-badge">🔥 Hot</span>
+                        <div class="skill-icon icon-cloud"><i class="fab fa-aws"></i></div>
+                        <h3>AWS</h3>
+                        <span class="job-count">1,500+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹8-22 LPA</div>
+                        <span class="view-link">View AWS Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=azure" class="skill-card">
+                        <div class="skill-icon" style="background: linear-gradient(135deg, #0078D4, #00BCF2); color: white;"><i class="fab fa-microsoft"></i></div>
+                        <h3>Azure</h3>
+                        <span class="job-count">1,200+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹7-20 LPA</div>
+                        <span class="view-link">View Azure Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=devops" class="skill-card">
+                        <span class="growth-badge">↑ 35% Growth</span>
+                        <div class="skill-icon icon-devops"><i class="fas fa-infinity"></i></div>
+                        <h3>DevOps</h3>
+                        <span class="job-count">1,100+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹8-25 LPA</div>
+                        <span class="view-link">View DevOps Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=kubernetes" class="skill-card">
+                        <div class="skill-icon" style="background: linear-gradient(135deg, #326CE5, #3970e4); color: white;"><i class="fas fa-dharmachakra"></i></div>
+                        <h3>Kubernetes/Docker</h3>
+                        <span class="job-count">800+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹10-28 LPA</div>
+                        <span class="view-link">View K8s Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Non-Tech Skills -->
+            <div class="skill-category">
+                <h2 class="skill-category-title">
+                    <i class="fas fa-briefcase"></i>
+                    Business & Marketing
+                </h2>
+                
+                <div class="skills-grid">
+                    <a href="jobs.html?skill=digitalmarketing" class="skill-card">
+                        <span class="hot-badge">🔥 Hot</span>
+                        <div class="skill-icon icon-marketing"><i class="fas fa-bullhorn"></i></div>
+                        <h3>Digital Marketing</h3>
+                        <span class="job-count">1,200+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹4-12 LPA</div>
+                        <span class="view-link">View Marketing Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=sales" class="skill-card">
+                        <div class="skill-icon icon-sales"><i class="fas fa-handshake"></i></div>
+                        <h3>Sales</h3>
+                        <span class="job-count">1,500+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹3-10 LPA + Incentives</div>
+                        <span class="view-link">View Sales Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=hr" class="skill-card">
+                        <div class="skill-icon icon-hr"><i class="fas fa-users"></i></div>
+                        <h3>HR / Recruitment</h3>
+                        <span class="job-count">700+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹3-8 LPA</div>
+                        <span class="view-link">View HR Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?skill=design" class="skill-card">
+                        <div class="skill-icon icon-design"><i class="fas fa-paint-brush"></i></div>
+                        <h3>UI/UX Design</h3>
+                        <span class="job-count">600+ Jobs</span>
+                        <div class="salary-range">💰 Avg Salary: ₹5-15 LPA</div>
+                        <span class="view-link">View Design Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Skill Quiz CTA -->
+            <div class="skill-quiz-cta">
+                <h3><i class="fas fa-magic"></i> Not Sure Which Skills to Learn?</h3>
+                <p>Take our 2-minute career quiz to discover which skills match your interests and career goals. Get personalized job recommendations!</p>
+                <a href="job-quiz.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">
+                    <i class="fas fa-play-circle"></i> Take the Career Quiz
+                </a>
+            </div>
+            
+            <!-- Salary Comparison -->
+            <div class="salary-comparison">
+                <h3><i class="fas fa-rupee-sign"></i> Average Fresher Salary by Skill (2026)</h3>
+                
+                <div class="salary-bar">
+                    <span class="skill-name">AI/ML</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 95%; background: linear-gradient(90deg, #6366f1, #8b5cf6);">₹12-35 LPA</div>
+                    </div>
+                </div>
+                
+                <div class="salary-bar">
+                    <span class="skill-name">DevOps</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 85%; background: linear-gradient(90deg, #326CE5, #2496ED);">₹8-25 LPA</div>
+                    </div>
+                </div>
+                
+                <div class="salary-bar">
+                    <span class="skill-name">Full Stack</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 80%; background: linear-gradient(90deg, #667eea, #764ba2);">₹8-20 LPA</div>
+                    </div>
+                </div>
+                
+                <div class="salary-bar">
+                    <span class="skill-name">React.js</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 75%; background: linear-gradient(90deg, #61DAFB, #20232A);">₹6-18 LPA</div>
+                    </div>
+                </div>
+                
+                <div class="salary-bar">
+                    <span class="skill-name">Python</span>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 70%; background: linear-gradient(90deg, #3776AB, #FFD43B);">₹6-15 LPA</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Share -->
+            <div class="social-share" style="text-align: center; margin: 40px 0; padding: 30px; background: var(--neutral-50); border-radius: 12px;">
+                <p style="font-family: 'Cinzel', serif; margin-bottom: 15px; color: var(--primary);">Share with friends who are looking to upskill</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://twitter.com/intent/tweet?text=Find%20jobs%20by%20skills%20-%20Python%2C%20Java%2C%20React%2C%20AI%2FML%20and%20more!&url=https://naukriforsure.vercel.app/jobs-by-skills.html" target="_blank" class="btn" style="background: #1DA1F2; color: white; padding: 10px 20px;">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://naukriforsure.vercel.app/jobs-by-skills.html&title=Jobs%20by%20Skills" target="_blank" class="btn" style="background: #0077B5; color: white; padding: 10px 20px;">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://wa.me/?text=Find%20jobs%20by%20skills%20https://naukriforsure.vercel.app/jobs-by-skills.html" target="_blank" class="btn" style="background: #25D366; color: white; padding: 10px 20px;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"></span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>A free platform helping freshers and job seekers find jobs.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="jobs-by-city.html">Jobs by City</a></li>
+                        <li><a href="jobs-by-skills.html">Jobs by Skills</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Top Skills</h4>
+                    <ul>
+                        <li><a href="jobs.html?skill=python">Python Jobs</a></li>
+                        <li><a href="jobs.html?skill=react">React.js Jobs</a></li>
+                        <li><a href="jobs.html?skill=ml">ML Jobs</a></li>
+                        <li><a href="jobs.html?skill=devops">DevOps Jobs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog/">Career Blog</a></li>
+                        <li><a href="job-quiz.html">Career Quiz</a></li>
+                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

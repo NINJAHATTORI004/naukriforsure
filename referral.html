@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer & Earn Rewards - NaukriForSure</title>
+    <meta name="description" content="Refer friends to NaukriForSure and earn exciting rewards. Help your friends find jobs and get benefits for every successful referral.">
+    <meta name="keywords" content="refer and earn, job referral, referral rewards, invite friends jobs, earn rewards">
+    <meta name="author" content="NaukriForSure">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/referral.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://naukriforsure.vercel.app/referral.html">
+    <meta property="og:title" content="Refer & Earn Rewards - NaukriForSure">
+    <meta property="og:description" content="Refer friends and earn exciting rewards!">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6055589762174170",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .referral-hero {
+            background: var(--gradient-royal);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .referral-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .referral-hero h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .referral-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .hero-stat .label {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .referral-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--neutral-600);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .step-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            border: 2px solid var(--neutral-200);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-royal);
+            border-radius: 50%;
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--parchment);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .step-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .step-card p {
+            color: var(--neutral-600);
+            font-size: 0.95rem;
+        }
+        
+        /* Rewards Section */
+        .rewards-section {
+            background: var(--parchment);
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+        
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .reward-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            border: 2px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reward-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-royal);
+        }
+        
+        .reward-tier {
+            display: inline-block;
+            background: var(--gradient-royal);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .reward-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .reward-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+        }
+        
+        .reward-perks {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .reward-perks li {
+            padding: 8px 0;
+            color: var(--neutral-600);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .reward-perks li i {
+            color: var(--secondary);
+        }
+        
+        /* Referral Form */
+        .referral-form-section {
+            padding: 60px 0;
+        }
+        
+        .referral-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            border: 2px solid var(--neutral-200);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .referral-box h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .referral-link-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .referral-link-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid var(--neutral-200);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--neutral-50);
+        }
+        
+        .referral-link-box button {
+            padding: 15px 25px;
+            background: var(--gradient-royal);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .referral-link-box button:hover {
+            transform: scale(1.05);
+        }
+        
+        .share-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .share-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .share-btn.whatsapp { background: #25D366; }
+        .share-btn.telegram { background: #0088cc; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.linkedin { background: #0077B5; }
+        .share-btn.email { background: var(--primary); }
+        
+        /* Leaderboard */
+        .leaderboard-section {
+            padding: 60px 0;
+        }
+        
+        .leaderboard {
+            background: var(--white);
+            border-radius: 16px;
+            border: 2px solid var(--neutral-200);
+            overflow: hidden;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .leaderboard-header {
+            background: var(--gradient-royal);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .leaderboard-header h3 {
+            font-family: 'Cinzel', serif;
+            margin: 0;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--neutral-200);
+            gap: 15px;
+        }
+        
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+        
+        .leaderboard-rank {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .leaderboard-rank.gold { background: linear-gradient(135deg, #FFD700, #FFA500); color: white; }
+        .leaderboard-rank.silver { background: linear-gradient(135deg, #C0C0C0, #808080); color: white; }
+        .leaderboard-rank.bronze { background: linear-gradient(135deg, #CD7F32, #8B4513); color: white; }
+        .leaderboard-rank.normal { background: var(--neutral-200); color: var(--neutral-700); }
+        
+        .leaderboard-user {
+            flex: 1;
+        }
+        
+        .leaderboard-user .name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .leaderboard-user .badge {
+            display: inline-block;
+            background: var(--parchment);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: var(--secondary);
+            margin-left: 10px;
+        }
+        
+        .leaderboard-score {
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Cinzel', serif;
+        }
+        
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--neutral-200);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: var(--primary);
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--neutral-50);
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--neutral-600);
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* Gamification Badges */
+        .badges-section {
+            padding: 60px 0;
+            background: var(--parchment);
+        }
+        
+        .badges-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .badge-item {
+            text-align: center;
+            width: 120px;
+        }
+        
+        .badge-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .badge-icon.locked {
+            opacity: 0.4;
+            filter: grayscale(100%);
+        }
+        
+        .badge-icon.locked::after {
+            content: '🔒';
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            font-size: 1.2rem;
+        }
+        
+        .badge-item h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .badge-item p {
+            font-size: 0.75rem;
+            color: var(--neutral-600);
+        }
+        
+        @media (max-width: 768px) {
+            .referral-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .referral-link-box {
+                flex-direction: column;
+            }
+            
+            .share-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="blog/">Blog</a></li>
+                <li><a href="resume-screener.html">Resume Screener</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Referral Hero -->
+    <div class="referral-hero">
+        <h1><i class="fas fa-gift"></i> Refer Friends & Earn Rewards</h1>
+        <p>Help your friends land their dream jobs and get rewarded for every successful referral!</p>
+        
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="number">5,000+</div>
+                <div class="label">Successful Referrals</div>
+            </div>
+            <div class="hero-stat">
+                <div class="number">₹2L+</div>
+                <div class="label">Rewards Given</div>
+            </div>
+            <div class="hero-stat">
+                <div class="number">92%</div>
+                <div class="label">Referral Satisfaction</div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content">
+        
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="referral-container">
+                <div class="section-title">
+                    <h2><i class="fas fa-magic"></i> How It Works</h2>
+                    <p>Three simple steps to start earning rewards</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Share Your Link</h3>
+                        <p>Copy your unique referral link and share it with friends on WhatsApp, social media, or email.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Friends Sign Up</h3>
+                        <p>When your friends join using your link and apply to jobs, they're tracked as your referrals.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Earn Rewards</h3>
+                        <p>Get points and rewards for every friend who applies. More referrals = better rewards!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AdSense Ad Unit -->
+        <div style="text-align: center; margin: 30px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6055589762174170"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <!-- Rewards Section -->
+        <section class="rewards-section">
+            <div class="section-title">
+                <h2><i class="fas fa-crown"></i> Reward Tiers</h2>
+                <p>The more you refer, the better your rewards!</p>
+            </div>
+            
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <span class="reward-tier">🥉 Bronze</span>
+                    <h3>Starter</h3>
+                    <div class="reward-value">3 Referrals</div>
+                    <ul class="reward-perks">
+                        <li><i class="fas fa-check"></i> Priority job alerts</li>
+                        <li><i class="fas fa-check"></i> "Helpful Friend" badge</li>
+                        <li><i class="fas fa-check"></i> Featured on community</li>
+                    </ul>
+                </div>
+                
+                <div class="reward-card">
+                    <span class="reward-tier">🥈 Silver</span>
+                    <h3>Influencer</h3>
+                    <div class="reward-value">10 Referrals</div>
+                    <ul class="reward-perks">
+                        <li><i class="fas fa-check"></i> All Bronze perks</li>
+                        <li><i class="fas fa-check"></i> Free resume review</li>
+                        <li><i class="fas fa-check"></i> "Career Helper" badge</li>
+                        <li><i class="fas fa-check"></i> Early access to new jobs</li>
+                    </ul>
+                </div>
+                
+                <div class="reward-card">
+                    <span class="reward-tier">🥇 Gold</span>
+                    <h3>Champion</h3>
+                    <div class="reward-value">25 Referrals</div>
+                    <ul class="reward-perks">
+                        <li><i class="fas fa-check"></i> All Silver perks</li>
+                        <li><i class="fas fa-check"></i> 1:1 career counseling</li>
+                        <li><i class="fas fa-check"></i> "Job Champion" badge</li>
+                        <li><i class="fas fa-check"></i> LinkedIn shoutout</li>
+                        <li><i class="fas fa-check"></i> Special mentions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Referral Form -->
+        <section class="referral-form-section">
+            <div class="referral-container">
+                <div class="referral-box">
+                    <h3><i class="fas fa-link"></i> Your Unique Referral Link</h3>
+                    
+                    <div class="referral-link-box">
+                        <input type="text" id="referralLink" value="https://naukriforsure.vercel.app?ref=YOUR_CODE" readonly>
+                        <button onclick="copyReferralLink()">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    
+                    <p style="text-align: center; color: var(--neutral-600); margin-bottom: 25px;">
+                        Share via your favorite platform:
+                    </p>
+                    
+                    <div class="share-options">
+                        <a href="#" class="share-btn whatsapp" onclick="shareVia('whatsapp')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="#" class="share-btn telegram" onclick="shareVia('telegram')">
+                            <i class="fab fa-telegram"></i> Telegram
+                        </a>
+                        <a href="#" class="share-btn twitter" onclick="shareVia('twitter')">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="#" class="share-btn linkedin" onclick="shareVia('linkedin')">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                    
+                    <!-- Dashboard Link -->
+                    <div style="margin-top: 30px; padding-top: 25px; border-top: 2px solid var(--neutral-200); text-align: center;">
+                        <p style="color: var(--neutral-600); margin-bottom: 15px;">Track your referrals and rewards</p>
+                        <a href="referral-dashboard.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: linear-gradient(135deg, #1a365d, #2d5a87); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-family: 'Cinzel', serif; transition: all 0.3s ease;">
+                            <i class="fas fa-chart-line"></i> View My Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gamification Badges -->
+        <section class="badges-section">
+            <div class="section-title">
+                <h2><i class="fas fa-medal"></i> Collect Badges</h2>
+                <p>Unlock achievements and show off your impact</p>
+            </div>
+            
+            <div class="badges-grid">
+                <div class="badge-item">
+                    <div class="badge-icon" style="background: linear-gradient(135deg, #FFD700, #FFA500);">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>First Referral</h4>
+                    <p>Your first successful referral</p>
+                </div>
+                
+                <div class="badge-item">
+                    <div class="badge-icon" style="background: linear-gradient(135deg, #3B82F6, #1E40AF);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Team Builder</h4>
+                    <p>5 friends joined</p>
+                </div>
+                
+                <div class="badge-item">
+                    <div class="badge-icon locked" style="background: linear-gradient(135deg, #10B981, #047857);">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Growth Hacker</h4>
+                    <p>10 referrals in a week</p>
+                </div>
+                
+                <div class="badge-item">
+                    <div class="badge-icon locked" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4>Influencer</h4>
+                    <p>25 successful referrals</p>
+                </div>
+                
+                <div class="badge-item">
+                    <div class="badge-icon locked" style="background: linear-gradient(135deg, #EC4899, #9333EA);">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4>Legend</h4>
+                    <p>50 friends got jobs</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Leaderboard -->
+        <section class="leaderboard-section">
+            <div class="referral-container">
+                <div class="section-title">
+                    <h2><i class="fas fa-trophy"></i> Top Referrers This Month</h2>
+                    <p>Join the leaderboard and win special prizes!</p>
+                </div>
+                
+                <div class="leaderboard">
+                    <div class="leaderboard-header">
+                        <h3><i class="fas fa-crown"></i> January 2026 Leaderboard</h3>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank gold">1</div>
+                        <div class="leaderboard-user">
+                            <span class="name">Priya S.</span>
+                            <span class="badge">🏆 Champion</span>
+                        </div>
+                        <div class="leaderboard-score">47 referrals</div>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank silver">2</div>
+                        <div class="leaderboard-user">
+                            <span class="name">Rahul K.</span>
+                            <span class="badge">⭐ Influencer</span>
+                        </div>
+                        <div class="leaderboard-score">38 referrals</div>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank bronze">3</div>
+                        <div class="leaderboard-user">
+                            <span class="name">Amit P.</span>
+                            <span class="badge">🌟 Rising Star</span>
+                        </div>
+                        <div class="leaderboard-score">29 referrals</div>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank normal">4</div>
+                        <div class="leaderboard-user">
+                            <span class="name">Neha M.</span>
+                        </div>
+                        <div class="leaderboard-score">24 referrals</div>
+                    </div>
+                    
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank normal">5</div>
+                        <div class="leaderboard-user">
+                            <span class="name">Vikram R.</span>
+                        </div>
+                        <div class="leaderboard-score">21 referrals</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="referral-container">
+                <div class="section-title">
+                    <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            How do I track my referrals?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Once you share your unique referral link, anyone who signs up using it will be tracked automatically. You can check your <a href="referral-dashboard.html" style="color: var(--secondary); font-weight: 600;">referral dashboard</a> to see all your successful referrals, earned rewards, and unlock badges!
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            When do I receive my rewards?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Rewards are credited once your referred friend completes their profile and applies to at least one job. Badge rewards are instant, while tier benefits are activated within 24-48 hours of reaching the milestone.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            Is there a limit to how many friends I can refer?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            No limits! Refer as many friends as you want. The more you refer, the more rewards you earn. Top referrers also get featured on our leaderboard and win special monthly prizes.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            Can my friends also earn by referring others?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Absolutely! Everyone who joins gets their own unique referral link. Your friends can also start referring and earning rewards. Help build a community of job seekers helping each other!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section style="background: var(--gradient-royal); padding: 60px 20px; text-align: center; color: white;">
+            <h2 style="font-family: 'Cinzel Decorative', serif; font-size: 2rem; margin-bottom: 15px;">
+                Ready to Start Earning?
+            </h2>
+            <p style="opacity: 0.9; margin-bottom: 25px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                Share your link now and help your friends find their dream jobs while earning amazing rewards!
+            </p>
+            <button onclick="copyReferralLink()" class="btn" style="background: white; color: var(--primary); padding: 15px 40px; font-size: 1.1rem;">
+                <i class="fas fa-copy"></i> Copy My Referral Link
+            </button>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"></span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>A free platform helping freshers find their dream careers.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="jobs-by-city.html">Jobs by City</a></li>
+                        <li><a href="jobs-by-skills.html">Jobs by Skills</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="job-quiz.html">Career Quiz</a></li>
+                        <li><a href="referral.html">Refer & Earn</a></li>
+                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Generate unique referral code
+        function generateReferralCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 8; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+        
+        // Set referral link on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            let code = localStorage.getItem('referralCode');
+            if (!code) {
+                code = generateReferralCode();
+                localStorage.setItem('referralCode', code);
+            }
+            document.getElementById('referralLink').value = `https://naukriforsure.vercel.app?ref=${code}`;
+        });
+        
+        function copyReferralLink() {
+            const input = document.getElementById('referralLink');
+            input.select();
+            document.execCommand('copy');
+            
+            // Show feedback
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.style.background = '#10B981';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2000);
+        }
+        
+        function shareVia(platform) {
+            event.preventDefault();
+            const link = document.getElementById('referralLink').value;
+            const text = "🚀 Looking for jobs? Check out NaukriForSure - 10,000+ fresher jobs from top companies! Join using my link:";
+            
+            const urls = {
+                whatsapp: `https://wa.me/?text=${encodeURIComponent(text + ' ' + link)}`,
+                telegram: `https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent(text)}`,
+                twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(link)}`,
+                linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(link)}&title=${encodeURIComponent('Find Your Dream Job')}&summary=${encodeURIComponent(text)}`
+            };
+            
+            window.open(urls[platform], '_blank');
+        }
+        
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

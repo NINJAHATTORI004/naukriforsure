@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs by City in India 2026 - Find Jobs Near You | NaukriForSure</title>
+    <meta name="description" content="Find fresher jobs in top Indian cities - Bangalore, Mumbai, Delhi, Hyderabad, Chennai, Pune & more. Browse 10,000+ city-wise job openings with direct apply links.">
+    <meta name="keywords" content="jobs in bangalore, jobs in mumbai, jobs in delhi, jobs in hyderabad, jobs in chennai, jobs in pune, fresher jobs by city, jobs near me, city wise jobs india">
+    <meta name="author" content="NaukriForSure">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/jobs-by-city.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://naukriforsure.vercel.app/jobs-by-city.html">
+    <meta property="og:title" content="Jobs by City in India 2026 - Find Jobs Near You">
+    <meta property="og:description" content="Find fresher jobs in Bangalore, Mumbai, Delhi, Hyderabad, Chennai, Pune & more. 10,000+ jobs with apply links.">
+    <meta property="og:image" content="https://naukriforsure.vercel.app/images/jobs-by-city-og.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jobs by City in India 2026 - Find Jobs Near You">
+    <meta name="twitter:description" content="Find fresher jobs in top Indian cities with direct apply links.">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Jobs by City in India",
+        "description": "Browse fresher jobs organized by city location across India",
+        "url": "https://naukriforsure.vercel.app/jobs-by-city.html",
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Jobs in Bangalore", "url": "https://naukriforsure.vercel.app/jobs.html?location=bangalore"},
+                {"@type": "ListItem", "position": 2, "name": "Jobs in Mumbai", "url": "https://naukriforsure.vercel.app/jobs.html?location=mumbai"},
+                {"@type": "ListItem", "position": 3, "name": "Jobs in Delhi NCR", "url": "https://naukriforsure.vercel.app/jobs.html?location=delhi"},
+                {"@type": "ListItem", "position": 4, "name": "Jobs in Hyderabad", "url": "https://naukriforsure.vercel.app/jobs.html?location=hyderabad"},
+                {"@type": "ListItem", "position": 5, "name": "Jobs in Chennai", "url": "https://naukriforsure.vercel.app/jobs.html?location=chennai"},
+                {"@type": "ListItem", "position": 6, "name": "Jobs in Pune", "url": "https://naukriforsure.vercel.app/jobs.html?location=pune"}
+            ]
+        }
+    }
+    </script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6055589762174170",
+        enable_page_level_ads: true
+    });
+    </script>
+    
+    <!-- Victorian Era Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .city-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            text-decoration: none;
+            color: var(--dark);
+            border: 2px solid var(--neutral-200);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .city-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-royal);
+        }
+        
+        .city-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .city-card .city-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-royal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .city-card .city-icon i {
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+        
+        .city-card h3 {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .city-card .job-count {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            font-family: 'Cinzel', serif;
+        }
+        
+        .city-card .job-label {
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+        
+        .city-card .top-companies {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--neutral-200);
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+        
+        .city-card .view-jobs {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            color: var(--primary);
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .city-card:hover .view-jobs {
+            color: var(--secondary);
+        }
+        
+        .tier-section {
+            margin: 50px 0;
+        }
+        
+        .tier-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .tier-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), transparent);
+        }
+        
+        .tier-badge {
+            background: var(--gradient-royal);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'Libre Baskerville', serif;
+        }
+        
+        .remote-banner {
+            background: linear-gradient(135deg, #1a365d, #2d5a45);
+            border-radius: 12px;
+            padding: 40px;
+            color: var(--white);
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .remote-banner h3 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .remote-banner p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--parchment);
+            border-radius: 12px;
+            border: 2px solid var(--secondary);
+        }
+        
+        .stats-bar .stat {
+            text-align: center;
+        }
+        
+        .stats-bar .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Cinzel', serif;
+            display: block;
+        }
+        
+        .stats-bar .stat-label {
+            color: var(--neutral-600);
+            font-size: 0.9rem;
+        }
+        
+        .seo-content {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid var(--neutral-200);
+        }
+        
+        .seo-content h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .seo-content p {
+            color: var(--neutral-700);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .faq-section {
+            margin: 50px 0;
+        }
+        
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--neutral-200);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .faq-question:hover {
+            background: var(--neutral-50);
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--neutral-600);
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="blog/">Blog</a></li>
+                <li><a href="resume-screener.html">Resume Screener</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Jobs by City</span>
+            </div>
+            <h1>Find Jobs by <span class="gradient-text">City</span></h1>
+            <p>Discover job opportunities in top Indian cities with direct apply links</p>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <div class="container" style="padding: 40px 20px;">
+            
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Total Jobs</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Cities Covered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5,000+</span>
+                    <span class="stat-label">Companies Hiring</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Daily</span>
+                    <span class="stat-label">New Updates</span>
+                </div>
+            </div>
+            
+            <!-- AdSense Ad Unit -->
+            <div style="text-align: center; margin: 30px 0;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <!-- Tier 1 Cities -->
+            <div class="tier-section">
+                <h2 class="tier-title">
+                    <i class="fas fa-crown" style="color: var(--secondary);"></i>
+                    Tier 1 Metro Cities
+                    <span class="tier-badge">Most Jobs</span>
+                </h2>
+                
+                <div class="city-grid">
+                    <a href="jobs.html?location=bangalore" class="city-card">
+                        <div class="city-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Bangalore</h3>
+                        <span class="job-count">3,500+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies">
+                            <strong>Top Hiring:</strong> Google, Microsoft, Amazon, Flipkart, Infosys
+                        </div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=mumbai" class="city-card">
+                        <div class="city-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Mumbai</h3>
+                        <span class="job-count">2,800+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies">
+                            <strong>Top Hiring:</strong> TCS, Reliance, JP Morgan, Deloitte, HDFC
+                        </div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=delhi" class="city-card">
+                        <div class="city-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3>Delhi NCR</h3>
+                        <span class="job-count">2,500+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies">
+                            <strong>Top Hiring:</strong> HCL, Adobe, Samsung, Paytm, Zomato
+                        </div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=hyderabad" class="city-card">
+                        <div class="city-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>Hyderabad</h3>
+                        <span class="job-count">2,200+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies">
+                            <strong>Top Hiring:</strong> Apple, Facebook, Qualcomm, Deloitte, Capgemini
+                        </div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=chennai" class="city-card">
+                        <div class="city-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Chennai</h3>
+                        <span class="job-count">1,800+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies">
+                            <strong>Top Hiring:</strong> TCS, Cognizant, Zoho, Infosys, Ford
+                        </div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=pune" class="city-card">
+                        <div class="city-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Pune</h3>
+                        <span class="job-count">1,600+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies">
+                            <strong>Top Hiring:</strong> Persistent, Wipro, Tech Mahindra, IBM, Accenture
+                        </div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Remote Work Banner -->
+            <div class="remote-banner">
+                <h3><i class="fas fa-globe"></i> Work From Anywhere</h3>
+                <p>Can't relocate? Explore 2,000+ remote & work-from-home opportunities across India</p>
+                <a href="jobs.html?location=remote" class="btn btn-white" style="background: white; color: #1a365d;">
+                    <i class="fas fa-home"></i> Browse Remote Jobs
+                </a>
+            </div>
+            
+            <!-- AdSense Ad Unit -->
+            <div style="text-align: center; margin: 30px 0;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-6055589762174170"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <!-- Tier 2 Cities -->
+            <div class="tier-section">
+                <h2 class="tier-title">
+                    <i class="fas fa-star" style="color: var(--secondary);"></i>
+                    Tier 2 Growing Cities
+                    <span class="tier-badge">Fast Growing</span>
+                </h2>
+                
+                <div class="city-grid">
+                    <a href="jobs.html?location=kolkata" class="city-card">
+                        <div class="city-icon"><i class="fas fa-landmark"></i></div>
+                        <h3>Kolkata</h3>
+                        <span class="job-count">800+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies"><strong>Top Hiring:</strong> TCS, Wipro, Cognizant, PWC</div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=ahmedabad" class="city-card">
+                        <div class="city-icon"><i class="fas fa-industry"></i></div>
+                        <h3>Ahmedabad</h3>
+                        <span class="job-count">650+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies"><strong>Top Hiring:</strong> Adani, TCS, Infosys, L&T</div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=jaipur" class="city-card">
+                        <div class="city-icon"><i class="fas fa-fort-awesome"></i></div>
+                        <h3>Jaipur</h3>
+                        <span class="job-count">450+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies"><strong>Top Hiring:</strong> Genpact, WNS, Startup Hub</div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=chandigarh" class="city-card">
+                        <div class="city-icon"><i class="fas fa-tree"></i></div>
+                        <h3>Chandigarh</h3>
+                        <span class="job-count">380+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies"><strong>Top Hiring:</strong> Infosys, Wipro, Tech Startups</div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=indore" class="city-card">
+                        <div class="city-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Indore</h3>
+                        <span class="job-count">320+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies"><strong>Top Hiring:</strong> TCS, Infosys, Tech Parks</div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    
+                    <a href="jobs.html?location=coimbatore" class="city-card">
+                        <div class="city-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Coimbatore</h3>
+                        <span class="job-count">280+</span>
+                        <span class="job-label">Jobs Available</span>
+                        <div class="top-companies"><strong>Top Hiring:</strong> CTS, Robert Bosch, Startups</div>
+                        <span class="view-jobs">View All Jobs <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Newsletter CTA -->
+            <div class="newsletter-cta" style="background: var(--gradient-royal); border-radius: 16px; padding: 50px 40px; text-align: center; color: white; margin: 50px 0;">
+                <h3 style="font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; margin-bottom: 15px;">
+                    <i class="fas fa-envelope"></i> Get City-Specific Job Alerts
+                </h3>
+                <p style="opacity: 0.9; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Subscribe to receive daily job updates for your preferred city. Be the first to know when new positions open!
+                </p>
+                <form id="cityNewsletterForm" style="display: flex; gap: 15px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+                    <input type="email" placeholder="Your email address" required style="flex: 1; min-width: 200px; padding: 15px 20px; border: none; border-radius: 8px; font-size: 1rem;">
+                    <select style="padding: 15px 20px; border: none; border-radius: 8px; font-size: 1rem; min-width: 150px;">
+                        <option value="all">All Cities</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi NCR</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="pune">Pune</option>
+                        <option value="remote">Remote Only</option>
+                    </select>
+                    <button type="submit" class="btn" style="background: white; color: var(--primary); padding: 15px 30px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                        Subscribe <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- SEO Content -->
+            <div class="seo-content">
+                <h2>Finding Jobs by City in India - Complete Guide 2026</h2>
+                <p>India's job market is booming with opportunities across major metropolitan cities. Whether you're a fresher looking for your first job or an experienced professional seeking new challenges, location plays a crucial role in your career decisions.</p>
+                
+                <p><strong>Bangalore</strong> continues to be India's Silicon Valley, hosting major tech giants like Google, Microsoft, Amazon, and thousands of startups. The city offers the highest number of IT and software engineering positions.</p>
+                
+                <p><strong>Mumbai</strong>, the financial capital, leads in banking, finance, media, and entertainment jobs. Major firms like JP Morgan, Goldman Sachs, and all major Indian banks have significant presence here.</p>
+                
+                <p><strong>Delhi NCR</strong> (including Gurgaon and Noida) offers diverse opportunities across IT services, consulting, e-commerce, and government sectors.</p>
+                
+                <p><strong>Hyderabad</strong> has emerged as a major IT hub with Apple, Facebook, Amazon, and Google having large development centers. The city offers competitive salaries with lower cost of living compared to Bangalore.</p>
+                
+                <h3>Tips for Job Seekers:</h3>
+                <ul style="margin-left: 20px; margin-top: 15px;">
+                    <li>Research the cost of living in your target city before accepting offers</li>
+                    <li>Consider tier-2 cities for better work-life balance and savings</li>
+                    <li>Remote opportunities allow you to work for top companies without relocation</li>
+                    <li>Network with professionals in your target city through LinkedIn</li>
+                </ul>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 style="font-family: 'Cinzel', serif; color: var(--primary); margin-bottom: 30px; text-align: center;">
+                    Frequently Asked Questions
+                </h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which city in India has the most IT jobs?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Bangalore is the IT capital of India with the maximum number of software and technology jobs. It hosts offices of Google, Microsoft, Amazon, Flipkart, and thousands of startups, making it the best city for IT professionals.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which city offers the best salary for freshers?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Bangalore and Hyderabad typically offer the highest starting salaries for freshers in IT sector (4-8 LPA). Mumbai leads for finance roles. However, consider cost of living - Hyderabad offers better savings potential.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Can I get remote jobs without relocating?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Post-pandemic, many companies offer permanent remote positions. We have 2,000+ remote job listings where you can work from anywhere in India. Filter by "Remote" location to see these opportunities.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        Which tier-2 city is best for IT jobs?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Coimbatore, Indore, and Chandigarh are emerging IT hubs with good opportunities and significantly lower cost of living. Jaipur and Ahmedabad are also growing rapidly with many IT parks and startup ecosystems.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Share -->
+            <div class="social-share" style="text-align: center; margin: 40px 0; padding: 30px; background: var(--neutral-50); border-radius: 12px;">
+                <p style="font-family: 'Cinzel', serif; margin-bottom: 15px; color: var(--primary);">Share this resource with friends looking for jobs</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="https://twitter.com/intent/tweet?text=Find%20jobs%20by%20city%20in%20India%20-%2010000%2B%20openings!&url=https://naukriforsure.vercel.app/jobs-by-city.html" target="_blank" class="btn" style="background: #1DA1F2; color: white; padding: 10px 20px;">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://naukriforsure.vercel.app/jobs-by-city.html&title=Jobs%20by%20City%20in%20India" target="_blank" class="btn" style="background: #0077B5; color: white; padding: 10px 20px;">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://wa.me/?text=Find%20jobs%20by%20city%20in%20India%20https://naukriforsure.vercel.app/jobs-by-city.html" target="_blank" class="btn" style="background: #25D366; color: white; padding: 10px 20px;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon"></span>
+                        <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+                    </a>
+                    <p>A free platform helping freshers and job seekers find jobs. Owned by NaukriForSure.</p>
+                    <p style="margin-top: 15px; color: #94a3b8;">
+                        <i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                        <a href="mailto:naukriforsure@outlook.com" style="color: #94a3b8;">naukriforsure@outlook.com</a>
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">All Jobs</a></li>
+                        <li><a href="jobs-by-city.html">Jobs by City</a></li>
+                        <li><a href="jobs-by-skills.html">Jobs by Skills</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Top Cities</h4>
+                    <ul>
+                        <li><a href="jobs.html?location=bangalore">Bangalore Jobs</a></li>
+                        <li><a href="jobs.html?location=mumbai">Mumbai Jobs</a></li>
+                        <li><a href="jobs.html?location=delhi">Delhi NCR Jobs</a></li>
+                        <li><a href="jobs.html?location=hyderabad">Hyderabad Jobs</a></li>
+                        <li><a href="jobs.html?location=remote">Remote Jobs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog/">Career Blog</a></li>
+                        <li><a href="salary-calculator.html">Salary Calculator</a></li>
+                        <li><a href="job-quiz.html">Job Match Quiz</a></li>
+                        <li><a href="referral.html">Refer & Earn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved. Made with ❤️ for Freshers by NaukriForSure</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+        
+        // Newsletter form
+        document.getElementById('cityNewsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing! You will receive city-specific job alerts soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

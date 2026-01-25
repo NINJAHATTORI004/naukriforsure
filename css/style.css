@@ -790,6 +790,73 @@ header .navbar {
     list-style: none;
 }
 
+/* Navigation Dropdown Styles */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    border: 2px solid var(--secondary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: var(--dark);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.dropdown-menu a:hover {
+    background: var(--parchment);
+    color: var(--primary);
+}
+
+.dropdown-menu a i {
+    width: 20px;
+    color: var(--secondary);
+}
+
+.dropdown-menu a::after {
+    display: none;
+}
+
 .nav-links a {
     font-weight: 500;
     color: var(--gray-800);
