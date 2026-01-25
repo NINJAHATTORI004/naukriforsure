@@ -1283,6 +1283,11 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <a href="profile.html" class="btn btn-outline auth-profile-btn" style="margin-right: 10px; display: none;"><i class="fas fa-user-circle"></i> Profile</a>
+                    <a href="login.html" class="btn btn-outline auth-login-btn" style="margin-right: 10px;"><i class="fas fa-user"></i> Login</a>
+                    <a href="jobs.html" class="btn btn-primary">Find Jobs</a>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -1709,8 +1714,8 @@
             { id: 'phone', name: 'Phone Number', desc: 'No valid phone number detected', check: (t) => !/(\+91[\s-]?)?[6-9]\d{9}|\d{3}[\s-]\d{3}[\s-]\d{4}/.test(t), severity: 'warning', fix: 'Add your phone number in a standard format like +91 XXXXX XXXXX or XXX-XXX-XXXX for better ATS parsing.' },
             { id: 'dates', name: 'Date Formatting', desc: 'Inconsistent or missing date formats', check: (t) => !/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*[\s,]+\d{4}/i.test(t) && !/\d{2}\/\d{4}/.test(t), severity: 'warning', fix: 'Use consistent date formats throughout. Recommended: "Jan 2024 - Present" or "01/2024 - Present".' },
             { id: 'length', name: 'Content Length', desc: 'Resume appears too short', check: (t) => t.split(/\s+/).length < 150, severity: 'warning', fix: 'Your resume seems brief. Add more details about your responsibilities, achievements, skills, and projects.' },
-            { id: 'bullets', name: 'Bullet Points', desc: 'Insufficient use of bullet points', check: (t) => (t.match(/[•\-\*]\s/g) || []).length < 3, severity: 'warning', fix: 'Use bullet points to list responsibilities and achievements. This improves readability and ATS parsing.' },
-            { id: 'specialChars', name: 'Special Characters', desc: 'Non-standard characters detected', check: (t) => /[^\x00-\x7F]/.test(t.replace(/[''""—–•]/g, '')), severity: 'warning', fix: 'Replace fancy characters, emojis, or symbols with standard ASCII characters for better compatibility.' },
+            { id: 'bullets', name: 'Bullet Points', desc: 'Insufficient use of bullet points', check: (t) => (t.match(/[ï¿½\-\*]\s/g) || []).length < 3, severity: 'warning', fix: 'Use bullet points to list responsibilities and achievements. This improves readability and ATS parsing.' },
+            { id: 'specialChars', name: 'Special Characters', desc: 'Non-standard characters detected', check: (t) => /[^\x00-\x7F]/.test(t.replace(/[''""ï¿½ï¿½ï¿½]/g, '')), severity: 'warning', fix: 'Replace fancy characters, emojis, or symbols with standard ASCII characters for better compatibility.' },
             { id: 'links', name: 'Professional Links', desc: 'No LinkedIn or portfolio links found', check: (t) => !/linkedin\.com|github\.com|portfolio/i.test(t), severity: 'info', fix: 'Add your LinkedIn profile and GitHub/portfolio links to strengthen your professional presence.' },
             { id: 'experience', name: 'Experience Section', desc: 'No clear Experience section found', check: (t) => !/experience|work|employment/i.test(t), severity: 'error', fix: 'Add a clearly labeled "Experience" or "Work Experience" section. This is crucial for ATS parsing.' },
             { id: 'education', name: 'Education Section', desc: 'No clear Education section found', check: (t) => !/education|degree|university|college|bachelor|master/i.test(t), severity: 'warning', fix: 'Add an "Education" section with your degree, institution name, and graduation year.' },
@@ -2218,7 +2223,7 @@
                         sections.achievements = sectionLines.filter(l => l.length > 10);
                         break;
                     case 'languages':
-                        sections.languages = sectionText.split(/[,\n•\-\|]/).map(l => l.trim()).filter(l => l.length > 1 && l.length < 30);
+                        sections.languages = sectionText.split(/[,\nï¿½\-\|]/).map(l => l.trim()).filter(l => l.length > 1 && l.length < 30);
                         break;
                 }
             });
@@ -2230,8 +2235,8 @@
             }
             
             if (sections.experience.length === 0) {
-                const bullets = text.match(/[•\-\*]\s*(?:developed|implemented|designed|created|built|led|managed|optimized|achieved|delivered)[^\n]+/gi) || [];
-                sections.experience = bullets.map(b => b.replace(/^[•\-\*]\s*/, '').trim()).filter(b => b.length > 20);
+                const bullets = text.match(/[ï¿½\-\*]\s*(?:developed|implemented|designed|created|built|led|managed|optimized|achieved|delivered)[^\n]+/gi) || [];
+                sections.experience = bullets.map(b => b.replace(/^[ï¿½\-\*]\s*/, '').trim()).filter(b => b.length > 20);
             }
             
             if (sections.education.length === 0) {
@@ -2247,7 +2252,7 @@
             // Common name patterns - direct labels
             const namePatterns = [
                 /^(?:name|full\s*name)[\s:]+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,3})/mi,
-                /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,2})(?:\s*[\|\-–]\s*(?:software|developer|engineer|manager|analyst|designer|consultant|intern|fresher|student))/mi,
+                /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+){1,2})(?:\s*[\|\-ï¿½]\s*(?:software|developer|engineer|manager|analyst|designer|consultant|intern|fresher|student))/mi,
             ];
             
             for (const pattern of namePatterns) {
@@ -2289,7 +2294,7 @@
                 if (line.length < 3 || line.length > 50) continue;
                 if (/[@\d\(\)\[\]{}]/.test(line)) continue;
                 if (/^(?:resume|cv|curriculum|vitae|contact|phone|email|address|linkedin|github|portfolio|objective|summary|skills|education|experience|projects|technical|professional|career)/i.test(line)) continue;
-                if (/[•\*\|:]/.test(line)) continue;
+                if (/[ï¿½\*\|:]/.test(line)) continue;
                 if (/\.(com|in|org|net|io|co|edu|app|dev)$/i.test(line)) continue;
                 if (/(?:software|developer|engineer|manager|analyst|fresher|student|intern|designer|architect|consultant|specialist|executive|officer|professional|scientist|lead)$/i.test(line)) continue;
                 if (/(?:detail|oriented|result|driven|motivated|passionate)/i.test(line)) continue;
@@ -2415,7 +2420,7 @@
                 cleanedText = cleanedText.split(broken).join(fixed);
             }
             
-            let skills = cleanedText.split(/[,\n•\-\|\/:;]/)
+            let skills = cleanedText.split(/[,\nï¿½\-\|\/:;]/)
                 .map(s => s.trim())
                 .filter(s => s.length > 1 && s.length < 40)
                 .filter(s => !/^(?:and|or|etc|the|with|using|including|such\s*as|tools|platforms|additional|knowledge|core|concepts|languages|databases|data|analytics|web|app)$/i.test(s))
@@ -2462,11 +2467,11 @@
             let currentJob = null;
             
             const titlePatterns = [
-                /^(.+?)\s*(?:at|@|\|)\s*(.+?)(?:\s*[\|\-–]\s*(.+))?$/i,  // Title at Company | Date
-                /^(.+?)\s*[\-–]\s*(.+?)(?:\s*[\(\|]\s*(.+))?$/i,  // Title - Company (Date)
+                /^(.+?)\s*(?:at|@|\|)\s*(.+?)(?:\s*[\|\-ï¿½]\s*(.+))?$/i,  // Title at Company | Date
+                /^(.+?)\s*[\-ï¿½]\s*(.+?)(?:\s*[\(\|]\s*(.+))?$/i,  // Title - Company (Date)
             ];
             
-            const datePattern = /(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*\d{4}|(?:\d{1,2}\/\d{4})|(?:\d{4}\s*[\-–]\s*(?:\d{4}|present|current|now))|(?:present|current|ongoing)/i;
+            const datePattern = /(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*\d{4}|(?:\d{1,2}\/\d{4})|(?:\d{4}\s*[\-ï¿½]\s*(?:\d{4}|present|current|now))|(?:present|current|ongoing)/i;
             
             // Filter out garbage lines
             const cleanLines = lines.filter(line => {
@@ -2477,11 +2482,11 @@
             });
             
             cleanLines.forEach(line => {
-                const isBullet = /^[•\-\*]\s/.test(line);
+                const isBullet = /^[ï¿½\-\*]\s/.test(line);
                 const hasDate = datePattern.test(line);
                 
                 if (isBullet) {
-                    const bulletText = line.replace(/^[•\-\*]\s*/, '').trim();
+                    const bulletText = line.replace(/^[ï¿½\-\*]\s*/, '').trim();
                     // Filter out non-experience bullets (awards, achievements mixed in)
                     if (bulletText.length > 20 && 
                         !/finalist|winner|award|topper|hackathon\s*leader|volunteer|editor|interests?:/i.test(bulletText)) {
@@ -2685,10 +2690,10 @@
             let currentProject = null;
             
             lines.forEach(line => {
-                const isBullet = /^[•\-\*]\s/.test(line);
+                const isBullet = /^[ï¿½\-\*]\s/.test(line);
                 
                 if (isBullet) {
-                    const bulletText = line.replace(/^[•\-\*]\s*/, '').trim();
+                    const bulletText = line.replace(/^[ï¿½\-\*]\s*/, '').trim();
                     if (bulletText.length > 15) {
                         bullets.push(bulletText);
                         if (currentProject) currentProject.description += ' ' + bulletText;
@@ -3144,7 +3149,7 @@
                                         <strong style="font-size:0.9rem;">${edu.degree}</strong>
                                         <span style="font-size:0.8rem;color:var(--gray-500);">${edu.year}</span>
                                     </div>
-                                    <div style="font-size:0.85rem;color:var(--gray-500);">${edu.institution}${edu.gpa ? ` • GPA: ${edu.gpa}` : ''}</div>
+                                    <div style="font-size:0.85rem;color:var(--gray-500);">${edu.institution}${edu.gpa ? ` ï¿½ GPA: ${edu.gpa}` : ''}</div>
                                 </div>
                             `).join('') :
                             (parsed.education.length > 0 ?
@@ -3276,7 +3281,7 @@
                 <div style="font-family: 'Georgia', serif; color: #1e293b;">
                     <h1 style="font-size: 1.8rem; margin: 0; text-align: center; color: #1e3a5f; letter-spacing: 2px;">${name.toUpperCase()}</h1>
                     <div style="text-align: center; color: #64748b; font-size: 0.85rem; margin: 8px 0 20px; border-bottom: 2px solid #1e3a5f; padding-bottom: 15px;">
-                        ${contact.join(' <span style="color:#94a3b8;">•</span> ')}
+                        ${contact.join(' <span style="color:#94a3b8;">ï¿½</span> ')}
                     </div>
                     
                     ${summary ? `
@@ -3289,7 +3294,7 @@
                     ${skills.length > 0 ? `
                     <div style="margin-bottom: 20px;">
                         <h2 style="font-size: 0.9rem; color: #1e3a5f; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Core Competencies</h2>
-                        <p style="font-size: 0.85rem; color: #334155;">${skills.slice(0, 15).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' • ')}</p>
+                        <p style="font-size: 0.85rem; color: #334155;">${skills.slice(0, 15).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ï¿½ ')}</p>
                     </div>
                     ` : ''}
                     
@@ -3326,7 +3331,7 @@
                                         <strong style="font-size: 0.85rem;">${edu.degree}</strong>
                                         <span style="font-size: 0.8rem; color: #64748b;">${edu.year}</span>
                                     </div>
-                                    <div style="font-size: 0.85rem; color: #64748b;">${edu.institution}${edu.gpa ? ` • GPA: ${edu.gpa}` : ''}</div>
+                                    <div style="font-size: 0.85rem; color: #64748b;">${edu.institution}${edu.gpa ? ` ï¿½ GPA: ${edu.gpa}` : ''}</div>
                                 </div>
                             `).join('') :
                             p.education.map(e => `<p style="font-size: 0.85rem; margin: 5px 0;">${e}</p>`).join('')
@@ -3389,7 +3394,7 @@
                         ${p.projects && p.projects.length > 0 ? `
                         <div>
                             <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; font-family: 'Cinzel', Georgia, serif;">Projects</h2>
-                            ${p.projects.slice(0, 2).map(proj => `<p style="font-size: 0.8rem; margin: 4px 0; color: #475569;">• ${proj}</p>`).join('')}
+                            ${p.projects.slice(0, 2).map(proj => `<p style="font-size: 0.8rem; margin: 4px 0; color: #475569;">ï¿½ ${proj}</p>`).join('')}
                         </div>
                         ` : ''}
                     </div>
@@ -3478,7 +3483,7 @@
                 <div style="font-family: 'Times New Roman', serif; color: #1a1a1a;">
                     <div style="text-align: center; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 3px double #1a1a1a;">
                         <h1 style="font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 400; letter-spacing: 4px;">${name.toUpperCase()}</h1>
-                        <div style="font-size: 0.85rem; color: #444;">${contact.join(' • ')}</div>
+                        <div style="font-size: 0.85rem; color: #444;">${contact.join(' ï¿½ ')}</div>
                     </div>
                     
                     ${summary ? `
@@ -3492,7 +3497,7 @@
                     <div style="margin-bottom: 25px;">
                         <h2 style="font-size: 1rem; font-weight: 400; letter-spacing: 2px; color: #333; margin-bottom: 12px; text-transform: uppercase;">Areas of Expertise</h2>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                            ${skills.slice(0, 10).map(s => `<span style="font-size: 0.85rem; color: #333;">¦ ${s.charAt(0).toUpperCase() + s.slice(1)}</span>`).join('')}
+                            ${skills.slice(0, 10).map(s => `<span style="font-size: 0.85rem; color: #333;">ï¿½ ${s.charAt(0).toUpperCase() + s.slice(1)}</span>`).join('')}
                         </div>
                     </div>
                     ` : ''}
@@ -3520,7 +3525,7 @@
                     <div style="position: relative; margin-bottom: 25px;">
                         <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #722f37, #b8860b); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600; border: 2px solid #b8860b;">${name.charAt(0)}</div>
                         <h1 style="font-size: 1.6rem; margin: 10px 0 5px 0; font-weight: 700; font-family: 'Cinzel', Georgia, serif; color: #722f37;">${name}</h1>
-                        <div style="font-size: 0.8rem; color: #718096;">${contact.slice(0, 3).join(' • ')}</div>
+                        <div style="font-size: 0.8rem; color: #718096;">${contact.slice(0, 3).join(' ï¿½ ')}</div>
                     </div>
                     
                     ${summary ? `
@@ -3637,7 +3642,7 @@ ${subDivider}
                 const skillsCapitalized = allSkills.map(s => s.charAt(0).toUpperCase() + s.slice(1));
                 for (let i = 0; i < skillsCapitalized.length; i += 3) {
                     const row = skillsCapitalized.slice(i, i + 3);
-                    txt += '• ' + row.join('  •  ') + '\n';
+                    txt += 'ï¿½ ' + row.join('  ï¿½  ') + '\n';
                 }
                 txt += '\n';
             }
@@ -3655,12 +3660,12 @@ ${subDivider}
                         if (exp.dates) txt += `  |  ${exp.dates}`;
                         txt += '\n';
                         (exp.bullets || []).slice(0, 5).forEach(b => {
-                            txt += `  • ${b}\n`;
+                            txt += `  ï¿½ ${b}\n`;
                         });
                     });
                 } else {
                     experienceBullets.slice(0, 8).forEach(b => {
-                        txt += `  • ${b}\n`;
+                        txt += `  ï¿½ ${b}\n`;
                     });
                 }
                 txt += '\n';
@@ -3684,7 +3689,7 @@ ${subDivider}
                     });
                 } else {
                     p.projects.slice(0, 5).forEach(proj => {
-                        txt += `  • ${proj}\n`;
+                        txt += `  ï¿½ ${proj}\n`;
                     });
                 }
                 txt += '\n';
@@ -3707,7 +3712,7 @@ ${subDivider}
                     });
                 } else {
                     p.education.forEach(e => {
-                        txt += `  • ${e}\n`;
+                        txt += `  ï¿½ ${e}\n`;
                     });
                 }
                 txt += '\n';
@@ -3993,7 +3998,7 @@ ${divider}`;
                         <span class="edu-degree">${edu.degree}</span>
                         <span class="edu-year">${edu.year}</span>
                     </div>
-                    <div class="edu-school">${edu.institution}${edu.gpa ? ` • GPA: ${edu.gpa}` : ''}</div>
+                    <div class="edu-school">${edu.institution}${edu.gpa ? ` ï¿½ GPA: ${edu.gpa}` : ''}</div>
                 </div>
                 `).join('') :
                 p.education.map(e => `<div class="education-item"><div class="edu-degree">${e}</div></div>`).join('')
@@ -4042,7 +4047,7 @@ ${divider}`;
             
             const report = `
 +------------------------------------------------------------------+
-¦           NAUKRIFORSURE - ADVANCED RESUME ANALYSIS REPORT        ¦
+ï¿½           NAUKRIFORSURE - ADVANCED RESUME ANALYSIS REPORT        ï¿½
 +------------------------------------------------------------------+
 
 Generated: ${date} at ${time}
@@ -4072,13 +4077,13 @@ ${a.atsIssues.map(i => `[${i.severity.toUpperCase()}] ${i.name}
 ??? KEYWORD ANALYSIS
 ------------------
  Found (${a.foundKeywords.length}):
-${a.foundKeywords.map(k => `   • ${k.keyword || k}${k.count ? ` (${k.count}x)` : ''}`).join('\n') || '   None'}
+${a.foundKeywords.map(k => `   ï¿½ ${k.keyword || k}${k.count ? ` (${k.count}x)` : ''}`).join('\n') || '   None'}
 
  Missing (${a.missingKeywords.length}):
-${a.missingKeywords.slice(0, 15).map(k => `   • ${k}`).join('\n')}
+${a.missingKeywords.slice(0, 15).map(k => `   ï¿½ ${k}`).join('\n')}
 
 ?? Underused (${a.underusedKeywords.length}):
-${a.underusedKeywords.map(k => `   • ${k}`).join('\n') || '   None'}
+${a.underusedKeywords.map(k => `   ï¿½ ${k}`).join('\n') || '   None'}
 
 ??????????????????????????????????????????????????????????????????
 
@@ -4193,5 +4198,6 @@ Generated by NaukriForSure Advanced Resume Screener
     </script>
     <script src="js/chatbot.js"></script>
     <script src="js/victorian-effects.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
