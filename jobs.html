@@ -30,13 +30,144 @@
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#722f37">
+    
+    <style>
+        /* Loading Skeleton Animation */
+        .loading-skeleton .skeleton-card {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            height: 100px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Save Job Button */
+        .save-job-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+        .save-job-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .save-job-btn.saved {
+            background: var(--secondary);
+            color: white;
+        }
+        .save-job-btn i {
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+        .save-job-btn.saved i {
+            color: white;
+        }
+        
+        /* Job List Card Enhancement */
+        .job-list-card {
+            position: relative;
+        }
+        
+        /* Filter Badge */
+        .filter-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+        .filter-badge button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 4px;
+        }
+        
+        /* Pagination Styles */
+        .page-btn {
+            padding: 10px 16px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .page-btn:hover, .page-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Enhanced Filter Select */
+        .filter-select {
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            font-family: 'EB Garamond', serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 140px;
+        }
+        .filter-select:hover, .filter-select:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+        
+        /* No Results State */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--cream);
+            border-radius: 16px;
+            border: 2px dashed var(--secondary);
+        }
+        .no-results h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .no-results p {
+            color: var(--neutral-600);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -106,48 +237,71 @@
 
         <!-- Jobs Content -->
         <div class="container" style="padding: 40px 20px;">
-            <!-- Search & Filter Bar -->
-            <div class="search-box" style="margin-bottom: 30px;">
-                <div class="search-field">
+            <!-- Enhanced Search & Filter Bar -->
+            <div class="search-box" style="margin-bottom: 20px;">
+                <div class="search-field" style="flex: 2;">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Job title, keywords, or company">
+                    <input type="text" id="searchInput" placeholder="Job title, keywords, or company" oninput="debounceSearch()">
                 </div>
                 <div class="search-field">
                     <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" id="locationInput" placeholder="Location">
+                    <input type="text" id="locationInput" placeholder="Location" oninput="debounceSearch()">
                 </div>
-                <button class="btn btn-search" onclick="searchJobs()">
+                <button class="btn btn-search" onclick="applyFilters()">
                     <i class="fas fa-search"></i> Search
                 </button>
             </div>
 
-            <!-- Filter Bar -->
-            <div class="jobs-filter-bar">
-                <select class="filter-select" id="categoryFilter" onchange="filterJobs()">
+            <!-- Advanced Filter Bar -->
+            <div class="jobs-filter-bar" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 25px;">
+                <select class="filter-select" id="categoryFilter" onchange="applyFilters()">
                     <option value="">All Categories</option>
                     <option value="it">IT & Software</option>
                     <option value="marketing">Marketing</option>
                     <option value="design">Design</option>
                     <option value="sales">Sales</option>
-                    <option value="hr">HR</option>
+                    <option value="hr">HR & Management</option>
                     <option value="finance">Finance</option>
                     <option value="content">Content Writing</option>
-                    <option value="data">Data Science</option>
+                    <option value="data">Data Science & AI</option>
                 </select>
-                <select class="filter-select" id="experienceFilter" onchange="filterJobs()">
+                <select class="filter-select" id="experienceFilter" onchange="applyFilters()">
                     <option value="">All Experience</option>
-                    <option value="fresher">Fresher</option>
+                    <option value="fresher">Fresher (0 Yrs)</option>
                     <option value="0-1">0-1 Years</option>
                     <option value="0-2">0-2 Years</option>
+                    <option value="1-3">1-3 Years</option>
                 </select>
-                <select class="filter-select" id="salaryFilter" onchange="filterJobs()">
+                <select class="filter-select" id="salaryFilter" onchange="applyFilters()">
                     <option value="">All Salaries</option>
-                    <option value="3">?3 LPA+</option>
-                    <option value="5">?5 LPA+</option>
-                    <option value="8">?8 LPA+</option>
-                    <option value="10">?10 LPA+</option>
-                    <option value="15">?15 LPA+</option>
+                    <option value="0">Any Salary</option>
+                    <option value="3">₹3 LPA+</option>
+                    <option value="5">₹5 LPA+</option>
+                    <option value="8">₹8 LPA+</option>
+                    <option value="10">₹10 LPA+</option>
+                    <option value="15">₹15 LPA+</option>
                 </select>
+                <select class="filter-select" id="companyTypeFilter" onchange="applyFilters()">
+                    <option value="">All Companies</option>
+                    <option value="mnc">MNC (Large)</option>
+                    <option value="startup">Startups</option>
+                    <option value="mid">Mid-size</option>
+                </select>
+                <select class="filter-select" id="jobTypeFilter" onchange="applyFilters()">
+                    <option value="">All Job Types</option>
+                    <option value="full">Full Time</option>
+                    <option value="intern">Internship</option>
+                    <option value="contract">Contract</option>
+                </select>
+                <button class="btn btn-outline" onclick="clearAllFilters()" style="padding: 10px 16px; font-size: 0.9rem;">
+                    <i class="fas fa-times"></i> Clear
+                </button>
+            </div>
+            
+            <!-- Active Filters Display -->
+            <div id="activeFilters" style="display: none; margin-bottom: 20px; padding: 12px 16px; background: var(--cream); border-radius: 8px; border-left: 4px solid var(--secondary);">
+                <span style="font-weight: 600; color: var(--primary); margin-right: 10px;"><i class="fas fa-filter"></i> Active Filters:</span>
+                <span id="activeFiltersList"></span>
             </div>
 
             <!-- AdSense Ad Unit - Before Jobs List -->
@@ -160,10 +314,31 @@
                      data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
+            
+            <!-- Saved Jobs Quick Access -->
+            <div id="savedJobsBar" style="display: none; margin-bottom: 20px; padding: 15px 20px; background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(114, 47, 55, 0.1)); border-radius: 10px; border: 1px solid var(--secondary);">
+                <span style="font-weight: 600; color: var(--primary);">
+                    <i class="fas fa-bookmark"></i> You have <span id="savedJobsCount">0</span> saved jobs
+                </span>
+                <button onclick="toggleSavedJobs()" class="btn btn-outline" style="float: right; padding: 6px 14px; font-size: 0.85rem;">
+                    <span id="savedJobsToggleText">Show Saved</span>
+                </button>
+            </div>
 
-            <!-- Jobs List -->
+            <!-- Jobs List with Loading State -->
             <div class="jobs-list" id="jobsList">
-                <!-- Jobs will be loaded dynamically -->
+                <!-- Loading Skeleton -->
+                <div class="loading-skeleton" id="loadingSkeleton">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div id="pagination" style="display: none; justify-content: center; gap: 8px; margin-top: 30px; flex-wrap: wrap;">
             </div>
             
             <!-- Share Jobs Page -->
@@ -183,7 +358,7 @@
             <!-- Career Quiz CTA -->
             <div style="background: linear-gradient(135deg, #b8860b, #d4a017); border-radius: 16px; padding: 40px; margin-top: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
                 <div style="color: white;">
-                    <h3 style="font-family: 'Cinzel Decorative', serif; font-size: 1.5rem; margin-bottom: 10px;"><i class="fas fa-lightbulb" style="margin-right: 10px;"></i> Not Sure Which Job Fits You?</h3>
+                    <h3 style="font-family: serif; font-size: 1.5rem; margin-bottom: 10px;"><i class="fas fa-lightbulb" style="margin-right: 10px;"></i> Not Sure Which Job Fits You?</h3>
                     <p style="opacity: 0.9;">Take our 2-minute career quiz and discover your ideal role based on your skills!</p>
                 </div>
                 <a href="job-quiz.html" style="background: white; color: #b8860b; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-family: 'Cinzel', serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Take Quiz <i class="fas fa-arrow-right"></i></a>
@@ -246,8 +421,362 @@
     <script src="js/chatbot.js"></script>
     <script src="js/victorian-effects.js"></script>
     <script>
-        // Load jobs when page loads
-        document.addEventListener('DOMContentLoaded', loadAllJobs);
+        // Global state
+        let allJobs = [];
+        let filteredJobs = [];
+        let currentPage = 1;
+        const jobsPerPage = 15;
+        let savedJobs = JSON.parse(localStorage.getItem('nfs_saved_jobs') || '[]');
+        let showingSavedOnly = false;
+        let debounceTimer;
+        
+        // MNC companies list for filtering
+        const mncCompanies = ['microsoft', 'google', 'amazon', 'ibm', 'oracle', 'apple', 'meta', 'facebook', 'tcs', 'infosys', 'wipro', 'hcl', 'capgemini', 'accenture', 'cognizant', 'deloitte', 'pwc', 'ey', 'kpmg', 'intel', 'cisco', 'adobe', 'salesforce', 'sap', 'vmware', 'dell', 'hp', 'lenovo', 'honeywell', 'ge', 'siemens', 'bosch', 'qualcomm', 'nvidia', 'amd', 'samsung', 'sony', 'lg', 'philips', 'jpmorgan', 'goldman', 'morgan stanley', 'barclays', 'citi', 'hsbc', 'deutsche bank'];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeJobsPage();
+        });
+        
+        function initializeJobsPage() {
+            // Show loading
+            document.getElementById('loadingSkeleton').style.display = 'block';
+            
+            // Load all jobs
+            allJobs = getAllJobs();
+            
+            // Check URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q') || '';
+            const location = urlParams.get('location') || '';
+            const category = urlParams.get('category') || '';
+            
+            // Set initial values
+            if (query) document.getElementById('searchInput').value = query;
+            if (location) document.getElementById('locationInput').value = location;
+            if (category) document.getElementById('categoryFilter').value = category;
+            
+            // Update saved jobs bar
+            updateSavedJobsBar();
+            
+            // Apply initial filters
+            setTimeout(() => {
+                applyFilters();
+            }, 300);
+        }
+        
+        function debounceSearch() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                applyFilters();
+            }, 300);
+        }
+        
+        function applyFilters() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+            const locationQuery = document.getElementById('locationInput').value.toLowerCase().trim();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const experienceFilter = document.getElementById('experienceFilter').value.toLowerCase();
+            const salaryFilter = parseInt(document.getElementById('salaryFilter').value) || 0;
+            const companyTypeFilter = document.getElementById('companyTypeFilter').value;
+            const jobTypeFilter = document.getElementById('jobTypeFilter').value.toLowerCase();
+            
+            // Start with all jobs or saved jobs
+            let jobs = showingSavedOnly ? allJobs.filter(j => savedJobs.includes(j.id)) : [...allJobs];
+            
+            // Text search
+            if (searchQuery) {
+                jobs = jobs.filter(job => 
+                    job.title.toLowerCase().includes(searchQuery) ||
+                    job.company.toLowerCase().includes(searchQuery) ||
+                    job.skills.some(skill => skill.toLowerCase().includes(searchQuery)) ||
+                    (job.description && job.description.toLowerCase().includes(searchQuery))
+                );
+            }
+            
+            // Location filter
+            if (locationQuery) {
+                jobs = jobs.filter(job => 
+                    job.location.toLowerCase().includes(locationQuery)
+                );
+            }
+            
+            // Category filter
+            if (categoryFilter) {
+                jobs = jobs.filter(job => job.category === categoryFilter);
+            }
+            
+            // Experience filter
+            if (experienceFilter) {
+                jobs = jobs.filter(job => {
+                    const exp = job.experience.toLowerCase();
+                    if (experienceFilter === 'fresher') return exp.includes('fresher') || exp.includes('0');
+                    return exp.includes(experienceFilter);
+                });
+            }
+            
+            // Salary filter
+            if (salaryFilter > 0) {
+                jobs = jobs.filter(job => {
+                    const salary = parseSalary(job.salary);
+                    return salary >= salaryFilter;
+                });
+            }
+            
+            // Company type filter
+            if (companyTypeFilter) {
+                jobs = jobs.filter(job => {
+                    const companyLower = job.company.toLowerCase();
+                    const isMNC = mncCompanies.some(mnc => companyLower.includes(mnc));
+                    if (companyTypeFilter === 'mnc') return isMNC;
+                    if (companyTypeFilter === 'startup') return !isMNC && !companyLower.includes('bank') && !companyLower.includes('financial');
+                    if (companyTypeFilter === 'mid') return !isMNC;
+                    return true;
+                });
+            }
+            
+            // Job type filter
+            if (jobTypeFilter) {
+                jobs = jobs.filter(job => {
+                    const type = job.type.toLowerCase();
+                    if (jobTypeFilter === 'full') return type.includes('full');
+                    if (jobTypeFilter === 'intern') return type.includes('intern');
+                    if (jobTypeFilter === 'contract') return type.includes('contract');
+                    return true;
+                });
+            }
+            
+            filteredJobs = jobs;
+            currentPage = 1;
+            
+            updateActiveFiltersDisplay();
+            renderJobs();
+        }
+        
+        function parseSalary(salaryStr) {
+            if (!salaryStr) return 0;
+            const str = salaryStr.toLowerCase();
+            
+            // Handle monthly salaries (convert to LPA)
+            if (str.includes('/month') || str.includes('per month')) {
+                const match = str.match(/(\d+(?:\.\d+)?)\s*k/i) || str.match(/(\d+(?:,\d+)?)/);
+                if (match) {
+                    const monthly = parseFloat(match[1].replace(',', ''));
+                    return (monthly * 12) / 100000; // Convert to LPA
+                }
+            }
+            
+            // Handle LPA
+            const lpaMatch = str.match(/(\d+(?:\.\d+)?)\s*(?:lpa|l|lakh)/i);
+            if (lpaMatch) return parseFloat(lpaMatch[1]);
+            
+            // Handle plain numbers
+            const numMatch = str.match(/(\d+)/);
+            if (numMatch) {
+                const num = parseInt(numMatch[1]);
+                if (num > 100) return num / 100000; // Assume it's annual in rupees
+                return num;
+            }
+            
+            return 0;
+        }
+        
+        function renderJobs() {
+            const container = document.getElementById('jobsList');
+            const countElement = document.getElementById('jobsCount');
+            const skeleton = document.getElementById('loadingSkeleton');
+            
+            // Hide loading
+            skeleton.style.display = 'none';
+            
+            // Update count
+            countElement.textContent = `${filteredJobs.length} jobs found`;
+            
+            if (filteredJobs.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search" style="font-size: 3rem; color: var(--secondary); margin-bottom: 20px;"></i>
+                        <h3>No jobs found</h3>
+                        <p>Try adjusting your search or filter criteria</p>
+                        <button onclick="clearAllFilters()" class="btn btn-primary" style="margin-top: 20px;">
+                            <i class="fas fa-redo"></i> Clear All Filters
+                        </button>
+                    </div>
+                `;
+                document.getElementById('pagination').style.display = 'none';
+                return;
+            }
+            
+            // Pagination
+            const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+            const startIndex = (currentPage - 1) * jobsPerPage;
+            const endIndex = startIndex + jobsPerPage;
+            const pageJobs = filteredJobs.slice(startIndex, endIndex);
+            
+            // Render jobs
+            container.innerHTML = pageJobs.map(job => {
+                const isSaved = savedJobs.includes(job.id);
+                return `
+                    <a href="job/${job.id}.html" class="job-list-card" data-job-id="${job.id}">
+                        <button class="save-job-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveJob(event, '${job.id}')" title="${isSaved ? 'Remove from saved' : 'Save job'}">
+                            <i class="fa${isSaved ? 's' : 'r'} fa-bookmark"></i>
+                        </button>
+                        ${getNewBadgeHTML(job.posted)}
+                        <div class="job-list-info">
+                            <div class="company-logo">${job.companyShort.charAt(0)}</div>
+                            <div class="job-list-details">
+                                <h3>${highlightSearch(job.title)}</h3>
+                                <span class="company">${highlightSearch(job.company)}</span>
+                                <div class="job-list-tags">
+                                    <span class="job-tag highlight">${job.experience}</span>
+                                    <span class="job-tag">${job.type}</span>
+                                    <span class="job-tag"><i class="fas fa-map-marker-alt"></i> ${job.location.split(',')[0]}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-list-actions">
+                            <span class="job-list-salary">${job.salary}</span>
+                            <span class="job-list-date">${job.posted}</span>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+            
+            // Render pagination
+            renderPagination(totalPages);
+        }
+        
+        function highlightSearch(text) {
+            const searchQuery = document.getElementById('searchInput').value.trim();
+            if (!searchQuery) return text;
+            const regex = new RegExp(`(${escapeRegex(searchQuery)})`, 'gi');
+            return text.replace(regex, '<mark style="background: rgba(184, 134, 11, 0.3); padding: 0 2px;">$1</mark>');
+        }
+        
+        function escapeRegex(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+        
+        function renderPagination(totalPages) {
+            const paginationDiv = document.getElementById('pagination');
+            if (totalPages <= 1) {
+                paginationDiv.style.display = 'none';
+                return;
+            }
+            
+            paginationDiv.style.display = 'flex';
+            let html = '';
+            
+            // Previous button
+            html += `<button class="page-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                <i class="fas fa-chevron-left"></i>
+            </button>`;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+                } else if (i === currentPage - 2 || i === currentPage + 2) {
+                    html += `<span style="padding: 10px;">...</span>`;
+                }
+            }
+            
+            // Next button
+            html += `<button class="page-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                <i class="fas fa-chevron-right"></i>
+            </button>`;
+            
+            paginationDiv.innerHTML = html;
+        }
+        
+        function goToPage(page) {
+            currentPage = page;
+            renderJobs();
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+        }
+        
+        function toggleSaveJob(event, jobId) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const index = savedJobs.indexOf(jobId);
+            if (index > -1) {
+                savedJobs.splice(index, 1);
+            } else {
+                savedJobs.push(jobId);
+            }
+            
+            localStorage.setItem('nfs_saved_jobs', JSON.stringify(savedJobs));
+            updateSavedJobsBar();
+            
+            // Update the button
+            const btn = event.currentTarget;
+            btn.classList.toggle('saved');
+            const icon = btn.querySelector('i');
+            icon.classList.toggle('fas');
+            icon.classList.toggle('far');
+        }
+        
+        function updateSavedJobsBar() {
+            const bar = document.getElementById('savedJobsBar');
+            const count = document.getElementById('savedJobsCount');
+            
+            if (savedJobs.length > 0) {
+                bar.style.display = 'block';
+                count.textContent = savedJobs.length;
+            } else {
+                bar.style.display = 'none';
+            }
+        }
+        
+        function toggleSavedJobs() {
+            showingSavedOnly = !showingSavedOnly;
+            const toggleText = document.getElementById('savedJobsToggleText');
+            toggleText.textContent = showingSavedOnly ? 'Show All' : 'Show Saved';
+            applyFilters();
+        }
+        
+        function updateActiveFiltersDisplay() {
+            const container = document.getElementById('activeFilters');
+            const list = document.getElementById('activeFiltersList');
+            const filters = [];
+            
+            const searchVal = document.getElementById('searchInput').value.trim();
+            const locationVal = document.getElementById('locationInput').value.trim();
+            const categoryVal = document.getElementById('categoryFilter').value;
+            const expVal = document.getElementById('experienceFilter').value;
+            const salaryVal = document.getElementById('salaryFilter').value;
+            const companyVal = document.getElementById('companyTypeFilter').value;
+            const typeVal = document.getElementById('jobTypeFilter').value;
+            
+            if (searchVal) filters.push(`Search: "${searchVal}"`);
+            if (locationVal) filters.push(`Location: "${locationVal}"`);
+            if (categoryVal) filters.push(`Category: ${document.getElementById('categoryFilter').selectedOptions[0].text}`);
+            if (expVal) filters.push(`Experience: ${document.getElementById('experienceFilter').selectedOptions[0].text}`);
+            if (salaryVal) filters.push(`Min Salary: ₹${salaryVal} LPA`);
+            if (companyVal) filters.push(`Company: ${document.getElementById('companyTypeFilter').selectedOptions[0].text}`);
+            if (typeVal) filters.push(`Type: ${document.getElementById('jobTypeFilter').selectedOptions[0].text}`);
+            if (showingSavedOnly) filters.push('Saved Jobs Only');
+            
+            if (filters.length > 0) {
+                container.style.display = 'block';
+                list.innerHTML = filters.map(f => `<span class="filter-badge">${f}</span>`).join('');
+            } else {
+                container.style.display = 'none';
+            }
+        }
+        
+        function clearAllFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('locationInput').value = '';
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('experienceFilter').value = '';
+            document.getElementById('salaryFilter').value = '';
+            document.getElementById('companyTypeFilter').value = '';
+            document.getElementById('jobTypeFilter').value = '';
+            showingSavedOnly = false;
+            document.getElementById('savedJobsToggleText').textContent = 'Show Saved';
+            applyFilters();
+        }
     </script>
 </body>
 </html>

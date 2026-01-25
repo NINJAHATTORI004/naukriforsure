@@ -57,7 +57,7 @@
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -69,23 +69,31 @@
     <meta name="theme-color" content="#722f37">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="../index.html" class="logo">Naukri<span>ForSure</span></a>
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../jobs.html">Jobs</a></li>
-                    <li><a href="../categories.html">Categories</a></li>
-                    <li><a href="../about.html">About</a></li>
-                    <li><a href="../contact.html">Contact</a></li>
-                </ul>
-                <div class="menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="../categories.html">Categories</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../profile.html" class="btn btn-outline auth-profile-btn" style="margin-right: 10px; display: none;"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="../login.html" class="btn btn-outline auth-login-btn" style="margin-right: 10px;"><i class="fas fa-user"></i> Login</a>
+                <a href="../jobs.html" class="btn btn-primary">Find Jobs</a>
             </div>
-        </nav>
-    </header>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <main class="job-details-page">
         <div class="container">
@@ -165,5 +173,6 @@
     </footer>
 
     <script src="../js/script.js"></script>
-    <script src="../js/chatbot.js"></script>`n</body>
+    <script src="../js/chatbot.js"></script>`n    <script src="../js/auth.js"></script>
+</body>
 </html>

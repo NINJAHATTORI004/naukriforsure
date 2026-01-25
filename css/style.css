@@ -1,4 +1,4 @@
-﻿/* ========================================
+/* ========================================
    NAUKRIFORSURE - VICTORIAN ERA DESIGN
    Elegant Job Portal Interface v3.0
    ======================================== */
@@ -132,10 +132,10 @@
     --transition-bounce: 500ms var(--ease-bounce);
     
     /* Victorian Typography */
-    --font-sans: 'Cormorant Garamond', 'Playfair Display', 'EB Garamond', Georgia, 'Times New Roman', serif;
-    --font-display: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Libre Baskerville', 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
-    --font-accent: 'Cinzel Decorative', 'Cinzel', 'Playfair Display SC', serif;
+    --font-sans: 'Playfair Display', 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-display: 'Cinzel', 'Playfair Display', Georgia, serif;
+    --font-body: 'EB Garamond', Georgia, serif;
+    --font-accent: 'Cinzel', 'Playfair Display SC', serif;
 }
 
 /* ==================== CSS RESET & BASE ==================== */
@@ -153,7 +153,7 @@ html {
 }
 
 body {
-    font-family: 'Libre Baskerville', 'EB Garamond', Georgia, 'Times New Roman', serif;
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
     background: var(--cream);
     color: var(--dark);
     line-height: 1.8;
@@ -235,7 +235,7 @@ body {
 }
 
 .flourish::before {
-    content: '❦';
+    content: '?';
     font-size: 2rem;
     color: var(--secondary);
     display: block;
@@ -280,7 +280,7 @@ body {
 /* Victorian Drop Cap */
 .drop-cap::first-letter {
     float: left;
-    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-family: 'Cinzel', serif;
     font-size: 4rem;
     line-height: 0.8;
     padding: 8px 12px 0 0;
@@ -319,7 +319,7 @@ body {
     background: var(--parchment);
     border-left: 4px solid var(--secondary);
     font-style: italic;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: Georgia, serif;
     font-size: 1.2rem;
     color: var(--gray-800);
     margin: 30px 0;
@@ -333,7 +333,7 @@ body {
     font-size: 4rem;
     color: var(--secondary);
     opacity: 0.3;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: serif;
     line-height: 1;
 }
 
@@ -744,7 +744,7 @@ header .navbar {
     transition: transform var(--transition);
     color: var(--dark);
     text-decoration: none;
-    font-family: 'Cinzel Decorative', 'Cinzel', 'Playfair Display', Georgia, serif;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
     flex-shrink: 0;
 }
 
@@ -837,7 +837,7 @@ header .navbar {
     color: var(--dark);
     text-decoration: none;
     transition: all 0.2s ease;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
     font-size: 0.9rem;
     text-transform: none;
     letter-spacing: 0;
@@ -1150,7 +1150,7 @@ header .navbar {
     border: none;
     background: transparent;
     font-size: 1rem;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
     outline: none;
     color: var(--dark);
 }
@@ -1325,7 +1325,7 @@ section {
     font-size: 1.15rem;
     max-width: 600px;
     margin: 0 auto;
-    font-family: 'Libre Baskerville', 'EB Garamond', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
 }
 
 /* ==================== VICTORIAN CATEGORIES SECTION ==================== */
@@ -1529,7 +1529,7 @@ section {
     font-weight: 500;
     transition: all var(--transition);
     border: 1px solid rgba(184, 134, 11, 0.15);
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 .job-tag.highlight {
@@ -1661,7 +1661,7 @@ section {
     color: var(--gray);
     font-size: 0.95rem;
     line-height: 1.7;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 /* ==================== VICTORIAN COMPANIES SECTION ==================== */
@@ -1716,7 +1716,7 @@ section {
     top: 24px;
     right: 30px;
     font-size: 5rem;
-    font-family: 'Cinzel Decorative', Georgia, serif;
+    font-family: Georgia, serif;
     color: var(--secondary);
     opacity: 0.3;
     line-height: 1;
@@ -1816,7 +1816,7 @@ section {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 .cta-buttons {
@@ -1857,7 +1857,7 @@ section {
     color: var(--gray-light);
     margin: 20px 0;
     line-height: 1.8;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 .social-links {
@@ -1903,7 +1903,7 @@ section {
     color: var(--gray-light);
     transition: all var(--transition);
     display: inline-block;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 .footer-links a:hover {
@@ -1917,7 +1917,7 @@ section {
     border-top: 2px solid rgba(184, 134, 11, 0.3);
     color: var(--gray-light);
     font-size: 0.9rem;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 /* ==================== VICTORIAN JOBS PAGE ==================== */
@@ -2075,7 +2075,7 @@ section {
     gap: 12px;
     margin-bottom: 24px;
     font-size: 0.9rem;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 .breadcrumb a {
@@ -2122,7 +2122,7 @@ section {
 .page-header p {
     color: var(--gray);
     font-size: 1.15rem;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 /* ==================== VICTORIAN JOB DETAILS PAGE ==================== */
@@ -2163,7 +2163,7 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
 }
 
 .job-title-section .company-name i {
@@ -2527,7 +2527,7 @@ footer p {
 }
 
 .job-description li::before {
-    content: '✓';
+    content: '?';
     position: absolute;
     left: 0;
     color: var(--secondary);
@@ -2677,7 +2677,7 @@ footer p {
     padding: 14px 18px;
     border: 2px solid rgba(184, 134, 11, 0.2);
     border-radius: var(--radius-xs);
-    font-family: 'Libre Baskerville', Georgia, serif;
+    font-family: Georgia, serif;
     font-size: 1rem;
     transition: all var(--transition);
     background: var(--parchment);
@@ -3949,7 +3949,7 @@ select:focus-visible {
 }
 
 .divider-ornate span {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: serif;
     color: var(--secondary);
     font-size: 1.5rem;
 }
