@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your NaukriForSure profile. Upload your resume and let us auto-fill your professional details.">
+    <title>My Profile - NaukriForSure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- PDF.js for PDF parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- Mammoth.js for DOCX parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #722f37;
+            --primary-dark: #5a252c;
+            --secondary: #b8860b;
+            --accent: #1a365d;
+            --cream: #faf8f5;
+            --text: #2d2d2d;
+            --text-light: #666;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', Georgia, serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #f5f0e8 100%);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Profile Layout */
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar */
+        .profile-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* Profile Photo Section */
+        .photo-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 4rem;
+            color: var(--primary);
+        }
+
+        .photo-upload-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .photo-upload-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Resume Upload */
+        .resume-upload-area {
+            border: 3px dashed var(--secondary);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(184, 134, 11, 0.05);
+        }
+
+        .resume-upload-area:hover {
+            background: rgba(184, 134, 11, 0.1);
+            border-color: var(--primary);
+        }
+
+        .resume-upload-area.dragging {
+            background: rgba(114, 47, 55, 0.1);
+            border-color: var(--primary);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .resume-upload-area h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .resume-upload-area p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .supported-formats {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: rgba(184, 134, 11, 0.1);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        #resumeInput {
+            display: none;
+        }
+
+        /* Parsing Progress */
+        .parsing-progress {
+            display: none;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .parsing-progress.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--cream);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .parsing-status {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+        }
+
+        /* Form Styles */
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group.auto-filled input,
+        .form-group.auto-filled textarea {
+            background: rgba(40, 167, 69, 0.05);
+            border-color: var(--success);
+        }
+
+        .auto-fill-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            min-height: 100px;
+            background: white;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tag .remove-skill {
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .skill-tag .remove-skill:hover {
+            opacity: 1;
+        }
+
+        .add-skill-input {
+            flex: 1;
+            min-width: 150px;
+            border: none;
+            outline: none;
+            padding: 0.4rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Experience/Education Cards */
+        .entry-card {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .entry-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .entry-subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .entry-date {
+            color: var(--secondary);
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+        }
+
+        .entry-description {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-top: 0.5rem;
+        }
+
+        .entry-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-entry-action {
+            background: none;
+            border: 1px solid var(--text-light);
+            padding: 0.3rem 0.6rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-entry-action:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn-entry-action.delete:hover {
+            background: var(--danger);
+            border-color: var(--danger);
+        }
+
+        /* Add Entry Button */
+        .add-entry-btn {
+            width: 100%;
+            padding: 1rem;
+            border: 2px dashed var(--secondary);
+            background: transparent;
+            border-radius: 10px;
+            font-family: 'Cinzel', serif;
+            color: var(--secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .add-entry-btn:hover {
+            background: rgba(184, 134, 11, 0.1);
+            border-style: solid;
+        }
+
+        /* Save Button */
+        .save-section {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 1.5rem;
+            border-top: 2px solid var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+        }
+
+        .save-status {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .save-status.saved {
+            color: var(--success);
+        }
+
+        .btn-save {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(114, 47, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Profile Completeness */
+        .completeness-card {
+            padding: 1.5rem;
+        }
+
+        .completeness-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .completeness-percentage {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .completeness-tips {
+            list-style: none;
+        }
+
+        .completeness-tips li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .completeness-tips li:last-child {
+            border-bottom: none;
+        }
+
+        .tip-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .tip-icon.complete {
+            background: var(--success);
+            color: white;
+        }
+
+        .tip-icon.incomplete {
+            background: #e0e0e0;
+            color: var(--text-light);
+        }
+
+        /* Login Required Overlay */
+        .login-required {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-required.active {
+            display: flex;
+        }
+
+        .login-prompt {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 450px;
+        }
+
+        .login-prompt h2 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .login-prompt p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .login-prompt .btn-login {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Cinzel', serif;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .save-section {
+                flex-direction: column;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            z-index: 10001;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: var(--success);
+        }
+
+        .toast.error {
+            background: var(--danger);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">NaukriForSure</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="jobs.html">Jobs</a>
+                <a href="referral-dashboard.html">Referrals</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="profile.html" style="color: var(--secondary);">My Profile</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Required Overlay -->
+    <div class="login-required" id="loginRequired">
+        <div class="login-prompt">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🔐</div>
+            <h2>Sign In Required</h2>
+            <p>Please sign in to access your profile and save your information securely.</p>
+            <a href="login.html" class="btn-login">Sign In to Continue</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="page-header">
+            <h1>👤 My Profile</h1>
+            <p>Upload your resume and we'll auto-fill your profile!</p>
+        </div>
+
+        <div class="profile-layout">
+            <!-- Sidebar -->
+            <aside class="profile-sidebar">
+                <!-- Photo Section -->
+                <div class="card">
+                    <div class="photo-section">
+                        <div class="profile-photo" id="profilePhoto">
+                            <span id="photoInitials">?</span>
+                            <img id="photoImage" src="" alt="Profile" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                        </div>
+                        <h3 id="profileName" style="font-family: 'Cinzel', serif; margin-bottom: 0.5rem;">Your Name</h3>
+                        <p id="profileTitle" style="color: var(--text-light); font-size: 0.9rem;">Job Title</p>
+                        <button class="photo-upload-btn" onclick="document.getElementById('photoInput').click()">
+                            📷 Change Photo
+                        </button>
+                        <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Resume Upload -->
+                <div class="card">
+                    <div class="card-header">
+                        📄 Resume Upload
+                    </div>
+                    <div class="card-body">
+                        <div class="resume-upload-area" id="resumeUploadArea">
+                            <div class="upload-icon">📤</div>
+                            <h3>Upload Your Resume</h3>
+                            <p>Drag & drop or click to upload</p>
+                            <div class="supported-formats">
+                                Supported: PDF, DOCX, TXT
+                            </div>
+                            <input type="file" id="resumeInput" accept=".pdf,.docx,.doc,.txt">
+                        </div>
+                        <div class="parsing-progress" id="parsingProgress">
+                            <div class="spinner"></div>
+                            <p class="parsing-status">Analyzing your resume...</p>
+                        </div>
+                        <div id="currentResume" style="display: none; margin-top: 1rem; padding: 1rem; background: var(--cream); border-radius: 8px;">
+                            <p style="font-size: 0.9rem;"><strong>Current Resume:</strong></p>
+                            <p id="resumeFileName" style="color: var(--text-light);"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Completeness -->
+                <div class="card completeness-card">
+                    <div class="completeness-header">
+                        <span style="font-family: 'Cinzel', serif; color: var(--primary);">Profile Strength</span>
+                        <span class="completeness-percentage" id="completenessPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                    </div>
+                    <ul class="completeness-tips" id="completenessTips">
+                        <!-- Dynamic tips -->
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Profile Form -->
+            <main class="profile-main">
+                <form id="profileForm">
+                    <!-- Personal Information -->
+                    <div class="card">
+                        <div class="card-header">
+                            👤 Personal Information
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group" id="nameGroup">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" placeholder="John Doe">
+                                </div>
+                                <div class="form-group" id="emailGroup">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group" id="phoneGroup">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+                                </div>
+                                <div class="form-group" id="locationGroup">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" name="location" placeholder="Mumbai, Maharashtra">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group" id="linkedinGroup">
+                                    <label for="linkedin">LinkedIn Profile</label>
+                                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                                </div>
+                                <div class="form-group" id="githubGroup">
+                                    <label for="github">GitHub Profile</label>
+                                    <input type="url" id="github" name="github" placeholder="https://github.com/yourusername">
+                                </div>
+                            </div>
+                            <div class="form-group" id="portfolioGroup">
+                                <label for="portfolio">Portfolio / Website</label>
+                                <input type="url" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Summary -->
+                    <div class="card">
+                        <div class="card-header">
+                            📝 Professional Summary
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group" id="summaryGroup">
+                                <label for="summary">Tell us about yourself</label>
+                                <textarea id="summary" name="summary" placeholder="Write a brief professional summary highlighting your experience, skills, and career goals..."></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="currentTitle">Current Job Title</label>
+                                    <input type="text" id="currentTitle" name="currentTitle" placeholder="Software Engineer">
+                                </div>
+                                <div class="form-group">
+                                    <label for="experience">Total Experience</label>
+                                    <select id="experience" name="experience">
+                                        <option value="">Select experience</option>
+                                        <option value="fresher">Fresher (0-1 years)</option>
+                                        <option value="1-2">1-2 years</option>
+                                        <option value="2-5">2-5 years</option>
+                                        <option value="5-10">5-10 years</option>
+                                        <option value="10+">10+ years</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expectedSalary">Expected Salary (LPA)</label>
+                                    <input type="text" id="expectedSalary" name="expectedSalary" placeholder="8-12">
+                                </div>
+                                <div class="form-group">
+                                    <label for="noticePeriod">Notice Period</label>
+                                    <select id="noticePeriod" name="noticePeriod">
+                                        <option value="">Select notice period</option>
+                                        <option value="immediate">Immediate</option>
+                                        <option value="15days">15 days</option>
+                                        <option value="30days">30 days</option>
+                                        <option value="60days">60 days</option>
+                                        <option value="90days">90 days</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="card">
+                        <div class="card-header">
+                            💡 Skills
+                        </div>
+                        <div class="card-body">
+                            <label style="font-family: 'Cinzel', serif; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">
+                                Add your technical and soft skills
+                            </label>
+                            <div class="skills-container" id="skillsContainer">
+                                <input type="text" class="add-skill-input" id="skillInput" placeholder="Type a skill and press Enter...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="card">
+                        <div class="card-header">
+                            💼 Work Experience
+                        </div>
+                        <div class="card-body">
+                            <div id="experienceList">
+                                <!-- Experience entries will be added here -->
+                            </div>
+                            <button type="button" class="add-entry-btn" onclick="openExperienceModal()">
+                                ➕ Add Experience
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="card">
+                        <div class="card-header">
+                            🎓 Education
+                        </div>
+                        <div class="card-body">
+                            <div id="educationList">
+                                <!-- Education entries will be added here -->
+                            </div>
+                            <button type="button" class="add-entry-btn" onclick="openEducationModal()">
+                                ➕ Add Education
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="card">
+                        <div class="card-header">
+                            🚀 Projects
+                        </div>
+                        <div class="card-body">
+                            <div id="projectsList">
+                                <!-- Project entries will be added here -->
+                            </div>
+                            <button type="button" class="add-entry-btn" onclick="openProjectModal()">
+                                ➕ Add Project
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="card">
+                        <div class="card-header">
+                            🏅 Certifications
+                        </div>
+                        <div class="card-body">
+                            <div id="certificationsList">
+                                <!-- Certification entries will be added here -->
+                            </div>
+                            <button type="button" class="add-entry-btn" onclick="openCertificationModal()">
+                                ➕ Add Certification
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="card">
+                        <div class="card-header">
+                            🌐 Languages
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Select languages you know</label>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="English"> English
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Hindi"> Hindi
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Tamil"> Tamil
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Telugu"> Telugu
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Kannada"> Kannada
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Malayalam"> Malayalam
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Marathi"> Marathi
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Bengali"> Bengali
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Gujarati"> Gujarati
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="checkbox" name="languages" value="Punjabi"> Punjabi
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Save Section -->
+                <div class="save-section">
+                    <div class="save-status" id="saveStatus">
+                        Changes not saved
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <button type="button" class="btn-secondary" onclick="downloadProfile()">
+                            📥 Download Profile
+                        </button>
+                        <button type="button" class="btn-save" onclick="saveProfile()">
+                            💾 Save Profile
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Experience Modal -->
+    <div class="modal" id="experienceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Add Work Experience</span>
+                <button class="modal-close" onclick="closeModal('experienceModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Job Title *</label>
+                    <input type="text" id="expTitle" placeholder="Software Engineer">
+                </div>
+                <div class="form-group">
+                    <label>Company Name *</label>
+                    <input type="text" id="expCompany" placeholder="Google">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="month" id="expStartDate">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="month" id="expEndDate">
+                        <label style="font-size: 0.8rem; margin-top: 0.3rem;">
+                            <input type="checkbox" id="expCurrent"> Currently working here
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="expDescription" placeholder="Describe your responsibilities and achievements..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('experienceModal')">Cancel</button>
+                <button class="btn-save" onclick="addExperience()">Add Experience</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Modal -->
+    <div class="modal" id="educationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Add Education</span>
+                <button class="modal-close" onclick="closeModal('educationModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Degree / Course *</label>
+                    <input type="text" id="eduDegree" placeholder="B.Tech in Computer Science">
+                </div>
+                <div class="form-group">
+                    <label>Institution Name *</label>
+                    <input type="text" id="eduInstitution" placeholder="IIT Delhi">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Year of Completion</label>
+                        <input type="number" id="eduYear" placeholder="2024" min="1980" max="2030">
+                    </div>
+                    <div class="form-group">
+                        <label>Grade / CGPA</label>
+                        <input type="text" id="eduGrade" placeholder="8.5 CGPA">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('educationModal')">Cancel</button>
+                <button class="btn-save" onclick="addEducation()">Add Education</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Add Project</span>
+                <button class="modal-close" onclick="closeModal('projectModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Project Name *</label>
+                    <input type="text" id="projName" placeholder="E-commerce Platform">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="projDescription" placeholder="Describe the project, your role, and achievements..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Technologies Used</label>
+                    <input type="text" id="projTech" placeholder="React, Node.js, MongoDB">
+                </div>
+                <div class="form-group">
+                    <label>Project Link</label>
+                    <input type="url" id="projLink" placeholder="https://github.com/yourproject">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('projectModal')">Cancel</button>
+                <button class="btn-save" onclick="addProject()">Add Project</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certification Modal -->
+    <div class="modal" id="certificationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Add Certification</span>
+                <button class="modal-close" onclick="closeModal('certificationModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Certification Name *</label>
+                    <input type="text" id="certName" placeholder="AWS Solutions Architect">
+                </div>
+                <div class="form-group">
+                    <label>Issuing Organization</label>
+                    <input type="text" id="certOrg" placeholder="Amazon Web Services">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Issue Date</label>
+                        <input type="month" id="certDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Credential ID</label>
+                        <input type="text" id="certId" placeholder="ABC123XYZ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Credential URL</label>
+                    <input type="url" id="certUrl" placeholder="https://verify.certification.com/abc123">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('certificationModal')">Cancel</button>
+                <button class="btn-save" onclick="addCertification()">Add Certification</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/resume-parser.js"></script>
+    <script>
+        // Initialize PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        // Profile Data
+        let profileData = {
+            personal: {
+                fullName: '',
+                email: '',
+                phone: '',
+                location: '',
+                linkedin: '',
+                github: '',
+                portfolio: '',
+                photo: ''
+            },
+            professional: {
+                summary: '',
+                currentTitle: '',
+                experience: '',
+                expectedSalary: '',
+                noticePeriod: ''
+            },
+            skills: [],
+            workExperience: [],
+            education: [],
+            projects: [],
+            certifications: [],
+            languages: []
+        };
+
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            loadProfile();
+            setupEventListeners();
+            updateCompleteness();
+        });
+
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('naukri_user') || 'null');
+            if (!user) {
+                document.getElementById('loginRequired').classList.add('active');
+            } else {
+                document.getElementById('loginRequired').classList.remove('active');
+                // Pre-fill email from auth
+                if (user.email && !document.getElementById('email').value) {
+                    document.getElementById('email').value = user.email;
+                    document.getElementById('emailGroup').classList.add('auto-filled');
+                }
+                if (user.name && !document.getElementById('fullName').value) {
+                    document.getElementById('fullName').value = user.name;
+                    document.getElementById('nameGroup').classList.add('auto-filled');
+                    updateProfileSidebar();
+                }
+                if (user.picture) {
+                    document.getElementById('photoImage').src = user.picture;
+                    document.getElementById('photoImage').style.display = 'block';
+                    document.getElementById('photoInitials').style.display = 'none';
+                }
+            }
+        }
+
+        function setupEventListeners() {
+            // Resume upload
+            const uploadArea = document.getElementById('resumeUploadArea');
+            const resumeInput = document.getElementById('resumeInput');
+
+            uploadArea.addEventListener('click', () => resumeInput.click());
+
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragging');
+            });
+
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragging');
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragging');
+                const file = e.dataTransfer.files[0];
+                if (file) handleResumeUpload(file);
+            });
+
+            resumeInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) handleResumeUpload(file);
+            });
+
+            // Photo upload
+            document.getElementById('photoInput').addEventListener('change', handlePhotoUpload);
+
+            // Skills input
+            document.getElementById('skillInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addSkill(e.target.value);
+                    e.target.value = '';
+                }
+            });
+
+            // Form change tracking
+            document.getElementById('profileForm').addEventListener('input', () => {
+                document.getElementById('saveStatus').textContent = 'Unsaved changes';
+                document.getElementById('saveStatus').classList.remove('saved');
+            });
+
+            // Name field updates sidebar
+            document.getElementById('fullName').addEventListener('input', updateProfileSidebar);
+            document.getElementById('currentTitle').addEventListener('input', updateProfileSidebar);
+        }
+
+        // Resume Upload Handler
+        async function handleResumeUpload(file) {
+            const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain', 'application/msword'];
+            
+            if (!validTypes.includes(file.type) && !file.name.match(/\.(pdf|docx|doc|txt)$/i)) {
+                showToast('Please upload a PDF, DOCX, or TXT file', 'error');
+                return;
+            }
+
+            // Show progress
+            document.getElementById('resumeUploadArea').style.display = 'none';
+            document.getElementById('parsingProgress').classList.add('active');
+
+            try {
+                const parser = new ResumeParser();
+                const data = await parser.parseResume(file);
+
+                // Apply parsed data
+                applyParsedData(data);
+
+                // Show current resume
+                document.getElementById('currentResume').style.display = 'block';
+                document.getElementById('resumeFileName').textContent = file.name;
+
+                showToast('Resume parsed successfully! Review the extracted information.', 'success');
+            } catch (error) {
+                console.error('Parsing error:', error);
+                showToast('Error parsing resume. Please try again or fill manually.', 'error');
+            } finally {
+                document.getElementById('parsingProgress').classList.remove('active');
+                document.getElementById('resumeUploadArea').style.display = 'block';
+            }
+        }
+
+        // Apply parsed resume data to form
+        function applyParsedData(data) {
+            // Personal info
+            if (data.name) {
+                document.getElementById('fullName').value = data.name;
+                markAutoFilled('nameGroup');
+            }
+            if (data.email) {
+                document.getElementById('email').value = data.email;
+                markAutoFilled('emailGroup');
+            }
+            if (data.phone) {
+                document.getElementById('phone').value = data.phone;
+                markAutoFilled('phoneGroup');
+            }
+            if (data.location) {
+                document.getElementById('location').value = data.location;
+                markAutoFilled('locationGroup');
+            }
+            if (data.linkedin) {
+                document.getElementById('linkedin').value = data.linkedin;
+                markAutoFilled('linkedinGroup');
+            }
+            if (data.github) {
+                document.getElementById('github').value = data.github;
+                markAutoFilled('githubGroup');
+            }
+            if (data.portfolio) {
+                document.getElementById('portfolio').value = data.portfolio;
+                markAutoFilled('portfolioGroup');
+            }
+
+            // Summary
+            if (data.summary) {
+                document.getElementById('summary').value = data.summary;
+                markAutoFilled('summaryGroup');
+            }
+
+            // Skills
+            if (data.skills && data.skills.length > 0) {
+                profileData.skills = [];
+                data.skills.forEach(skill => addSkill(skill, false));
+            }
+
+            // Experience
+            if (data.experience && data.experience.length > 0) {
+                profileData.workExperience = data.experience.map(exp => ({
+                    title: exp.title || '',
+                    company: exp.company || '',
+                    startDate: exp.startDate || '',
+                    endDate: exp.endDate || '',
+                    current: exp.endDate?.toLowerCase() === 'present',
+                    description: exp.description || ''
+                }));
+                renderExperience();
+            }
+
+            // Education
+            if (data.education && data.education.length > 0) {
+                profileData.education = data.education.map(edu => ({
+                    degree: edu.degree || '',
+                    institution: edu.institution || '',
+                    year: edu.year || '',
+                    grade: edu.grade || ''
+                }));
+                renderEducation();
+            }
+
+            // Projects
+            if (data.projects && data.projects.length > 0) {
+                profileData.projects = data.projects.map(proj => ({
+                    name: proj.name || '',
+                    description: proj.description || '',
+                    technologies: proj.technologies?.join(', ') || '',
+                    link: proj.link || ''
+                }));
+                renderProjects();
+            }
+
+            // Certifications
+            if (data.certifications && data.certifications.length > 0) {
+                profileData.certifications = data.certifications.map(cert => ({
+                    name: cert,
+                    organization: '',
+                    date: '',
+                    credentialId: '',
+                    url: ''
+                }));
+                renderCertifications();
+            }
+
+            // Languages
+            if (data.languages && data.languages.length > 0) {
+                data.languages.forEach(lang => {
+                    const checkbox = document.querySelector(`input[name="languages"][value="${lang}"]`);
+                    if (checkbox) checkbox.checked = true;
+                });
+            }
+
+            updateProfileSidebar();
+            updateCompleteness();
+        }
+
+        function markAutoFilled(groupId) {
+            const group = document.getElementById(groupId);
+            if (group) {
+                group.classList.add('auto-filled');
+                const label = group.querySelector('label');
+                if (label && !label.querySelector('.auto-fill-badge')) {
+                    label.innerHTML += '<span class="auto-fill-badge">Auto-filled</span>';
+                }
+            }
+        }
+
+        // Photo Upload
+        function handlePhotoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('image/')) {
+                showToast('Please upload an image file', 'error');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                document.getElementById('photoImage').src = e.target.result;
+                document.getElementById('photoImage').style.display = 'block';
+                document.getElementById('photoInitials').style.display = 'none';
+                profileData.personal.photo = e.target.result;
+                showToast('Photo updated!', 'success');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Skills Management
+        function addSkill(skill, showMessage = true) {
+            skill = skill.trim();
+            if (!skill) return;
+            if (profileData.skills.includes(skill)) {
+                if (showMessage) showToast('Skill already added', 'error');
+                return;
+            }
+
+            profileData.skills.push(skill);
+            renderSkills();
+            updateCompleteness();
+        }
+
+        function removeSkill(skill) {
+            profileData.skills = profileData.skills.filter(s => s !== skill);
+            renderSkills();
+            updateCompleteness();
+        }
+
+        function renderSkills() {
+            const container = document.getElementById('skillsContainer');
+            const input = document.getElementById('skillInput');
+            
+            container.innerHTML = '';
+            profileData.skills.forEach(skill => {
+                const tag = document.createElement('span');
+                tag.className = 'skill-tag';
+                tag.innerHTML = `${skill} <span class="remove-skill" onclick="removeSkill('${skill}')">&times;</span>`;
+                container.appendChild(tag);
+            });
+            container.appendChild(input);
+        }
+
+        // Experience Management
+        function openExperienceModal() {
+            document.getElementById('experienceModal').classList.add('active');
+        }
+
+        function addExperience() {
+            const title = document.getElementById('expTitle').value.trim();
+            const company = document.getElementById('expCompany').value.trim();
+            const startDate = document.getElementById('expStartDate').value;
+            const endDate = document.getElementById('expEndDate').value;
+            const current = document.getElementById('expCurrent').checked;
+            const description = document.getElementById('expDescription').value.trim();
+
+            if (!title || !company) {
+                showToast('Please fill in job title and company', 'error');
+                return;
+            }
+
+            profileData.workExperience.push({
+                title, company, startDate,
+                endDate: current ? 'Present' : endDate,
+                current, description
+            });
+
+            renderExperience();
+            closeModal('experienceModal');
+            clearExperienceForm();
+            updateCompleteness();
+            showToast('Experience added!', 'success');
+        }
+
+        function renderExperience() {
+            const container = document.getElementById('experienceList');
+            container.innerHTML = profileData.workExperience.map((exp, index) => `
+                <div class="entry-card">
+                    <div class="entry-card-header">
+                        <div>
+                            <div class="entry-title">${exp.title}</div>
+                            <div class="entry-subtitle">${exp.company}</div>
+                        </div>
+                        <div class="entry-date">${formatDate(exp.startDate)} - ${exp.current ? 'Present' : formatDate(exp.endDate)}</div>
+                    </div>
+                    ${exp.description ? `<div class="entry-description">${exp.description}</div>` : ''}
+                    <div class="entry-actions">
+                        <button class="btn-entry-action delete" onclick="deleteExperience(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteExperience(index) {
+            profileData.workExperience.splice(index, 1);
+            renderExperience();
+            updateCompleteness();
+        }
+
+        function clearExperienceForm() {
+            document.getElementById('expTitle').value = '';
+            document.getElementById('expCompany').value = '';
+            document.getElementById('expStartDate').value = '';
+            document.getElementById('expEndDate').value = '';
+            document.getElementById('expCurrent').checked = false;
+            document.getElementById('expDescription').value = '';
+        }
+
+        // Education Management
+        function openEducationModal() {
+            document.getElementById('educationModal').classList.add('active');
+        }
+
+        function addEducation() {
+            const degree = document.getElementById('eduDegree').value.trim();
+            const institution = document.getElementById('eduInstitution').value.trim();
+            const year = document.getElementById('eduYear').value;
+            const grade = document.getElementById('eduGrade').value.trim();
+
+            if (!degree || !institution) {
+                showToast('Please fill in degree and institution', 'error');
+                return;
+            }
+
+            profileData.education.push({ degree, institution, year, grade });
+            renderEducation();
+            closeModal('educationModal');
+            clearEducationForm();
+            updateCompleteness();
+            showToast('Education added!', 'success');
+        }
+
+        function renderEducation() {
+            const container = document.getElementById('educationList');
+            container.innerHTML = profileData.education.map((edu, index) => `
+                <div class="entry-card">
+                    <div class="entry-card-header">
+                        <div>
+                            <div class="entry-title">${edu.degree}</div>
+                            <div class="entry-subtitle">${edu.institution}</div>
+                        </div>
+                        <div class="entry-date">${edu.year || ''} ${edu.grade ? '• ' + edu.grade : ''}</div>
+                    </div>
+                    <div class="entry-actions">
+                        <button class="btn-entry-action delete" onclick="deleteEducation(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteEducation(index) {
+            profileData.education.splice(index, 1);
+            renderEducation();
+            updateCompleteness();
+        }
+
+        function clearEducationForm() {
+            document.getElementById('eduDegree').value = '';
+            document.getElementById('eduInstitution').value = '';
+            document.getElementById('eduYear').value = '';
+            document.getElementById('eduGrade').value = '';
+        }
+
+        // Projects Management
+        function openProjectModal() {
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        function addProject() {
+            const name = document.getElementById('projName').value.trim();
+            const description = document.getElementById('projDescription').value.trim();
+            const technologies = document.getElementById('projTech').value.trim();
+            const link = document.getElementById('projLink').value.trim();
+
+            if (!name) {
+                showToast('Please fill in project name', 'error');
+                return;
+            }
+
+            profileData.projects.push({ name, description, technologies, link });
+            renderProjects();
+            closeModal('projectModal');
+            clearProjectForm();
+            updateCompleteness();
+            showToast('Project added!', 'success');
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projectsList');
+            container.innerHTML = profileData.projects.map((proj, index) => `
+                <div class="entry-card">
+                    <div class="entry-card-header">
+                        <div>
+                            <div class="entry-title">${proj.name}</div>
+                            ${proj.technologies ? `<div class="entry-subtitle">${proj.technologies}</div>` : ''}
+                        </div>
+                        ${proj.link ? `<a href="${proj.link}" target="_blank" style="color: var(--secondary);">🔗 View</a>` : ''}
+                    </div>
+                    ${proj.description ? `<div class="entry-description">${proj.description}</div>` : ''}
+                    <div class="entry-actions">
+                        <button class="btn-entry-action delete" onclick="deleteProject(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteProject(index) {
+            profileData.projects.splice(index, 1);
+            renderProjects();
+            updateCompleteness();
+        }
+
+        function clearProjectForm() {
+            document.getElementById('projName').value = '';
+            document.getElementById('projDescription').value = '';
+            document.getElementById('projTech').value = '';
+            document.getElementById('projLink').value = '';
+        }
+
+        // Certifications Management
+        function openCertificationModal() {
+            document.getElementById('certificationModal').classList.add('active');
+        }
+
+        function addCertification() {
+            const name = document.getElementById('certName').value.trim();
+            const organization = document.getElementById('certOrg').value.trim();
+            const date = document.getElementById('certDate').value;
+            const credentialId = document.getElementById('certId').value.trim();
+            const url = document.getElementById('certUrl').value.trim();
+
+            if (!name) {
+                showToast('Please fill in certification name', 'error');
+                return;
+            }
+
+            profileData.certifications.push({ name, organization, date, credentialId, url });
+            renderCertifications();
+            closeModal('certificationModal');
+            clearCertificationForm();
+            updateCompleteness();
+            showToast('Certification added!', 'success');
+        }
+
+        function renderCertifications() {
+            const container = document.getElementById('certificationsList');
+            container.innerHTML = profileData.certifications.map((cert, index) => `
+                <div class="entry-card">
+                    <div class="entry-card-header">
+                        <div>
+                            <div class="entry-title">${cert.name}</div>
+                            ${cert.organization ? `<div class="entry-subtitle">${cert.organization}</div>` : ''}
+                        </div>
+                        <div class="entry-date">${formatDate(cert.date)}</div>
+                    </div>
+                    ${cert.credentialId ? `<div class="entry-description">Credential ID: ${cert.credentialId}</div>` : ''}
+                    <div class="entry-actions">
+                        ${cert.url ? `<a href="${cert.url}" target="_blank" class="btn-entry-action">Verify</a>` : ''}
+                        <button class="btn-entry-action delete" onclick="deleteCertification(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteCertification(index) {
+            profileData.certifications.splice(index, 1);
+            renderCertifications();
+            updateCompleteness();
+        }
+
+        function clearCertificationForm() {
+            document.getElementById('certName').value = '';
+            document.getElementById('certOrg').value = '';
+            document.getElementById('certDate').value = '';
+            document.getElementById('certId').value = '';
+            document.getElementById('certUrl').value = '';
+        }
+
+        // Modal Management
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Profile Sidebar Update
+        function updateProfileSidebar() {
+            const name = document.getElementById('fullName').value || 'Your Name';
+            const title = document.getElementById('currentTitle').value || 'Job Title';
+            
+            document.getElementById('profileName').textContent = name;
+            document.getElementById('profileTitle').textContent = title;
+
+            // Update initials
+            if (!document.getElementById('photoImage').src || document.getElementById('photoImage').style.display === 'none') {
+                const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                document.getElementById('photoInitials').textContent = initials || '?';
+            }
+        }
+
+        // Profile Completeness
+        function updateCompleteness() {
+            const checks = [
+                { name: 'Add your name', complete: !!document.getElementById('fullName').value },
+                { name: 'Add your email', complete: !!document.getElementById('email').value },
+                { name: 'Add your phone', complete: !!document.getElementById('phone').value },
+                { name: 'Write a summary', complete: !!document.getElementById('summary').value },
+                { name: 'Add skills (5+)', complete: profileData.skills.length >= 5 },
+                { name: 'Add work experience', complete: profileData.workExperience.length > 0 },
+                { name: 'Add education', complete: profileData.education.length > 0 },
+                { name: 'Add LinkedIn profile', complete: !!document.getElementById('linkedin').value },
+                { name: 'Add a project', complete: profileData.projects.length > 0 },
+                { name: 'Upload a photo', complete: !!profileData.personal.photo || document.getElementById('photoImage').src }
+            ];
+
+            const completed = checks.filter(c => c.complete).length;
+            const percentage = Math.round((completed / checks.length) * 100);
+
+            document.getElementById('completenessPercent').textContent = percentage + '%';
+            document.getElementById('progressFill').style.width = percentage + '%';
+
+            const tipsContainer = document.getElementById('completenessTips');
+            tipsContainer.innerHTML = checks.map(check => `
+                <li>
+                    <span class="tip-icon ${check.complete ? 'complete' : 'incomplete'}">
+                        ${check.complete ? '✓' : '○'}
+                    </span>
+                    ${check.name}
+                </li>
+            `).join('');
+        }
+
+        // Save Profile
+        function saveProfile() {
+            // Gather form data
+            profileData.personal = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                location: document.getElementById('location').value,
+                linkedin: document.getElementById('linkedin').value,
+                github: document.getElementById('github').value,
+                portfolio: document.getElementById('portfolio').value,
+                photo: profileData.personal.photo
+            };
+
+            profileData.professional = {
+                summary: document.getElementById('summary').value,
+                currentTitle: document.getElementById('currentTitle').value,
+                experience: document.getElementById('experience').value,
+                expectedSalary: document.getElementById('expectedSalary').value,
+                noticePeriod: document.getElementById('noticePeriod').value
+            };
+
+            // Get languages
+            profileData.languages = Array.from(document.querySelectorAll('input[name="languages"]:checked'))
+                .map(cb => cb.value);
+
+            // Save to localStorage
+            localStorage.setItem('naukri_profile', JSON.stringify(profileData));
+
+            document.getElementById('saveStatus').textContent = 'All changes saved ✓';
+            document.getElementById('saveStatus').classList.add('saved');
+            showToast('Profile saved successfully!', 'success');
+        }
+
+        // Load Profile
+        function loadProfile() {
+            const saved = localStorage.getItem('naukri_profile');
+            if (!saved) return;
+
+            try {
+                profileData = JSON.parse(saved);
+
+                // Load personal info
+                if (profileData.personal) {
+                    document.getElementById('fullName').value = profileData.personal.fullName || '';
+                    document.getElementById('email').value = profileData.personal.email || '';
+                    document.getElementById('phone').value = profileData.personal.phone || '';
+                    document.getElementById('location').value = profileData.personal.location || '';
+                    document.getElementById('linkedin').value = profileData.personal.linkedin || '';
+                    document.getElementById('github').value = profileData.personal.github || '';
+                    document.getElementById('portfolio').value = profileData.personal.portfolio || '';
+                    
+                    if (profileData.personal.photo) {
+                        document.getElementById('photoImage').src = profileData.personal.photo;
+                        document.getElementById('photoImage').style.display = 'block';
+                        document.getElementById('photoInitials').style.display = 'none';
+                    }
+                }
+
+                // Load professional info
+                if (profileData.professional) {
+                    document.getElementById('summary').value = profileData.professional.summary || '';
+                    document.getElementById('currentTitle').value = profileData.professional.currentTitle || '';
+                    document.getElementById('experience').value = profileData.professional.experience || '';
+                    document.getElementById('expectedSalary').value = profileData.professional.expectedSalary || '';
+                    document.getElementById('noticePeriod').value = profileData.professional.noticePeriod || '';
+                }
+
+                // Load skills
+                if (profileData.skills) {
+                    renderSkills();
+                }
+
+                // Load experience
+                if (profileData.workExperience) {
+                    renderExperience();
+                }
+
+                // Load education
+                if (profileData.education) {
+                    renderEducation();
+                }
+
+                // Load projects
+                if (profileData.projects) {
+                    renderProjects();
+                }
+
+                // Load certifications
+                if (profileData.certifications) {
+                    renderCertifications();
+                }
+
+                // Load languages
+                if (profileData.languages) {
+                    profileData.languages.forEach(lang => {
+                        const checkbox = document.querySelector(`input[name="languages"][value="${lang}"]`);
+                        if (checkbox) checkbox.checked = true;
+                    });
+                }
+
+                updateProfileSidebar();
+                document.getElementById('saveStatus').textContent = 'Profile loaded';
+                document.getElementById('saveStatus').classList.add('saved');
+            } catch (e) {
+                console.error('Error loading profile:', e);
+            }
+        }
+
+        // Download Profile as JSON
+        function downloadProfile() {
+            saveProfile(); // Save first
+            
+            const dataStr = JSON.stringify(profileData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'naukriforsure-profile.json';
+            a.click();
+            
+            URL.revokeObjectURL(url);
+            showToast('Profile downloaded!', 'success');
+        }
+
+        // Utility Functions
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            if (dateStr.toLowerCase() === 'present') return 'Present';
+            
+            const date = new Date(dateStr);
+            if (isNaN(date)) return dateStr;
+            
+            return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast ' + type;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

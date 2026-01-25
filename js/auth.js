@@ -153,6 +153,7 @@ function onAuthStateChanged(user) {
 function updateAuthUI(user) {
     const loginButtons = document.querySelectorAll('.auth-login-btn');
     const logoutButtons = document.querySelectorAll('.auth-logout-btn');
+    const profileButtons = document.querySelectorAll('.auth-profile-btn');
     const userInfoElements = document.querySelectorAll('.auth-user-info');
     const userNameElements = document.querySelectorAll('.auth-user-name');
     const userAvatarElements = document.querySelectorAll('.auth-user-avatar');
@@ -163,6 +164,7 @@ function updateAuthUI(user) {
         // User is logged in
         loginButtons.forEach(btn => btn.style.display = 'none');
         logoutButtons.forEach(btn => btn.style.display = '');
+        profileButtons.forEach(btn => btn.style.display = '');
         guestElements.forEach(el => el.style.display = 'none');
         authElements.forEach(el => el.style.display = '');
         
@@ -185,6 +187,7 @@ function updateAuthUI(user) {
         // User is not logged in
         loginButtons.forEach(btn => btn.style.display = '');
         logoutButtons.forEach(btn => btn.style.display = 'none');
+        profileButtons.forEach(btn => btn.style.display = 'none');
         guestElements.forEach(el => el.style.display = '');
         authElements.forEach(el => el.style.display = 'none');
         
