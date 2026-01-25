@@ -12,6 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <!-- Mammoth.js for DOCX parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <!-- html2pdf.js for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <style>
         :root {
@@ -1084,7 +1086,7 @@
                     </div>
                     <div style="display: flex; gap: 1rem;">
                         <button type="button" class="btn-secondary" onclick="downloadProfile()">
-                            📥 Download Profile
+                            � Download Resume
                         </button>
                         <button type="button" class="btn-save" onclick="saveProfile()">
                             💾 Save Profile
@@ -1968,21 +1970,151 @@
             }
         }
 
-        // Download Profile as JSON
+        // Download Profile as PDF Resume
         function downloadProfile() {
             saveProfile(); // Save first
             
-            const dataStr = JSON.stringify(profileData, null, 2);
-            const dataBlob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(dataBlob);
+            // Generate resume HTML
+            const resumeHTML = generateResumeHTML();
             
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'naukriforsure-profile.json';
-            a.click();
+            // Create a hidden container for the resume
+            const container = document.createElement('div');
+            container.innerHTML = resumeHTML;
+            container.style.position = 'absolute';
+            container.style.left = '-9999px';
+            container.style.top = '0';
+            document.body.appendChild(container);
             
-            URL.revokeObjectURL(url);
-            showToast('Profile downloaded!', 'success');
+            // PDF options
+            const opt = {
+                margin: [10, 10, 10, 10],
+                filename: `${profileData.personal.fullName || 'resume'}_resume.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Generate PDF
+            html2pdf().set(opt).from(container).save().then(() => {
+                document.body.removeChild(container);
+                showToast('Resume downloaded as PDF!', 'success');
+            }).catch(err => {
+                console.error('PDF generation error:', err);
+                document.body.removeChild(container);
+                showToast('Error generating PDF', 'error');
+            });
+        }
+        
+        // Generate Resume HTML for PDF
+        function generateResumeHTML() {
+            const p = profileData.personal;
+            const pr = profileData.professional;
+            
+            return `
+            <div style="font-family: 'Georgia', 'Times New Roman', serif; max-width: 800px; padding: 40px; background: white; color: #333; line-height: 1.5;">
+                <!-- Header -->
+                <div style="border-bottom: 3px solid #722f37; padding-bottom: 20px; margin-bottom: 25px;">
+                    <h1 style="font-size: 28px; color: #722f37; margin: 0 0 5px 0; font-weight: 700;">${p.fullName || 'Your Name'}</h1>
+                    <p style="font-size: 16px; color: #b8860b; margin: 0 0 10px 0; font-weight: 600;">${pr.currentTitle || 'Professional Title'}</p>
+                    <div style="font-size: 12px; color: #666;">
+                        ${p.email ? `<span>✉ ${p.email}</span>` : ''}
+                        ${p.phone ? `<span style="margin-left: 15px;">📞 ${p.phone}</span>` : ''}
+                        ${p.location ? `<span style="margin-left: 15px;">📍 ${p.location}</span>` : ''}
+                    </div>
+                    <div style="font-size: 11px; color: #666; margin-top: 5px;">
+                        ${p.linkedin ? `<span>LinkedIn: ${p.linkedin}</span>` : ''}
+                        ${p.github ? `<span style="margin-left: 15px;">GitHub: ${p.github}</span>` : ''}
+                        ${p.portfolio ? `<span style="margin-left: 15px;">Portfolio: ${p.portfolio}</span>` : ''}
+                    </div>
+                </div>
+                
+                <!-- Professional Summary -->
+                ${pr.summary ? `
+                <div style="margin-bottom: 25px;">
+                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Professional Summary</h2>
+                    <p style="font-size: 12px; text-align: justify;">${pr.summary}</p>
+                </div>
+                ` : ''}
+                
+                <!-- Skills -->
+                ${profileData.skills.length > 0 ? `
+                <div style="margin-bottom: 25px;">
+                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Technical Skills</h2>
+                    <p style="font-size: 12px;">${profileData.skills.join(' • ')}</p>
+                </div>
+                ` : ''}
+                
+                <!-- Work Experience -->
+                ${profileData.workExperience.length > 0 ? `
+                <div style="margin-bottom: 25px;">
+                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Work Experience</h2>
+                    ${profileData.workExperience.map(exp => `
+                        <div style="margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <h3 style="font-size: 13px; color: #333; margin: 0; font-weight: 700;">${exp.title}</h3>
+                                <span style="font-size: 11px; color: #666;">${formatDate(exp.startDate)} - ${formatDate(exp.endDate) || 'Present'}</span>
+                            </div>
+                            <p style="font-size: 12px; color: #b8860b; margin: 2px 0; font-weight: 600;">${exp.company}${exp.location ? ` | ${exp.location}` : ''}</p>
+                            ${exp.description ? `<p style="font-size: 11px; margin-top: 5px; color: #555;">${exp.description}</p>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                <!-- Education -->
+                ${profileData.education.length > 0 ? `
+                <div style="margin-bottom: 25px;">
+                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Education</h2>
+                    ${profileData.education.map(edu => `
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                                <h3 style="font-size: 13px; color: #333; margin: 0; font-weight: 700;">${edu.degree}</h3>
+                                <span style="font-size: 11px; color: #666;">${edu.year}</span>
+                            </div>
+                            <p style="font-size: 12px; color: #b8860b; margin: 2px 0;">${edu.institution}</p>
+                            ${edu.grade ? `<p style="font-size: 11px; color: #666;">Grade/CGPA: ${edu.grade}</p>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                <!-- Projects -->
+                ${profileData.projects.length > 0 ? `
+                <div style="margin-bottom: 25px;">
+                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Projects</h2>
+                    ${profileData.projects.map(proj => `
+                        <div style="margin-bottom: 12px;">
+                            <h3 style="font-size: 13px; color: #333; margin: 0; font-weight: 700;">${proj.name}</h3>
+                            ${proj.technologies ? `<p style="font-size: 10px; color: #b8860b; margin: 2px 0;">Technologies: ${proj.technologies}</p>` : ''}
+                            ${proj.description ? `<p style="font-size: 11px; margin-top: 3px; color: #555;">${proj.description}</p>` : ''}
+                            ${proj.link ? `<p style="font-size: 10px; color: #666;">🔗 ${proj.link}</p>` : ''}
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                <!-- Certifications -->
+                ${profileData.certifications.length > 0 ? `
+                <div style="margin-bottom: 25px;">
+                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Certifications</h2>
+                    ${profileData.certifications.map(cert => `
+                        <div style="margin-bottom: 8px;">
+                            <span style="font-size: 12px; font-weight: 600;">${cert.name}</span>
+                            <span style="font-size: 11px; color: #666;"> - ${cert.issuer} (${cert.year})</span>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                <!-- Languages -->
+                ${profileData.languages && profileData.languages.length > 0 ? `
+                <div style="margin-bottom: 20px;">
+                    <h2 style="font-size: 14px; color: #722f37; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Languages</h2>
+                    <p style="font-size: 12px;">${profileData.languages.join(' • ')}</p>
+                </div>
+                ` : ''}
+            </div>
+            `;
         }
 
         // Utility Functions
