@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Complete Guide - Flexbox, Grid & Animations | NaukriForSure</title>
+    <meta name="description" content="Complete CSS3 guide: Flexbox, Grid, animations, responsive design and modern CSS features.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #264de4 0%, #2965f1 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #264de4; margin-bottom: 20px; border-bottom: 2px solid #2965f1; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #eef2ff; color: #264de4; }
+        .toc-list a i { color: #2965f1; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #2965f1; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #264de4, #2965f1); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #264de4; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #2965f1; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #eef2ff; border-left: 4px solid #2965f1; display: flex; gap: 15px; }
+        .info-box i { color: #264de4; font-size: 1.3rem; }
+        .demo-box { border: 2px dashed #2965f1; padding: 20px; margin: 15px 0; border-radius: var(--radius-md); background: #f8fafc; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-css3-alt" style="margin-right: 15px;"></i>CSS3</h1>
+            <p>Complete Guide: Flexbox, Grid, Animations & Responsive Design</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> Basics</a></li>
+                        <li><a href="#box"><i class="fas fa-square"></i> Box Model</a></li>
+                        <li><a href="#flexbox"><i class="fas fa-arrows-alt"></i> Flexbox</a></li>
+                        <li><a href="#grid"><i class="fas fa-th"></i> CSS Grid</a></li>
+                        <li><a href="#responsive"><i class="fas fa-mobile-alt"></i> Responsive</a></li>
+                        <li><a href="#animations"><i class="fas fa-magic"></i> Animations</a></li>
+                        <li><a href="#modern"><i class="fas fa-rocket"></i> Modern CSS</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-play"></i></div>
+                        <h2>CSS Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-css">/* Selectors */
+element { }           /* Type selector */
+.class { }            /* Class selector */
+#id { }               /* ID selector */
+* { }                 /* Universal selector */
+[attr="value"] { }    /* Attribute selector */
+
+/* Combinators */
+div p { }             /* Descendant */
+div > p { }           /* Child */
+div + p { }           /* Adjacent sibling */
+div ~ p { }           /* General sibling */
+
+/* Pseudo-classes */
+a:hover { }
+a:active { }
+a:visited { }
+input:focus { }
+li:first-child { }
+li:last-child { }
+li:nth-child(2) { }
+li:nth-child(odd) { }
+li:nth-child(3n+1) { }
+
+/* Pseudo-elements */
+p::before { content: "→ "; }
+p::after { content: " ←"; }
+p::first-line { }
+p::first-letter { }
+::selection { background: yellow; }
+
+/* Colors */
+color: red;                      /* Named */
+color: #ff0000;                  /* Hex */
+color: rgb(255, 0, 0);          /* RGB */
+color: rgba(255, 0, 0, 0.5);    /* RGBA */
+color: hsl(0, 100%, 50%);       /* HSL */
+color: hsla(0, 100%, 50%, 0.5); /* HSLA */
+
+/* Units */
+width: 100px;         /* Pixels */
+width: 10em;          /* Relative to font-size */
+width: 10rem;         /* Relative to root font-size */
+width: 50%;           /* Percentage */
+width: 100vw;         /* Viewport width */
+height: 100vh;        /* Viewport height */
+width: 50vmin;        /* Min of vw/vh */
+width: 50vmax;        /* Max of vw/vh */</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Box Model -->
+                <section id="box" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-square"></i></div>
+                        <h2>Box Model</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-css">/* Box sizing */
+* {
+    box-sizing: border-box;  /* Width includes padding & border */
+}
+
+/* Margin (outside space) */
+margin: 10px;                 /* All sides */
+margin: 10px 20px;            /* Vertical | Horizontal */
+margin: 10px 20px 30px 40px;  /* Top Right Bottom Left */
+margin: 0 auto;               /* Center horizontally */
+
+/* Padding (inside space) */
+padding: 10px;
+padding: 10px 20px;
+
+/* Border */
+border: 1px solid black;
+border-width: 1px;
+border-style: solid | dashed | dotted | double | groove;
+border-color: black;
+border-radius: 10px;
+border-radius: 50%;           /* Circle */
+border-radius: 10px 20px 30px 40px;  /* Corners */
+
+/* Outline (doesn't affect layout) */
+outline: 2px solid blue;
+outline-offset: 5px;
+
+/* Width & Height */
+width: 100%;
+max-width: 1200px;
+min-width: 300px;
+height: 100vh;
+max-height: 500px;
+
+/* Overflow */
+overflow: visible | hidden | scroll | auto;
+overflow-x: hidden;
+overflow-y: auto;
+
+/* Display */
+display: block;
+display: inline;
+display: inline-block;
+display: none;
+display: flex;
+display: grid;
+
+/* Visibility */
+visibility: hidden;          /* Takes space */
+opacity: 0.5;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Flexbox -->
+                <section id="flexbox" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-arrows-alt"></i></div>
+                        <h2>Flexbox</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-css">/* Container properties */
+.container {
+    display: flex;
+    
+    /* Direction */
+    flex-direction: row;          /* Default */
+    flex-direction: row-reverse;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    
+    /* Wrapping */
+    flex-wrap: nowrap;           /* Default */
+    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+    
+    /* Shorthand */
+    flex-flow: row wrap;
+    
+    /* Main axis alignment */
+    justify-content: flex-start;  /* Default */
+    justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+    
+    /* Cross axis alignment */
+    align-items: stretch;         /* Default */
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: center;
+    align-items: baseline;
+    
+    /* Multiple lines alignment */
+    align-content: flex-start;
+    align-content: center;
+    align-content: space-between;
+    
+    /* Gap between items */
+    gap: 20px;
+    row-gap: 10px;
+    column-gap: 20px;
+}
+
+/* Item properties */
+.item {
+    /* Order */
+    order: 1;  /* Default 0 */
+    
+    /* Growth */
+    flex-grow: 1;     /* Take available space */
+    
+    /* Shrink */
+    flex-shrink: 0;   /* Don't shrink */
+    
+    /* Base size */
+    flex-basis: 200px;
+    
+    /* Shorthand */
+    flex: 1;          /* flex-grow: 1 */
+    flex: 1 1 auto;   /* grow shrink basis */
+    
+    /* Individual alignment */
+    align-self: center;
+}</code></pre>
+                        </div>
+                        
+                        <h3>Common Flexbox Patterns</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                            </div>
+                            <pre><code class="language-css">/* Center everything */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Card row */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 300px;  /* Grow, shrink, min 300px */
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CSS Grid -->
+                <section id="grid" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-th"></i></div>
+                        <h2>CSS Grid</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-css">/* Container properties */
+.grid {
+    display: grid;
+    
+    /* Define columns */
+    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-columns: repeat(3, 1fr);     /* Equal fractions */
+    grid-template-columns: 1fr 2fr 1fr;        /* Proportions */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    
+    /* Define rows */
+    grid-template-rows: 100px auto 100px;
+    
+    /* Gap */
+    gap: 20px;
+    row-gap: 10px;
+    column-gap: 20px;
+    
+    /* Alignment */
+    justify-items: start | end | center | stretch;
+    align-items: start | end | center | stretch;
+    
+    /* Content alignment */
+    justify-content: start | end | center | space-between;
+    align-content: start | end | center | space-between;
+    
+    /* Named areas */
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+}
+
+/* Item properties */
+.item {
+    /* Span columns/rows */
+    grid-column: 1 / 3;           /* Start / End */
+    grid-column: span 2;          /* Span 2 columns */
+    grid-row: 1 / 3;
+    
+    /* Using area names */
+    grid-area: header;
+    
+    /* Self alignment */
+    justify-self: center;
+    align-self: center;
+}
+
+/* Example layout */
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Responsive -->
+                <section id="responsive" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h2>Responsive Design</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-css">/* Media queries */
+/* Mobile first approach */
+.container {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Common breakpoints */
+/* xs: 0 - 575px (mobile) */
+/* sm: 576px - 767px (large mobile) */
+/* md: 768px - 991px (tablet) */
+/* lg: 992px - 1199px (desktop) */
+/* xl: 1200px+ (large desktop) */
+
+/* Other media features */
+@media (orientation: landscape) { }
+@media (hover: hover) { }
+@media (prefers-color-scheme: dark) { }
+@media (prefers-reduced-motion: reduce) { }
+
+/* Responsive typography */
+html {
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    html { font-size: 18px; }
+}
+
+/* Or use clamp() */
+h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Animations -->
+                <section id="animations" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-magic"></i></div>
+                        <h2>Animations & Transitions</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-css">/* Transitions */
+.button {
+    background: blue;
+    transition: all 0.3s ease;
+    /* transition: property duration timing-function delay */
+}
+
+.button:hover {
+    background: darkblue;
+    transform: scale(1.1);
+}
+
+/* Timing functions */
+transition-timing-function: ease;
+transition-timing-function: linear;
+transition-timing-function: ease-in;
+transition-timing-function: ease-out;
+transition-timing-function: ease-in-out;
+transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+/* Transforms */
+transform: translate(50px, 100px);
+transform: translateX(50px);
+transform: translateY(100px);
+transform: rotate(45deg);
+transform: scale(1.5);
+transform: scale(1.5, 0.5);
+transform: skew(10deg, 20deg);
+transform: matrix(1, 0, 0, 1, 0, 0);
+
+/* Multiple transforms */
+transform: translateX(50px) rotate(45deg) scale(1.2);
+
+/* Transform origin */
+transform-origin: center;
+transform-origin: top left;
+transform-origin: 50% 50%;
+
+/* 3D Transforms */
+transform: perspective(500px) rotateX(45deg);
+transform: rotateY(180deg);
+transform-style: preserve-3d;
+backface-visibility: hidden;
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.element {
+    animation: fadeIn 1s ease-in-out;
+    /* animation: name duration timing delay iteration direction fill-mode */
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+/* Animation properties */
+animation-name: fadeIn;
+animation-duration: 1s;
+animation-timing-function: ease;
+animation-delay: 0.5s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+animation-fill-mode: forwards;
+animation-play-state: paused;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modern CSS -->
+                <section id="modern" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-rocket"></i></div>
+                        <h2>Modern CSS Features</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-css">/* CSS Variables (Custom Properties) */
+:root {
+    --primary-color: #3498db;
+    --spacing-unit: 8px;
+    --font-size-base: 16px;
+}
+
+.button {
+    background: var(--primary-color);
+    padding: calc(var(--spacing-unit) * 2);
+    font-size: var(--font-size-base, 14px);  /* Fallback */
+}
+
+/* calc() function */
+width: calc(100% - 40px);
+padding: calc(1rem + 10px);
+
+/* min(), max(), clamp() */
+width: min(100%, 500px);
+width: max(300px, 50%);
+width: clamp(300px, 50%, 800px);
+font-size: clamp(1rem, 2.5vw, 2rem);
+
+/* aspect-ratio */
+.video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+/* Container queries */
+@container (min-width: 400px) {
+    .card {
+        display: flex;
+    }
+}
+
+/* :is() and :where() */
+:is(h1, h2, h3):hover { color: blue; }
+:where(ul, ol) li { margin: 0.5em; }
+
+/* :has() - Parent selector */
+.card:has(img) { padding: 0; }
+.form:has(:invalid) .submit { opacity: 0.5; }
+
+/* scroll-behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* scroll-snap */
+.container {
+    scroll-snap-type: x mandatory;
+}
+
+.item {
+    scroll-snap-align: start;
+}
+
+/* backdrop-filter */
+.modal {
+    backdrop-filter: blur(10px);
+}
+
+/* Logical properties */
+margin-inline: auto;    /* left/right in LTR */
+padding-block: 1rem;    /* top/bottom */
+border-inline-start: 1px solid;
+
+/* accent-color */
+input[type="checkbox"] {
+    accent-color: hotpink;
+}</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>CSS Best Practices:</strong><br>
+                                • Use CSS variables for consistency<br>
+                                • Mobile-first responsive design<br>
+                                • Use Flexbox/Grid over floats<br>
+                                • Minimize specificity conflicts<br>
+                                • Use BEM or similar naming convention
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

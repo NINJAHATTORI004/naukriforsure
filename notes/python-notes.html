@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Complete Guide - Basics to Advanced | NaukriForSure</title>
+    <meta name="description" content="Complete Python programming guide: syntax, data structures, OOP, file handling, modules, and interview preparation.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #3776AB 0%, #FFD43B 100%); padding: 60px 0; color: var(--white); text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: var(--white); border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); border: 2px solid rgba(55, 118, 171, 0.2); }
+        .sidebar-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #3776AB; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #3776AB; }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 6px; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); transition: all 0.3s ease; font-size: 0.85rem; }
+        .toc-list a:hover, .toc-list a.active { background: #e8f4fd; color: #3776AB; }
+        .toc-list a i { color: #3776AB; width: 16px; }
+        .notes-content { background: var(--white); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); border: 2px solid rgba(55, 118, 171, 0.2); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #3776AB; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #3776AB 0%, #FFD43B 100%); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--dark); }
+        .topic-content h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #3776AB; margin: 30px 0 15px; }
+        .topic-content h3::before { content: '🐍 '; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .topic-content ul { margin: 15px 0 20px 25px; color: var(--neutral-700); }
+        .topic-content li { margin-bottom: 8px; line-height: 1.7; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; border: 2px solid var(--neutral-300); }
+        .code-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; border-bottom: 1px solid #404040; }
+        .code-lang { color: #FFD43B; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; transition: all 0.3s; }
+        .copy-btn:hover { background: #555; color: #fff; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; line-height: 1.6; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; display: flex; gap: 15px; }
+        .info-box i { font-size: 1.3rem; margin-top: 2px; }
+        .info-box.tip { background: #fff7ed; border-left: 4px solid #FFD43B; }
+        .info-box.tip i { color: #f59e0b; }
+        .info-box.note { background: #e8f4fd; border-left: 4px solid #3776AB; }
+        .info-box.note i { color: #3776AB; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+        .concept-table th, .concept-table td { padding: 12px 15px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #e8f4fd; font-family: 'Cinzel', serif; color: #3776AB; }
+        .concept-table tr:nth-child(even) { background: var(--neutral-50); }
+        .concept-table code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline"><i class="fas fa-user"></i> Login</a>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-python" style="margin-right: 15px;"></i>Python Programming</h1>
+            <p>Complete Guide from Basics to Advanced Concepts</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list" style="margin-right: 8px;"></i>Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#intro"><i class="fas fa-play"></i> Introduction</a></li>
+                        <li><a href="#variables"><i class="fas fa-box"></i> Variables & Data Types</a></li>
+                        <li><a href="#operators"><i class="fas fa-calculator"></i> Operators</a></li>
+                        <li><a href="#control"><i class="fas fa-code-branch"></i> Control Flow</a></li>
+                        <li><a href="#functions"><i class="fas fa-cube"></i> Functions</a></li>
+                        <li><a href="#collections"><i class="fas fa-layer-group"></i> Data Structures</a></li>
+                        <li><a href="#oop"><i class="fas fa-sitemap"></i> OOP Concepts</a></li>
+                        <li><a href="#fileio"><i class="fas fa-file"></i> File Handling</a></li>
+                        <li><a href="#exceptions"><i class="fas fa-exclamation-triangle"></i> Exception Handling</a></li>
+                        <li><a href="#modules"><i class="fas fa-puzzle-piece"></i> Modules & Packages</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Introduction -->
+                <section id="intro" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fab fa-python"></i></div>
+                        <h2>Introduction to Python</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Python</strong> is a high-level, interpreted programming language known for its simplicity and readability. Created by Guido van Rossum in 1991.</p>
+                        
+                        <h3>Why Python?</h3>
+                        <ul>
+                            <li><strong>Easy to Learn:</strong> Simple syntax similar to English</li>
+                            <li><strong>Versatile:</strong> Web dev, AI/ML, Data Science, Automation</li>
+                            <li><strong>Large Community:</strong> Extensive libraries and frameworks</li>
+                            <li><strong>Cross-Platform:</strong> Works on Windows, Mac, Linux</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Your first Python program
+print("Hello, World!")
+
+# Taking input from user
+name = input("Enter your name: ")
+print(f"Welcome, {name}!")</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Variables & Data Types -->
+                <section id="variables" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-box"></i></div>
+                        <h2>Variables & Data Types</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>Python is dynamically typed - you don't need to declare variable types explicitly.</p>
+                        
+                        <table class="concept-table">
+                            <tr><th>Data Type</th><th>Example</th><th>Description</th></tr>
+                            <tr><td><code>int</code></td><td><code>x = 10</code></td><td>Integer numbers</td></tr>
+                            <tr><td><code>float</code></td><td><code>y = 3.14</code></td><td>Decimal numbers</td></tr>
+                            <tr><td><code>str</code></td><td><code>name = "John"</code></td><td>Text strings</td></tr>
+                            <tr><td><code>bool</code></td><td><code>is_valid = True</code></td><td>Boolean (True/False)</td></tr>
+                            <tr><td><code>list</code></td><td><code>[1, 2, 3]</code></td><td>Ordered, mutable collection</td></tr>
+                            <tr><td><code>tuple</code></td><td><code>(1, 2, 3)</code></td><td>Ordered, immutable collection</td></tr>
+                            <tr><td><code>dict</code></td><td><code>{"key": "value"}</code></td><td>Key-value pairs</td></tr>
+                            <tr><td><code>set</code></td><td><code>{1, 2, 3}</code></td><td>Unordered unique elements</td></tr>
+                        </table>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Variable declarations
+age = 25                    # int
+salary = 50000.50           # float
+name = "Alice"              # str
+is_employed = True          # bool
+
+# Type checking
+print(type(age))            # <class 'int'>
+
+# Type conversion
+num_str = "100"
+num_int = int(num_str)      # Convert to integer
+
+# Multiple assignment
+a, b, c = 1, 2, 3
+x = y = z = 0               # All equal to 0</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Operators -->
+                <section id="operators" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-calculator"></i></div>
+                        <h2>Operators</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Arithmetic Operators
+a, b = 10, 3
+print(a + b)    # 13 - Addition
+print(a - b)    # 7  - Subtraction
+print(a * b)    # 30 - Multiplication
+print(a / b)    # 3.33 - Division (float)
+print(a // b)   # 3  - Floor division
+print(a % b)    # 1  - Modulus (remainder)
+print(a ** b)   # 1000 - Exponentiation
+
+# Comparison Operators
+print(a == b)   # False - Equal
+print(a != b)   # True  - Not equal
+print(a > b)    # True  - Greater than
+print(a >= b)   # True  - Greater or equal
+print(a < b)    # False - Less than
+
+# Logical Operators
+x, y = True, False
+print(x and y)  # False
+print(x or y)   # True
+print(not x)    # False
+
+# Identity Operators
+print(a is b)       # False - Same object
+print(a is not b)   # True
+
+# Membership Operators
+lst = [1, 2, 3]
+print(2 in lst)     # True
+print(5 not in lst) # True</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Control Flow -->
+                <section id="control" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code-branch"></i></div>
+                        <h2>Control Flow</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Conditional Statements</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># if-elif-else
+age = 18
+
+if age < 13:
+    print("Child")
+elif age < 20:
+    print("Teenager")
+else:
+    print("Adult")
+
+# Ternary operator
+status = "Adult" if age >= 18 else "Minor"
+
+# Match statement (Python 3.10+)
+command = "start"
+match command:
+    case "start":
+        print("Starting...")
+    case "stop":
+        print("Stopping...")
+    case _:
+        print("Unknown command")</code></pre>
+                        </div>
+                        
+                        <h3>Loops</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># For loop
+for i in range(5):          # 0 to 4
+    print(i)
+
+for i in range(1, 10, 2):   # 1, 3, 5, 7, 9
+    print(i)
+
+# Iterate over list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# With index
+for idx, fruit in enumerate(fruits):
+    print(f"{idx}: {fruit}")
+
+# While loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# Loop control
+for i in range(10):
+    if i == 3:
+        continue    # Skip 3
+    if i == 7:
+        break       # Stop at 7
+    print(i)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Functions -->
+                <section id="functions" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cube"></i></div>
+                        <h2>Functions</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Basic function
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+
+# Default parameters
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+
+# Keyword arguments
+print(greet(name="Bob", greeting="Hi"))
+
+# *args - Variable positional arguments
+def add_all(*numbers):
+    return sum(numbers)
+
+print(add_all(1, 2, 3, 4))  # 10
+
+# **kwargs - Variable keyword arguments
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=25, city="NYC")
+
+# Lambda functions (anonymous)
+square = lambda x: x ** 2
+print(square(5))  # 25
+
+# Higher-order functions
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+evens = list(filter(lambda x: x % 2 == 0, numbers))</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Structures -->
+                <section id="collections" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Data Structures</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Lists</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># List - mutable, ordered
+fruits = ["apple", "banana", "cherry"]
+
+# Access elements
+print(fruits[0])        # apple
+print(fruits[-1])       # cherry (last element)
+print(fruits[1:3])      # ['banana', 'cherry']
+
+# Modify
+fruits.append("orange")         # Add to end
+fruits.insert(1, "mango")       # Insert at index
+fruits.remove("banana")         # Remove by value
+popped = fruits.pop()           # Remove and return last
+fruits.extend(["grape", "kiwi"]) # Add multiple
+
+# List comprehension
+squares = [x**2 for x in range(1, 6)]  # [1, 4, 9, 16, 25]
+evens = [x for x in range(10) if x % 2 == 0]
+
+# Useful methods
+fruits.sort()           # Sort in place
+fruits.reverse()        # Reverse in place
+print(len(fruits))      # Length
+print(fruits.count("apple"))  # Count occurrences</code></pre>
+                        </div>
+                        
+                        <h3>Dictionaries</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Dictionary - key-value pairs
+person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "NYC"
+}
+
+# Access
+print(person["name"])           # Alice
+print(person.get("salary", 0))  # 0 (default if not found)
+
+# Modify
+person["age"] = 26              # Update
+person["job"] = "Developer"     # Add new key
+del person["city"]              # Delete key
+
+# Iterate
+for key in person:
+    print(key, person[key])
+
+for key, value in person.items():
+    print(f"{key}: {value}")
+
+# Dictionary comprehension
+squares_dict = {x: x**2 for x in range(1, 6)}
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OOP -->
+                <section id="oop" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sitemap"></i></div>
+                        <h2>Object-Oriented Programming</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Class definition
+class Person:
+    # Class variable
+    species = "Homo sapiens"
+    
+    # Constructor
+    def __init__(self, name, age):
+        self.name = name      # Instance variable
+        self.age = age
+        self._protected = "Protected"   # Convention for protected
+        self.__private = "Private"      # Name mangling for private
+    
+    # Instance method
+    def greet(self):
+        return f"Hello, I'm {self.name}"
+    
+    # String representation
+    def __str__(self):
+        return f"Person({self.name}, {self.age})"
+    
+    # Class method
+    @classmethod
+    def create_anonymous(cls):
+        return cls("Anonymous", 0)
+    
+    # Static method
+    @staticmethod
+    def is_adult(age):
+        return age >= 18
+
+# Inheritance
+class Employee(Person):
+    def __init__(self, name, age, salary):
+        super().__init__(name, age)
+        self.salary = salary
+    
+    def greet(self):  # Method overriding
+        return f"Hello, I'm {self.name}, an employee"
+
+# Usage
+p = Person("Alice", 25)
+print(p.greet())
+print(Person.is_adult(20))
+
+e = Employee("Bob", 30, 50000)
+print(e.greet())</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- File Handling -->
+                <section id="fileio" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-file"></i></div>
+                        <h2>File Handling</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Writing to file
+with open("example.txt", "w") as f:
+    f.write("Hello, World!\n")
+    f.writelines(["Line 1\n", "Line 2\n"])
+
+# Reading from file
+with open("example.txt", "r") as f:
+    content = f.read()          # Read entire file
+    
+with open("example.txt", "r") as f:
+    lines = f.readlines()       # Read all lines as list
+    
+with open("example.txt", "r") as f:
+    for line in f:              # Read line by line
+        print(line.strip())
+
+# Append to file
+with open("example.txt", "a") as f:
+    f.write("New line\n")
+
+# Working with JSON
+import json
+
+data = {"name": "Alice", "age": 25}
+
+# Write JSON
+with open("data.json", "w") as f:
+    json.dump(data, f, indent=4)
+
+# Read JSON
+with open("data.json", "r") as f:
+    loaded_data = json.load(f)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Exception Handling -->
+                <section id="exceptions" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h2>Exception Handling</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Basic try-except
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+
+# Multiple exceptions
+try:
+    num = int(input("Enter number: "))
+    result = 10 / num
+except ValueError:
+    print("Invalid input!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"Error: {e}")
+finally:
+    print("This always runs")
+
+# Raising exceptions
+def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    return age
+
+# Custom exception
+class CustomError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+raise CustomError("Something went wrong!")</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modules -->
+                <section id="modules" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-puzzle-piece"></i></div>
+                        <h2>Modules & Packages</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python"># Importing modules
+import math
+print(math.sqrt(16))        # 4.0
+
+from math import pi, sqrt
+print(pi)                   # 3.14159...
+
+from math import *          # Import all (not recommended)
+
+import numpy as np          # Alias
+
+# Popular built-in modules
+import os               # Operating system
+import sys              # System-specific
+import datetime         # Date and time
+import random           # Random numbers
+import re               # Regular expressions
+import collections      # Specialized containers
+
+# Creating your own module (mymodule.py)
+# def greet(name):
+#     return f"Hello, {name}!"
+
+# Using it
+# from mymodule import greet
+# print(greet("Alice"))
+
+# Package structure
+# mypackage/
+#     __init__.py
+#     module1.py
+#     module2.py
+#     subpackage/
+#         __init__.py
+#         module3.py</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Must-Know Python Libraries:</strong><br>
+                                • <strong>NumPy</strong>: Numerical computing<br>
+                                • <strong>Pandas</strong>: Data manipulation<br>
+                                • <strong>Matplotlib</strong>: Data visualization<br>
+                                • <strong>Requests</strong>: HTTP requests<br>
+                                • <strong>Flask/Django</strong>: Web frameworks
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block');
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

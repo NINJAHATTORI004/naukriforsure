@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Complete Guide - Cloud Services & Architecture | NaukriForSure</title>
+    <meta name="description" content="Complete AWS guide: EC2, S3, Lambda, RDS, and cloud architecture fundamentals.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #ff9900 0%, #232f3e 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #ff9900; margin-bottom: 20px; border-bottom: 2px solid #ff9900; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #fff8e6; color: #ff9900; }
+        .toc-list a i { color: #ff9900; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #ff9900; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #ff9900, #232f3e); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #ff9900; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #ff9900; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #fff8e6; border-left: 4px solid #ff9900; display: flex; gap: 15px; }
+        .info-box i { color: #ff9900; font-size: 1.3rem; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .concept-table th, .concept-table td { padding: 12px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #fff8e6; color: #232f3e; }
+        .service-card { display: flex; gap: 15px; padding: 15px; background: #f8fafc; border-radius: var(--radius-md); margin: 10px 0; }
+        .service-icon { font-size: 1.5rem; color: #ff9900; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-aws" style="margin-right: 15px;"></i>Amazon Web Services</h1>
+            <p>Cloud Computing, Services & Architecture Fundamentals</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-cloud"></i> Cloud Basics</a></li>
+                        <li><a href="#compute"><i class="fas fa-server"></i> Compute (EC2)</a></li>
+                        <li><a href="#storage"><i class="fas fa-database"></i> Storage (S3)</a></li>
+                        <li><a href="#database"><i class="fas fa-table"></i> Database</a></li>
+                        <li><a href="#serverless"><i class="fas fa-bolt"></i> Serverless</a></li>
+                        <li><a href="#networking"><i class="fas fa-network-wired"></i> Networking</a></li>
+                        <li><a href="#iam"><i class="fas fa-shield-alt"></i> Security (IAM)</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Cloud Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cloud"></i></div>
+                        <h2>Cloud Computing Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Cloud Service Models</h3>
+                        <table class="concept-table">
+                            <tr><th>Model</th><th>Description</th><th>You Manage</th><th>Example</th></tr>
+                            <tr><td><strong>IaaS</strong></td><td>Infrastructure as a Service</td><td>OS, Apps, Data</td><td>EC2, VMs</td></tr>
+                            <tr><td><strong>PaaS</strong></td><td>Platform as a Service</td><td>Apps, Data</td><td>Elastic Beanstalk</td></tr>
+                            <tr><td><strong>SaaS</strong></td><td>Software as a Service</td><td>Nothing</td><td>Gmail, Salesforce</td></tr>
+                        </table>
+                        
+                        <h3>AWS Global Infrastructure</h3>
+                        <ul>
+                            <li><strong>Regions:</strong> Geographic areas with multiple data centers (us-east-1, eu-west-1)</li>
+                            <li><strong>Availability Zones (AZs):</strong> Isolated data centers within a region</li>
+                            <li><strong>Edge Locations:</strong> CDN endpoints for CloudFront</li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>AWS Free Tier:</strong> 12 months free with 750 hrs/month of t2.micro EC2, 5GB S3, and more.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Compute -->
+                <section id="compute" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-server"></i></div>
+                        <h2>Compute - EC2</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>EC2 (Elastic Compute Cloud)</strong> provides resizable virtual servers in the cloud.</p>
+                        
+                        <h3>Instance Types</h3>
+                        <table class="concept-table">
+                            <tr><th>Type</th><th>Use Case</th></tr>
+                            <tr><td>t2/t3 (General)</td><td>Web servers, small DBs</td></tr>
+                            <tr><td>c5/c6 (Compute)</td><td>CPU-intensive workloads</td></tr>
+                            <tr><td>r5/r6 (Memory)</td><td>In-memory databases</td></tr>
+                            <tr><td>g4/p4 (GPU)</td><td>ML, graphics rendering</td></tr>
+                            <tr><td>i3/d3 (Storage)</td><td>High I/O workloads</td></tr>
+                        </table>
+                        
+                        <h3>Pricing Models</h3>
+                        <ul>
+                            <li><strong>On-Demand:</strong> Pay by the hour, no commitment</li>
+                            <li><strong>Reserved:</strong> 1-3 year commitment, up to 75% off</li>
+                            <li><strong>Spot:</strong> Bid on unused capacity, up to 90% off</li>
+                            <li><strong>Dedicated:</strong> Physical server for compliance</li>
+                        </ul>
+                        
+                        <h3>AWS CLI Commands</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Bash</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Configure AWS CLI
+aws configure
+
+# EC2 Commands
+aws ec2 describe-instances
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+
+# Launch instance
+aws ec2 run-instances \
+    --image-id ami-0123456789abcdef0 \
+    --instance-type t2.micro \
+    --key-name MyKeyPair \
+    --security-group-ids sg-12345678</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Storage -->
+                <section id="storage" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-database"></i></div>
+                        <h2>Storage - S3</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>S3 (Simple Storage Service)</strong> is object storage with unlimited scalability.</p>
+                        
+                        <h3>Storage Classes</h3>
+                        <table class="concept-table">
+                            <tr><th>Class</th><th>Use Case</th><th>Availability</th></tr>
+                            <tr><td>S3 Standard</td><td>Frequently accessed</td><td>99.99%</td></tr>
+                            <tr><td>S3 IA</td><td>Infrequent access</td><td>99.9%</td></tr>
+                            <tr><td>S3 One Zone-IA</td><td>Infrequent, single AZ</td><td>99.5%</td></tr>
+                            <tr><td>S3 Glacier</td><td>Archive (minutes to retrieve)</td><td>99.99%</td></tr>
+                            <tr><td>S3 Glacier Deep</td><td>Long-term archive (12 hrs)</td><td>99.99%</td></tr>
+                        </table>
+                        
+                        <h3>S3 CLI Commands</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Bash</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create bucket
+aws s3 mb s3://my-bucket-name
+
+# List buckets
+aws s3 ls
+
+# Upload file
+aws s3 cp file.txt s3://my-bucket/
+aws s3 cp folder/ s3://my-bucket/folder/ --recursive
+
+# Download file
+aws s3 cp s3://my-bucket/file.txt ./
+
+# Sync directories
+aws s3 sync . s3://my-bucket/
+aws s3 sync s3://my-bucket/ . --delete
+
+# Delete
+aws s3 rm s3://my-bucket/file.txt
+aws s3 rb s3://my-bucket --force</code></pre>
+                        </div>
+                        
+                        <h3>Other Storage Services</h3>
+                        <ul>
+                            <li><strong>EBS (Elastic Block Store):</strong> Block storage for EC2</li>
+                            <li><strong>EFS (Elastic File System):</strong> Managed NFS for Linux</li>
+                            <li><strong>FSx:</strong> Windows file system or Lustre</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Database -->
+                <section id="database" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-table"></i></div>
+                        <h2>Database Services</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>RDS (Relational Database Service)</h3>
+                        <p>Managed SQL databases: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Aurora.</p>
+                        
+                        <h3>DynamoDB</h3>
+                        <p>Managed NoSQL key-value and document database with single-digit millisecond performance.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript (Node.js)</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">const AWS = require('aws-sdk');
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
+
+// Put item
+await dynamoDB.put({
+    TableName: 'Users',
+    Item: {
+        userId: '123',
+        name: 'John Doe',
+        email: 'john@example.com'
+    }
+}).promise();
+
+// Get item
+const result = await dynamoDB.get({
+    TableName: 'Users',
+    Key: { userId: '123' }
+}).promise();
+
+// Query
+const users = await dynamoDB.query({
+    TableName: 'Users',
+    KeyConditionExpression: 'userId = :uid',
+    ExpressionAttributeValues: { ':uid': '123' }
+}).promise();</code></pre>
+                        </div>
+                        
+                        <h3>Other Database Services</h3>
+                        <ul>
+                            <li><strong>Aurora:</strong> MySQL/PostgreSQL compatible, 5x faster</li>
+                            <li><strong>ElastiCache:</strong> Managed Redis/Memcached</li>
+                            <li><strong>Redshift:</strong> Data warehouse for analytics</li>
+                            <li><strong>DocumentDB:</strong> MongoDB compatible</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Serverless -->
+                <section id="serverless" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-bolt"></i></div>
+                        <h2>Serverless - Lambda</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>AWS Lambda</strong> lets you run code without provisioning servers. Pay only for compute time.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python (Lambda Handler)</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">import json
+import boto3
+
+def lambda_handler(event, context):
+    # Event contains trigger data
+    name = event.get('name', 'World')
+    
+    # Access other AWS services
+    s3 = boto3.client('s3')
+    
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'application/json'
+        },
+        'body': json.dumps({
+            'message': f'Hello, {name}!'
+        })
+    }</code></pre>
+                        </div>
+                        
+                        <h3>Lambda Triggers</h3>
+                        <ul>
+                            <li><strong>API Gateway:</strong> HTTP requests</li>
+                            <li><strong>S3:</strong> Object uploads/deletes</li>
+                            <li><strong>DynamoDB:</strong> Table changes</li>
+                            <li><strong>SQS:</strong> Message queue</li>
+                            <li><strong>CloudWatch Events:</strong> Scheduled (cron)</li>
+                        </ul>
+                        
+                        <h3>Other Serverless Services</h3>
+                        <ul>
+                            <li><strong>API Gateway:</strong> Create REST/WebSocket APIs</li>
+                            <li><strong>Step Functions:</strong> Orchestrate workflows</li>
+                            <li><strong>EventBridge:</strong> Event bus for applications</li>
+                            <li><strong>Fargate:</strong> Serverless containers</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Networking -->
+                <section id="networking" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-network-wired"></i></div>
+                        <h2>Networking - VPC</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>VPC (Virtual Private Cloud)</strong> is your isolated network in AWS.</p>
+                        
+                        <h3>VPC Components</h3>
+                        <ul>
+                            <li><strong>Subnet:</strong> Range of IP addresses (public/private)</li>
+                            <li><strong>Route Table:</strong> Rules for network traffic</li>
+                            <li><strong>Internet Gateway:</strong> Connect VPC to internet</li>
+                            <li><strong>NAT Gateway:</strong> Allow private subnets to access internet</li>
+                            <li><strong>Security Group:</strong> Instance-level firewall (stateful)</li>
+                            <li><strong>Network ACL:</strong> Subnet-level firewall (stateless)</li>
+                        </ul>
+                        
+                        <h3>Other Networking Services</h3>
+                        <ul>
+                            <li><strong>Route 53:</strong> DNS and domain registration</li>
+                            <li><strong>CloudFront:</strong> CDN for content delivery</li>
+                            <li><strong>Elastic Load Balancer:</strong> Distribute traffic (ALB, NLB)</li>
+                            <li><strong>Direct Connect:</strong> Dedicated network connection</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- IAM -->
+                <section id="iam" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h2>Security - IAM</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>IAM (Identity and Access Management)</strong> controls access to AWS services.</p>
+                        
+                        <h3>IAM Concepts</h3>
+                        <ul>
+                            <li><strong>Users:</strong> Individual people or applications</li>
+                            <li><strong>Groups:</strong> Collection of users</li>
+                            <li><strong>Roles:</strong> Temporary credentials for services</li>
+                            <li><strong>Policies:</strong> JSON documents defining permissions</li>
+                        </ul>
+                        
+                        <h3>IAM Policy Example</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JSON</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-json">{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::my-bucket/*"
+        },
+        {
+            "Effect": "Deny",
+            "Action": "s3:DeleteObject",
+            "Resource": "*"
+        }
+    ]
+}</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Security Best Practices:</strong><br>
+                                • Enable MFA on root account<br>
+                                • Use roles instead of access keys<br>
+                                • Follow principle of least privilege<br>
+                                • Rotate credentials regularly<br>
+                                • Use AWS Organizations for multiple accounts
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

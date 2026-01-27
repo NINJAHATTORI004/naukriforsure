@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Programming Complete Guide - .NET & OOP | NaukriForSure</title>
+    <meta name="description" content="Complete C# guide: OOP, LINQ, async programming, and .NET fundamentals.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #68217a 0%, #9b4dca 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #68217a; margin-bottom: 20px; border-bottom: 2px solid #9b4dca; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #f5e6fa; color: #68217a; }
+        .toc-list a i { color: #9b4dca; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #9b4dca; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #68217a, #9b4dca); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #68217a; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #9b4dca; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #f5e6fa; border-left: 4px solid #9b4dca; display: flex; gap: 15px; }
+        .info-box i { color: #68217a; font-size: 1.3rem; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-microsoft" style="margin-right: 15px;"></i>C# Programming</h1>
+            <p>Complete Guide: OOP, LINQ, Async & .NET Fundamentals</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> Basics</a></li>
+                        <li><a href="#oop"><i class="fas fa-cubes"></i> OOP</a></li>
+                        <li><a href="#collections"><i class="fas fa-layer-group"></i> Collections</a></li>
+                        <li><a href="#linq"><i class="fas fa-filter"></i> LINQ</a></li>
+                        <li><a href="#async"><i class="fas fa-sync"></i> Async/Await</a></li>
+                        <li><a href="#delegates"><i class="fas fa-project-diagram"></i> Delegates & Events</a></li>
+                        <li><a href="#modern"><i class="fas fa-rocket"></i> Modern C#</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-play"></i></div>
+                        <h2>C# Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using System;
+
+namespace MyApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Output
+            Console.WriteLine("Hello, World!");
+            
+            // Variables
+            int age = 25;
+            double salary = 50000.50;
+            string name = "Alice";
+            bool isActive = true;
+            char grade = 'A';
+            
+            // var - Implicit typing
+            var count = 10;        // int
+            var price = 99.99;     // double
+            
+            // Constants
+            const int MAX_SIZE = 100;
+            
+            // Nullable types
+            int? nullableInt = null;
+            nullableInt = 5;
+            
+            // Null coalescing
+            int value = nullableInt ?? 0;
+            
+            // Input
+            Console.Write("Enter your name: ");
+            string input = Console.ReadLine();
+            
+            // String interpolation
+            Console.WriteLine($"Hello, {name}! Age: {age}");
+            
+            // Type conversion
+            int num = int.Parse("42");
+            int.TryParse("123", out int result);
+            string str = age.ToString();
+        }
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Control Flow</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">// if-else
+if (age >= 18)
+    Console.WriteLine("Adult");
+else if (age >= 13)
+    Console.WriteLine("Teen");
+else
+    Console.WriteLine("Child");
+
+// Switch (traditional)
+switch (grade)
+{
+    case 'A':
+        Console.WriteLine("Excellent!");
+        break;
+    case 'B':
+        Console.WriteLine("Good!");
+        break;
+    default:
+        Console.WriteLine("Try harder!");
+        break;
+}
+
+// Switch expression (C# 8+)
+string result = grade switch
+{
+    'A' => "Excellent!",
+    'B' => "Good!",
+    _ => "Try harder!"
+};
+
+// for loop
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine(i);
+}
+
+// foreach
+string[] names = { "Alice", "Bob", "Charlie" };
+foreach (string n in names)
+{
+    Console.WriteLine(n);
+}
+
+// while
+int count = 0;
+while (count < 5)
+{
+    Console.WriteLine(count++);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OOP -->
+                <section id="oop" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cubes"></i></div>
+                        <h2>Object-Oriented Programming</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">// Class definition
+public class Person
+{
+    // Fields (private by default)
+    private string _name;
+    private int _age;
+    
+    // Auto-implemented property
+    public string Email { get; set; }
+    
+    // Property with backing field
+    public string Name
+    {
+        get => _name;
+        set => _name = value ?? "Unknown";
+    }
+    
+    // Read-only property
+    public int Age
+    {
+        get => _age;
+        private set => _age = value >= 0 ? value : 0;
+    }
+    
+    // Constructor
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+    
+    // Method
+    public void Introduce()
+    {
+        Console.WriteLine($"Hi, I'm {Name}, {Age} years old.");
+    }
+    
+    // Static member
+    public static int Count { get; private set; } = 0;
+}
+
+// Inheritance
+public class Employee : Person
+{
+    public decimal Salary { get; set; }
+    
+    public Employee(string name, int age, decimal salary)
+        : base(name, age)
+    {
+        Salary = salary;
+    }
+    
+    // Override
+    public override string ToString()
+    {
+        return $"{Name} - ${Salary}";
+    }
+}
+
+// Interface
+public interface IWorkable
+{
+    void Work();
+    string JobTitle { get; set; }
+}
+
+// Abstract class
+public abstract class Shape
+{
+    public abstract double Area();
+    public virtual void Draw() => Console.WriteLine("Drawing shape");
+}
+
+public class Circle : Shape
+{
+    public double Radius { get; set; }
+    
+    public override double Area() => Math.PI * Radius * Radius;
+    
+    public override void Draw() => Console.WriteLine("Drawing circle");
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Collections -->
+                <section id="collections" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Collections</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using System.Collections.Generic;
+
+// Arrays
+int[] numbers = { 1, 2, 3, 4, 5 };
+int[] nums = new int[5];
+string[,] matrix = new string[3, 3];
+
+// List - Dynamic array
+List&lt;int&gt; list = new List&lt;int&gt; { 1, 2, 3 };
+list.Add(4);
+list.Remove(2);
+list.Insert(0, 0);
+list.RemoveAt(0);
+bool exists = list.Contains(3);
+int count = list.Count;
+
+// Dictionary - Key-value pairs
+Dictionary&lt;string, int&gt; ages = new Dictionary&lt;string, int&gt;
+{
+    { "Alice", 25 },
+    { "Bob", 30 }
+};
+ages["Charlie"] = 35;
+ages.TryGetValue("Alice", out int age);
+
+foreach (var kvp in ages)
+{
+    Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+}
+
+// HashSet - Unique elements
+HashSet&lt;int&gt; set = new HashSet&lt;int&gt; { 1, 2, 3, 3 }; // {1, 2, 3}
+set.Add(4);
+set.Remove(1);
+bool contains = set.Contains(2);
+
+// Queue - FIFO
+Queue&lt;string&gt; queue = new Queue&lt;string&gt;();
+queue.Enqueue("First");
+queue.Enqueue("Second");
+string first = queue.Dequeue();  // "First"
+string peek = queue.Peek();      // "Second"
+
+// Stack - LIFO
+Stack&lt;int&gt; stack = new Stack&lt;int&gt;();
+stack.Push(1);
+stack.Push(2);
+int top = stack.Pop();    // 2
+int look = stack.Peek();  // 1</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- LINQ -->
+                <section id="linq" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-filter"></i></div>
+                        <h2>LINQ (Language Integrated Query)</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using System.Linq;
+
+List&lt;int&gt; numbers = new List&lt;int&gt; { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+// Where - Filter
+var evens = numbers.Where(n => n % 2 == 0);
+
+// Select - Transform
+var doubled = numbers.Select(n => n * 2);
+
+// OrderBy / OrderByDescending
+var sorted = numbers.OrderBy(n => n);
+var descending = numbers.OrderByDescending(n => n);
+
+// First / Last / Single
+int first = numbers.First();
+int last = numbers.Last();
+int firstEven = numbers.First(n => n % 2 == 0);
+int firstOrDefault = numbers.FirstOrDefault(n => n > 100);  // 0
+
+// Any / All
+bool hasEvens = numbers.Any(n => n % 2 == 0);  // true
+bool allPositive = numbers.All(n => n > 0);    // true
+
+// Count / Sum / Average / Max / Min
+int count = numbers.Count();
+int sum = numbers.Sum();
+double avg = numbers.Average();
+int max = numbers.Max();
+
+// Take / Skip
+var firstThree = numbers.Take(3);       // 1, 2, 3
+var skipThree = numbers.Skip(3);        // 4, 5, 6, ...
+
+// Distinct
+var unique = numbers.Distinct();
+
+// GroupBy
+var grouped = numbers.GroupBy(n => n % 2 == 0 ? "Even" : "Odd");
+
+// Query syntax (alternative)
+var query = from n in numbers
+            where n > 5
+            orderby n descending
+            select n * 2;
+
+// ToList / ToArray / ToDictionary
+List&lt;int&gt; list = numbers.Where(n => n > 5).ToList();
+int[] array = numbers.ToArray();
+Dictionary&lt;int, int&gt; dict = numbers.ToDictionary(n => n, n => n * n);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Async/Await -->
+                <section id="async" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sync"></i></div>
+                        <h2>Async/Await</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using System.Threading.Tasks;
+using System.Net.Http;
+
+// Async method
+public async Task&lt;string&gt; GetDataAsync(string url)
+{
+    using HttpClient client = new HttpClient();
+    string result = await client.GetStringAsync(url);
+    return result;
+}
+
+// Async void (only for event handlers)
+public async void ButtonClick(object sender, EventArgs e)
+{
+    await DoSomethingAsync();
+}
+
+// Task.Run for CPU-bound work
+public async Task ProcessDataAsync()
+{
+    int result = await Task.Run(() =>
+    {
+        // Heavy computation
+        return ExpensiveCalculation();
+    });
+}
+
+// Multiple tasks
+public async Task ProcessMultipleAsync()
+{
+    Task&lt;string&gt; task1 = GetDataAsync("url1");
+    Task&lt;string&gt; task2 = GetDataAsync("url2");
+    
+    // Wait for all
+    await Task.WhenAll(task1, task2);
+    
+    // Or wait for any
+    Task&lt;string&gt; first = await Task.WhenAny(task1, task2);
+}
+
+// Cancellation
+public async Task CancellableMethodAsync(CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
+    {
+        token.ThrowIfCancellationRequested();
+        await Task.Delay(100, token);
+    }
+}
+
+// Usage
+var cts = new CancellationTokenSource();
+cts.CancelAfter(5000);  // Cancel after 5 seconds
+
+try
+{
+    await CancellableMethodAsync(cts.Token);
+}
+catch (OperationCanceledException)
+{
+    Console.WriteLine("Operation was cancelled");
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Delegates & Events -->
+                <section id="delegates" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h2>Delegates & Events</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">// Delegate declaration
+public delegate int MathOperation(int a, int b);
+
+// Using delegate
+MathOperation add = (a, b) => a + b;
+MathOperation multiply = (a, b) => a * b;
+int result = add(3, 5);  // 8
+
+// Built-in delegates
+Func&lt;int, int, int&gt; subtract = (a, b) => a - b;      // Returns value
+Action&lt;string&gt; print = msg => Console.WriteLine(msg); // No return
+Predicate&lt;int&gt; isEven = n => n % 2 == 0;             // Returns bool
+
+// Events
+public class Button
+{
+    public event EventHandler Clicked;
+    
+    public void Click()
+    {
+        Clicked?.Invoke(this, EventArgs.Empty);
+    }
+}
+
+// Custom event args
+public class DataEventArgs : EventArgs
+{
+    public string Data { get; set; }
+}
+
+public class DataProcessor
+{
+    public event EventHandler&lt;DataEventArgs&gt; DataProcessed;
+    
+    protected virtual void OnDataProcessed(string data)
+    {
+        DataProcessed?.Invoke(this, new DataEventArgs { Data = data });
+    }
+    
+    public void Process()
+    {
+        // Processing...
+        OnDataProcessed("Processed data");
+    }
+}
+
+// Subscribe to events
+var processor = new DataProcessor();
+processor.DataProcessed += (sender, e) =>
+{
+    Console.WriteLine($"Data: {e.Data}");
+};</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modern C# -->
+                <section id="modern" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-rocket"></i></div>
+                        <h2>Modern C# Features</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">// Records (C# 9+) - Immutable data types
+public record Person(string Name, int Age);
+var p1 = new Person("Alice", 25);
+var p2 = p1 with { Age = 26 };  // Non-destructive mutation
+
+// Init-only properties
+public class Config
+{
+    public string Setting { get; init; }
+}
+
+// Pattern matching
+object obj = 42;
+if (obj is int n && n > 0)
+{
+    Console.WriteLine($"Positive int: {n}");
+}
+
+// Switch expression with patterns
+string GetDescription(object obj) => obj switch
+{
+    int i when i > 0 => "Positive",
+    int i when i < 0 => "Negative",
+    int => "Zero",
+    string s => $"String: {s}",
+    null => "Null",
+    _ => "Unknown"
+};
+
+// Null-conditional operators
+string name = person?.Name;
+int? length = person?.Name?.Length;
+
+// Null-coalescing assignment (C# 8+)
+list ??= new List&lt;int&gt;();
+
+// Target-typed new (C# 9+)
+List&lt;int&gt; numbers = new();
+Dictionary&lt;string, int&gt; dict = new();
+
+// Top-level statements (C# 9+)
+// Program.cs can be just:
+Console.WriteLine("Hello, World!");
+
+// Global usings (C# 10+)
+// global using System.Collections.Generic;
+
+// File-scoped namespace (C# 10+)
+// namespace MyApp;
+
+// Raw string literals (C# 11+)
+var json = """
+    {
+        "name": "Alice",
+        "age": 25
+    }
+    """;</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>C# Best Practices:</strong><br>
+                                • Use var when type is obvious<br>
+                                • Prefer async/await for I/O operations<br>
+                                • Use records for DTOs<br>
+                                • Handle nulls with ?. and ??<br>
+                                • Use LINQ for collections
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Complete Guide - ES6+ to Advanced | NaukriForSure</title>
+    <meta name="description" content="Complete JavaScript guide: ES6+, DOM manipulation, async programming, and modern JS concepts for interviews.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #f7df1e 0%, #323330 100%); padding: 60px 0; color: var(--white); text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: var(--white); border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); border: 2px solid rgba(247, 223, 30, 0.3); }
+        .sidebar-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #323330; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f7df1e; }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 6px; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); transition: all 0.3s ease; font-size: 0.85rem; }
+        .toc-list a:hover, .toc-list a.active { background: #fffde7; color: #323330; }
+        .toc-list a i { color: #f7df1e; width: 16px; }
+        .notes-content { background: var(--white); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); border: 2px solid rgba(247, 223, 30, 0.3); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #f7df1e; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #f7df1e 0%, #323330 100%); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--dark); }
+        .topic-content h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #323330; margin: 30px 0 15px; }
+        .topic-content h3::before { content: '⚡ '; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .topic-content ul { margin: 15px 0 20px 25px; color: var(--neutral-700); }
+        .topic-content li { margin-bottom: 8px; line-height: 1.7; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; border: 2px solid var(--neutral-300); }
+        .code-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; border-bottom: 1px solid #404040; }
+        .code-lang { color: #f7df1e; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; transition: all 0.3s; }
+        .copy-btn:hover { background: #555; color: #fff; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; line-height: 1.6; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; display: flex; gap: 15px; }
+        .info-box i { font-size: 1.3rem; margin-top: 2px; }
+        .info-box.tip { background: #fffde7; border-left: 4px solid #f7df1e; }
+        .info-box.tip i { color: #f59e0b; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+        .concept-table th, .concept-table td { padding: 12px 15px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #fffde7; font-family: 'Cinzel', serif; color: #323330; }
+        .concept-table code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline"><i class="fas fa-user"></i> Login</a>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-js-square" style="margin-right: 15px;"></i>JavaScript</h1>
+            <p>Complete Guide: ES6+ Features, DOM, Async Programming & More</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list" style="margin-right: 8px;"></i>Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> Basics & Variables</a></li>
+                        <li><a href="#functions"><i class="fas fa-cube"></i> Functions</a></li>
+                        <li><a href="#arrays"><i class="fas fa-layer-group"></i> Arrays & Methods</a></li>
+                        <li><a href="#objects"><i class="fas fa-cube"></i> Objects</a></li>
+                        <li><a href="#es6"><i class="fas fa-star"></i> ES6+ Features</a></li>
+                        <li><a href="#async"><i class="fas fa-clock"></i> Async JavaScript</a></li>
+                        <li><a href="#dom"><i class="fas fa-code"></i> DOM Manipulation</a></li>
+                        <li><a href="#closures"><i class="fas fa-lock"></i> Closures & Scope</a></li>
+                        <li><a href="#this"><i class="fas fa-hand-point-right"></i> this Keyword</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fab fa-js"></i></div>
+                        <h2>Basics & Variables</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Variable Declaration</h3>
+                        <table class="concept-table">
+                            <tr><th>Keyword</th><th>Scope</th><th>Hoisting</th><th>Reassign</th><th>Redeclare</th></tr>
+                            <tr><td><code>var</code></td><td>Function</td><td>Yes (undefined)</td><td>✅</td><td>✅</td></tr>
+                            <tr><td><code>let</code></td><td>Block</td><td>Yes (TDZ)</td><td>✅</td><td>❌</td></tr>
+                            <tr><td><code>const</code></td><td>Block</td><td>Yes (TDZ)</td><td>❌</td><td>❌</td></tr>
+                        </table>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Variables
+var oldWay = "function scoped";
+let modern = "block scoped";
+const constant = "cannot reassign";
+
+// Data Types
+let str = "Hello";           // String
+let num = 42;                // Number
+let float = 3.14;            // Number
+let bool = true;             // Boolean
+let nothing = null;          // Null
+let notDefined;              // Undefined
+let symbol = Symbol("id");   // Symbol
+let bigInt = 9007199254740991n; // BigInt
+
+// Type checking
+console.log(typeof str);     // "string"
+console.log(typeof null);    // "object" (JS quirk)
+
+// Type conversion
+let strNum = "123";
+console.log(Number(strNum)); // 123
+console.log(parseInt("123px")); // 123
+console.log(String(123));    // "123"
+console.log(Boolean(1));     // true
+
+// Truthy and Falsy
+// Falsy: false, 0, "", null, undefined, NaN
+// Truthy: everything else</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Functions -->
+                <section id="functions" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cube"></i></div>
+                        <h2>Functions</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Function Declaration (hoisted)
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+// Function Expression (not hoisted)
+const greet2 = function(name) {
+    return `Hello, ${name}!`;
+};
+
+// Arrow Function (ES6)
+const greet3 = (name) => `Hello, ${name}!`;
+const greet4 = name => `Hello, ${name}!`;  // Single param
+const add = (a, b) => a + b;               // Implicit return
+
+// Arrow with body
+const greet5 = (name) => {
+    const greeting = `Hello, ${name}!`;
+    return greeting;
+};
+
+// Default Parameters
+const greet6 = (name = "Guest") => `Hello, ${name}!`;
+
+// Rest Parameters
+const sum = (...numbers) => numbers.reduce((a, b) => a + b, 0);
+console.log(sum(1, 2, 3, 4)); // 10
+
+// Spread Operator
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+
+// Higher Order Functions
+const numbers = [1, 2, 3, 4, 5];
+
+// map - transform each element
+const doubled = numbers.map(n => n * 2);
+
+// filter - keep elements that pass test
+const evens = numbers.filter(n => n % 2 === 0);
+
+// reduce - accumulate to single value
+const total = numbers.reduce((acc, n) => acc + n, 0);
+
+// forEach - iterate without return
+numbers.forEach(n => console.log(n));
+
+// find - first element that passes test
+const found = numbers.find(n => n > 3);
+
+// some - at least one passes
+const hasEven = numbers.some(n => n % 2 === 0); // true
+
+// every - all pass
+const allPositive = numbers.every(n => n > 0); // true</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Arrays -->
+                <section id="arrays" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Arrays & Methods</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Array Creation
+const arr = [1, 2, 3];
+const arr2 = new Array(5);  // Array of 5 undefined
+const arr3 = Array.from("hello"); // ['h','e','l','l','o']
+const arr4 = Array.of(1, 2, 3);   // [1, 2, 3]
+
+// Accessing
+arr[0];           // 1
+arr.at(-1);       // 3 (last element, ES2022)
+
+// Modifying (mutating)
+arr.push(4);      // Add to end
+arr.pop();        // Remove from end
+arr.unshift(0);   // Add to beginning
+arr.shift();      // Remove from beginning
+arr.splice(1, 2); // Remove 2 items starting at index 1
+arr.splice(1, 0, 'a', 'b'); // Insert at index 1
+
+// Non-mutating
+const sliced = arr.slice(1, 3);  // Elements from index 1 to 2
+const joined = arr.join(", ");   // "1, 2, 3"
+const concated = arr.concat([4, 5]);
+
+// Searching
+arr.indexOf(2);        // 1 (-1 if not found)
+arr.includes(2);       // true
+arr.findIndex(x => x > 1); // Index of first match
+
+// Sorting
+const nums = [3, 1, 4, 1, 5];
+nums.sort((a, b) => a - b);  // Ascending
+nums.sort((a, b) => b - a);  // Descending
+nums.reverse();
+
+// Destructuring
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+// first = 1, second = 2, rest = [3, 4, 5]
+
+// Flat and FlatMap
+const nested = [1, [2, [3, [4]]]];
+nested.flat();     // [1, 2, [3, [4]]]
+nested.flat(2);    // [1, 2, 3, [4]]
+nested.flat(Infinity); // [1, 2, 3, 4]
+
+const arr5 = [1, 2, 3];
+arr5.flatMap(x => [x, x * 2]); // [1, 2, 2, 4, 3, 6]</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Objects -->
+                <section id="objects" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cube"></i></div>
+                        <h2>Objects</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Object Creation
+const person = {
+    name: "Alice",
+    age: 25,
+    greet() {
+        return `Hello, I'm ${this.name}`;
+    }
+};
+
+// Shorthand properties (ES6)
+const name = "Bob";
+const age = 30;
+const bob = { name, age };  // { name: "Bob", age: 30 }
+
+// Computed properties
+const key = "dynamic";
+const obj = {
+    [key]: "value",
+    [`${key}_2`]: "value2"
+};
+
+// Access and modify
+person.name;           // "Alice"
+person["name"];        // "Alice"
+person.job = "Developer"; // Add property
+delete person.age;     // Delete property
+
+// Object methods
+Object.keys(person);   // ["name", "age", "greet"]
+Object.values(person); // ["Alice", 25, function]
+Object.entries(person); // [["name", "Alice"], ...]
+
+// Destructuring
+const { name: userName, age: userAge } = person;
+
+// Spread operator
+const newPerson = { ...person, city: "NYC" };
+
+// Object.assign
+const merged = Object.assign({}, obj1, obj2);
+
+// Optional chaining
+const user = { profile: { name: "John" } };
+console.log(user?.profile?.name); // "John"
+console.log(user?.address?.city); // undefined (no error)
+
+// Nullish coalescing
+const value = null ?? "default"; // "default"
+const value2 = 0 ?? "default";   // 0
+
+// Object freeze/seal
+Object.freeze(obj);  // No changes allowed
+Object.seal(obj);    // No add/delete, but can modify</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ES6+ Features -->
+                <section id="es6" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-star"></i></div>
+                        <h2>ES6+ Features</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Template Literals
+const name = "Alice";
+const greeting = `Hello, ${name}!`;
+const multiline = `
+    This is
+    multiline
+`;
+
+// Classes
+class Person {
+    #privateField = "secret";  // Private field (ES2022)
+    static count = 0;          // Static property
+    
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        Person.count++;
+    }
+    
+    greet() {
+        return `Hello, I'm ${this.name}`;
+    }
+    
+    get info() {
+        return `${this.name}, ${this.age}`;
+    }
+    
+    set info(value) {
+        [this.name, this.age] = value.split(", ");
+    }
+    
+    static createAnonymous() {
+        return new Person("Anonymous", 0);
+    }
+}
+
+class Employee extends Person {
+    constructor(name, age, salary) {
+        super(name, age);
+        this.salary = salary;
+    }
+    
+    greet() {
+        return `${super.greet()}, I work here`;
+    }
+}
+
+// Map - key-value with any key type
+const map = new Map();
+map.set("key", "value");
+map.set(123, "number key");
+map.set({}, "object key");
+map.get("key");     // "value"
+map.has("key");     // true
+map.delete("key");
+map.size;           // number of entries
+
+// Set - unique values
+const set = new Set([1, 2, 2, 3]);
+set.add(4);
+set.has(2);         // true
+set.delete(1);
+set.size;           // 3
+
+// Symbol
+const sym = Symbol("description");
+const obj = {
+    [sym]: "symbol value"
+};
+
+// for...of (iterables)
+for (const item of [1, 2, 3]) {
+    console.log(item);
+}
+
+for (const [key, value] of map) {
+    console.log(key, value);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Async JavaScript -->
+                <section id="async" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-clock"></i></div>
+                        <h2>Async JavaScript</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Callbacks
+function fetchData(callback) {
+    setTimeout(() => {
+        callback("Data received");
+    }, 1000);
+}
+
+// Promises
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Success!");
+        // reject(new Error("Failed"));
+    }, 1000);
+});
+
+promise
+    .then(result => console.log(result))
+    .catch(error => console.error(error))
+    .finally(() => console.log("Done"));
+
+// Promise methods
+Promise.all([p1, p2, p3])       // All must resolve
+    .then(results => {});
+
+Promise.allSettled([p1, p2])    // Wait for all to settle
+    .then(results => {});
+
+Promise.race([p1, p2])          // First to settle
+    .then(result => {});
+
+Promise.any([p1, p2])           // First to fulfill
+    .then(result => {});
+
+// Async/Await
+async function fetchUser() {
+    try {
+        const response = await fetch('/api/user');
+        const user = await response.json();
+        return user;
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+// Parallel async operations
+async function fetchAll() {
+    const [users, posts] = await Promise.all([
+        fetch('/api/users').then(r => r.json()),
+        fetch('/api/posts').then(r => r.json())
+    ]);
+    return { users, posts };
+}
+
+// Top-level await (ES2022, modules only)
+const data = await fetch('/api/data').then(r => r.json());
+
+// Fetch API
+fetch('https://api.example.com/data', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name: 'John' })
+})
+.then(response => response.json())
+.then(data => console.log(data));</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DOM -->
+                <section id="dom" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code"></i></div>
+                        <h2>DOM Manipulation</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Selecting Elements
+const el = document.getElementById('myId');
+const el2 = document.querySelector('.myClass');
+const els = document.querySelectorAll('div.item');
+const els2 = document.getElementsByClassName('myClass');
+
+// Creating Elements
+const div = document.createElement('div');
+div.textContent = 'Hello';
+div.innerHTML = '&lt;span&gt;HTML content&lt;/span&gt;';
+div.id = 'newDiv';
+div.className = 'container';
+div.classList.add('active');
+div.classList.remove('inactive');
+div.classList.toggle('visible');
+div.setAttribute('data-id', '123');
+
+// Adding to DOM
+document.body.appendChild(div);
+parent.insertBefore(newEl, referenceEl);
+parent.replaceChild(newEl, oldEl);
+el.remove();
+
+// Styles
+el.style.color = 'red';
+el.style.backgroundColor = 'blue';
+const styles = getComputedStyle(el);
+
+// Events
+el.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(e.target);
+});
+
+// Event Delegation
+document.getElementById('list').addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        console.log(e.target.textContent);
+    }
+});
+
+// Common Events
+// click, dblclick, mouseenter, mouseleave
+// keydown, keyup, keypress
+// submit, change, input, focus, blur
+// load, DOMContentLoaded, scroll, resize
+
+// Form handling
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+});
+
+// Local Storage
+localStorage.setItem('key', JSON.stringify({ name: 'John' }));
+const data = JSON.parse(localStorage.getItem('key'));
+localStorage.removeItem('key');
+localStorage.clear();</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Closures -->
+                <section id="closures" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-lock"></i></div>
+                        <h2>Closures & Scope</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// Closure - function remembers its lexical scope
+function createCounter() {
+    let count = 0;  // Private variable
+    
+    return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count
+    };
+}
+
+const counter = createCounter();
+counter.increment(); // 1
+counter.increment(); // 2
+counter.getCount();  // 2
+
+// Practical use: Module pattern
+const calculator = (function() {
+    let result = 0;
+    
+    return {
+        add: (x) => result += x,
+        subtract: (x) => result -= x,
+        getResult: () => result
+    };
+})();
+
+// Closure in loops (common interview question)
+// Problem
+for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 1000);
+}
+// Logs: 3, 3, 3 (all same)
+
+// Solution 1: let
+for (let i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 1000);
+}
+// Logs: 0, 1, 2
+
+// Solution 2: IIFE
+for (var i = 0; i < 3; i++) {
+    ((j) => {
+        setTimeout(() => console.log(j), 1000);
+    })(i);
+}
+
+// Scope chain
+const global = "global";
+
+function outer() {
+    const outer = "outer";
+    
+    function inner() {
+        const inner = "inner";
+        console.log(global, outer, inner);  // All accessible
+    }
+    
+    inner();
+}
+
+// Hoisting
+console.log(x);  // undefined (var hoisted)
+var x = 5;
+
+console.log(y);  // ReferenceError (TDZ)
+let y = 5;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- this Keyword -->
+                <section id="this" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-hand-point-right"></i></div>
+                        <h2>this Keyword</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// this in different contexts
+
+// 1. Global context
+console.log(this);  // window (browser) / global (Node)
+
+// 2. Object method
+const obj = {
+    name: "Alice",
+    greet() {
+        console.log(this.name);  // "Alice"
+    }
+};
+
+// 3. Regular function
+function regular() {
+    console.log(this);  // window/global (non-strict)
+                        // undefined (strict mode)
+}
+
+// 4. Arrow function (lexical this)
+const arrow = () => {
+    console.log(this);  // Inherits from enclosing scope
+};
+
+const obj2 = {
+    name: "Bob",
+    greet: () => {
+        console.log(this.name);  // undefined! (lexical this)
+    },
+    greetCorrect() {
+        const inner = () => {
+            console.log(this.name);  // "Bob" (inherits from greetCorrect)
+        };
+        inner();
+    }
+};
+
+// 5. Event handlers
+button.addEventListener('click', function() {
+    console.log(this);  // The button element
+});
+
+button.addEventListener('click', () => {
+    console.log(this);  // Lexical this (not the button!)
+});
+
+// Explicit binding
+function greet() {
+    console.log(`Hello, ${this.name}`);
+}
+
+const person = { name: "Alice" };
+
+// call - invoke immediately with args
+greet.call(person);  // "Hello, Alice"
+greet.call(person, arg1, arg2);
+
+// apply - same as call, but args as array
+greet.apply(person, [arg1, arg2]);
+
+// bind - returns new function with bound this
+const boundGreet = greet.bind(person);
+boundGreet();  // "Hello, Alice"
+
+// 6. Constructor
+function Person(name) {
+    this.name = name;  // this = new object
+}
+const p = new Person("Alice");</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Interview Key Points:</strong><br>
+                                • Arrow functions don't have their own <code>this</code><br>
+                                • <code>bind</code> returns a new function<br>
+                                • <code>call</code> and <code>apply</code> invoke immediately<br>
+                                • In callbacks, <code>this</code> can be unpredictable - use arrow functions or bind
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block');
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

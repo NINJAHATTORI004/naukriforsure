@@ -1,0 +1,848 @@
+/* ========================================
+   NAUKRIFORSURE - ADVANCED FEATURES CSS v3.0
+   Powerful Enhancements Styling
+   ======================================== */
+
+/* ==========================================
+   1. AUTOCOMPLETE & VOICE SEARCH
+   ========================================== */
+.autocomplete-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.autocomplete-dropdown {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border: 2px solid var(--secondary);
+    margin-top: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    animation: dropdownSlide 0.2s ease;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.autocomplete-section {
+    padding: 12px;
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.autocomplete-section:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--neutral-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding: 0 8px;
+}
+
+.autocomplete-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.autocomplete-item {
+    padding: 8px 14px;
+    background: var(--parchment);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    color: var(--dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.autocomplete-item:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--secondary);
+}
+
+.autocomplete-item i {
+    margin-right: 6px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.autocomplete-item strong {
+    color: var(--secondary);
+}
+
+.autocomplete-item:hover strong {
+    color: var(--white);
+}
+
+/* Voice Search Button */
+.voice-search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--parchment);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.voice-search-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.voice-search-btn.listening {
+    background: #ef4444;
+    color: white;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+}
+
+/* ==========================================
+   2. ADVANCED FILTERS
+   ========================================== */
+.advanced-filters-toggle {
+    margin-left: auto;
+}
+
+.advanced-filters-toggle.active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.advanced-filters-panel {
+    margin-top: 20px;
+    padding: 25px;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    border: 2px solid var(--secondary);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.advanced-filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.filter-group select,
+.filter-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: normal;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+.salary-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.salary-range-inputs input {
+    flex: 1;
+}
+
+.salary-range-inputs span {
+    color: var(--neutral-500);
+}
+
+.advanced-filters-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--neutral-200);
+}
+
+/* ==========================================
+   3. APPLICATION TRACKER
+   ========================================== */
+.tracker-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--neutral-200);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.tracker-btn:hover {
+    border-color: var(--secondary);
+    background: var(--parchment);
+}
+
+.tracker-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+}
+
+.tracker-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tracker-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.tracker-modal-content {
+    position: relative;
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    width: 100%;
+    max-width: 700px;
+    max-height: 85vh;
+    overflow: hidden;
+    border: 3px solid var(--secondary);
+    box-shadow: var(--shadow-2xl);
+    animation: modalSlide 0.3s ease;
+}
+
+@keyframes modalSlide {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.tracker-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    background: var(--gradient-royal);
+    color: var(--white);
+}
+
+.tracker-modal-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tracker-close-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tracker-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.tracker-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px 25px;
+    background: var(--parchment);
+    border-bottom: 2px solid var(--neutral-200);
+}
+
+.stat-card {
+    text-align: center;
+}
+
+.stat-card .stat-number {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-card .stat-label {
+    font-size: 0.75rem;
+    color: var(--neutral-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tracker-list {
+    padding: 20px 25px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.empty-tracker {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--neutral-500);
+}
+
+.empty-tracker i {
+    font-size: 3rem;
+    opacity: 0.3;
+    margin-bottom: 15px;
+}
+
+.empty-tracker h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.tracker-item {
+    background: var(--parchment);
+    border-radius: var(--radius-lg);
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid var(--neutral-200);
+    transition: all 0.3s ease;
+}
+
+.tracker-item:hover {
+    border-color: var(--secondary);
+    box-shadow: var(--shadow-md);
+}
+
+.tracker-item-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.tracker-job-info h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 2px;
+}
+
+.tracker-job-info .company {
+    font-size: 0.85rem;
+    color: var(--neutral-600);
+}
+
+.status-select {
+    padding: 8px 12px;
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.status-select:focus {
+    border-color: var(--secondary);
+    outline: none;
+}
+
+.tracker-item-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--neutral-200);
+}
+
+.applied-date {
+    font-size: 0.8rem;
+    color: var(--neutral-500);
+}
+
+.tracker-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.tracker-actions button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--neutral-600);
+    transition: all 0.3s ease;
+}
+
+.tracker-actions button:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* ==========================================
+   4. NOTIFICATION PROMPT
+   ========================================== */
+.notification-prompt {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    max-width: 400px;
+    z-index: 9999;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notification-prompt-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: var(--radius-xl);
+    border: 2px solid var(--secondary);
+    box-shadow: var(--shadow-xl);
+}
+
+.notification-prompt-content > i {
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+.notification-prompt-content h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.notification-prompt-content p {
+    font-size: 0.85rem;
+    color: var(--neutral-600);
+}
+
+.prompt-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.btn-enable {
+    padding: 10px 20px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enable:hover {
+    background: var(--secondary);
+}
+
+.btn-dismiss {
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--neutral-500);
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* ==========================================
+   5. KEYBOARD SHORTCUTS MODAL
+   ========================================== */
+.shortcuts-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shortcuts-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+.shortcuts-content {
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius-xl);
+    border: 3px solid var(--secondary);
+    min-width: 350px;
+    animation: modalSlide 0.3s ease;
+}
+
+.shortcuts-content h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.shortcuts-list {
+    margin-bottom: 20px;
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--neutral-100);
+}
+
+.shortcut-item:last-child {
+    border-bottom: none;
+}
+
+.shortcut-item kbd {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--parchment);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-sm);
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    box-shadow: 0 2px 0 var(--neutral-300);
+}
+
+.shortcut-item span {
+    color: var(--neutral-600);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   6. READING PROGRESS BAR
+   ========================================== */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--neutral-200);
+    z-index: 9999;
+}
+
+.reading-progress-fill {
+    height: 100%;
+    background: var(--gradient-royal);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.estimated-read-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--parchment);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    color: var(--neutral-600);
+    margin-top: 10px;
+}
+
+/* ==========================================
+   7. ADVANCED TOAST
+   ========================================== */
+.advanced-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 20px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border-left: 4px solid var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10002;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+}
+
+.advanced-toast.toast-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.advanced-toast.toast-success {
+    border-left-color: #10b981;
+}
+
+.advanced-toast.toast-error {
+    border-left-color: #ef4444;
+}
+
+.advanced-toast.toast-warning {
+    border-left-color: #f59e0b;
+}
+
+.advanced-toast.toast-info {
+    border-left-color: #3b82f6;
+}
+
+.advanced-toast span {
+    font-size: 0.95rem;
+    color: var(--dark);
+}
+
+.advanced-toast button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: var(--neutral-100);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--neutral-500);
+    transition: all 0.3s ease;
+}
+
+.advanced-toast button:hover {
+    background: var(--neutral-200);
+    color: var(--dark);
+}
+
+/* ==========================================
+   8. RESPONSIVE ADJUSTMENTS
+   ========================================== */
+@media (max-width: 768px) {
+    .tracker-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tracker-modal-content {
+        max-height: 90vh;
+    }
+
+    .autocomplete-dropdown {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: 70px;
+        max-height: 50vh;
+    }
+
+    .advanced-filters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .notification-prompt {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .notification-prompt-content {
+        flex-wrap: wrap;
+    }
+
+    .prompt-actions {
+        flex-direction: row;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .advanced-toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .voice-search-btn {
+        display: none;
+    }
+
+    .shortcuts-content {
+        min-width: auto;
+        margin: 15px;
+    }
+}
+
+/* ==========================================
+   9. DARK MODE SUPPORT
+   ========================================== */
+[data-theme="dark"] .autocomplete-dropdown,
+[data-theme="dark"] .advanced-filters-panel,
+[data-theme="dark"] .tracker-modal-content,
+[data-theme="dark"] .shortcuts-content,
+[data-theme="dark"] .notification-prompt-content {
+    background: var(--dark-light);
+    border-color: var(--secondary);
+}
+
+[data-theme="dark"] .autocomplete-item {
+    background: var(--dark);
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .filter-group select,
+[data-theme="dark"] .filter-group input,
+[data-theme="dark"] .status-select {
+    background: var(--dark);
+    color: var(--neutral-200);
+    border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .tracker-item {
+    background: var(--dark);
+    border-color: var(--neutral-700);
+}
+
+[data-theme="dark"] .tracker-actions button,
+[data-theme="dark"] .advanced-toast button {
+    background: var(--neutral-700);
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] .advanced-toast {
+    background: var(--dark-light);
+}
+
+[data-theme="dark"] .advanced-toast span {
+    color: var(--neutral-200);
+}
+
+[data-theme="dark"] .shortcut-item kbd {
+    background: var(--dark);
+    border-color: var(--neutral-600);
+    color: var(--neutral-200);
+}

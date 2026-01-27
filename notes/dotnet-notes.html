@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.NET Complete Guide - ASP.NET Core & Entity Framework | NaukriForSure</title>
+    <meta name="description" content="Complete .NET guide: ASP.NET Core, Entity Framework, Web API, and application development.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #512bd4 0%, #9b4dca 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #512bd4; margin-bottom: 20px; border-bottom: 2px solid #9b4dca; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #f3e8ff; color: #512bd4; }
+        .toc-list a i { color: #9b4dca; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #9b4dca; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #512bd4, #9b4dca); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #512bd4; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #9b4dca; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #f3e8ff; border-left: 4px solid #9b4dca; display: flex; gap: 15px; }
+        .info-box i { color: #512bd4; font-size: 1.3rem; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fas fa-cube" style="margin-right: 15px;"></i>.NET Framework</h1>
+            <p>ASP.NET Core, Entity Framework & Modern .NET Development</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> .NET Basics</a></li>
+                        <li><a href="#aspnet"><i class="fas fa-globe"></i> ASP.NET Core</a></li>
+                        <li><a href="#webapi"><i class="fas fa-exchange-alt"></i> Web API</a></li>
+                        <li><a href="#ef"><i class="fas fa-database"></i> Entity Framework</a></li>
+                        <li><a href="#di"><i class="fas fa-syringe"></i> Dependency Injection</a></li>
+                        <li><a href="#auth"><i class="fas fa-lock"></i> Authentication</a></li>
+                        <li><a href="#testing"><i class="fas fa-vial"></i> Testing</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-play"></i></div>
+                        <h2>.NET Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>.NET CLI Commands</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Bash</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create new project
+dotnet new console -n MyApp          # Console app
+dotnet new webapi -n MyApi           # Web API
+dotnet new mvc -n MyMvc              # MVC app
+dotnet new blazorserver -n MyBlazor  # Blazor Server
+dotnet new classlib -n MyLib         # Class library
+
+# Run project
+dotnet run
+dotnet watch run  # Hot reload
+
+# Build
+dotnet build
+dotnet publish -c Release
+
+# Package management
+dotnet add package Newtonsoft.Json
+dotnet remove package PackageName
+dotnet restore
+
+# Solution management
+dotnet new sln -n MySolution
+dotnet sln add ./MyProject/MyProject.csproj
+
+# Entity Framework
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add InitialCreate
+dotnet ef database update</code></pre>
+                        </div>
+                        
+                        <h3>Project Structure</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Folder Structure</span>
+                            </div>
+                            <pre><code class="language-plaintext">MyWebApi/
+├── Controllers/
+│   └── WeatherController.cs
+├── Models/
+│   └── Weather.cs
+├── Services/
+│   └── WeatherService.cs
+├── Data/
+│   └── AppDbContext.cs
+├── DTOs/
+│   └── WeatherDto.cs
+├── appsettings.json
+├── appsettings.Development.json
+├── Program.cs
+└── MyWebApi.csproj</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ASP.NET Core -->
+                <section id="aspnet" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-globe"></i></div>
+                        <h2>ASP.NET Core</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Minimal API (Program.cs)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
+
+// Add services
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Middleware pipeline
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+// Minimal API endpoints
+app.MapGet("/", () => "Hello World!");
+
+app.MapGet("/items", () => new[] { "Item1", "Item2" });
+
+app.MapGet("/items/{id}", (int id) => $"Item {id}");
+
+app.MapPost("/items", (Item item) => Results.Created($"/items/{item.Id}", item));
+
+app.MapPut("/items/{id}", (int id, Item item) => Results.NoContent());
+
+app.MapDelete("/items/{id}", (int id) => Results.Ok());
+
+app.Run();
+
+record Item(int Id, string Name);</code></pre>
+                        </div>
+                        
+                        <h3>Middleware</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">// Custom middleware
+app.Use(async (context, next) =>
+{
+    // Before request
+    Console.WriteLine($"Request: {context.Request.Path}");
+    
+    await next();  // Call next middleware
+    
+    // After request
+    Console.WriteLine($"Response: {context.Response.StatusCode}");
+});
+
+// Custom middleware class
+public class LoggingMiddleware
+{
+    private readonly RequestDelegate _next;
+    
+    public LoggingMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
+    
+    public async Task InvokeAsync(HttpContext context)
+    {
+        // Log request
+        await _next(context);
+        // Log response
+    }
+}
+
+// Register: app.UseMiddleware<LoggingMiddleware>();</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Web API -->
+                <section id="webapi" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h2>Web API Controllers</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    private readonly IProductService _productService;
+    
+    public ProductsController(IProductService productService)
+    {
+        _productService = productService;
+    }
+    
+    // GET api/products
+    [HttpGet]
+    public async Task&lt;ActionResult&lt;IEnumerable&lt;Product&gt;&gt;&gt; GetAll()
+    {
+        var products = await _productService.GetAllAsync();
+        return Ok(products);
+    }
+    
+    // GET api/products/5
+    [HttpGet("{id}")]
+    public async Task&lt;ActionResult&lt;Product&gt;&gt; GetById(int id)
+    {
+        var product = await _productService.GetByIdAsync(id);
+        
+        if (product == null)
+            return NotFound();
+            
+        return Ok(product);
+    }
+    
+    // POST api/products
+    [HttpPost]
+    public async Task&lt;ActionResult&lt;Product&gt;&gt; Create([FromBody] CreateProductDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+            
+        var product = await _productService.CreateAsync(dto);
+        return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+    }
+    
+    // PUT api/products/5
+    [HttpPut("{id}")]
+    public async Task&lt;IActionResult&gt; Update(int id, [FromBody] UpdateProductDto dto)
+    {
+        await _productService.UpdateAsync(id, dto);
+        return NoContent();
+    }
+    
+    // DELETE api/products/5
+    [HttpDelete("{id}")]
+    public async Task&lt;IActionResult&gt; Delete(int id)
+    {
+        await _productService.DeleteAsync(id);
+        return NoContent();
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Data Transfer Objects (DTOs)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                            </div>
+                            <pre><code class="language-csharp">public record CreateProductDto(
+    [Required] string Name,
+    [Range(0, 10000)] decimal Price,
+    string? Description
+);
+
+public record ProductDto(int Id, string Name, decimal Price);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Entity Framework -->
+                <section id="ef" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-database"></i></div>
+                        <h2>Entity Framework Core</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>DbContext</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">public class AppDbContext : DbContext
+{
+    public AppDbContext(DbContextOptions&lt;AppDbContext&gt; options)
+        : base(options) { }
+    
+    public DbSet&lt;Product&gt; Products { get; set; }
+    public DbSet&lt;Category&gt; Categories { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Fluent API configuration
+        modelBuilder.Entity&lt;Product&gt;()
+            .HasKey(p => p.Id);
+            
+        modelBuilder.Entity&lt;Product&gt;()
+            .Property(p => p.Name)
+            .IsRequired()
+            .HasMaxLength(100);
+            
+        modelBuilder.Entity&lt;Product&gt;()
+            .HasOne(p => p.Category)
+            .WithMany(c => c.Products)
+            .HasForeignKey(p => p.CategoryId);
+    }
+}
+
+// Entity
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    public int CategoryId { get; set; }
+    public Category Category { get; set; }
+}
+
+// Register in Program.cs
+builder.Services.AddDbContext&lt;AppDbContext&gt;(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));</code></pre>
+                        </div>
+                        
+                        <h3>CRUD Operations</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">public class ProductRepository
+{
+    private readonly AppDbContext _context;
+    
+    public ProductRepository(AppDbContext context)
+    {
+        _context = context;
+    }
+    
+    // Read
+    public async Task&lt;List&lt;Product&gt;&gt; GetAllAsync()
+    {
+        return await _context.Products
+            .Include(p => p.Category)
+            .ToListAsync();
+    }
+    
+    public async Task&lt;Product?&gt; GetByIdAsync(int id)
+    {
+        return await _context.Products
+            .FirstOrDefaultAsync(p => p.Id == id);
+    }
+    
+    // Create
+    public async Task&lt;Product&gt; CreateAsync(Product product)
+    {
+        _context.Products.Add(product);
+        await _context.SaveChangesAsync();
+        return product;
+    }
+    
+    // Update
+    public async Task UpdateAsync(Product product)
+    {
+        _context.Entry(product).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+    }
+    
+    // Delete
+    public async Task DeleteAsync(int id)
+    {
+        var product = await _context.Products.FindAsync(id);
+        if (product != null)
+        {
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+        }
+    }
+    
+    // LINQ Queries
+    public async Task&lt;List&lt;Product&gt;&gt; SearchAsync(string term)
+    {
+        return await _context.Products
+            .Where(p => p.Name.Contains(term))
+            .OrderBy(p => p.Price)
+            .Take(10)
+            .ToListAsync();
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dependency Injection -->
+                <section id="di" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-syringe"></i></div>
+                        <h2>Dependency Injection</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">// Interface
+public interface IEmailService
+{
+    Task SendEmailAsync(string to, string subject, string body);
+}
+
+// Implementation
+public class EmailService : IEmailService
+{
+    private readonly ILogger&lt;EmailService&gt; _logger;
+    
+    public EmailService(ILogger&lt;EmailService&gt; logger)
+    {
+        _logger = logger;
+    }
+    
+    public async Task SendEmailAsync(string to, string subject, string body)
+    {
+        _logger.LogInformation($"Sending email to {to}");
+        // Send email logic
+    }
+}
+
+// Register services in Program.cs
+builder.Services.AddScoped&lt;IEmailService, EmailService&gt;();
+builder.Services.AddTransient&lt;ITransientService, TransientService&gt;();
+builder.Services.AddSingleton&lt;ISingletonService, SingletonService&gt;();
+
+// Lifetimes:
+// Transient - Created each time requested
+// Scoped    - Created once per HTTP request
+// Singleton - Created once for application lifetime
+
+// Use in controller
+public class NotificationController : ControllerBase
+{
+    private readonly IEmailService _emailService;
+    
+    public NotificationController(IEmailService emailService)
+    {
+        _emailService = emailService;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Authentication -->
+                <section id="auth" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-lock"></i></div>
+                        <h2>Authentication & Authorization</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>JWT Authentication</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">// Program.cs - Configure JWT
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+// Middleware
+app.UseAuthentication();
+app.UseAuthorization();
+
+// Generate token
+public string GenerateToken(User user)
+{
+    var claims = new[]
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+        new Claim(ClaimTypes.Email, user.Email),
+        new Claim(ClaimTypes.Role, user.Role)
+    };
+    
+    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+    
+    var token = new JwtSecurityToken(
+        issuer: _config["Jwt:Issuer"],
+        audience: _config["Jwt:Audience"],
+        claims: claims,
+        expires: DateTime.Now.AddHours(1),
+        signingCredentials: creds);
+    
+    return new JwtSecurityTokenHandler().WriteToken(token);
+}
+
+// Protect endpoints
+[Authorize]
+[HttpGet("profile")]
+public IActionResult GetProfile() { }
+
+[Authorize(Roles = "Admin")]
+[HttpDelete("{id}")]
+public IActionResult Delete(int id) { }</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testing -->
+                <section id="testing" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-vial"></i></div>
+                        <h2>Unit Testing</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using Xunit;
+using Moq;
+
+public class ProductServiceTests
+{
+    private readonly Mock&lt;IProductRepository&gt; _mockRepo;
+    private readonly ProductService _service;
+    
+    public ProductServiceTests()
+    {
+        _mockRepo = new Mock&lt;IProductRepository&gt;();
+        _service = new ProductService(_mockRepo.Object);
+    }
+    
+    [Fact]
+    public async Task GetById_ExistingId_ReturnsProduct()
+    {
+        // Arrange
+        var expectedProduct = new Product { Id = 1, Name = "Test" };
+        _mockRepo.Setup(r => r.GetByIdAsync(1))
+            .ReturnsAsync(expectedProduct);
+        
+        // Act
+        var result = await _service.GetByIdAsync(1);
+        
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal("Test", result.Name);
+    }
+    
+    [Fact]
+    public async Task GetById_NonExistingId_ReturnsNull()
+    {
+        // Arrange
+        _mockRepo.Setup(r => r.GetByIdAsync(999))
+            .ReturnsAsync((Product?)null);
+        
+        // Act
+        var result = await _service.GetByIdAsync(999);
+        
+        // Assert
+        Assert.Null(result);
+    }
+    
+    [Theory]
+    [InlineData(1)]
+    [InlineData(2)]
+    [InlineData(3)]
+    public async Task Delete_ValidId_CallsRepository(int id)
+    {
+        // Act
+        await _service.DeleteAsync(id);
+        
+        // Assert
+        _mockRepo.Verify(r => r.DeleteAsync(id), Times.Once);
+    }
+}</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>.NET Best Practices:</strong><br>
+                                • Use async/await for I/O operations<br>
+                                • Follow Repository pattern for data access<br>
+                                • Use DTOs to separate API models from entities<br>
+                                • Implement proper error handling middleware<br>
+                                • Use configuration for environment-specific settings
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Sorting Algorithms - Complete Guide with Visualizations | NaukriForSure</title>
+    <meta name="description" content="Complete guide to all sorting algorithms: Bubble, Selection, Insertion, Merge, Quick, Heap, Radix, Counting, Bucket, Shell, Tim, and more with code and visualizations.">
+    <meta name="keywords" content="sorting algorithms, bubble sort, merge sort, quick sort, heap sort, radix sort, interview preparation, DSA">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/notes/sorting-algorithms.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/advanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .notes-page {
+            background: var(--neutral-50);
+            min-height: 100vh;
+        }
+        
+        .notes-header {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            padding: 60px 0;
+            color: var(--cream);
+            text-align: center;
+        }
+        
+        .notes-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .notes-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .notes-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        @media (max-width: 992px) {
+            .notes-layout {
+                grid-template-columns: 1fr;
+            }
+            .notes-sidebar { display: none; }
+        }
+        
+        /* Sidebar */
+        .notes-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .sidebar-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 25px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .sidebar-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #a855f7;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 6px;
+        }
+        
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            color: var(--neutral-700);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+        
+        .toc-list a:hover,
+        .toc-list a.active {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+        
+        .toc-list a i {
+            color: #a855f7;
+            width: 16px;
+        }
+        
+        .complexity-badge {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: var(--radius-full);
+            margin-left: auto;
+        }
+        
+        .complexity-badge.on2 { background: #fee2e2; color: #991b1b; }
+        .complexity-badge.onlogn { background: #dcfce7; color: #166534; }
+        .complexity-badge.on { background: #dbeafe; color: #1e40af; }
+        
+        /* Main Content */
+        .notes-content {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .topic-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 100px;
+        }
+        
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #a855f7;
+        }
+        
+        .topic-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 1.3rem;
+        }
+        
+        .topic-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+        }
+        
+        .topic-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 30px 0 15px;
+        }
+        
+        .topic-content h3::before {
+            content: '§ ';
+            color: #a855f7;
+        }
+        
+        .topic-content p {
+            color: var(--neutral-700);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .topic-content ul {
+            margin: 15px 0 20px 25px;
+            color: var(--neutral-700);
+        }
+        
+        .topic-content li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        
+        /* Code Blocks */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            overflow: hidden;
+            border: 2px solid var(--neutral-300);
+        }
+        
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: #2d2d2d;
+            border-bottom: 1px solid #404040;
+        }
+        
+        .code-lang {
+            color: #a855f7;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .copy-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #555;
+            color: #fff;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        /* Complexity Table */
+        .complexity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .complexity-table th,
+        .complexity-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--neutral-200);
+        }
+        
+        .complexity-table th {
+            background: #f3e8ff;
+            font-family: 'Cinzel', serif;
+            color: #7c3aed;
+        }
+        
+        .complexity-table tr:nth-child(even) {
+            background: var(--neutral-50);
+        }
+        
+        .complexity-table code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .info-box i {
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+        
+        .info-box.tip {
+            background: #f3e8ff;
+            border-left: 4px solid #a855f7;
+        }
+        
+        .info-box.tip i { color: #7c3aed; }
+        
+        .info-box.note {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .info-box.note i { color: #3b82f6; }
+        
+        /* Visual Demo */
+        .visual-demo {
+            background: var(--parchment);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .visual-demo h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .array-visual {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .array-item {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-weight: bold;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .step-indicator {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline"><i class="fas fa-user"></i> Login</a>
+                <a href="../jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fas fa-sort-amount-down" style="margin-right: 15px;"></i>All Sorting Algorithms</h1>
+            <p>Complete Guide with Code Examples, Visualizations & Complexity Analysis</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <!-- Sidebar -->
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list" style="margin-right: 8px;"></i>Algorithms</h3>
+                    <ul class="toc-list">
+                        <li><a href="#comparison"><i class="fas fa-table"></i> Comparison Chart</a></li>
+                        <li><a href="#bubble"><i class="fas fa-circle"></i> Bubble Sort <span class="complexity-badge on2">O(n²)</span></a></li>
+                        <li><a href="#selection"><i class="fas fa-hand-pointer"></i> Selection Sort <span class="complexity-badge on2">O(n²)</span></a></li>
+                        <li><a href="#insertion"><i class="fas fa-arrow-right"></i> Insertion Sort <span class="complexity-badge on2">O(n²)</span></a></li>
+                        <li><a href="#merge"><i class="fas fa-code-branch"></i> Merge Sort <span class="complexity-badge onlogn">O(n log n)</span></a></li>
+                        <li><a href="#quick"><i class="fas fa-bolt"></i> Quick Sort <span class="complexity-badge onlogn">O(n log n)</span></a></li>
+                        <li><a href="#heap"><i class="fas fa-sitemap"></i> Heap Sort <span class="complexity-badge onlogn">O(n log n)</span></a></li>
+                        <li><a href="#counting"><i class="fas fa-hashtag"></i> Counting Sort <span class="complexity-badge on">O(n+k)</span></a></li>
+                        <li><a href="#radix"><i class="fas fa-layer-group"></i> Radix Sort <span class="complexity-badge on">O(nk)</span></a></li>
+                        <li><a href="#bucket"><i class="fas fa-inbox"></i> Bucket Sort <span class="complexity-badge on">O(n+k)</span></a></li>
+                        <li><a href="#shell"><i class="fas fa-compress-alt"></i> Shell Sort <span class="complexity-badge onlogn">O(n log n)</span></a></li>
+                        <li><a href="#tim"><i class="fas fa-clock"></i> Tim Sort <span class="complexity-badge onlogn">O(n log n)</span></a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="notes-content">
+                
+                <!-- Comparison Chart -->
+                <section id="comparison" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-table"></i></div>
+                        <h2>Sorting Algorithms Comparison</h2>
+                    </div>
+                    <div class="topic-content">
+                        <table class="complexity-table">
+                            <tr>
+                                <th>Algorithm</th>
+                                <th>Best</th>
+                                <th>Average</th>
+                                <th>Worst</th>
+                                <th>Space</th>
+                                <th>Stable</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Bubble Sort</strong></td>
+                                <td><code>O(n)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Selection Sort</strong></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>❌ No</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insertion Sort</strong></td>
+                                <td><code>O(n)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Merge Sort</strong></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n)</code></td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quick Sort</strong></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(log n)</code></td>
+                                <td>❌ No</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Heap Sort</strong></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>❌ No</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Counting Sort</strong></td>
+                                <td><code>O(n+k)</code></td>
+                                <td><code>O(n+k)</code></td>
+                                <td><code>O(n+k)</code></td>
+                                <td><code>O(k)</code></td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Radix Sort</strong></td>
+                                <td><code>O(nk)</code></td>
+                                <td><code>O(nk)</code></td>
+                                <td><code>O(nk)</code></td>
+                                <td><code>O(n+k)</code></td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bucket Sort</strong></td>
+                                <td><code>O(n+k)</code></td>
+                                <td><code>O(n+k)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n)</code></td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tim Sort</strong></td>
+                                <td><code>O(n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n)</code></td>
+                                <td>✅ Yes</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="info-box note">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>When to use which?</strong><br>
+                                • <strong>Small arrays (n < 50)</strong>: Insertion Sort<br>
+                                • <strong>General purpose</strong>: Quick Sort or Merge Sort<br>
+                                • <strong>Stable sort needed</strong>: Merge Sort or Tim Sort<br>
+                                • <strong>Memory limited</strong>: Heap Sort or Quick Sort<br>
+                                • <strong>Integers in range</strong>: Counting Sort or Radix Sort
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bubble Sort -->
+                <section id="bubble" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-circle"></i></div>
+                        <h2>Bubble Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Bubble Sort</strong> repeatedly steps through the list, compares adjacent elements, and swaps them if they're in the wrong order. The largest elements "bubble up" to the end.</p>
+                        
+                        <h3>How It Works</h3>
+                        <ul>
+                            <li>Compare adjacent elements</li>
+                            <li>Swap if they're in wrong order</li>
+                            <li>Repeat until no swaps needed</li>
+                            <li>After each pass, the largest unsorted element is in its correct position</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void bubbleSort(int[] arr) {
+    int n = arr.length;
+    boolean swapped;
+    
+    for (int i = 0; i < n - 1; i++) {
+        swapped = false;
+        
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap arr[j] and arr[j+1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = true;
+            }
+        }
+        
+        // If no swapping occurred, array is sorted
+        if (!swapped) break;
+    }
+}
+
+// Time: O(n²) average, O(n) best (already sorted)
+// Space: O(1)</code></pre>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">def bubble_sort(arr):
+    n = len(arr)
+    
+    for i in range(n - 1):
+        swapped = False
+        
+        for j in range(n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        
+        if not swapped:
+            break
+    
+    return arr</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Selection Sort -->
+                <section id="selection" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-hand-pointer"></i></div>
+                        <h2>Selection Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Selection Sort</strong> divides the array into sorted and unsorted parts. It repeatedly finds the minimum element from the unsorted part and puts it at the beginning.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void selectionSort(int[] arr) {
+    int n = arr.length;
+    
+    for (int i = 0; i < n - 1; i++) {
+        // Find minimum element in unsorted portion
+        int minIdx = i;
+        
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIdx]) {
+                minIdx = j;
+            }
+        }
+        
+        // Swap minimum with first unsorted element
+        int temp = arr[minIdx];
+        arr[minIdx] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+// Time: O(n²) - always
+// Space: O(1)</code></pre>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">def selection_sort(arr):
+    n = len(arr)
+    
+    for i in range(n - 1):
+        min_idx = i
+        
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    
+    return arr</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Insertion Sort -->
+                <section id="insertion" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-arrow-right"></i></div>
+                        <h2>Insertion Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Insertion Sort</strong> builds the sorted array one element at a time by inserting each element into its correct position in the already sorted portion.</p>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Best for:</strong> Small arrays, nearly sorted arrays, or as a sub-routine in hybrid algorithms like Tim Sort.
+                            </div>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void insertionSort(int[] arr) {
+    int n = arr.length;
+    
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        
+        // Move elements greater than key one position ahead
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        
+        arr[j + 1] = key;
+    }
+}
+
+// Time: O(n²) average, O(n) best (already sorted)
+// Space: O(1)</code></pre>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        
+        arr[j + 1] = key
+    
+    return arr</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Merge Sort -->
+                <section id="merge" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code-branch"></i></div>
+                        <h2>Merge Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Merge Sort</strong> uses the divide-and-conquer approach. It divides the array into halves, sorts them recursively, then merges the sorted halves.</p>
+                        
+                        <h3>Algorithm Steps</h3>
+                        <ul>
+                            <li>Divide array into two halves</li>
+                            <li>Recursively sort both halves</li>
+                            <li>Merge the two sorted halves</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void mergeSort(int[] arr, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        
+        // Sort first and second halves
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        
+        // Merge the sorted halves
+        merge(arr, left, mid, right);
+    }
+}
+
+private static void merge(int[] arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    
+    // Create temp arrays
+    int[] L = new int[n1];
+    int[] R = new int[n2];
+    
+    // Copy data to temp arrays
+    for (int i = 0; i < n1; i++) L[i] = arr[left + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[mid + 1 + j];
+    
+    // Merge temp arrays back
+    int i = 0, j = 0, k = left;
+    
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k++] = L[i++];
+        } else {
+            arr[k++] = R[j++];
+        }
+    }
+    
+    // Copy remaining elements
+    while (i < n1) arr[k++] = L[i++];
+    while (j < n2) arr[k++] = R[j++];
+}
+
+// Time: O(n log n) - always
+// Space: O(n)</code></pre>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    
+    return merge(left, right)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+    
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Sort -->
+                <section id="quick" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-bolt"></i></div>
+                        <h2>Quick Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Quick Sort</strong> picks a "pivot" element and partitions the array around it. Elements smaller than pivot go left, larger go right. This is done recursively.</p>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Best Practice:</strong> Use randomized pivot or median-of-three to avoid O(n²) worst case on sorted arrays.
+                            </div>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void quickSort(int[] arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+private static int partition(int[] arr, int low, int high) {
+    int pivot = arr[high];  // Choose last element as pivot
+    int i = low - 1;        // Index of smaller element
+    
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            // Swap arr[i] and arr[j]
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+    
+    // Swap pivot to its correct position
+    int temp = arr[i + 1];
+    arr[i + 1] = arr[high];
+    arr[high] = temp;
+    
+    return i + 1;
+}
+
+// Time: O(n log n) average, O(n²) worst
+// Space: O(log n) - recursion stack</code></pre>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">def quick_sort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quick_sort(arr, low, pi - 1)
+        quick_sort(arr, pi + 1, high)
+
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    
+    for j in range(low, high):
+        if arr[j] < pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Heap Sort -->
+                <section id="heap" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sitemap"></i></div>
+                        <h2>Heap Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Heap Sort</strong> uses a binary heap data structure. It first builds a max-heap, then repeatedly extracts the maximum element and places it at the end.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void heapSort(int[] arr) {
+    int n = arr.length;
+    
+    // Build max heap
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+    
+    // Extract elements from heap one by one
+    for (int i = n - 1; i > 0; i--) {
+        // Move current root to end
+        int temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+        
+        // Heapify the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+private static void heapify(int[] arr, int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+    
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
+    }
+    
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
+    }
+    
+    if (largest != i) {
+        int temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+        
+        heapify(arr, n, largest);
+    }
+}
+
+// Time: O(n log n) - always
+// Space: O(1)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Counting Sort -->
+                <section id="counting" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-hashtag"></i></div>
+                        <h2>Counting Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Counting Sort</strong> is a non-comparison sorting algorithm. It counts occurrences of each unique element and uses arithmetic to determine positions.</p>
+                        
+                        <div class="info-box note">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Best for:</strong> Integers within a known, limited range. Not suitable for large ranges or floating-point numbers.
+                            </div>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void countingSort(int[] arr) {
+    int n = arr.length;
+    
+    // Find the range
+    int max = Arrays.stream(arr).max().getAsInt();
+    int min = Arrays.stream(arr).min().getAsInt();
+    int range = max - min + 1;
+    
+    int[] count = new int[range];
+    int[] output = new int[n];
+    
+    // Count occurrences
+    for (int i = 0; i < n; i++) {
+        count[arr[i] - min]++;
+    }
+    
+    // Convert to cumulative count
+    for (int i = 1; i < range; i++) {
+        count[i] += count[i - 1];
+    }
+    
+    // Build output array (traverse backwards for stability)
+    for (int i = n - 1; i >= 0; i--) {
+        output[count[arr[i] - min] - 1] = arr[i];
+        count[arr[i] - min]--;
+    }
+    
+    // Copy to original array
+    System.arraycopy(output, 0, arr, 0, n);
+}
+
+// Time: O(n + k) where k is range
+// Space: O(k)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Radix Sort -->
+                <section id="radix" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Radix Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Radix Sort</strong> sorts numbers digit by digit, starting from the least significant digit (LSD) or most significant digit (MSD).</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void radixSort(int[] arr) {
+    int max = Arrays.stream(arr).max().getAsInt();
+    
+    // Do counting sort for every digit
+    for (int exp = 1; max / exp > 0; exp *= 10) {
+        countingSortByDigit(arr, exp);
+    }
+}
+
+private static void countingSortByDigit(int[] arr, int exp) {
+    int n = arr.length;
+    int[] output = new int[n];
+    int[] count = new int[10];
+    
+    // Count occurrences of each digit
+    for (int i = 0; i < n; i++) {
+        int digit = (arr[i] / exp) % 10;
+        count[digit]++;
+    }
+    
+    // Convert to cumulative count
+    for (int i = 1; i < 10; i++) {
+        count[i] += count[i - 1];
+    }
+    
+    // Build output array
+    for (int i = n - 1; i >= 0; i--) {
+        int digit = (arr[i] / exp) % 10;
+        output[count[digit] - 1] = arr[i];
+        count[digit]--;
+    }
+    
+    System.arraycopy(output, 0, arr, 0, n);
+}
+
+// Time: O(d * (n + k)) where d = digits, k = base (10)
+// Space: O(n + k)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bucket Sort -->
+                <section id="bucket" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-inbox"></i></div>
+                        <h2>Bucket Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Bucket Sort</strong> distributes elements into buckets, sorts each bucket individually (often using insertion sort), then concatenates them.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void bucketSort(float[] arr) {
+    int n = arr.length;
+    if (n <= 0) return;
+    
+    // Create buckets
+    ArrayList<ArrayList<Float>> buckets = new ArrayList<>();
+    for (int i = 0; i < n; i++) {
+        buckets.add(new ArrayList<>());
+    }
+    
+    // Put elements in buckets (assuming values are 0 to 1)
+    for (int i = 0; i < n; i++) {
+        int bucketIdx = (int) (arr[i] * n);
+        buckets.get(bucketIdx).add(arr[i]);
+    }
+    
+    // Sort individual buckets
+    for (ArrayList<Float> bucket : buckets) {
+        Collections.sort(bucket);
+    }
+    
+    // Concatenate buckets
+    int idx = 0;
+    for (ArrayList<Float> bucket : buckets) {
+        for (float val : bucket) {
+            arr[idx++] = val;
+        }
+    }
+}
+
+// Time: O(n + k) average, O(n²) worst
+// Space: O(n)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Shell Sort -->
+                <section id="shell" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-compress-alt"></i></div>
+                        <h2>Shell Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Shell Sort</strong> is a generalized version of Insertion Sort. It allows exchange of far apart elements and gradually reduces the gap between elements to be compared.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void shellSort(int[] arr) {
+    int n = arr.length;
+    
+    // Start with big gap, then reduce
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        // Do insertion sort for this gap
+        for (int i = gap; i < n; i++) {
+            int temp = arr[i];
+            int j = i;
+            
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+            
+            arr[j] = temp;
+        }
+    }
+}
+
+// Time: O(n log n) to O(n²) depending on gap sequence
+// Space: O(1)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tim Sort -->
+                <section id="tim" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-clock"></i></div>
+                        <h2>Tim Sort</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Tim Sort</strong> is a hybrid sorting algorithm derived from Merge Sort and Insertion Sort. It's used by Python's <code>sort()</code> and Java's <code>Arrays.sort()</code> for objects.</p>
+                        
+                        <h3>Key Concepts</h3>
+                        <ul>
+                            <li><strong>Run:</strong> A sequence of consecutive elements that are already sorted</li>
+                            <li><strong>Min Run:</strong> Minimum length for a run (typically 32-64)</li>
+                            <li>Uses Insertion Sort for small runs</li>
+                            <li>Merges runs using modified Merge Sort</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java (Simplified)</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void timSort(int[] arr) {
+    int n = arr.length;
+    int MIN_RUN = 32;
+    
+    // Sort individual runs using insertion sort
+    for (int i = 0; i < n; i += MIN_RUN) {
+        insertionSort(arr, i, Math.min(i + MIN_RUN - 1, n - 1));
+    }
+    
+    // Merge runs
+    for (int size = MIN_RUN; size < n; size *= 2) {
+        for (int left = 0; left < n; left += 2 * size) {
+            int mid = left + size - 1;
+            int right = Math.min(left + 2 * size - 1, n - 1);
+            
+            if (mid < right) {
+                merge(arr, left, mid, right);
+            }
+        }
+    }
+}
+
+private static void insertionSort(int[] arr, int left, int right) {
+    for (int i = left + 1; i <= right; i++) {
+        int temp = arr[i];
+        int j = i - 1;
+        
+        while (j >= left && arr[j] > temp) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = temp;
+    }
+}
+
+// Time: O(n log n), O(n) best case
+// Space: O(n)</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Why Tim Sort is popular:</strong><br>
+                                • Stable sort (maintains relative order of equal elements)<br>
+                                • Excellent for partially sorted data (very common in real world)<br>
+                                • O(n) for already sorted data<br>
+                                • Used by Python, Java, Android, and Swift
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block');
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                }, 2000);
+            });
+        }
+        
+        // Active TOC link on scroll
+        const sections = document.querySelectorAll('.topic-section');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

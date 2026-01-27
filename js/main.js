@@ -26,14 +26,14 @@ function initDarkMode() {
     themeToggle.innerHTML = '<i class="fas fa-moon"></i><i class="fas fa-sun"></i>';
     document.body.appendChild(themeToggle);
     
-    // Check for saved theme preference or default to system preference
+    // Check for saved theme preference - default to LIGHT mode
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
-    } else if (prefersDark) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        // Default to light theme
+        document.documentElement.setAttribute('data-theme', 'light');
     }
     
     // Toggle theme on click

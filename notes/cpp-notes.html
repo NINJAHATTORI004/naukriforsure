@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Programming Complete Guide - OOP & STL | NaukriForSure</title>
+    <meta name="description" content="Complete C++ guide: OOP concepts, STL, templates, and modern C++ features.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #00599c 0%, #004482 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #00599c; margin-bottom: 20px; border-bottom: 2px solid #00599c; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #e6f2fa; color: #00599c; }
+        .toc-list a i { color: #00599c; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #00599c; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #00599c, #004482); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #00599c; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #00599c; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #e6f2fa; border-left: 4px solid #00599c; display: flex; gap: 15px; }
+        .info-box i { color: #00599c; font-size: 1.3rem; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fas fa-code" style="margin-right: 15px;"></i>C++ Programming</h1>
+            <p>OOP, STL, Templates & Modern C++ Features</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> Basics</a></li>
+                        <li><a href="#oop"><i class="fas fa-cubes"></i> OOP</a></li>
+                        <li><a href="#inheritance"><i class="fas fa-sitemap"></i> Inheritance</a></li>
+                        <li><a href="#polymorphism"><i class="fas fa-shapes"></i> Polymorphism</a></li>
+                        <li><a href="#stl"><i class="fas fa-layer-group"></i> STL</a></li>
+                        <li><a href="#templates"><i class="fas fa-file-code"></i> Templates</a></li>
+                        <li><a href="#modern"><i class="fas fa-rocket"></i> Modern C++</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-play"></i></div>
+                        <h2>C++ Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C++</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    // Output
+    cout << "Hello, World!" << endl;
+    
+    // Variables
+    int age = 25;
+    double salary = 50000.50;
+    string name = "Alice";
+    bool isActive = true;
+    
+    // Input
+    cout << "Enter your name: ";
+    cin >> name;
+    
+    // getline for full line
+    getline(cin, name);
+    
+    // Reference variable
+    int x = 10;
+    int& ref = x;  // ref is alias for x
+    ref = 20;      // x is now 20
+    
+    // Pointers (similar to C)
+    int* ptr = &x;
+    cout << *ptr << endl;  // 20
+    
+    // Constants
+    const int MAX = 100;
+    constexpr int SIZE = 50;  // Compile-time constant
+    
+    // Auto type deduction
+    auto num = 42;        // int
+    auto pi = 3.14;       // double
+    auto text = "Hello";  // const char*
+    
+    return 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OOP -->
+                <section id="oop" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cubes"></i></div>
+                        <h2>Object-Oriented Programming</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C++</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-cpp">// Class definition
+class Person {
+private:        // Access modifier
+    string name;
+    int age;
+    
+protected:
+    string id;
+    
+public:
+    // Constructor
+    Person(string n, int a) : name(n), age(a) {
+        cout << "Constructor called" << endl;
+    }
+    
+    // Default constructor
+    Person() : name("Unknown"), age(0) {}
+    
+    // Copy constructor
+    Person(const Person& other) {
+        name = other.name;
+        age = other.age;
+    }
+    
+    // Destructor
+    ~Person() {
+        cout << "Destructor called" << endl;
+    }
+    
+    // Getters
+    string getName() const { return name; }
+    int getAge() const { return age; }
+    
+    // Setters
+    void setName(string n) { name = n; }
+    void setAge(int a) {
+        if (a >= 0) age = a;
+    }
+    
+    // Method
+    void display() const {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+    
+    // Static member
+    static int count;
+    static int getCount() { return count; }
+};
+
+int Person::count = 0;  // Initialize static member
+
+int main() {
+    Person p1("Alice", 25);
+    Person p2 = p1;  // Copy constructor
+    
+    p1.display();
+    p2.setAge(30);
+    
+    Person* ptr = new Person("Bob", 30);
+    ptr->display();
+    delete ptr;  // Don't forget to free!
+    
+    return 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Inheritance -->
+                <section id="inheritance" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sitemap"></i></div>
+                        <h2>Inheritance</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C++</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-cpp">// Base class
+class Animal {
+protected:
+    string name;
+public:
+    Animal(string n) : name(n) {}
+    void eat() { cout << name << " is eating" << endl; }
+};
+
+// Single inheritance
+class Dog : public Animal {
+public:
+    Dog(string n) : Animal(n) {}
+    void bark() { cout << name << " says Woof!" << endl; }
+};
+
+// Multiple inheritance
+class Swimmer {
+public:
+    void swim() { cout << "Swimming..." << endl; }
+};
+
+class Duck : public Animal, public Swimmer {
+public:
+    Duck(string n) : Animal(n) {}
+    void quack() { cout << name << " says Quack!" << endl; }
+};
+
+// Multilevel inheritance
+class Puppy : public Dog {
+public:
+    Puppy(string n) : Dog(n) {}
+    void play() { cout << name << " is playing" << endl; }
+};
+
+// Access specifiers in inheritance:
+// public    : base public->public, protected->protected
+// protected : base public->protected, protected->protected  
+// private   : base public->private, protected->private
+
+int main() {
+    Dog dog("Buddy");
+    dog.eat();    // Inherited
+    dog.bark();   // Own method
+    
+    Duck duck("Donald");
+    duck.eat();
+    duck.swim();
+    duck.quack();
+    
+    return 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Polymorphism -->
+                <section id="polymorphism" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-shapes"></i></div>
+                        <h2>Polymorphism</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C++</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-cpp">// Function overloading (Compile-time)
+int add(int a, int b) { return a + b; }
+double add(double a, double b) { return a + b; }
+int add(int a, int b, int c) { return a + b + c; }
+
+// Operator overloading
+class Complex {
+    double real, imag;
+public:
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+    
+    // Overload + operator
+    Complex operator+(const Complex& other) {
+        return Complex(real + other.real, imag + other.imag);
+    }
+    
+    // Overload << for output
+    friend ostream& operator<<(ostream& os, const Complex& c) {
+        os << c.real << " + " << c.imag << "i";
+        return os;
+    }
+};
+
+// Virtual functions (Runtime polymorphism)
+class Shape {
+public:
+    virtual double area() = 0;  // Pure virtual (abstract)
+    virtual void draw() {
+        cout << "Drawing shape" << endl;
+    }
+    virtual ~Shape() {}  // Virtual destructor
+};
+
+class Circle : public Shape {
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    
+    double area() override {  // Override keyword (C++11)
+        return 3.14159 * radius * radius;
+    }
+    
+    void draw() override {
+        cout << "Drawing circle" << endl;
+    }
+};
+
+class Rectangle : public Shape {
+    double width, height;
+public:
+    Rectangle(double w, double h) : width(w), height(h) {}
+    
+    double area() override {
+        return width * height;
+    }
+};
+
+int main() {
+    // Function overloading
+    cout << add(1, 2) << endl;       // 3
+    cout << add(1.5, 2.5) << endl;   // 4.0
+    
+    // Operator overloading
+    Complex c1(1, 2), c2(3, 4);
+    cout << c1 + c2 << endl;  // 4 + 6i
+    
+    // Polymorphism with pointers
+    Shape* shapes[2];
+    shapes[0] = new Circle(5);
+    shapes[1] = new Rectangle(4, 3);
+    
+    for (int i = 0; i < 2; i++) {
+        shapes[i]->draw();
+        cout << "Area: " << shapes[i]->area() << endl;
+        delete shapes[i];
+    }
+    
+    return 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STL -->
+                <section id="stl" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Standard Template Library (STL)</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C++</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;map&gt;
+#include &lt;set&gt;
+#include &lt;queue&gt;
+#include &lt;stack&gt;
+#include &lt;algorithm&gt;
+
+// Vector - Dynamic array
+vector&lt;int&gt; vec = {1, 2, 3, 4, 5};
+vec.push_back(6);
+vec.pop_back();
+vec.insert(vec.begin() + 2, 10);
+vec.erase(vec.begin());
+int size = vec.size();
+bool empty = vec.empty();
+
+// Iterate
+for (int x : vec) cout << x << " ";
+for (auto it = vec.begin(); it != vec.end(); it++) cout << *it;
+
+// Map - Key-value pairs
+map&lt;string, int&gt; ages;
+ages["Alice"] = 25;
+ages["Bob"] = 30;
+ages.insert({"Charlie", 35});
+
+if (ages.find("Alice") != ages.end()) {
+    cout << "Found: " << ages["Alice"] << endl;
+}
+
+for (auto& [key, value] : ages) {  // C++17
+    cout << key << ": " << value << endl;
+}
+
+// Set - Unique sorted elements
+set&lt;int&gt; nums = {3, 1, 4, 1, 5};  // {1, 3, 4, 5}
+nums.insert(2);
+nums.erase(3);
+
+// Stack - LIFO
+stack&lt;int&gt; s;
+s.push(1);
+s.push(2);
+int top = s.top();  // 2
+s.pop();
+
+// Queue - FIFO
+queue&lt;int&gt; q;
+q.push(1);
+q.push(2);
+int front = q.front();  // 1
+q.pop();
+
+// Priority Queue - Max heap by default
+priority_queue&lt;int&gt; pq;
+pq.push(3);
+pq.push(1);
+pq.push(2);
+int max = pq.top();  // 3
+
+// Min heap
+priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; minPq;
+
+// Algorithms
+vector&lt;int&gt; v = {5, 2, 8, 1, 9};
+sort(v.begin(), v.end());                    // Ascending
+sort(v.begin(), v.end(), greater&lt;int&gt;());    // Descending
+reverse(v.begin(), v.end());
+int maxVal = *max_element(v.begin(), v.end());
+int minVal = *min_element(v.begin(), v.end());
+bool found = binary_search(v.begin(), v.end(), 5);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modern C++ -->
+                <section id="modern" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-rocket"></i></div>
+                        <h2>Modern C++ (11/14/17)</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C++</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-cpp">#include &lt;memory&gt;
+
+// Lambda expressions
+auto add = [](int a, int b) { return a + b; };
+cout << add(3, 5) << endl;
+
+// Lambda with capture
+int multiplier = 5;
+auto multiply = [multiplier](int x) { return x * multiplier; };
+auto multiplyRef = [&multiplier](int x) { return x * multiplier; };
+
+// Range-based for loop
+vector&lt;int&gt; nums = {1, 2, 3, 4, 5};
+for (int n : nums) cout << n;
+for (const auto& n : nums) cout << n;
+
+// Smart pointers
+// unique_ptr - Exclusive ownership
+unique_ptr&lt;int&gt; uptr = make_unique&lt;int&gt;(42);
+cout << *uptr << endl;
+// uptr automatically deleted when out of scope
+
+// shared_ptr - Shared ownership
+shared_ptr&lt;int&gt; sptr1 = make_shared&lt;int&gt;(100);
+shared_ptr&lt;int&gt; sptr2 = sptr1;  // Reference count = 2
+cout << sptr1.use_count() << endl;
+
+// weak_ptr - Non-owning reference
+weak_ptr&lt;int&gt; wptr = sptr1;
+
+// nullptr (instead of NULL)
+int* ptr = nullptr;
+
+// Move semantics
+string str1 = "Hello";
+string str2 = move(str1);  // str1 is now empty
+
+// Structured bindings (C++17)
+pair&lt;int, string&gt; p = {1, "one"};
+auto [num, text] = p;
+
+// Optional (C++17)
+#include &lt;optional&gt;
+optional&lt;int&gt; maybeInt = 42;
+if (maybeInt.has_value()) {
+    cout << maybeInt.value() << endl;
+}
+
+// String_view (C++17)
+#include &lt;string_view&gt;
+void print(string_view sv) {  // No copy
+    cout << sv << endl;
+}</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Modern C++ Best Practices:</strong><br>
+                                • Use smart pointers instead of raw pointers<br>
+                                • Prefer auto for type deduction<br>
+                                • Use range-based for loops<br>
+                                • Use nullptr instead of NULL<br>
+                                • Use constexpr for compile-time constants
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

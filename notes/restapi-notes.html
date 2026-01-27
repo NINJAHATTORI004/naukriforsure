@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API Complete Guide - Design & Best Practices | NaukriForSure</title>
+    <meta name="description" content="Complete REST API guide: HTTP methods, status codes, authentication, and API design best practices.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #059669; margin-bottom: 20px; border-bottom: 2px solid #10b981; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #ecfdf5; color: #059669; }
+        .toc-list a i { color: #10b981; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #10b981; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #059669, #10b981); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #059669; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #10b981; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #ecfdf5; border-left: 4px solid #10b981; display: flex; gap: 15px; }
+        .info-box i { color: #059669; font-size: 1.3rem; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .concept-table th, .concept-table td { padding: 12px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #ecfdf5; color: #059669; }
+        .concept-table code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+        .method-badge { padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; color: white; }
+        .method-get { background: #3b82f6; }
+        .method-post { background: #22c55e; }
+        .method-put { background: #f59e0b; }
+        .method-patch { background: #8b5cf6; }
+        .method-delete { background: #ef4444; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fas fa-exchange-alt" style="margin-right: 15px;"></i>REST API</h1>
+            <p>API Design, HTTP Methods, Status Codes & Best Practices</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-book"></i> REST Fundamentals</a></li>
+                        <li><a href="#methods"><i class="fas fa-exchange-alt"></i> HTTP Methods</a></li>
+                        <li><a href="#status"><i class="fas fa-info-circle"></i> Status Codes</a></li>
+                        <li><a href="#design"><i class="fas fa-paint-brush"></i> API Design</a></li>
+                        <li><a href="#auth"><i class="fas fa-lock"></i> Authentication</a></li>
+                        <li><a href="#examples"><i class="fas fa-code"></i> Examples</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- REST Fundamentals -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-book"></i></div>
+                        <h2>REST Fundamentals</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>REST</strong> (Representational State Transfer) is an architectural style for designing networked applications using HTTP protocols.</p>
+                        
+                        <h3>REST Constraints</h3>
+                        <ul>
+                            <li><strong>Client-Server:</strong> Separation of concerns between UI and data storage</li>
+                            <li><strong>Stateless:</strong> Each request contains all information needed</li>
+                            <li><strong>Cacheable:</strong> Responses can be cached for performance</li>
+                            <li><strong>Uniform Interface:</strong> Standardized way to interact with resources</li>
+                            <li><strong>Layered System:</strong> Client doesn't know if it's connected directly to server</li>
+                            <li><strong>Code on Demand (optional):</strong> Server can send executable code</li>
+                        </ul>
+                        
+                        <h3>Resources</h3>
+                        <p>Everything in REST is a <strong>resource</strong>. Resources are identified by URIs (Uniform Resource Identifiers).</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">URL Structure</span>
+                            </div>
+                            <pre><code class="language-plaintext">https://api.example.com/v1/users/123/orders?status=pending
+
+Protocol: https
+Domain: api.example.com
+Version: v1
+Resource: users
+Resource ID: 123
+Sub-resource: orders
+Query parameter: status=pending</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HTTP Methods -->
+                <section id="methods" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h2>HTTP Methods</h2>
+                    </div>
+                    <div class="topic-content">
+                        <table class="concept-table">
+                            <tr>
+                                <th>Method</th>
+                                <th>Purpose</th>
+                                <th>Idempotent</th>
+                                <th>Safe</th>
+                                <th>Request Body</th>
+                            </tr>
+                            <tr>
+                                <td><span class="method-badge method-get">GET</span></td>
+                                <td>Retrieve resource</td>
+                                <td>✅ Yes</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                            </tr>
+                            <tr>
+                                <td><span class="method-badge method-post">POST</span></td>
+                                <td>Create resource</td>
+                                <td>❌ No</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><span class="method-badge method-put">PUT</span></td>
+                                <td>Replace resource</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><span class="method-badge method-patch">PATCH</span></td>
+                                <td>Partial update</td>
+                                <td>❌ No*</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><span class="method-badge method-delete">DELETE</span></td>
+                                <td>Remove resource</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>❌ No</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Idempotent:</strong> Same request repeated multiple times produces same result.<br>
+                                <strong>Safe:</strong> Method doesn't modify the resource.
+                            </div>
+                        </div>
+                        
+                        <h3>CRUD Operations Mapping</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">REST Endpoints</span>
+                            </div>
+                            <pre><code class="language-plaintext">GET    /users          → Get all users (Read)
+GET    /users/123      → Get user 123 (Read)
+POST   /users          → Create new user (Create)
+PUT    /users/123      → Replace user 123 (Update)
+PATCH  /users/123      → Update user 123 partially (Update)
+DELETE /users/123      → Delete user 123 (Delete)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Status Codes -->
+                <section id="status" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-info-circle"></i></div>
+                        <h2>HTTP Status Codes</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>2xx - Success</h3>
+                        <table class="concept-table">
+                            <tr><th>Code</th><th>Name</th><th>Use Case</th></tr>
+                            <tr><td><code>200</code></td><td>OK</td><td>Successful GET, PUT, PATCH</td></tr>
+                            <tr><td><code>201</code></td><td>Created</td><td>Successful POST (resource created)</td></tr>
+                            <tr><td><code>204</code></td><td>No Content</td><td>Successful DELETE (no body)</td></tr>
+                        </table>
+                        
+                        <h3>3xx - Redirection</h3>
+                        <table class="concept-table">
+                            <tr><th>Code</th><th>Name</th><th>Use Case</th></tr>
+                            <tr><td><code>301</code></td><td>Moved Permanently</td><td>Resource moved to new URL</td></tr>
+                            <tr><td><code>304</code></td><td>Not Modified</td><td>Cached version is still valid</td></tr>
+                        </table>
+                        
+                        <h3>4xx - Client Errors</h3>
+                        <table class="concept-table">
+                            <tr><th>Code</th><th>Name</th><th>Use Case</th></tr>
+                            <tr><td><code>400</code></td><td>Bad Request</td><td>Invalid request syntax/data</td></tr>
+                            <tr><td><code>401</code></td><td>Unauthorized</td><td>Authentication required</td></tr>
+                            <tr><td><code>403</code></td><td>Forbidden</td><td>Authenticated but not authorized</td></tr>
+                            <tr><td><code>404</code></td><td>Not Found</td><td>Resource doesn't exist</td></tr>
+                            <tr><td><code>405</code></td><td>Method Not Allowed</td><td>HTTP method not supported</td></tr>
+                            <tr><td><code>409</code></td><td>Conflict</td><td>Resource conflict (duplicate)</td></tr>
+                            <tr><td><code>422</code></td><td>Unprocessable Entity</td><td>Validation errors</td></tr>
+                            <tr><td><code>429</code></td><td>Too Many Requests</td><td>Rate limit exceeded</td></tr>
+                        </table>
+                        
+                        <h3>5xx - Server Errors</h3>
+                        <table class="concept-table">
+                            <tr><th>Code</th><th>Name</th><th>Use Case</th></tr>
+                            <tr><td><code>500</code></td><td>Internal Server Error</td><td>Generic server error</td></tr>
+                            <tr><td><code>502</code></td><td>Bad Gateway</td><td>Invalid response from upstream</td></tr>
+                            <tr><td><code>503</code></td><td>Service Unavailable</td><td>Server temporarily down</td></tr>
+                            <tr><td><code>504</code></td><td>Gateway Timeout</td><td>Upstream server timeout</td></tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- API Design -->
+                <section id="design" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h2>API Design Best Practices</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>URL Naming Conventions</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Good vs Bad</span>
+                            </div>
+                            <pre><code class="language-plaintext"># Good ✅
+GET /users
+GET /users/123
+GET /users/123/orders
+GET /orders?user_id=123
+
+# Bad ❌
+GET /getUsers
+GET /getUserById/123
+GET /user/orders/getOrders
+POST /createUser</code></pre>
+                        </div>
+                        
+                        <h3>Pagination</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JSON</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-json">// Request
+GET /users?page=2&limit=10
+
+// Response
+{
+  "data": [...],
+  "pagination": {
+    "current_page": 2,
+    "per_page": 10,
+    "total_pages": 5,
+    "total_count": 48,
+    "links": {
+      "first": "/users?page=1&limit=10",
+      "prev": "/users?page=1&limit=10",
+      "next": "/users?page=3&limit=10",
+      "last": "/users?page=5&limit=10"
+    }
+  }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Error Response Format</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JSON</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-json">{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Request validation failed",
+    "details": [
+      {
+        "field": "email",
+        "message": "Invalid email format"
+      },
+      {
+        "field": "age",
+        "message": "Must be a positive number"
+      }
+    ]
+  }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Filtering & Sorting</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">URL</span>
+                            </div>
+                            <pre><code class="language-plaintext"># Filtering
+GET /users?status=active&role=admin
+GET /orders?created_after=2024-01-01
+
+# Sorting
+GET /users?sort=name          # Ascending
+GET /users?sort=-created_at   # Descending
+GET /users?sort=role,-name    # Multiple
+
+# Field selection
+GET /users?fields=id,name,email</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Authentication -->
+                <section id="auth" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-lock"></i></div>
+                        <h2>Authentication</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>API Key</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTTP Header</span>
+                            </div>
+                            <pre><code class="language-http">X-API-Key: your-api-key-here
+
+# Or in query string (less secure)
+GET /users?api_key=your-api-key-here</code></pre>
+                        </div>
+                        
+                        <h3>Bearer Token (JWT)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTTP Header</span>
+                            </div>
+                            <pre><code class="language-http">Authorization: Bearer eyJhbGciOiJIUzI1NiIs...</code></pre>
+                        </div>
+                        
+                        <h3>OAuth 2.0 Flow</h3>
+                        <ol>
+                            <li>User clicks "Login with Google"</li>
+                            <li>Redirect to authorization server</li>
+                            <li>User authenticates and consents</li>
+                            <li>Redirect back with authorization code</li>
+                            <li>Exchange code for access token</li>
+                            <li>Use token to access API</li>
+                        </ol>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">OAuth Token Request</span>
+                            </div>
+                            <pre><code class="language-http">POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&code=AUTH_CODE
+&client_id=YOUR_CLIENT_ID
+&client_secret=YOUR_CLIENT_SECRET
+&redirect_uri=YOUR_REDIRECT_URI</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Examples -->
+                <section id="examples" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code"></i></div>
+                        <h2>API Examples</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>JavaScript (Fetch)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">JavaScript</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-javascript">// GET request
+const response = await fetch('/api/users');
+const users = await response.json();
+
+// POST request
+const newUser = await fetch('/api/users', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_TOKEN'
+  },
+  body: JSON.stringify({
+    name: 'John Doe',
+    email: 'john@example.com'
+  })
+});
+
+// Error handling
+try {
+  const response = await fetch('/api/users/123');
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json();
+} catch (error) {
+  console.error('API Error:', error);
+}</code></pre>
+                        </div>
+                        
+                        <h3>Python (Requests)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Python</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-python">import requests
+
+# GET request
+response = requests.get('https://api.example.com/users')
+users = response.json()
+
+# POST request
+response = requests.post(
+    'https://api.example.com/users',
+    json={'name': 'John', 'email': 'john@example.com'},
+    headers={'Authorization': 'Bearer YOUR_TOKEN'}
+)
+
+# Error handling
+response = requests.get('https://api.example.com/users/123')
+response.raise_for_status()  # Raises exception for 4xx/5xx</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Best Practices:</strong><br>
+                                • Version your API (/v1/users)<br>
+                                • Use HTTPS always<br>
+                                • Implement rate limiting<br>
+                                • Document with OpenAPI/Swagger<br>
+                                • Use proper HTTP status codes<br>
+                                • Keep responses consistent
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

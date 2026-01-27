@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Complete Guide - Basics to Pointers | NaukriForSure</title>
+    <meta name="description" content="Complete C programming guide: syntax, pointers, memory management, and interview preparation.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #555555 0%, #a8b9cc 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #555; margin-bottom: 20px; border-bottom: 2px solid #a8b9cc; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #f5f5f5; color: #555; }
+        .toc-list a i { color: #a8b9cc; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #a8b9cc; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #555, #a8b9cc); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #555; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #a8b9cc; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #f5f5f5; border-left: 4px solid #a8b9cc; display: flex; gap: 15px; }
+        .info-box i { color: #555; font-size: 1.3rem; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .concept-table th, .concept-table td { padding: 12px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #f5f5f5; color: #555; }
+        .concept-table code { background: #e5e5e5; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fas fa-copyright" style="margin-right: 15px;"></i>C Programming</h1>
+            <p>Complete Guide: Basics, Pointers, Memory Management & More</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> Basics</a></li>
+                        <li><a href="#datatypes"><i class="fas fa-database"></i> Data Types</a></li>
+                        <li><a href="#control"><i class="fas fa-code-branch"></i> Control Flow</a></li>
+                        <li><a href="#functions"><i class="fas fa-cube"></i> Functions</a></li>
+                        <li><a href="#arrays"><i class="fas fa-th"></i> Arrays</a></li>
+                        <li><a href="#pointers"><i class="fas fa-map-marker-alt"></i> Pointers</a></li>
+                        <li><a href="#strings"><i class="fas fa-font"></i> Strings</a></li>
+                        <li><a href="#structs"><i class="fas fa-layer-group"></i> Structures</a></li>
+                        <li><a href="#memory"><i class="fas fa-memory"></i> Memory</a></li>
+                        <li><a href="#files"><i class="fas fa-file"></i> File I/O</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-play"></i></div>
+                        <h2>C Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>C</strong> is a general-purpose, procedural programming language developed by Dennis Ritchie at Bell Labs in 1972. It's the foundation for many modern languages.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    // This is a comment
+    printf("Hello, World!\n");
+    
+    /* Multi-line
+       comment */
+    
+    return 0;  // Exit status
+}
+
+// Compile: gcc program.c -o program
+// Run: ./program</code></pre>
+                        </div>
+                        
+                        <h3>Input/Output</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    char name[50];
+    float salary;
+    
+    // Input
+    printf("Enter your name: ");
+    scanf("%s", name);          // No & for arrays
+    
+    printf("Enter your age: ");
+    scanf("%d", &age);          // & for address
+    
+    printf("Enter salary: ");
+    scanf("%f", &salary);
+    
+    // Output
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Salary: %.2f\n", salary);
+    
+    return 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Types -->
+                <section id="datatypes" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-database"></i></div>
+                        <h2>Data Types</h2>
+                    </div>
+                    <div class="topic-content">
+                        <table class="concept-table">
+                            <tr><th>Type</th><th>Size</th><th>Format</th><th>Range</th></tr>
+                            <tr><td><code>char</code></td><td>1 byte</td><td>%c</td><td>-128 to 127</td></tr>
+                            <tr><td><code>unsigned char</code></td><td>1 byte</td><td>%c</td><td>0 to 255</td></tr>
+                            <tr><td><code>short</code></td><td>2 bytes</td><td>%hd</td><td>-32,768 to 32,767</td></tr>
+                            <tr><td><code>int</code></td><td>4 bytes</td><td>%d</td><td>-2³¹ to 2³¹-1</td></tr>
+                            <tr><td><code>unsigned int</code></td><td>4 bytes</td><td>%u</td><td>0 to 2³²-1</td></tr>
+                            <tr><td><code>long</code></td><td>8 bytes</td><td>%ld</td><td>-2⁶³ to 2⁶³-1</td></tr>
+                            <tr><td><code>float</code></td><td>4 bytes</td><td>%f</td><td>3.4E-38 to 3.4E+38</td></tr>
+                            <tr><td><code>double</code></td><td>8 bytes</td><td>%lf</td><td>1.7E-308 to 1.7E+308</td></tr>
+                        </table>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">// Variable declaration
+int age = 25;
+float price = 99.99f;
+double pi = 3.14159265359;
+char grade = 'A';
+
+// Constants
+const int MAX = 100;
+#define PI 3.14159
+
+// Type modifiers
+unsigned int positive = 100;
+signed int negative = -50;
+long long bigNum = 9223372036854775807LL;
+
+// sizeof operator
+printf("Size of int: %zu bytes\n", sizeof(int));
+printf("Size of double: %zu bytes\n", sizeof(double));
+
+// Type casting
+int a = 5, b = 2;
+float result = (float)a / b;  // 2.5, not 2</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Control Flow -->
+                <section id="control" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code-branch"></i></div>
+                        <h2>Control Flow</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">// if-else
+if (age >= 18) {
+    printf("Adult\n");
+} else if (age >= 13) {
+    printf("Teenager\n");
+} else {
+    printf("Child\n");
+}
+
+// Ternary operator
+int max = (a > b) ? a : b;
+
+// Switch statement
+switch (grade) {
+    case 'A':
+        printf("Excellent!\n");
+        break;
+    case 'B':
+        printf("Good!\n");
+        break;
+    default:
+        printf("Try harder!\n");
+}
+
+// for loop
+for (int i = 0; i < 5; i++) {
+    printf("%d ", i);
+}
+
+// while loop
+int count = 0;
+while (count < 5) {
+    printf("%d ", count);
+    count++;
+}
+
+// do-while loop
+do {
+    printf("%d ", count);
+    count--;
+} while (count > 0);
+
+// break and continue
+for (int i = 0; i < 10; i++) {
+    if (i == 3) continue;  // Skip 3
+    if (i == 7) break;     // Stop at 7
+    printf("%d ", i);
+}
+
+// goto (avoid if possible)
+goto label;
+// ...
+label:
+    printf("Jumped here\n");</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Functions -->
+                <section id="functions" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cube"></i></div>
+                        <h2>Functions</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">// Function declaration (prototype)
+int add(int a, int b);
+void greet(char name[]);
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
+
+void greet(char name[]) {
+    printf("Hello, %s!\n", name);
+}
+
+// Pass by value (copy)
+void increment(int x) {
+    x++;  // Doesn't affect original
+}
+
+// Pass by reference (pointer)
+void incrementRef(int *x) {
+    (*x)++;  // Affects original
+}
+
+// Multiple return values using pointers
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Array as parameter
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+// Recursive function
+int factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
+// Usage
+int main() {
+    int result = add(3, 5);
+    greet("Alice");
+    
+    int a = 5, b = 10;
+    swap(&a, &b);  // Pass addresses
+    
+    int nums[] = {1, 2, 3, 4, 5};
+    printArray(nums, 5);
+    
+    return 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pointers -->
+                <section id="pointers" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h2>Pointers</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                A <strong>pointer</strong> is a variable that stores the memory address of another variable.<br>
+                                <code>&</code> = Address-of operator | <code>*</code> = Dereference operator
+                            </div>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">// Basic pointers
+int x = 10;
+int *ptr = &x;        // ptr holds address of x
+
+printf("Value of x: %d\n", x);         // 10
+printf("Address of x: %p\n", &x);      // 0x7fff...
+printf("Value of ptr: %p\n", ptr);     // Same address
+printf("Value at ptr: %d\n", *ptr);    // 10 (dereferencing)
+
+*ptr = 20;            // Modify value through pointer
+printf("x is now: %d\n", x);  // 20
+
+// Pointer arithmetic
+int arr[] = {10, 20, 30, 40, 50};
+int *p = arr;         // Points to first element
+
+printf("%d\n", *p);       // 10
+printf("%d\n", *(p + 1)); // 20
+printf("%d\n", *(p + 2)); // 30
+
+p++;                  // Move to next element
+printf("%d\n", *p);   // 20
+
+// Array and pointers
+// arr[i] is equivalent to *(arr + i)
+// &arr[i] is equivalent to (arr + i)
+
+// Pointer to pointer
+int **pp = &ptr;
+printf("%d\n", **pp);  // 20
+
+// NULL pointer
+int *null_ptr = NULL;
+if (null_ptr == NULL) {
+    printf("Pointer is NULL\n");
+}
+
+// Void pointer (generic pointer)
+void *generic = &x;
+printf("%d\n", *(int*)generic);  // Cast before dereference
+
+// Function pointers
+int add(int a, int b) { return a + b; }
+int (*funcPtr)(int, int) = add;
+printf("%d\n", funcPtr(3, 5));  // 8</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Structures -->
+                <section id="structs" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Structures</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">// Structure definition
+struct Person {
+    char name[50];
+    int age;
+    float salary;
+};
+
+// Using typedef
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+int main() {
+    // Declaration and initialization
+    struct Person p1 = {"Alice", 25, 50000.00};
+    
+    // Access members
+    printf("Name: %s\n", p1.name);
+    printf("Age: %d\n", p1.age);
+    
+    // Modify members
+    p1.age = 26;
+    
+    // Array of structures
+    struct Person people[3] = {
+        {"Alice", 25, 50000},
+        {"Bob", 30, 60000},
+        {"Charlie", 35, 70000}
+    };
+    
+    // Pointer to structure
+    struct Person *ptr = &p1;
+    printf("Name: %s\n", ptr->name);  // Arrow operator
+    printf("Age: %d\n", (*ptr).age);  // Equivalent
+    
+    // Using typedef
+    Point origin = {0, 0};
+    
+    // Nested structures
+    struct Address {
+        char city[50];
+        int zip;
+    };
+    
+    struct Employee {
+        char name[50];
+        struct Address addr;
+    };
+    
+    struct Employee emp = {"John", {"NYC", 10001}};
+    printf("City: %s\n", emp.addr.city);
+    
+    return 0;
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dynamic Memory -->
+                <section id="memory" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-memory"></i></div>
+                        <h2>Dynamic Memory</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdlib.h&gt;
+
+// malloc - allocate uninitialized memory
+int *arr = (int*) malloc(5 * sizeof(int));
+if (arr == NULL) {
+    printf("Memory allocation failed!\n");
+    return 1;
+}
+
+// Use the array
+for (int i = 0; i < 5; i++) {
+    arr[i] = i * 10;
+}
+
+// calloc - allocate and initialize to 0
+int *arr2 = (int*) calloc(5, sizeof(int));
+
+// realloc - resize allocated memory
+arr = (int*) realloc(arr, 10 * sizeof(int));
+
+// free - deallocate memory
+free(arr);
+arr = NULL;  // Good practice: set to NULL after free
+
+free(arr2);
+arr2 = NULL;
+
+// Dynamic 2D array
+int rows = 3, cols = 4;
+int **matrix = (int**) malloc(rows * sizeof(int*));
+for (int i = 0; i < rows; i++) {
+    matrix[i] = (int*) malloc(cols * sizeof(int));
+}
+
+// Use matrix
+matrix[1][2] = 100;
+
+// Free 2D array (in reverse order)
+for (int i = 0; i < rows; i++) {
+    free(matrix[i]);
+}
+free(matrix);</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>Common Memory Errors:</strong><br>
+                                • Memory leak (not calling free)<br>
+                                • Dangling pointer (using after free)<br>
+                                • Double free<br>
+                                • Buffer overflow
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- File I/O -->
+                <section id="files" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-file"></i></div>
+                        <h2>File I/O</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+// File modes: "r" read, "w" write, "a" append
+//            "r+" read/write, "rb" binary read
+
+// Writing to file
+FILE *file = fopen("output.txt", "w");
+if (file == NULL) {
+    printf("Error opening file!\n");
+    return 1;
+}
+
+fprintf(file, "Hello, File!\n");
+fprintf(file, "Number: %d\n", 42);
+fputs("Another line\n", file);
+fputc('X', file);
+
+fclose(file);
+
+// Reading from file
+FILE *readFile = fopen("output.txt", "r");
+if (readFile == NULL) {
+    printf("Error opening file!\n");
+    return 1;
+}
+
+char buffer[100];
+
+// Read line by line
+while (fgets(buffer, sizeof(buffer), readFile) != NULL) {
+    printf("%s", buffer);
+}
+
+// Or read character by character
+int ch;
+while ((ch = fgetc(readFile)) != EOF) {
+    putchar(ch);
+}
+
+// Read formatted input
+int num;
+char str[50];
+fscanf(readFile, "%s %d", str, &num);
+
+fclose(readFile);
+
+// Binary file operations
+struct Data {
+    int id;
+    char name[20];
+};
+
+struct Data data = {1, "Test"};
+
+// Write binary
+FILE *binFile = fopen("data.bin", "wb");
+fwrite(&data, sizeof(struct Data), 1, binFile);
+fclose(binFile);
+
+// Read binary
+FILE *binRead = fopen("data.bin", "rb");
+fread(&data, sizeof(struct Data), 1, binRead);
+fclose(binRead);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Notes - Data Structures & Algorithms | NaukriForSure</title>
+    <meta name="description" content="Complete DSA notes from basic to advanced. Learn arrays, linked lists, trees, graphs, dynamic programming with examples and interview problems.">
+    <meta name="keywords" content="DSA notes, data structures, algorithms, interview preparation, arrays, linked lists, trees, graphs, dynamic programming">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/notes/dsa-notes.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/advanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .notes-page {
+            background: var(--neutral-50);
+            min-height: 100vh;
+        }
+        
+        .notes-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2a4a7f 100%);
+            padding: 60px 0;
+            color: var(--cream);
+            text-align: center;
+        }
+        
+        .notes-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .notes-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .notes-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        @media (max-width: 992px) {
+            .notes-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Sidebar */
+        .notes-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .sidebar-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 25px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .sidebar-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+        
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            color: var(--neutral-700);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .toc-list a:hover,
+        .toc-list a.active {
+            background: var(--parchment);
+            color: var(--primary);
+        }
+        
+        .toc-list a i {
+            color: var(--secondary);
+            width: 18px;
+        }
+        
+        .toc-level {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            margin-left: auto;
+        }
+        
+        .toc-level.basic { background: #dcfce7; color: #166534; }
+        .toc-level.intermediate { background: #fef3c7; color: #92400e; }
+        .toc-level.advanced { background: #fee2e2; color: #991b1b; }
+        
+        /* Main Content */
+        .notes-content {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .topic-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 100px;
+        }
+        
+        .topic-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .topic-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1a365d 0%, #2a4a7f 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 1.3rem;
+        }
+        
+        .topic-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+        }
+        
+        .topic-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .topic-content h3::before {
+            content: '§';
+            color: var(--secondary);
+        }
+        
+        .topic-content h4 {
+            font-size: 1.1rem;
+            color: var(--neutral-800);
+            margin: 20px 0 10px;
+        }
+        
+        .topic-content p {
+            color: var(--neutral-700);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .topic-content ul, .topic-content ol {
+            margin: 15px 0 20px 25px;
+            color: var(--neutral-700);
+        }
+        
+        .topic-content li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        
+        /* Code Blocks */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            overflow: hidden;
+            border: 2px solid var(--neutral-300);
+        }
+        
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: #2d2d2d;
+            border-bottom: 1px solid #404040;
+        }
+        
+        .code-lang {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .copy-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #555;
+            color: #fff;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .info-box i {
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+        
+        .info-box.tip {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+        }
+        
+        .info-box.tip i { color: #10b981; }
+        
+        .info-box.note {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .info-box.note i { color: #3b82f6; }
+        
+        .info-box.warning {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .info-box.warning i { color: #f59e0b; }
+        
+        .info-box.important {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .info-box.important i { color: #ef4444; }
+        
+        /* Complexity Table */
+        .complexity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .complexity-table th,
+        .complexity-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--neutral-200);
+        }
+        
+        .complexity-table th {
+            background: var(--parchment);
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+        }
+        
+        .complexity-table tr:nth-child(even) {
+            background: var(--neutral-50);
+        }
+        
+        .complexity-table code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+        
+        /* Progress Tracker */
+        .progress-card {
+            background: var(--parchment);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .progress-card h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .progress-bar-container {
+            background: var(--neutral-200);
+            border-radius: var(--radius-full);
+            height: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--gradient-royal);
+            border-radius: var(--radius-full);
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+        
+        @media (max-width: 768px) {
+            .notes-content {
+                padding: 25px;
+            }
+            
+            .notes-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .notes-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline"><i class="fas fa-user"></i> Login</a>
+                <a href="../jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fas fa-project-diagram" style="margin-right: 15px;"></i>DSA Notes</h1>
+            <p>Complete Data Structures & Algorithms Guide - Basic to Advanced</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <!-- Sidebar -->
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list" style="margin-right: 8px;"></i>Contents</h3>
+                    <ul class="toc-list">
+                        <li><a href="#arrays"><i class="fas fa-th"></i> Arrays <span class="toc-level basic">Basic</span></a></li>
+                        <li><a href="#strings"><i class="fas fa-font"></i> Strings <span class="toc-level basic">Basic</span></a></li>
+                        <li><a href="#linked-lists"><i class="fas fa-link"></i> Linked Lists <span class="toc-level basic">Basic</span></a></li>
+                        <li><a href="#stacks-queues"><i class="fas fa-layer-group"></i> Stacks & Queues <span class="toc-level basic">Basic</span></a></li>
+                        <li><a href="#trees"><i class="fas fa-sitemap"></i> Trees <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#graphs"><i class="fas fa-project-diagram"></i> Graphs <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#sorting"><i class="fas fa-sort"></i> Sorting <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#searching"><i class="fas fa-search"></i> Searching <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#recursion"><i class="fas fa-redo"></i> Recursion <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#dp"><i class="fas fa-brain"></i> Dynamic Programming <span class="toc-level advanced">Advanced</span></a></li>
+                        <li><a href="#greedy"><i class="fas fa-hand-holding-usd"></i> Greedy Algorithms <span class="toc-level advanced">Advanced</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="progress-card">
+                    <h4><i class="fas fa-chart-line" style="margin-right: 8px;"></i>Your Progress</h4>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>0 / 11 Topics</span>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="notes-content">
+                
+                <!-- Arrays Section -->
+                <section id="arrays" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-th"></i></div>
+                        <h2>Arrays</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>An <strong>array</strong> is a collection of elements stored at contiguous memory locations. It's the most fundamental data structure in programming.</p>
+                        
+                        <h3>What is an Array?</h3>
+                        <p>Arrays store multiple values of the same type in a single variable. Each element can be accessed using an index (starting from 0).</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Declaration and Initialization
+int[] arr = new int[5];           // Creates array of size 5
+int[] arr2 = {1, 2, 3, 4, 5};     // Direct initialization
+
+// Accessing elements
+int first = arr2[0];              // Gets first element (1)
+arr2[2] = 10;                     // Sets third element to 10
+
+// Array length
+int size = arr2.length;           // Returns 5</code></pre>
+                        </div>
+                        
+                        <h3>Time Complexity</h3>
+                        <table class="complexity-table">
+                            <tr>
+                                <th>Operation</th>
+                                <th>Time Complexity</th>
+                                <th>Notes</th>
+                            </tr>
+                            <tr>
+                                <td>Access by index</td>
+                                <td><code>O(1)</code></td>
+                                <td>Direct memory access</td>
+                            </tr>
+                            <tr>
+                                <td>Search (unsorted)</td>
+                                <td><code>O(n)</code></td>
+                                <td>Linear search</td>
+                            </tr>
+                            <tr>
+                                <td>Search (sorted)</td>
+                                <td><code>O(log n)</code></td>
+                                <td>Binary search</td>
+                            </tr>
+                            <tr>
+                                <td>Insert at end</td>
+                                <td><code>O(1)</code></td>
+                                <td>If space available</td>
+                            </tr>
+                            <tr>
+                                <td>Insert at beginning</td>
+                                <td><code>O(n)</code></td>
+                                <td>Shift all elements</td>
+                            </tr>
+                            <tr>
+                                <td>Delete</td>
+                                <td><code>O(n)</code></td>
+                                <td>Shift elements</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>Common Array Operations</h3>
+                        
+                        <h4>1. Finding Maximum/Minimum</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static int findMax(int[] arr) {
+    int max = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+// Time: O(n), Space: O(1)</code></pre>
+                        </div>
+                        
+                        <h4>2. Reversing an Array</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static void reverse(int[] arr) {
+    int left = 0, right = arr.length - 1;
+    while (left < right) {
+        // Swap elements
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        left++;
+        right--;
+    }
+}
+
+// Time: O(n), Space: O(1)</code></pre>
+                        </div>
+                        
+                        <h4>3. Two Pointer Technique</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Find pair with given sum in sorted array
+public static int[] twoSum(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == target) {
+            return new int[]{left, right};
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    return new int[]{-1, -1}; // Not found
+}
+
+// Time: O(n), Space: O(1)</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Pro Tip:</strong> The two-pointer technique is extremely useful for sorted arrays. It can solve many problems in O(n) time that would otherwise require O(n²).
+                            </div>
+                        </div>
+                        
+                        <h3>Interview Problems</h3>
+                        <ul>
+                            <li><strong>Kadane's Algorithm</strong> - Find maximum subarray sum</li>
+                            <li><strong>Dutch National Flag</strong> - Sort array of 0s, 1s, 2s</li>
+                            <li><strong>Sliding Window Maximum</strong> - Max in each window of size k</li>
+                            <li><strong>Merge Intervals</strong> - Merge overlapping intervals</li>
+                            <li><strong>Rotate Array</strong> - Rotate array by k positions</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Strings Section -->
+                <section id="strings" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-font"></i></div>
+                        <h2>Strings</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>A <strong>string</strong> is a sequence of characters. In Java, strings are immutable objects.</p>
+                        
+                        <h3>String Basics</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// String creation
+String s1 = "Hello";                    // String literal
+String s2 = new String("Hello");        // Using constructor
+
+// Common operations
+int len = s1.length();                  // Length: 5
+char c = s1.charAt(0);                  // First char: 'H'
+String sub = s1.substring(1, 3);        // Substring: "el"
+String lower = s1.toLowerCase();        // "hello"
+String upper = s1.toUpperCase();        // "HELLO"
+
+// String comparison
+boolean equals = s1.equals(s2);         // true (content)
+int compare = s1.compareTo(s2);         // 0 (lexicographic)
+
+// StringBuilder for mutable strings
+StringBuilder sb = new StringBuilder();
+sb.append("Hello");
+sb.append(" World");
+String result = sb.toString();          // "Hello World"</code></pre>
+                        </div>
+                        
+                        <div class="info-box warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>Important:</strong> Never use <code>==</code> to compare strings in Java. Always use <code>.equals()</code> method. The <code>==</code> operator compares references, not content.
+                            </div>
+                        </div>
+                        
+                        <h3>Common String Algorithms</h3>
+                        
+                        <h4>1. Check Palindrome</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static boolean isPalindrome(String s) {
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        if (s.charAt(left) != s.charAt(right)) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+
+// Time: O(n), Space: O(1)</code></pre>
+                        </div>
+                        
+                        <h4>2. Check Anagram</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public static boolean isAnagram(String s1, String s2) {
+    if (s1.length() != s2.length()) return false;
+    
+    int[] count = new int[26];
+    
+    for (int i = 0; i < s1.length(); i++) {
+        count[s1.charAt(i) - 'a']++;
+        count[s2.charAt(i) - 'a']--;
+    }
+    
+    for (int c : count) {
+        if (c != 0) return false;
+    }
+    return true;
+}
+
+// Time: O(n), Space: O(1) - fixed 26 chars</code></pre>
+                        </div>
+                        
+                        <h3>Interview Problems</h3>
+                        <ul>
+                            <li><strong>Longest Palindromic Substring</strong> - Find longest palindrome</li>
+                            <li><strong>String Compression</strong> - Compress repeated characters</li>
+                            <li><strong>Valid Parentheses</strong> - Check balanced brackets</li>
+                            <li><strong>Longest Common Prefix</strong> - Find common prefix</li>
+                            <li><strong>KMP Pattern Matching</strong> - Efficient substring search</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Linked Lists Section -->
+                <section id="linked-lists" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-link"></i></div>
+                        <h2>Linked Lists</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>A <strong>linked list</strong> is a linear data structure where elements are stored in nodes, and each node points to the next node.</p>
+                        
+                        <h3>Types of Linked Lists</h3>
+                        <ul>
+                            <li><strong>Singly Linked List</strong> - Each node points to next node</li>
+                            <li><strong>Doubly Linked List</strong> - Each node points to next and previous</li>
+                            <li><strong>Circular Linked List</strong> - Last node points to first</li>
+                        </ul>
+                        
+                        <h3>Node Structure</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Singly Linked List Node
+class ListNode {
+    int val;
+    ListNode next;
+    
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+// Doubly Linked List Node
+class DoublyNode {
+    int val;
+    DoublyNode prev;
+    DoublyNode next;
+    
+    DoublyNode(int val) {
+        this.val = val;
+        this.prev = null;
+        this.next = null;
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Common Operations</h3>
+                        
+                        <h4>1. Reverse Linked List</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public ListNode reverse(ListNode head) {
+    ListNode prev = null;
+    ListNode curr = head;
+    
+    while (curr != null) {
+        ListNode next = curr.next;  // Save next
+        curr.next = prev;           // Reverse link
+        prev = curr;                // Move prev
+        curr = next;                // Move curr
+    }
+    
+    return prev;  // New head
+}
+
+// Time: O(n), Space: O(1)</code></pre>
+                        </div>
+                        
+                        <h4>2. Detect Cycle (Floyd's Algorithm)</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public boolean hasCycle(ListNode head) {
+    if (head == null) return false;
+    
+    ListNode slow = head;
+    ListNode fast = head;
+    
+    while (fast != null && fast.next != null) {
+        slow = slow.next;         // Move 1 step
+        fast = fast.next.next;    // Move 2 steps
+        
+        if (slow == fast) {
+            return true;  // Cycle detected
+        }
+    }
+    
+    return false;
+}
+
+// Time: O(n), Space: O(1)</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Pro Tip:</strong> Floyd's Tortoise and Hare algorithm is essential for linked list problems. The slow and fast pointer technique can also find the middle element, cycle start point, and more.
+                            </div>
+                        </div>
+                        
+                        <h3>Time Complexity</h3>
+                        <table class="complexity-table">
+                            <tr>
+                                <th>Operation</th>
+                                <th>Time Complexity</th>
+                            </tr>
+                            <tr>
+                                <td>Access by index</td>
+                                <td><code>O(n)</code></td>
+                            </tr>
+                            <tr>
+                                <td>Insert at beginning</td>
+                                <td><code>O(1)</code></td>
+                            </tr>
+                            <tr>
+                                <td>Insert at end</td>
+                                <td><code>O(n)</code> or <code>O(1)</code> with tail pointer</td>
+                            </tr>
+                            <tr>
+                                <td>Delete</td>
+                                <td><code>O(1)</code> if node given, else <code>O(n)</code></td>
+                            </tr>
+                            <tr>
+                                <td>Search</td>
+                                <td><code>O(n)</code></td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Stacks & Queues Section -->
+                <section id="stacks-queues" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Stacks & Queues</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Stack (LIFO - Last In First Out)</h3>
+                        <p>A stack is a linear data structure that follows the LIFO principle. Think of a stack of plates.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Using Java Stack class
+Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+
+stack.push(1);          // Add to top
+stack.push(2);
+stack.push(3);
+
+int top = stack.peek(); // See top: 3
+int pop = stack.pop();  // Remove top: 3
+
+boolean empty = stack.isEmpty();  // false
+int size = stack.size();          // 2
+
+// Common use: Valid Parentheses
+public boolean isValid(String s) {
+    Stack&lt;Character&gt; stack = new Stack&lt;&gt;();
+    
+    for (char c : s.toCharArray()) {
+        if (c == '(' || c == '{' || c == '[') {
+            stack.push(c);
+        } else {
+            if (stack.isEmpty()) return false;
+            char top = stack.pop();
+            if ((c == ')' && top != '(') ||
+                (c == '}' && top != '{') ||
+                (c == ']' && top != '[')) {
+                return false;
+            }
+        }
+    }
+    return stack.isEmpty();
+}</code></pre>
+                        </div>
+                        
+                        <h3>Queue (FIFO - First In First Out)</h3>
+                        <p>A queue is a linear data structure that follows the FIFO principle. Think of a line at a ticket counter.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Using LinkedList as Queue
+Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+
+queue.offer(1);         // Add to back
+queue.offer(2);
+queue.offer(3);
+
+int front = queue.peek();   // See front: 1
+int poll = queue.poll();    // Remove front: 1
+
+// Priority Queue (Min Heap)
+PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();
+minHeap.offer(3);
+minHeap.offer(1);
+minHeap.offer(2);
+int min = minHeap.poll();   // Returns 1 (smallest)
+
+// Max Heap
+PriorityQueue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;&gt;(Collections.reverseOrder());
+maxHeap.offer(3);
+maxHeap.offer(1);
+maxHeap.offer(2);
+int max = maxHeap.poll();   // Returns 3 (largest)</code></pre>
+                        </div>
+                        
+                        <h3>Interview Problems</h3>
+                        <ul>
+                            <li><strong>Next Greater Element</strong> - Find next larger element for each</li>
+                            <li><strong>Min Stack</strong> - Stack with O(1) getMin()</li>
+                            <li><strong>Implement Queue using Stacks</strong></li>
+                            <li><strong>Sliding Window Maximum</strong> - Using deque</li>
+                            <li><strong>LRU Cache</strong> - Using HashMap + Doubly Linked List</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Trees Section -->
+                <section id="trees" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sitemap"></i></div>
+                        <h2>Trees</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>A <strong>tree</strong> is a hierarchical data structure consisting of nodes connected by edges. Each tree has a root node and child nodes.</p>
+                        
+                        <h3>Binary Tree Structure</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    
+    TreeNode(int val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Tree Traversals</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Inorder: Left -> Root -> Right (gives sorted order in BST)
+public void inorder(TreeNode root) {
+    if (root == null) return;
+    inorder(root.left);
+    System.out.print(root.val + " ");
+    inorder(root.right);
+}
+
+// Preorder: Root -> Left -> Right
+public void preorder(TreeNode root) {
+    if (root == null) return;
+    System.out.print(root.val + " ");
+    preorder(root.left);
+    preorder(root.right);
+}
+
+// Postorder: Left -> Right -> Root
+public void postorder(TreeNode root) {
+    if (root == null) return;
+    postorder(root.left);
+    postorder(root.right);
+    System.out.print(root.val + " ");
+}
+
+// Level Order (BFS)
+public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
+    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+    if (root == null) return result;
+    
+    Queue&lt;TreeNode&gt; queue = new LinkedList&lt;&gt;();
+    queue.offer(root);
+    
+    while (!queue.isEmpty()) {
+        int size = queue.size();
+        List&lt;Integer&gt; level = new ArrayList&lt;&gt;();
+        
+        for (int i = 0; i < size; i++) {
+            TreeNode node = queue.poll();
+            level.add(node.val);
+            if (node.left != null) queue.offer(node.left);
+            if (node.right != null) queue.offer(node.right);
+        }
+        result.add(level);
+    }
+    return result;
+}</code></pre>
+                        </div>
+                        
+                        <h3>Binary Search Tree (BST)</h3>
+                        <p>A BST is a binary tree where left child &lt; parent &lt; right child for all nodes.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Search in BST - O(log n) average, O(n) worst
+public TreeNode search(TreeNode root, int target) {
+    if (root == null || root.val == target) {
+        return root;
+    }
+    if (target < root.val) {
+        return search(root.left, target);
+    }
+    return search(root.right, target);
+}
+
+// Insert in BST
+public TreeNode insert(TreeNode root, int val) {
+    if (root == null) {
+        return new TreeNode(val);
+    }
+    if (val < root.val) {
+        root.left = insert(root.left, val);
+    } else {
+        root.right = insert(root.right, val);
+    }
+    return root;
+}</code></pre>
+                        </div>
+                        
+                        <h3>Interview Problems</h3>
+                        <ul>
+                            <li><strong>Maximum Depth of Binary Tree</strong></li>
+                            <li><strong>Validate Binary Search Tree</strong></li>
+                            <li><strong>Lowest Common Ancestor</strong></li>
+                            <li><strong>Serialize and Deserialize Binary Tree</strong></li>
+                            <li><strong>Binary Tree Maximum Path Sum</strong></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Graphs Section -->
+                <section id="graphs" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h2>Graphs</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>A <strong>graph</strong> is a non-linear data structure consisting of vertices (nodes) and edges connecting them.</p>
+                        
+                        <h3>Graph Representation</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Adjacency List (most common)
+Map&lt;Integer, List&lt;Integer&gt;&gt; graph = new HashMap&lt;&gt;();
+
+// Add edge (undirected)
+public void addEdge(int u, int v) {
+    graph.computeIfAbsent(u, k -> new ArrayList&lt;&gt;()).add(v);
+    graph.computeIfAbsent(v, k -> new ArrayList&lt;&gt;()).add(u);
+}
+
+// Adjacency Matrix
+int[][] matrix = new int[n][n];
+matrix[u][v] = 1;  // Edge from u to v
+matrix[v][u] = 1;  // For undirected graph</code></pre>
+                        </div>
+                        
+                        <h3>BFS (Breadth-First Search)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public void bfs(int start) {
+    Set&lt;Integer&gt; visited = new HashSet&lt;&gt;();
+    Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+    
+    visited.add(start);
+    queue.offer(start);
+    
+    while (!queue.isEmpty()) {
+        int node = queue.poll();
+        System.out.print(node + " ");
+        
+        for (int neighbor : graph.getOrDefault(node, new ArrayList&lt;&gt;())) {
+            if (!visited.contains(neighbor)) {
+                visited.add(neighbor);
+                queue.offer(neighbor);
+            }
+        }
+    }
+}
+// Time: O(V + E), Space: O(V)</code></pre>
+                        </div>
+                        
+                        <h3>DFS (Depth-First Search)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">Set&lt;Integer&gt; visited = new HashSet&lt;&gt;();
+
+public void dfs(int node) {
+    visited.add(node);
+    System.out.print(node + " ");
+    
+    for (int neighbor : graph.getOrDefault(node, new ArrayList&lt;&gt;())) {
+        if (!visited.contains(neighbor)) {
+            dfs(neighbor);
+        }
+    }
+}
+// Time: O(V + E), Space: O(V)</code></pre>
+                        </div>
+                        
+                        <div class="info-box note">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>When to use BFS vs DFS:</strong><br>
+                                • <strong>BFS</strong>: Shortest path in unweighted graph, level-order traversal<br>
+                                • <strong>DFS</strong>: Detect cycles, topological sort, find connected components
+                            </div>
+                        </div>
+                        
+                        <h3>Interview Problems</h3>
+                        <ul>
+                            <li><strong>Number of Islands</strong></li>
+                            <li><strong>Clone Graph</strong></li>
+                            <li><strong>Course Schedule (Topological Sort)</strong></li>
+                            <li><strong>Word Ladder</strong></li>
+                            <li><strong>Dijkstra's Shortest Path</strong></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Sorting Section -->
+                <section id="sorting" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sort"></i></div>
+                        <h2>Sorting Algorithms</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Comparison of Sorting Algorithms</h3>
+                        <table class="complexity-table">
+                            <tr>
+                                <th>Algorithm</th>
+                                <th>Best</th>
+                                <th>Average</th>
+                                <th>Worst</th>
+                                <th>Space</th>
+                                <th>Stable</th>
+                            </tr>
+                            <tr>
+                                <td>Bubble Sort</td>
+                                <td><code>O(n)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Selection Sort</td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>Insertion Sort</td>
+                                <td><code>O(n)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Merge Sort</td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n)</code></td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Quick Sort</td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n²)</code></td>
+                                <td><code>O(log n)</code></td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>Heap Sort</td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(n log n)</code></td>
+                                <td><code>O(1)</code></td>
+                                <td>No</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>Quick Sort Implementation</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public void quickSort(int[] arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+private int partition(int[] arr, int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr, i, j);
+        }
+    }
+    swap(arr, i + 1, high);
+    return i + 1;
+}
+
+private void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}</code></pre>
+                        </div>
+                        
+                        <h3>Merge Sort Implementation</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public void mergeSort(int[] arr, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        merge(arr, left, mid, right);
+    }
+}
+
+private void merge(int[] arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    
+    int[] L = new int[n1];
+    int[] R = new int[n2];
+    
+    for (int i = 0; i < n1; i++) L[i] = arr[left + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[mid + 1 + j];
+    
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k++] = L[i++];
+        } else {
+            arr[k++] = R[j++];
+        }
+    }
+    while (i < n1) arr[k++] = L[i++];
+    while (j < n2) arr[k++] = R[j++];
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Searching Section -->
+                <section id="searching" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-search"></i></div>
+                        <h2>Searching Algorithms</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Binary Search</h3>
+                        <p>Binary search works on sorted arrays and has O(log n) time complexity.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Basic Binary Search
+public int binarySearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;  // Avoid overflow
+        
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;  // Not found
+}
+
+// Find first occurrence
+public int findFirst(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    int result = -1;
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        
+        if (arr[mid] == target) {
+            result = mid;
+            right = mid - 1;  // Continue searching left
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return result;
+}
+
+// Find last occurrence
+public int findLast(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    int result = -1;
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        
+        if (arr[mid] == target) {
+            result = mid;
+            left = mid + 1;  // Continue searching right
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return result;
+}</code></pre>
+                        </div>
+                        
+                        <div class="info-box important">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <strong>Common Binary Search Mistakes:</strong><br>
+                                1. Using <code>(left + right) / 2</code> - can cause integer overflow<br>
+                                2. Using <code>left < right</code> instead of <code>left <= right</code><br>
+                                3. Forgetting to move boundaries correctly
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recursion Section -->
+                <section id="recursion" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-redo"></i></div>
+                        <h2>Recursion & Backtracking</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Recursion</strong> is when a function calls itself to solve smaller subproblems.</p>
+                        
+                        <h3>Recursion Template</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public returnType recursiveFunction(parameters) {
+    // 1. Base case - when to stop
+    if (baseCondition) {
+        return baseValue;
+    }
+    
+    // 2. Recursive case - break problem into smaller subproblems
+    // 3. Call function with smaller input
+    return recursiveFunction(smallerInput);
+}
+
+// Example: Factorial
+public int factorial(int n) {
+    if (n <= 1) return 1;           // Base case
+    return n * factorial(n - 1);     // Recursive case
+}
+
+// Example: Fibonacci
+public int fibonacci(int n) {
+    if (n <= 1) return n;            // Base case
+    return fibonacci(n-1) + fibonacci(n-2);  // Recursive case
+}</code></pre>
+                        </div>
+                        
+                        <h3>Backtracking</h3>
+                        <p>Backtracking is recursion with the ability to undo choices.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Generate all subsets
+public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) {
+    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+    backtrack(nums, 0, new ArrayList&lt;&gt;(), result);
+    return result;
+}
+
+private void backtrack(int[] nums, int start, 
+                       List&lt;Integer&gt; current, 
+                       List&lt;List&lt;Integer&gt;&gt; result) {
+    result.add(new ArrayList&lt;&gt;(current));  // Add current subset
+    
+    for (int i = start; i < nums.length; i++) {
+        current.add(nums[i]);               // Make choice
+        backtrack(nums, i + 1, current, result);  // Explore
+        current.remove(current.size() - 1); // Undo choice (backtrack)
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dynamic Programming Section -->
+                <section id="dp" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-brain"></i></div>
+                        <h2>Dynamic Programming</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Dynamic Programming (DP)</strong> is an optimization technique that solves complex problems by breaking them into overlapping subproblems.</p>
+                        
+                        <h3>When to Use DP?</h3>
+                        <ul>
+                            <li>Problem has <strong>optimal substructure</strong> - optimal solution uses optimal solutions to subproblems</li>
+                            <li>Problem has <strong>overlapping subproblems</strong> - same subproblems are solved multiple times</li>
+                        </ul>
+                        
+                        <h3>DP Approaches</h3>
+                        <ol>
+                            <li><strong>Top-Down (Memoization)</strong> - Start from main problem, solve subproblems recursively, cache results</li>
+                            <li><strong>Bottom-Up (Tabulation)</strong> - Start from base cases, build up to main problem</li>
+                        </ol>
+                        
+                        <h3>Classic DP Problems</h3>
+                        
+                        <h4>1. Fibonacci with Memoization</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Top-Down with Memoization
+int[] memo = new int[n + 1];
+Arrays.fill(memo, -1);
+
+public int fib(int n) {
+    if (n <= 1) return n;
+    if (memo[n] != -1) return memo[n];  // Return cached result
+    memo[n] = fib(n-1) + fib(n-2);      // Cache result
+    return memo[n];
+}
+
+// Bottom-Up with Tabulation
+public int fibBottomUp(int n) {
+    if (n <= 1) return n;
+    int[] dp = new int[n + 1];
+    dp[0] = 0;
+    dp[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+    return dp[n];
+}
+
+// Space Optimized O(1)
+public int fibOptimized(int n) {
+    if (n <= 1) return n;
+    int prev2 = 0, prev1 = 1;
+    for (int i = 2; i <= n; i++) {
+        int curr = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = curr;
+    }
+    return prev1;
+}</code></pre>
+                        </div>
+                        
+                        <h4>2. Longest Common Subsequence</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public int lcs(String s1, String s2) {
+    int m = s1.length(), n = s2.length();
+    int[][] dp = new int[m + 1][n + 1];
+    
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (s1.charAt(i-1) == s2.charAt(j-1)) {
+                dp[i][j] = dp[i-1][j-1] + 1;
+            } else {
+                dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+            }
+        }
+    }
+    return dp[m][n];
+}
+// Time: O(m*n), Space: O(m*n)</code></pre>
+                        </div>
+                        
+                        <h4>3. 0/1 Knapsack Problem</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public int knapsack(int[] weights, int[] values, int capacity) {
+    int n = weights.length;
+    int[][] dp = new int[n + 1][capacity + 1];
+    
+    for (int i = 1; i <= n; i++) {
+        for (int w = 1; w <= capacity; w++) {
+            // Don't take item i
+            dp[i][w] = dp[i-1][w];
+            
+            // Take item i (if it fits)
+            if (weights[i-1] <= w) {
+                dp[i][w] = Math.max(dp[i][w], 
+                    values[i-1] + dp[i-1][w - weights[i-1]]);
+            }
+        }
+    }
+    return dp[n][capacity];
+}</code></pre>
+                        </div>
+                        
+                        <h3>Interview Problems</h3>
+                        <ul>
+                            <li><strong>Climbing Stairs</strong> - Ways to climb n stairs</li>
+                            <li><strong>Coin Change</strong> - Min coins to make amount</li>
+                            <li><strong>Longest Increasing Subsequence</strong></li>
+                            <li><strong>Edit Distance</strong> - Min operations to convert string</li>
+                            <li><strong>House Robber</strong> - Max money without adjacent houses</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Greedy Section -->
+                <section id="greedy" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h2>Greedy Algorithms</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Greedy algorithms</strong> make the locally optimal choice at each step, hoping to find the global optimum.</p>
+                        
+                        <div class="info-box note">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Greedy vs DP:</strong> Greedy makes one choice and moves on. DP considers all choices and picks the best. Greedy is faster but doesn't always work.
+                            </div>
+                        </div>
+                        
+                        <h3>Classic Greedy Problems</h3>
+                        
+                        <h4>1. Activity Selection</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public int maxActivities(int[] start, int[] end) {
+    int n = start.length;
+    // Assume sorted by end time
+    
+    int count = 1;
+    int lastEnd = end[0];
+    
+    for (int i = 1; i < n; i++) {
+        if (start[i] >= lastEnd) {
+            count++;
+            lastEnd = end[i];
+        }
+    }
+    return count;
+}</code></pre>
+                        </div>
+                        
+                        <h4>2. Fractional Knapsack</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">public double fractionalKnapsack(int[] weights, int[] values, int capacity) {
+    int n = weights.length;
+    double[][] items = new double[n][2];  // [value/weight ratio, weight]
+    
+    for (int i = 0; i < n; i++) {
+        items[i][0] = (double) values[i] / weights[i];
+        items[i][1] = weights[i];
+    }
+    
+    // Sort by value/weight ratio (descending)
+    Arrays.sort(items, (a, b) -> Double.compare(b[0], a[0]));
+    
+    double totalValue = 0;
+    int remaining = capacity;
+    
+    for (double[] item : items) {
+        if (remaining >= item[1]) {
+            totalValue += item[0] * item[1];
+            remaining -= item[1];
+        } else {
+            totalValue += item[0] * remaining;  // Take fraction
+            break;
+        }
+    }
+    return totalValue;
+}</code></pre>
+                        </div>
+                        
+                        <h3>Interview Problems</h3>
+                        <ul>
+                            <li><strong>Jump Game</strong> - Can reach the end?</li>
+                            <li><strong>Gas Station</strong> - Find starting point for circular trip</li>
+                            <li><strong>Meeting Rooms II</strong> - Min conference rooms needed</li>
+                            <li><strong>Task Scheduler</strong> - Min time to complete tasks</li>
+                            <li><strong>Partition Labels</strong> - Partition string into max parts</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced-features.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block');
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                }, 2000);
+            });
+        }
+        
+        // Active TOC link on scroll
+        const sections = document.querySelectorAll('.topic-section');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,14 +1,51 @@
 // ========================================
 // NAUKRIFORSURE - AUTHENTICATION MODULE
-// Google OAuth Integration
+// Enhanced Google OAuth Integration
+// Version 2.0 - With improved UX
 // ========================================
 
 const AUTH_CONFIG = {
-    googleClientId: '337418366996-me3uaovtm3s07lf164d7fssd988rj42f.apps.googleusercontent.com'
+    googleClientId: '337418366996-me3uaovtm3s07lf164d7fssd988rj42f.apps.googleusercontent.com',
+    sessionTimeout: 7 * 24 * 60 * 60 * 1000, // 7 days
+    activityCheckInterval: 5 * 60 * 1000 // 5 minutes
 };
 
 // User state
 let currentUser = null;
+let activityTimer = null;
+let lastActivityTime = Date.now();
+
+// Track user activity
+function trackUserActivity() {
+    lastActivityTime = Date.now();
+    localStorage.setItem('nfs_last_activity', lastActivityTime.toString());
+}
+
+// Initialize activity tracking
+function initActivityTracking() {
+    ['mousedown', 'keydown', 'touchstart', 'scroll'].forEach(event => {
+        document.addEventListener(event, trackUserActivity, { passive: true });
+    });
+    
+    // Check session validity periodically
+    activityTimer = setInterval(checkSessionValidity, AUTH_CONFIG.activityCheckInterval);
+}
+
+// Check if session is still valid
+function checkSessionValidity() {
+    const savedUser = localStorage.getItem('nfs_user');
+    if (!savedUser) return;
+    
+    const lastActivity = parseInt(localStorage.getItem('nfs_last_activity') || '0');
+    const loginTime = parseInt(localStorage.getItem('nfs_login_time') || '0');
+    const now = Date.now();
+    
+    // Check if session has expired
+    if (now - loginTime > AUTH_CONFIG.sessionTimeout) {
+        showSessionExpiredModal();
+        logout(true); // Silent logout
+    }
+}
 
 // Initialize Google Sign-In
 function initGoogleAuth() {
@@ -27,6 +64,9 @@ function initGoogleAuth() {
         
         // Check if user is already logged in
         checkExistingSession();
+        
+        // Initialize activity tracking
+        initActivityTracking();
     };
     document.head.appendChild(script);
 }
@@ -43,18 +83,25 @@ function handleGoogleSignIn(response) {
             email: payload.email,
             picture: payload.picture,
             provider: 'google',
-            loginTime: new Date().toISOString()
+            loginTime: new Date().toISOString(),
+            lastActive: new Date().toISOString()
         };
         
         // Save user session
         saveUserSession(user);
         currentUser = user;
         
+        // Close any open modals
+        closeLoginModal();
+        
         // Trigger auth state change
         onAuthStateChanged(user);
         
-        // Show success message
-        showAuthNotification(`Welcome, ${user.name}!`, 'success');
+        // Show success message with animation
+        showAuthNotification(`Welcome back, ${user.name.split(' ')[0]}! 🎉`, 'success');
+        
+        // Track login event
+        trackAuthEvent('login', user.email);
     }
 }
 
@@ -77,11 +124,30 @@ function decodeJwtPayload(token) {
 function saveUserSession(user) {
     localStorage.setItem('nfs_user', JSON.stringify(user));
     localStorage.setItem('nfs_auth_token', user.id);
+    localStorage.setItem('nfs_login_time', Date.now().toString());
+    localStorage.setItem('nfs_last_activity', Date.now().toString());
     
     // Also save to referral system
     if (user.email) {
         localStorage.setItem('nfs_user_email', user.email);
     }
+    
+    // Save login count for stats
+    const loginCount = parseInt(localStorage.getItem('nfs_login_count') || '0') + 1;
+    localStorage.setItem('nfs_login_count', loginCount.toString());
+}
+
+// Track auth events for analytics
+function trackAuthEvent(action, email) {
+    const events = JSON.parse(localStorage.getItem('nfs_auth_events') || '[]');
+    events.push({
+        action,
+        email: email ? email.substring(0, 3) + '***' : 'anonymous',
+        timestamp: new Date().toISOString()
+    });
+    // Keep only last 50 events
+    if (events.length > 50) events.shift();
+    localStorage.setItem('nfs_auth_events', JSON.stringify(events));
 }
 
 // Check for existing session
@@ -122,10 +188,11 @@ function isLoggedIn() {
 }
 
 // Logout function
-function logout() {
+function logout(silent = false) {
     // Clear session
     localStorage.removeItem('nfs_user');
     localStorage.removeItem('nfs_auth_token');
+    localStorage.removeItem('nfs_login_time');
     currentUser = null;
     
     // Revoke Google session if available
@@ -133,10 +200,147 @@ function logout() {
         google.accounts.id.disableAutoSelect();
     }
     
+    // Track logout event
+    trackAuthEvent('logout', null);
+    
     // Trigger auth state change
     onAuthStateChanged(null);
     
-    showAuthNotification('You have been logged out', 'info');
+    if (!silent) {
+        showAuthNotification('You have been logged out successfully', 'info');
+    }
+}
+
+// Show logout confirmation modal
+function showLogoutConfirmation() {
+    let modal = document.getElementById('logoutConfirmModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        return;
+    }
+    
+    modal = document.createElement('div');
+    modal.id = 'logoutConfirmModal';
+    modal.innerHTML = `
+        <div class="logout-modal-overlay" onclick="closeLogoutModal()"></div>
+        <div class="logout-modal-content">
+            <div class="logout-modal-icon">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h3>Sign Out?</h3>
+            <p>Are you sure you want to sign out of your account?</p>
+            <div class="logout-modal-buttons">
+                <button class="logout-cancel-btn" onclick="closeLogoutModal()">Cancel</button>
+                <button class="logout-confirm-btn" onclick="confirmLogout()">Sign Out</button>
+            </div>
+        </div>
+    `;
+    
+    const styles = document.createElement('style');
+    styles.textContent = `
+        #logoutConfirmModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .logout-modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+        }
+        .logout-modal-content {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            max-width: 360px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            animation: modalSlideIn 0.3s ease;
+        }
+        .logout-modal-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .logout-modal-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        .logout-modal-content h3 {
+            font-family: 'Cinzel', serif;
+            color: #1e293b;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        .logout-modal-content p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+        .logout-modal-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        .logout-cancel-btn, .logout-confirm-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .logout-cancel-btn {
+            background: #f1f5f9;
+            border: none;
+            color: #64748b;
+        }
+        .logout-cancel-btn:hover {
+            background: #e2e8f0;
+        }
+        .logout-confirm-btn {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border: none;
+            color: white;
+        }
+        .logout-confirm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+    `;
+    document.head.appendChild(styles);
+    document.body.appendChild(modal);
+}
+
+function closeLogoutModal() {
+    const modal = document.getElementById('logoutConfirmModal');
+    if (modal) modal.style.display = 'none';
+}
+
+function confirmLogout() {
+    closeLogoutModal();
+    logout();
+}
+
+// Show session expired modal
+function showSessionExpiredModal() {
+    showAuthNotification('Your session has expired. Please sign in again.', 'info');
 }
 
 // Auth state change handler - override this in pages
@@ -159,6 +363,7 @@ function updateAuthUI(user) {
     const userAvatarElements = document.querySelectorAll('.auth-user-avatar');
     const guestElements = document.querySelectorAll('.auth-guest-only');
     const authElements = document.querySelectorAll('.auth-only');
+    const navAuthContainer = document.querySelector('.nav-actions');
     
     if (user) {
         // User is logged in
@@ -183,6 +388,11 @@ function updateAuthUI(user) {
                 <span>${user.name}</span>
             `;
         });
+        
+        // Update navbar with user dropdown
+        if (navAuthContainer && !document.querySelector('.user-dropdown')) {
+            updateNavbarWithUserDropdown(navAuthContainer, user);
+        }
     } else {
         // User is not logged in
         loginButtons.forEach(btn => btn.style.display = '');
@@ -194,7 +404,257 @@ function updateAuthUI(user) {
         userNameElements.forEach(el => el.textContent = 'Guest');
         userAvatarElements.forEach(el => el.textContent = '?');
         userInfoElements.forEach(el => el.innerHTML = '');
+        
+        // Reset navbar
+        if (navAuthContainer) {
+            resetNavbar(navAuthContainer);
+        }
     }
+}
+
+// Update navbar with user dropdown menu
+function updateNavbarWithUserDropdown(container, user) {
+    // Hide original login button
+    const loginBtn = container.querySelector('a[href*="login"]');
+    if (loginBtn) loginBtn.style.display = 'none';
+    
+    // Check if dropdown already exists
+    if (container.querySelector('.user-dropdown')) return;
+    
+    const dropdown = document.createElement('div');
+    dropdown.className = 'user-dropdown';
+    dropdown.innerHTML = `
+        <button class="user-dropdown-trigger" onclick="toggleUserDropdown()">
+            <div class="user-dropdown-avatar">
+                ${user.picture 
+                    ? `<img src="${user.picture}" alt="${user.name}">` 
+                    : `<span>${user.name.charAt(0).toUpperCase()}</span>`
+                }
+            </div>
+            <span class="user-dropdown-name">${user.name.split(' ')[0]}</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="user-dropdown-menu" id="userDropdownMenu">
+            <div class="dropdown-user-info">
+                <div class="dropdown-avatar">
+                    ${user.picture 
+                        ? `<img src="${user.picture}" alt="${user.name}">` 
+                        : `<span>${user.name.charAt(0).toUpperCase()}</span>`
+                    }
+                </div>
+                <div class="dropdown-user-details">
+                    <span class="dropdown-user-name">${user.name}</span>
+                    <span class="dropdown-user-email">${user.email}</span>
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="profile.html" class="dropdown-item">
+                <i class="fas fa-user"></i> My Profile
+            </a>
+            <a href="referral-dashboard.html" class="dropdown-item">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+            <a href="referral.html" class="dropdown-item">
+                <i class="fas fa-gift"></i> Referrals
+            </a>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item dropdown-logout" onclick="showLogoutConfirmation()">
+                <i class="fas fa-sign-out-alt"></i> Sign Out
+            </button>
+        </div>
+    `;
+    
+    container.insertBefore(dropdown, container.firstChild);
+    
+    // Add dropdown styles
+    addDropdownStyles();
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.user-dropdown')) {
+            const menu = document.getElementById('userDropdownMenu');
+            if (menu) menu.classList.remove('show');
+        }
+    });
+}
+
+function toggleUserDropdown() {
+    const menu = document.getElementById('userDropdownMenu');
+    if (menu) menu.classList.toggle('show');
+}
+
+function resetNavbar(container) {
+    // Remove dropdown
+    const dropdown = container.querySelector('.user-dropdown');
+    if (dropdown) dropdown.remove();
+    
+    // Show login button
+    const loginBtn = container.querySelector('a[href*="login"]');
+    if (loginBtn) loginBtn.style.display = '';
+}
+
+function addDropdownStyles() {
+    if (document.getElementById('user-dropdown-styles')) return;
+    
+    const styles = document.createElement('style');
+    styles.id = 'user-dropdown-styles';
+    styles.textContent = `
+        .user-dropdown {
+            position: relative;
+        }
+        .user-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px 6px 6px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(184,134,11,0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: inherit;
+        }
+        .user-dropdown-trigger:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: #b8860b;
+        }
+        .user-dropdown-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #722f37, #b8860b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        .user-dropdown-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .user-dropdown-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .user-dropdown-trigger i {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+        .user-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        .user-dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: linear-gradient(135deg, #faf8f5, #f5f0e8);
+        }
+        .dropdown-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #722f37, #b8860b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .dropdown-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dropdown-user-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .dropdown-user-name {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+        .dropdown-user-email {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        .dropdown-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 5px 0;
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: #475569;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            border: none;
+            background: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        .dropdown-item:hover {
+            background: #f8fafc;
+            color: #722f37;
+        }
+        .dropdown-item i {
+            width: 18px;
+            text-align: center;
+            color: #94a3b8;
+        }
+        .dropdown-item:hover i {
+            color: #722f37;
+        }
+        .dropdown-logout {
+            color: #ef4444;
+        }
+        .dropdown-logout:hover {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+        .dropdown-logout i {
+            color: #f87171;
+        }
+        @media (max-width: 768px) {
+            .user-dropdown-name {
+                display: none;
+            }
+            .user-dropdown-trigger {
+                padding: 6px;
+            }
+            .user-dropdown-trigger i {
+                display: none;
+            }
+        }
+    `;
+    document.head.appendChild(styles);
 }
 
 // Show Google Sign-In prompt
@@ -477,5 +937,13 @@ window.NaukriAuth = {
     logout,
     showGoogleSignIn,
     showLoginModal,
-    closeLoginModal
+    closeLoginModal,
+    showLogoutConfirmation,
+    toggleUserDropdown,
+    trackAuthEvent,
+    getLoginStats: () => ({
+        loginCount: parseInt(localStorage.getItem('nfs_login_count') || '0'),
+        lastLogin: localStorage.getItem('nfs_login_time'),
+        lastActivity: localStorage.getItem('nfs_last_activity')
+    })
 };

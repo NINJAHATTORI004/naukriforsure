@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes - Complete Programming Guide | NaukriForSure</title>
+    <meta name="description" content="Free comprehensive programming notes covering DSA, SQL, C, C++, Java, Python, JavaScript, React, AWS, Azure, Docker, and more. Perfect for interview preparation.">
+    <meta name="keywords" content="programming notes, DSA, SQL, Java, Python, JavaScript, React, AWS, Azure, Docker, REST API, interview preparation">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/notes/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/advanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .notes-hero {
+            background: var(--gradient-royal);
+            padding: 100px 0 80px;
+            text-align: center;
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .notes-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .notes-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .notes-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .hero-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .notes-search {
+            max-width: 500px;
+            margin: 30px auto 0;
+            position: relative;
+        }
+        
+        .notes-search input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: var(--radius-full);
+            background: rgba(255,255,255,0.1);
+            color: var(--cream);
+            font-size: 1rem;
+        }
+        
+        .notes-search input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .notes-search button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Category Sections */
+        .notes-section {
+            padding: 80px 0;
+        }
+        
+        .notes-section:nth-child(even) {
+            background: var(--neutral-50);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            color: var(--neutral-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-royal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--cream);
+            font-size: 1.5rem;
+        }
+        
+        /* Notes Grid */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .note-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .note-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .note-card-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .note-card-icon i {
+            font-size: 3rem;
+            color: var(--cream);
+            z-index: 1;
+        }
+        
+        /* Card Colors */
+        .note-card.c .note-card-icon { background: linear-gradient(135deg, #00599C, #004482); }
+        .note-card.cpp .note-card-icon { background: linear-gradient(135deg, #00599C, #044F88); }
+        .note-card.java .note-card-icon { background: linear-gradient(135deg, #ED8B00, #5382A1); }
+        .note-card.python .note-card-icon { background: linear-gradient(135deg, #3776AB, #FFD43B); }
+        .note-card.csharp .note-card-icon { background: linear-gradient(135deg, #68217A, #512BD4); }
+        .note-card.js .note-card-icon { background: linear-gradient(135deg, #F7DF1E, #323330); }
+        .note-card.html .note-card-icon { background: linear-gradient(135deg, #E34F26, #F16529); }
+        .note-card.css .note-card-icon { background: linear-gradient(135deg, #1572B6, #264DE4); }
+        .note-card.dsa .note-card-icon { background: linear-gradient(135deg, #1a365d, #2a4a7f); }
+        .note-card.sql .note-card-icon { background: linear-gradient(135deg, #065f46, #059669); }
+        .note-card.sorting .note-card-icon { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+        .note-card.github .note-card-icon { background: linear-gradient(135deg, #24292e, #0d1117); }
+        .note-card.react .note-card-icon { background: linear-gradient(135deg, #61DAFB, #20232A); }
+        .note-card.azure .note-card-icon { background: linear-gradient(135deg, #0078D4, #00BCF2); }
+        .note-card.aws .note-card-icon { background: linear-gradient(135deg, #232F3E, #FF9900); }
+        .note-card.docker .note-card-icon { background: linear-gradient(135deg, #2496ED, #0DB7ED); }
+        .note-card.restapi .note-card-icon { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .note-card.dotnet .note-card-icon { background: linear-gradient(135deg, #512BD4, #68217A); }
+        
+        .note-card-content {
+            padding: 20px;
+        }
+        
+        .note-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        
+        .note-card-desc {
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        
+        .note-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--neutral-500);
+        }
+        
+        .note-card-level {
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+        }
+        
+        .note-card-level.beginner { background: #dcfce7; color: #166534; }
+        .note-card-level.intermediate { background: #fef3c7; color: #92400e; }
+        .note-card-level.advanced { background: #fee2e2; color: #991b1b; }
+        .note-card-level.all { background: #e0e7ff; color: #3730a3; }
+        
+        /* Quick Links */
+        .quick-links {
+            background: var(--parchment);
+            padding: 40px 0;
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
+            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .quick-link:hover {
+            border-color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .quick-link i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .quick-link span {
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .notes-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .hero-stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .notes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline"><i class="fas fa-user"></i> Login</a>
+                <a href="../jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="notes-hero">
+        <div class="container">
+            <h1><i class="fas fa-book-open" style="margin-right: 15px;"></i>Study Notes</h1>
+            <p>Your complete guide to programming, DSA, databases, cloud computing, and modern tech stack. From basics to interview-ready!</p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">18+</div>
+                    <div class="hero-stat-label">Topics Covered</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">500+</div>
+                    <div class="hero-stat-label">Code Examples</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">100%</div>
+                    <div class="hero-stat-label">Free Forever</div>
+                </div>
+            </div>
+            
+            <div class="notes-search">
+                <input type="text" placeholder="Search notes... (e.g., Binary Search, React Hooks)" id="notesSearch">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="quick-links-grid">
+                <a href="dsa-notes.html" class="quick-link">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>DSA Complete</span>
+                </a>
+                <a href="sql-notes.html" class="quick-link">
+                    <i class="fas fa-database"></i>
+                    <span>SQL Mastery</span>
+                </a>
+                <a href="sorting-algorithms.html" class="quick-link">
+                    <i class="fas fa-sort"></i>
+                    <span>All Sorting Algorithms</span>
+                </a>
+                <a href="java-notes.html" class="quick-link">
+                    <i class="fab fa-java"></i>
+                    <span>Java Complete</span>
+                </a>
+                <a href="python-notes.html" class="quick-link">
+                    <i class="fab fa-python"></i>
+                    <span>Python Complete</span>
+                </a>
+                <a href="react-notes.html" class="quick-link">
+                    <i class="fab fa-react"></i>
+                    <span>React Guide</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Programming Languages Section -->
+        <section class="notes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-code"></i></div>
+                    <h2>Programming Languages</h2>
+                    <p>Master the fundamentals of popular programming languages from scratch</p>
+                </div>
+                
+                <div class="notes-grid">
+                    <a href="c-notes.html" class="note-card c">
+                        <div class="note-card-icon">
+                            <i class="fas fa-copyright"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">C Programming</h3>
+                            <p class="note-card-desc">Foundation of programming - variables, pointers, memory management, and system programming.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level beginner">Beginner</span>
+                                <span>25+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="cpp-notes.html" class="note-card cpp">
+                        <div class="note-card-icon">
+                            <i class="fas fa-plus-square"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">C++ Programming</h3>
+                            <p class="note-card-desc">OOP, STL, templates, and competitive programming essentials.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>30+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="java-notes.html" class="note-card java">
+                        <div class="note-card-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">Java Programming</h3>
+                            <p class="note-card-desc">OOP, Collections, Streams, Multithreading, and enterprise development.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>35+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="python-notes.html" class="note-card python">
+                        <div class="note-card-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">Python Programming</h3>
+                            <p class="note-card-desc">Syntax, data structures, OOP, file handling, and popular libraries.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level beginner">Beginner</span>
+                                <span>30+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="csharp-notes.html" class="note-card csharp">
+                        <div class="note-card-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">C# Programming</h3>
+                            <p class="note-card-desc">.NET fundamentals, LINQ, async/await, and application development.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>28+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="javascript-notes.html" class="note-card js">
+                        <div class="note-card-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">JavaScript</h3>
+                            <p class="note-card-desc">ES6+, DOM manipulation, async programming, and modern JS concepts.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level beginner">Beginner</span>
+                                <span>32+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Web Development Section -->
+        <section class="notes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-globe"></i></div>
+                    <h2>Web Development</h2>
+                    <p>Build modern websites and web applications from scratch</p>
+                </div>
+                
+                <div class="notes-grid">
+                    <a href="html-notes.html" class="note-card html">
+                        <div class="note-card-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">HTML5</h3>
+                            <p class="note-card-desc">Semantic HTML, forms, accessibility, and modern HTML features.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level beginner">Beginner</span>
+                                <span>20+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="css-notes.html" class="note-card css">
+                        <div class="note-card-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">CSS3</h3>
+                            <p class="note-card-desc">Flexbox, Grid, animations, responsive design, and modern CSS.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level beginner">Beginner</span>
+                                <span>25+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="react-notes.html" class="note-card react">
+                        <div class="note-card-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">React.js</h3>
+                            <p class="note-card-desc">Components, hooks, state management, and React ecosystem.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>28+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="restapi-notes.html" class="note-card restapi">
+                        <div class="note-card-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">REST API</h3>
+                            <p class="note-card-desc">API design, HTTP methods, authentication, and best practices.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>18+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DSA & Algorithms Section -->
+        <section class="notes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-brain"></i></div>
+                    <h2>Data Structures & Algorithms</h2>
+                    <p>Crack coding interviews with comprehensive DSA knowledge</p>
+                </div>
+                
+                <div class="notes-grid">
+                    <a href="dsa-notes.html" class="note-card dsa">
+                        <div class="note-card-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">DSA Complete Guide</h3>
+                            <p class="note-card-desc">Arrays, Linked Lists, Trees, Graphs, DP, and more with code examples.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level all">All Levels</span>
+                                <span>11 Sections</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="sorting-algorithms.html" class="note-card sorting">
+                        <div class="note-card-icon">
+                            <i class="fas fa-sort-amount-down"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">All Sorting Algorithms</h3>
+                            <p class="note-card-desc">Bubble, Selection, Insertion, Merge, Quick, Heap, Radix, and more!</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level all">All Levels</span>
+                                <span>12 Algorithms</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="sql-notes.html" class="note-card sql">
+                        <div class="note-card-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">SQL Complete Guide</h3>
+                            <p class="note-card-desc">Queries, JOINs, subqueries, window functions, and optimization.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level all">All Levels</span>
+                                <span>9 Sections</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DevOps & Cloud Section -->
+        <section class="notes-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-cloud"></i></div>
+                    <h2>DevOps & Cloud Computing</h2>
+                    <p>Learn modern deployment, containerization, and cloud services</p>
+                </div>
+                
+                <div class="notes-grid">
+                    <a href="github-notes.html" class="note-card github">
+                        <div class="note-card-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">Git & GitHub</h3>
+                            <p class="note-card-desc">Version control, branching, pull requests, and collaboration workflows.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level beginner">Beginner</span>
+                                <span>22+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="docker-notes.html" class="note-card docker">
+                        <div class="note-card-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">Docker</h3>
+                            <p class="note-card-desc">Containers, images, Docker Compose, and container orchestration basics.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>20+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="aws-notes.html" class="note-card aws">
+                        <div class="note-card-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">AWS Cloud</h3>
+                            <p class="note-card-desc">EC2, S3, Lambda, RDS, and essential AWS services for developers.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>25+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="azure-notes.html" class="note-card azure">
+                        <div class="note-card-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">Microsoft Azure</h3>
+                            <p class="note-card-desc">Azure fundamentals, App Services, Functions, and cloud architecture.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level intermediate">Intermediate</span>
+                                <span>22+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="dotnet-notes.html" class="note-card dotnet">
+                        <div class="note-card-icon">
+                            <i class="fas fa-dot-circle"></i>
+                        </div>
+                        <div class="note-card-content">
+                            <h3 class="note-card-title">.NET Framework</h3>
+                            <p class="note-card-desc">ASP.NET Core, Web API, Entity Framework, and enterprise development.</p>
+                            <div class="note-card-meta">
+                                <span class="note-card-level advanced">Advanced</span>
+                                <span>24+ Topics</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section style="background: var(--gradient-royal); padding: 60px 0; text-align: center; color: var(--cream);">
+        <div class="container">
+            <h2 style="font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 15px;">Ready to Start Learning?</h2>
+            <p style="margin-bottom: 30px; opacity: 0.9;">Pick any topic and start your journey to becoming a better developer</p>
+            <a href="dsa-notes.html" class="btn btn-secondary" style="margin-right: 15px;"><i class="fas fa-rocket"></i> Start with DSA</a>
+            <a href="../jobs.html" class="btn btn-outline" style="border-color: var(--cream); color: var(--cream);"><i class="fas fa-briefcase"></i> Find Jobs</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Search functionality
+        document.getElementById('notesSearch').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.note-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.note-card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.note-card-desc').textContent.toLowerCase();
+                
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = query ? 'none' : 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

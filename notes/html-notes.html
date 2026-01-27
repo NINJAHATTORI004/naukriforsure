@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Complete Guide - Semantic Elements & Forms | NaukriForSure</title>
+    <meta name="description" content="Complete HTML5 guide: semantic elements, forms, multimedia, and web accessibility.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #e34c26 0%, #f06529 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #e34c26; margin-bottom: 20px; border-bottom: 2px solid #f06529; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #fef2f0; color: #e34c26; }
+        .toc-list a i { color: #f06529; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #f06529; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #e34c26, #f06529); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #e34c26; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #f06529; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #fef2f0; border-left: 4px solid #f06529; display: flex; gap: 15px; }
+        .info-box i { color: #e34c26; font-size: 1.3rem; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .concept-table th, .concept-table td { padding: 12px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #fef2f0; color: #e34c26; }
+        .concept-table code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-html5" style="margin-right: 15px;"></i>HTML5</h1>
+            <p>Complete Guide: Elements, Forms, Semantic Markup & Accessibility</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> Basics</a></li>
+                        <li><a href="#text"><i class="fas fa-font"></i> Text Elements</a></li>
+                        <li><a href="#lists"><i class="fas fa-list-ul"></i> Lists & Tables</a></li>
+                        <li><a href="#links"><i class="fas fa-link"></i> Links & Media</a></li>
+                        <li><a href="#semantic"><i class="fas fa-sitemap"></i> Semantic HTML</a></li>
+                        <li><a href="#forms"><i class="fas fa-edit"></i> Forms</a></li>
+                        <li><a href="#meta"><i class="fas fa-code"></i> Meta & SEO</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-play"></i></div>
+                        <h2>HTML Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>HTML</strong> (HyperText Markup Language) is the standard markup language for creating web pages.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+    
+    &lt;!-- This is a comment --&gt;
+    
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                        
+                        <h3>Element Structure</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Element with content --&gt;
+&lt;tagname attribute="value"&gt;Content&lt;/tagname&gt;
+
+&lt;!-- Self-closing elements --&gt;
+&lt;img src="image.jpg" alt="Description"&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;input type="text"&gt;
+
+&lt;!-- Global attributes --&gt;
+&lt;div id="unique-id" class="class-name" style="color: red;"&gt;
+    &lt;p title="Tooltip text" data-custom="value"&gt;Content&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Text Elements -->
+                <section id="text" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-font"></i></div>
+                        <h2>Text Elements</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Headings (h1 most important, h6 least) --&gt;
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Sub-subheading&lt;/h3&gt;
+
+&lt;!-- Paragraphs --&gt;
+&lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+
+&lt;!-- Text formatting --&gt;
+&lt;strong&gt;Bold (important)&lt;/strong&gt;
+&lt;b&gt;Bold (visual only)&lt;/b&gt;
+&lt;em&gt;Italic (emphasis)&lt;/em&gt;
+&lt;i&gt;Italic (visual only)&lt;/i&gt;
+&lt;u&gt;Underline&lt;/u&gt;
+&lt;s&gt;Strikethrough&lt;/s&gt;
+&lt;mark&gt;Highlighted&lt;/mark&gt;
+&lt;small&gt;Small text&lt;/small&gt;
+&lt;sub&gt;Subscript&lt;/sub&gt;
+&lt;sup&gt;Superscript&lt;/sup&gt;
+
+&lt;!-- Code and preformatted --&gt;
+&lt;code&gt;inline code&lt;/code&gt;
+&lt;pre&gt;
+    Preformatted
+    text block
+&lt;/pre&gt;
+&lt;kbd&gt;Keyboard input&lt;/kbd&gt;
+
+&lt;!-- Quotations --&gt;
+&lt;blockquote cite="source"&gt;
+    Block quotation
+&lt;/blockquote&gt;
+&lt;q&gt;Inline quote&lt;/q&gt;
+&lt;cite&gt;Citation/Reference&lt;/cite&gt;
+
+&lt;!-- Abbreviation --&gt;
+&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;
+
+&lt;!-- Line breaks --&gt;
+&lt;br&gt;  &lt;!-- Line break --&gt;
+&lt;hr&gt;  &lt;!-- Horizontal rule --&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lists & Tables -->
+                <section id="lists" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-list-ul"></i></div>
+                        <h2>Lists & Tables</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Unordered list --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered list --&gt;
+&lt;ol type="1" start="1"&gt;
+    &lt;li&gt;First&lt;/li&gt;
+    &lt;li&gt;Second&lt;/li&gt;
+    &lt;li&gt;Third&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Description list --&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Term 1&lt;/dt&gt;
+    &lt;dd&gt;Definition 1&lt;/dd&gt;
+    &lt;dt&gt;Term 2&lt;/dt&gt;
+    &lt;dd&gt;Definition 2&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;!-- Table --&gt;
+&lt;table&gt;
+    &lt;caption&gt;Table Title&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Header 1&lt;/th&gt;
+            &lt;th&gt;Header 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Data 1&lt;/td&gt;
+            &lt;td&gt;Data 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="2"&gt;Spans 2 columns&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;Spans 2 rows&lt;/td&gt;
+            &lt;td&gt;Data&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Footer&lt;/td&gt;
+            &lt;td&gt;Footer&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Links & Media -->
+                <section id="links" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-link"></i></div>
+                        <h2>Links & Media</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Links --&gt;
+&lt;a href="https://example.com"&gt;External Link&lt;/a&gt;
+&lt;a href="/page.html"&gt;Internal Link&lt;/a&gt;
+&lt;a href="#section-id"&gt;Anchor Link&lt;/a&gt;
+&lt;a href="mailto:email@example.com"&gt;Email Link&lt;/a&gt;
+&lt;a href="tel:+1234567890"&gt;Phone Link&lt;/a&gt;
+&lt;a href="file.pdf" download&gt;Download&lt;/a&gt;
+&lt;a href="link" target="_blank" rel="noopener"&gt;New Tab&lt;/a&gt;
+
+&lt;!-- Images --&gt;
+&lt;img src="image.jpg" alt="Description" width="300" height="200"&gt;
+
+&lt;!-- Responsive images --&gt;
+&lt;img src="small.jpg"
+     srcset="small.jpg 300w, medium.jpg 600w, large.jpg 1200w"
+     sizes="(max-width: 600px) 300px, 600px"
+     alt="Responsive image"&gt;
+
+&lt;!-- Figure with caption --&gt;
+&lt;figure&gt;
+    &lt;img src="photo.jpg" alt="Photo"&gt;
+    &lt;figcaption&gt;Photo caption&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;!-- Video --&gt;
+&lt;video controls width="640" height="360" poster="thumbnail.jpg"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    Your browser doesn't support video.
+&lt;/video&gt;
+
+&lt;!-- Audio --&gt;
+&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+    Your browser doesn't support audio.
+&lt;/audio&gt;
+
+&lt;!-- Iframe --&gt;
+&lt;iframe src="https://example.com" 
+        width="600" height="400"
+        title="Embedded content"&gt;
+&lt;/iframe&gt;
+
+&lt;!-- Picture element for art direction --&gt;
+&lt;picture&gt;
+    &lt;source media="(min-width: 800px)" srcset="large.jpg"&gt;
+    &lt;source media="(min-width: 400px)" srcset="medium.jpg"&gt;
+    &lt;img src="small.jpg" alt="Image"&gt;
+&lt;/picture&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Semantic HTML -->
+                <section id="semantic" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sitemap"></i></div>
+                        <h2>Semantic HTML5</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Semantic elements</strong> clearly describe their meaning to both the browser and the developer. They improve accessibility, SEO, and code readability.
+                            </div>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Page structure --&gt;
+&lt;header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Article Title&lt;/h1&gt;
+            &lt;time datetime="2024-01-15"&gt;January 15, 2024&lt;/time&gt;
+        &lt;/header&gt;
+        
+        &lt;section&gt;
+            &lt;h2&gt;Section Heading&lt;/h2&gt;
+            &lt;p&gt;Section content...&lt;/p&gt;
+        &lt;/section&gt;
+        
+        &lt;aside&gt;
+            &lt;p&gt;Related information&lt;/p&gt;
+        &lt;/aside&gt;
+        
+        &lt;footer&gt;
+            &lt;p&gt;Article footer&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+    &lt;h3&gt;Sidebar&lt;/h3&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+    &lt;address&gt;
+        Contact: &lt;a href="mailto:email@example.com"&gt;email@example.com&lt;/a&gt;
+    &lt;/address&gt;
+    &lt;p&gt;&amp;copy; 2024 Company Name&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;!-- Other semantic elements --&gt;
+&lt;details&gt;
+    &lt;summary&gt;Click to expand&lt;/summary&gt;
+    &lt;p&gt;Hidden content&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;dialog open&gt;
+    &lt;p&gt;Dialog content&lt;/p&gt;
+    &lt;button&gt;Close&lt;/button&gt;
+&lt;/dialog&gt;
+
+&lt;progress value="70" max="100"&gt;70%&lt;/progress&gt;
+&lt;meter value="0.7" min="0" max="1"&gt;70%&lt;/meter&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Forms -->
+                <section id="forms" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-edit"></i></div>
+                        <h2>Forms</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-html">&lt;form action="/submit" method="POST"&gt;
+    &lt;!-- Text inputs --&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" 
+           placeholder="Enter name" required&gt;
+    
+    &lt;input type="email" placeholder="Email" required&gt;
+    &lt;input type="password" minlength="8"&gt;
+    &lt;input type="tel" pattern="[0-9]{10}"&gt;
+    &lt;input type="url"&gt;
+    &lt;input type="search"&gt;
+    
+    &lt;!-- Number inputs --&gt;
+    &lt;input type="number" min="0" max="100" step="1"&gt;
+    &lt;input type="range" min="0" max="100"&gt;
+    
+    &lt;!-- Date inputs --&gt;
+    &lt;input type="date"&gt;
+    &lt;input type="time"&gt;
+    &lt;input type="datetime-local"&gt;
+    &lt;input type="month"&gt;
+    &lt;input type="week"&gt;
+    
+    &lt;!-- Other inputs --&gt;
+    &lt;input type="color"&gt;
+    &lt;input type="file" accept=".jpg,.png" multiple&gt;
+    &lt;input type="hidden" name="token" value="abc123"&gt;
+    
+    &lt;!-- Textarea --&gt;
+    &lt;textarea rows="4" cols="50" maxlength="500"&gt;&lt;/textarea&gt;
+    
+    &lt;!-- Select dropdown --&gt;
+    &lt;select name="country"&gt;
+        &lt;optgroup label="Asia"&gt;
+            &lt;option value="in"&gt;India&lt;/option&gt;
+            &lt;option value="jp" selected&gt;Japan&lt;/option&gt;
+        &lt;/optgroup&gt;
+        &lt;optgroup label="Europe"&gt;
+            &lt;option value="uk"&gt;UK&lt;/option&gt;
+        &lt;/optgroup&gt;
+    &lt;/select&gt;
+    
+    &lt;!-- Datalist (autocomplete) --&gt;
+    &lt;input list="browsers"&gt;
+    &lt;datalist id="browsers"&gt;
+        &lt;option value="Chrome"&gt;
+        &lt;option value="Firefox"&gt;
+        &lt;option value="Safari"&gt;
+    &lt;/datalist&gt;
+    
+    &lt;!-- Checkboxes --&gt;
+    &lt;input type="checkbox" id="agree" name="agree" checked&gt;
+    &lt;label for="agree"&gt;I agree&lt;/label&gt;
+    
+    &lt;!-- Radio buttons --&gt;
+    &lt;input type="radio" id="male" name="gender" value="male"&gt;
+    &lt;label for="male"&gt;Male&lt;/label&gt;
+    &lt;input type="radio" id="female" name="gender" value="female"&gt;
+    &lt;label for="female"&gt;Female&lt;/label&gt;
+    
+    &lt;!-- Fieldset for grouping --&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Personal Info&lt;/legend&gt;
+        &lt;!-- Form fields here --&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;!-- Buttons --&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset&lt;/button&gt;
+    &lt;button type="button"&gt;Custom&lt;/button&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Meta & SEO -->
+                <section id="meta" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code"></i></div>
+                        <h2>Meta Tags & SEO</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-html">&lt;head&gt;
+    &lt;!-- Essential meta tags --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    
+    &lt;!-- SEO --&gt;
+    &lt;title&gt;Page Title - Brand Name&lt;/title&gt;
+    &lt;meta name="description" content="Page description (150-160 chars)"&gt;
+    &lt;meta name="keywords" content="keyword1, keyword2, keyword3"&gt;
+    &lt;meta name="author" content="Author Name"&gt;
+    &lt;meta name="robots" content="index, follow"&gt;
+    &lt;link rel="canonical" href="https://example.com/page"&gt;
+    
+    &lt;!-- Open Graph (Facebook/LinkedIn) --&gt;
+    &lt;meta property="og:title" content="Page Title"&gt;
+    &lt;meta property="og:description" content="Description"&gt;
+    &lt;meta property="og:image" content="https://example.com/image.jpg"&gt;
+    &lt;meta property="og:url" content="https://example.com/page"&gt;
+    &lt;meta property="og:type" content="website"&gt;
+    
+    &lt;!-- Twitter Card --&gt;
+    &lt;meta name="twitter:card" content="summary_large_image"&gt;
+    &lt;meta name="twitter:title" content="Page Title"&gt;
+    &lt;meta name="twitter:description" content="Description"&gt;
+    &lt;meta name="twitter:image" content="https://example.com/image.jpg"&gt;
+    
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+    &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;
+    
+    &lt;!-- Preload/Prefetch --&gt;
+    &lt;link rel="preload" href="font.woff2" as="font" crossorigin&gt;
+    &lt;link rel="prefetch" href="next-page.html"&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    
+    &lt;!-- Theme color (mobile browsers) --&gt;
+    &lt;meta name="theme-color" content="#ffffff"&gt;
+&lt;/head&gt;</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Accessibility Tips:</strong><br>
+                                • Always use alt text for images<br>
+                                • Use semantic elements properly<br>
+                                • Ensure proper heading hierarchy<br>
+                                • Add labels to form inputs<br>
+                                • Use ARIA attributes when needed
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

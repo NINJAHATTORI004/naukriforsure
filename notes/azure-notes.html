@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Complete Guide - Cloud Services & DevOps | NaukriForSure</title>
+    <meta name="description" content="Complete Azure guide: Virtual Machines, App Service, Azure Functions, and cloud architecture.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%); padding: 60px 0; color: white; text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: white; border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); }
+        .sidebar-title { font-family: 'Cinzel', serif; color: #0078d4; margin-bottom: 20px; border-bottom: 2px solid #00bcf2; padding-bottom: 10px; }
+        .toc-list { list-style: none; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); font-size: 0.85rem; }
+        .toc-list a:hover { background: #e6f4ff; color: #0078d4; }
+        .toc-list a i { color: #00bcf2; }
+        .notes-content { background: white; border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 3px solid #00bcf2; padding-bottom: 15px; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #0078d4, #00bcf2); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; }
+        .topic-content h3 { color: #0078d4; margin: 25px 0 15px; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; }
+        .code-header { display: flex; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; }
+        .code-lang { color: #00bcf2; font-size: 0.8rem; font-weight: 600; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+        .copy-btn:hover { background: #555; color: white; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; background: #e6f4ff; border-left: 4px solid #0078d4; display: flex; gap: 15px; }
+        .info-box i { color: #0078d4; font-size: 1.3rem; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .concept-table th, .concept-table td { padding: 12px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #e6f4ff; color: #0078d4; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">Jobs</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-microsoft" style="margin-right: 15px;"></i>Microsoft Azure</h1>
+            <p>Cloud Services, DevOps & Enterprise Solutions</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list"></i> Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-cloud"></i> Azure Basics</a></li>
+                        <li><a href="#compute"><i class="fas fa-server"></i> Compute</a></li>
+                        <li><a href="#storage"><i class="fas fa-database"></i> Storage</a></li>
+                        <li><a href="#appservice"><i class="fas fa-globe"></i> App Service</a></li>
+                        <li><a href="#functions"><i class="fas fa-bolt"></i> Functions</a></li>
+                        <li><a href="#devops"><i class="fas fa-code-branch"></i> DevOps</a></li>
+                        <li><a href="#security"><i class="fas fa-shield-alt"></i> Security</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Basics -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cloud"></i></div>
+                        <h2>Azure Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Azure vs AWS Comparison</h3>
+                        <table class="concept-table">
+                            <tr><th>Azure</th><th>AWS</th><th>Purpose</th></tr>
+                            <tr><td>Virtual Machines</td><td>EC2</td><td>Compute</td></tr>
+                            <tr><td>Blob Storage</td><td>S3</td><td>Object Storage</td></tr>
+                            <tr><td>Azure SQL</td><td>RDS</td><td>Managed SQL</td></tr>
+                            <tr><td>Azure Functions</td><td>Lambda</td><td>Serverless</td></tr>
+                            <tr><td>App Service</td><td>Elastic Beanstalk</td><td>PaaS</td></tr>
+                            <tr><td>Cosmos DB</td><td>DynamoDB</td><td>NoSQL</td></tr>
+                            <tr><td>Azure AD</td><td>IAM + Cognito</td><td>Identity</td></tr>
+                        </table>
+                        
+                        <h3>Azure CLI</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Bash</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Login to Azure
+az login
+
+# Set subscription
+az account set --subscription "My Subscription"
+
+# Create resource group
+az group create --name myResourceGroup --location eastus
+
+# List resources
+az resource list --resource-group myResourceGroup
+
+# Delete resource group
+az group delete --name myResourceGroup --yes</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Azure Free Account:</strong> $200 credit for 30 days + 12 months of free services including VMs, storage, and databases.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Compute -->
+                <section id="compute" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-server"></i></div>
+                        <h2>Compute Services</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Virtual Machines</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Azure CLI</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create a VM
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --size Standard_B2s
+
+# Start/Stop VM
+az vm start --resource-group myResourceGroup --name myVM
+az vm stop --resource-group myResourceGroup --name myVM
+
+# Open port
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+
+# List VMs
+az vm list --output table</code></pre>
+                        </div>
+                        
+                        <h3>VM Scale Sets</h3>
+                        <p>Auto-scale identical VMs based on demand. Perfect for load-balanced workloads.</p>
+                        
+                        <h3>Azure Kubernetes Service (AKS)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Azure CLI</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create AKS cluster
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --enable-addons monitoring \
+    --generate-ssh-keys
+
+# Get credentials
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+
+# Scale cluster
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 5</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Storage -->
+                <section id="storage" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-database"></i></div>
+                        <h2>Storage Services</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Blob Storage</h3>
+                        <p>Object storage for unstructured data (images, videos, documents).</p>
+                        
+                        <h3>Storage Tiers</h3>
+                        <table class="concept-table">
+                            <tr><th>Tier</th><th>Use Case</th><th>Access</th></tr>
+                            <tr><td>Hot</td><td>Frequently accessed</td><td>Highest cost/GB, lowest access cost</td></tr>
+                            <tr><td>Cool</td><td>Infrequent (30+ days)</td><td>Lower storage, higher access cost</td></tr>
+                            <tr><td>Archive</td><td>Rarely accessed</td><td>Lowest storage, highest access cost</td></tr>
+                        </table>
+                        
+                        <h3>Azure CLI Storage Commands</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Azure CLI</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create storage account
+az storage account create \
+    --name mystorageaccount \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --sku Standard_LRS
+
+# Create container
+az storage container create \
+    --name mycontainer \
+    --account-name mystorageaccount
+
+# Upload blob
+az storage blob upload \
+    --container-name mycontainer \
+    --file myfile.txt \
+    --name myblob.txt \
+    --account-name mystorageaccount
+
+# List blobs
+az storage blob list --container-name mycontainer --account-name mystorageaccount</code></pre>
+                        </div>
+                        
+                        <h3>C# SDK Example</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using Azure.Storage.Blobs;
+
+// Connect to storage
+BlobServiceClient blobService = new BlobServiceClient(connectionString);
+BlobContainerClient container = blobService.GetBlobContainerClient("mycontainer");
+
+// Upload file
+BlobClient blob = container.GetBlobClient("myfile.txt");
+await blob.UploadAsync("local-file.txt", overwrite: true);
+
+// Download file
+await blob.DownloadToAsync("downloaded-file.txt");
+
+// List blobs
+await foreach (var item in container.GetBlobsAsync())
+{
+    Console.WriteLine(item.Name);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- App Service -->
+                <section id="appservice" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-globe"></i></div>
+                        <h2>App Service</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Azure App Service</strong> is a fully managed platform for building web apps, REST APIs, and mobile backends.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Azure CLI</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create App Service plan
+az appservice plan create \
+    --name myAppServicePlan \
+    --resource-group myResourceGroup \
+    --sku B1 \
+    --is-linux
+
+# Create web app
+az webapp create \
+    --resource-group myResourceGroup \
+    --plan myAppServicePlan \
+    --name myUniqueAppName \
+    --runtime "NODE|18-lts"
+
+# Deploy from GitHub
+az webapp deployment source config \
+    --name myUniqueAppName \
+    --resource-group myResourceGroup \
+    --repo-url https://github.com/user/repo \
+    --branch main \
+    --manual-integration
+
+# Configure app settings
+az webapp config appsettings set \
+    --resource-group myResourceGroup \
+    --name myUniqueAppName \
+    --settings KEY=value
+
+# View logs
+az webapp log tail --name myUniqueAppName --resource-group myResourceGroup</code></pre>
+                        </div>
+                        
+                        <h3>Deployment Slots</h3>
+                        <p>Create staging environments and swap to production with zero downtime.</p>
+                    </div>
+                </section>
+
+                <!-- Functions -->
+                <section id="functions" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-bolt"></i></div>
+                        <h2>Azure Functions</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Azure Functions</strong> is a serverless compute service for running event-driven code.</p>
+                        
+                        <h3>HTTP Trigger Function</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
+
+public class HelloFunction
+{
+    [Function("HelloWorld")]
+    public HttpResponseData Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post")] 
+        HttpRequestData req)
+    {
+        var response = req.CreateResponse(HttpStatusCode.OK);
+        response.Headers.Add("Content-Type", "application/json");
+        response.WriteString("{\"message\": \"Hello, World!\"}");
+        return response;
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h3>Timer Trigger (Scheduled)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-csharp">[Function("TimerFunction")]
+public void Run([TimerTrigger("0 */5 * * * *")] TimerInfo timer)
+{
+    // Runs every 5 minutes
+    _logger.LogInformation($"Timer triggered at: {DateTime.Now}");
+}</code></pre>
+                        </div>
+                        
+                        <h3>Blob Trigger</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                            </div>
+                            <pre><code class="language-csharp">[Function("BlobTrigger")]
+public void Run(
+    [BlobTrigger("container/{name}")] string content,
+    string name)
+{
+    _logger.LogInformation($"Blob {name} was uploaded with content: {content}");
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DevOps -->
+                <section id="devops" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code-branch"></i></div>
+                        <h2>Azure DevOps</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><strong>Azure Repos:</strong> Git repositories</li>
+                            <li><strong>Azure Pipelines:</strong> CI/CD automation</li>
+                            <li><strong>Azure Boards:</strong> Work tracking (Agile/Scrum)</li>
+                            <li><strong>Azure Artifacts:</strong> Package management</li>
+                            <li><strong>Azure Test Plans:</strong> Manual/exploratory testing</li>
+                        </ul>
+                        
+                        <h3>Pipeline YAML Example</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">YAML</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-yaml">trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Build
+    jobs:
+      - job: BuildJob
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '18.x'
+          
+          - script: |
+              npm install
+              npm run build
+            displayName: 'Build application'
+          
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathtoPublish: 'dist'
+              artifactName: 'drop'
+
+  - stage: Deploy
+    dependsOn: Build
+    jobs:
+      - deployment: DeployWeb
+        environment: 'production'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureWebApp@1
+                  inputs:
+                    azureSubscription: 'MySubscription'
+                    appName: 'myWebApp'
+                    package: '$(Pipeline.Workspace)/drop'</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security -->
+                <section id="security" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h2>Security & Identity</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Azure Active Directory (Azure AD)</h3>
+                        <p>Cloud-based identity and access management service.</p>
+                        
+                        <h3>Key Vault</h3>
+                        <p>Securely store and access secrets, keys, and certificates.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Azure CLI</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create Key Vault
+az keyvault create \
+    --name myKeyVault \
+    --resource-group myResourceGroup \
+    --location eastus
+
+# Store secret
+az keyvault secret set \
+    --vault-name myKeyVault \
+    --name MySecret \
+    --value "super-secret-value"
+
+# Get secret
+az keyvault secret show \
+    --vault-name myKeyVault \
+    --name MySecret</code></pre>
+                        </div>
+                        
+                        <h3>C# Key Vault Access</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">C#</span>
+                            </div>
+                            <pre><code class="language-csharp">using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+var client = new SecretClient(
+    new Uri("https://mykeyvault.vault.azure.net/"),
+    new DefaultAzureCredential());
+
+KeyVaultSecret secret = await client.GetSecretAsync("MySecret");
+string value = secret.Value;</code></pre>
+                        </div>
+                        
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Azure Security Best Practices:</strong><br>
+                                • Use Managed Identities for service auth<br>
+                                • Store secrets in Key Vault, not code<br>
+                                • Enable MFA in Azure AD<br>
+                                • Use Azure Policy for compliance<br>
+                                • Enable Azure Security Center
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2026 NaukriForSure. All rights reserved.</p></div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const code = btn.closest('.code-block').querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Notes - Database Queries & Concepts | NaukriForSure</title>
+    <meta name="description" content="Complete SQL notes from basic to advanced. Learn SELECT, JOINs, subqueries, window functions, and query optimization with examples.">
+    <meta name="keywords" content="SQL notes, database queries, SQL interview, joins, subqueries, window functions, query optimization">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/notes/sql-notes.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/advanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .notes-page {
+            background: var(--neutral-50);
+            min-height: 100vh;
+        }
+        
+        .notes-header {
+            background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+            padding: 60px 0;
+            color: var(--cream);
+            text-align: center;
+        }
+        
+        .notes-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .notes-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .notes-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        @media (max-width: 992px) {
+            .notes-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Sidebar */
+        .notes-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .sidebar-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 25px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .sidebar-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+        
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            color: var(--neutral-700);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .toc-list a:hover,
+        .toc-list a.active {
+            background: var(--parchment);
+            color: var(--primary);
+        }
+        
+        .toc-list a i {
+            color: #059669;
+            width: 18px;
+        }
+        
+        .toc-level {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            margin-left: auto;
+        }
+        
+        .toc-level.basic { background: #dcfce7; color: #166534; }
+        .toc-level.intermediate { background: #fef3c7; color: #92400e; }
+        .toc-level.advanced { background: #fee2e2; color: #991b1b; }
+        
+        /* Main Content */
+        .notes-content {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .topic-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 100px;
+        }
+        
+        .topic-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #059669;
+        }
+        
+        .topic-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 1.3rem;
+        }
+        
+        .topic-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--dark);
+        }
+        
+        .topic-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 30px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .topic-content h3::before {
+            content: '§';
+            color: #059669;
+        }
+        
+        .topic-content h4 {
+            font-size: 1.1rem;
+            color: var(--neutral-800);
+            margin: 20px 0 10px;
+        }
+        
+        .topic-content p {
+            color: var(--neutral-700);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .topic-content ul, .topic-content ol {
+            margin: 15px 0 20px 25px;
+            color: var(--neutral-700);
+        }
+        
+        .topic-content li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        
+        /* Code Blocks */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            overflow: hidden;
+            border: 2px solid var(--neutral-300);
+        }
+        
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: #2d2d2d;
+            border-bottom: 1px solid #404040;
+        }
+        
+        .code-lang {
+            color: #10b981;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .copy-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #555;
+            color: #fff;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        /* SQL Keyword Highlighting */
+        .code-block code .keyword {
+            color: #569cd6;
+        }
+        
+        .code-block code .function {
+            color: #dcdcaa;
+        }
+        
+        .code-block code .string {
+            color: #ce9178;
+        }
+        
+        .code-block code .comment {
+            color: #6a9955;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .info-box i {
+            font-size: 1.3rem;
+            margin-top: 2px;
+        }
+        
+        .info-box.tip {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+        }
+        
+        .info-box.tip i { color: #10b981; }
+        
+        .info-box.note {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .info-box.note i { color: #3b82f6; }
+        
+        .info-box.warning {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .info-box.warning i { color: #f59e0b; }
+        
+        .info-box.important {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .info-box.important i { color: #ef4444; }
+        
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--neutral-200);
+        }
+        
+        .data-table th {
+            background: var(--parchment);
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: var(--neutral-50);
+        }
+        
+        .data-table code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+        }
+        
+        /* Sample Tables Visualization */
+        .sample-tables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .sample-table {
+            background: var(--parchment);
+            border-radius: var(--radius-lg);
+            padding: 15px;
+        }
+        
+        .sample-table h5 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        /* Progress Tracker */
+        .progress-card {
+            background: var(--parchment);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .progress-card h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .progress-bar-container {
+            background: var(--neutral-200);
+            border-radius: var(--radius-full);
+            height: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+            border-radius: var(--radius-full);
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+        
+        @media (max-width: 768px) {
+            .notes-content {
+                padding: 25px;
+            }
+            
+            .notes-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .notes-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline"><i class="fas fa-user"></i> Login</a>
+                <a href="../jobs.html" class="btn btn-primary">Find Jobs</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fas fa-database" style="margin-right: 15px;"></i>SQL Notes</h1>
+            <p>Complete SQL Guide - From Basics to Advanced Queries</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <!-- Sidebar -->
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list" style="margin-right: 8px;"></i>Contents</h3>
+                    <ul class="toc-list">
+                        <li><a href="#basics"><i class="fas fa-play"></i> SQL Basics <span class="toc-level basic">Basic</span></a></li>
+                        <li><a href="#filtering"><i class="fas fa-filter"></i> Filtering Data <span class="toc-level basic">Basic</span></a></li>
+                        <li><a href="#joins"><i class="fas fa-link"></i> JOINs <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#aggregations"><i class="fas fa-calculator"></i> Aggregations <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#subqueries"><i class="fas fa-code-branch"></i> Subqueries <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#cte"><i class="fas fa-sitemap"></i> CTEs <span class="toc-level intermediate">Medium</span></a></li>
+                        <li><a href="#window"><i class="fas fa-window-maximize"></i> Window Functions <span class="toc-level advanced">Advanced</span></a></li>
+                        <li><a href="#optimization"><i class="fas fa-tachometer-alt"></i> Query Optimization <span class="toc-level advanced">Advanced</span></a></li>
+                        <li><a href="#interview"><i class="fas fa-briefcase"></i> Interview Queries <span class="toc-level advanced">Advanced</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="progress-card">
+                    <h4><i class="fas fa-chart-line" style="margin-right: 8px;"></i>Your Progress</h4>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>0 / 9 Topics</span>
+                        <span>0%</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="notes-content">
+                
+                <!-- SQL Basics Section -->
+                <section id="basics" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-play"></i></div>
+                        <h2>SQL Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>SQL (Structured Query Language)</strong> is the standard language for managing and manipulating relational databases.</p>
+                        
+                        <h3>Basic SELECT Statement</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Select all columns from a table
+SELECT * FROM employees;
+
+-- Select specific columns
+SELECT first_name, last_name, salary
+FROM employees;
+
+-- Using aliases for columns
+SELECT 
+    first_name AS "First Name",
+    last_name AS "Last Name",
+    salary * 12 AS annual_salary
+FROM employees;
+
+-- Using DISTINCT to remove duplicates
+SELECT DISTINCT department_id
+FROM employees;</code></pre>
+                        </div>
+                        
+                        <h3>Sample Tables for Examples</h3>
+                        <div class="sample-tables">
+                            <div class="sample-table">
+                                <h5>employees</h5>
+                                <table class="data-table">
+                                    <tr><th>id</th><th>name</th><th>dept_id</th><th>salary</th></tr>
+                                    <tr><td>1</td><td>John</td><td>101</td><td>50000</td></tr>
+                                    <tr><td>2</td><td>Jane</td><td>102</td><td>60000</td></tr>
+                                    <tr><td>3</td><td>Bob</td><td>101</td><td>55000</td></tr>
+                                </table>
+                            </div>
+                            <div class="sample-table">
+                                <h5>departments</h5>
+                                <table class="data-table">
+                                    <tr><th>id</th><th>name</th></tr>
+                                    <tr><td>101</td><td>Engineering</td></tr>
+                                    <tr><td>102</td><td>Marketing</td></tr>
+                                    <tr><td>103</td><td>Sales</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <h3>SQL Order of Execution</h3>
+                        <div class="info-box note">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>SQL executes in this order (not as written):</strong><br>
+                                1. <code>FROM</code> / <code>JOIN</code> - Identify tables<br>
+                                2. <code>WHERE</code> - Filter rows<br>
+                                3. <code>GROUP BY</code> - Group rows<br>
+                                4. <code>HAVING</code> - Filter groups<br>
+                                5. <code>SELECT</code> - Select columns<br>
+                                6. <code>DISTINCT</code> - Remove duplicates<br>
+                                7. <code>ORDER BY</code> - Sort results<br>
+                                8. <code>LIMIT</code> / <code>OFFSET</code> - Limit results
+                            </div>
+                        </div>
+                        
+                        <h3>Data Types</h3>
+                        <table class="data-table">
+                            <tr>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><code>INT</code></td>
+                                <td>Integer numbers</td>
+                                <td>42, -100</td>
+                            </tr>
+                            <tr>
+                                <td><code>VARCHAR(n)</code></td>
+                                <td>Variable-length string</td>
+                                <td>'Hello'</td>
+                            </tr>
+                            <tr>
+                                <td><code>DECIMAL(p,s)</code></td>
+                                <td>Fixed-point numbers</td>
+                                <td>123.45</td>
+                            </tr>
+                            <tr>
+                                <td><code>DATE</code></td>
+                                <td>Date values</td>
+                                <td>'2024-01-15'</td>
+                            </tr>
+                            <tr>
+                                <td><code>BOOLEAN</code></td>
+                                <td>True/False</td>
+                                <td>TRUE, FALSE</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Filtering Section -->
+                <section id="filtering" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-filter"></i></div>
+                        <h2>Filtering Data</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>WHERE Clause</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Basic comparison operators
+SELECT * FROM employees WHERE salary > 50000;
+SELECT * FROM employees WHERE department = 'Engineering';
+SELECT * FROM employees WHERE hire_date >= '2023-01-01';
+
+-- Comparison Operators: =, <>, !=, <, >, <=, >=
+
+-- Multiple conditions with AND/OR
+SELECT * FROM employees
+WHERE department = 'Engineering' AND salary > 60000;
+
+SELECT * FROM employees
+WHERE department = 'Engineering' OR department = 'Marketing';
+
+-- BETWEEN for ranges (inclusive)
+SELECT * FROM employees
+WHERE salary BETWEEN 40000 AND 60000;
+
+-- IN for multiple values
+SELECT * FROM employees
+WHERE department IN ('Engineering', 'Marketing', 'Sales');
+
+-- NOT IN
+SELECT * FROM employees
+WHERE department NOT IN ('HR', 'Finance');</code></pre>
+                        </div>
+                        
+                        <h3>Pattern Matching with LIKE</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- % matches any sequence of characters
+SELECT * FROM employees WHERE name LIKE 'J%';     -- Starts with J
+SELECT * FROM employees WHERE name LIKE '%son';   -- Ends with son
+SELECT * FROM employees WHERE name LIKE '%oh%';   -- Contains oh
+
+-- _ matches exactly one character
+SELECT * FROM employees WHERE name LIKE '_ohn';   -- 4-letter name ending in ohn
+SELECT * FROM employees WHERE name LIKE 'J___';   -- 4-letter name starting with J
+
+-- Case-insensitive search (varies by database)
+SELECT * FROM employees WHERE LOWER(name) LIKE 'j%';</code></pre>
+                        </div>
+                        
+                        <h3>NULL Values</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Check for NULL
+SELECT * FROM employees WHERE manager_id IS NULL;
+SELECT * FROM employees WHERE manager_id IS NOT NULL;
+
+-- COALESCE - returns first non-null value
+SELECT name, COALESCE(phone, email, 'No Contact') AS contact
+FROM employees;
+
+-- NULLIF - returns NULL if both values are equal
+SELECT NULLIF(salary, 0) AS salary FROM employees;</code></pre>
+                        </div>
+                        
+                        <div class="info-box warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>Important:</strong> Never use <code>= NULL</code> or <code>!= NULL</code>. Always use <code>IS NULL</code> or <code>IS NOT NULL</code>. In SQL, NULL represents unknown, and comparing anything with unknown results in unknown.
+                            </div>
+                        </div>
+                        
+                        <h3>ORDER BY & LIMIT</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Sort ascending (default)
+SELECT * FROM employees ORDER BY salary;
+SELECT * FROM employees ORDER BY salary ASC;
+
+-- Sort descending
+SELECT * FROM employees ORDER BY salary DESC;
+
+-- Multiple sort columns
+SELECT * FROM employees
+ORDER BY department ASC, salary DESC;
+
+-- LIMIT results (MySQL/PostgreSQL)
+SELECT * FROM employees ORDER BY salary DESC LIMIT 10;
+
+-- With OFFSET for pagination
+SELECT * FROM employees
+ORDER BY salary DESC
+LIMIT 10 OFFSET 20;  -- Skip 20, get next 10
+
+-- TOP (SQL Server)
+SELECT TOP 10 * FROM employees ORDER BY salary DESC;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- JOINs Section -->
+                <section id="joins" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-link"></i></div>
+                        <h2>JOINs</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>JOINs</strong> combine rows from two or more tables based on a related column between them.</p>
+                        
+                        <h3>Types of JOINs</h3>
+                        <table class="data-table">
+                            <tr>
+                                <th>JOIN Type</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td><code>INNER JOIN</code></td>
+                                <td>Returns only matching rows from both tables</td>
+                            </tr>
+                            <tr>
+                                <td><code>LEFT JOIN</code></td>
+                                <td>All rows from left table + matching from right</td>
+                            </tr>
+                            <tr>
+                                <td><code>RIGHT JOIN</code></td>
+                                <td>All rows from right table + matching from left</td>
+                            </tr>
+                            <tr>
+                                <td><code>FULL OUTER JOIN</code></td>
+                                <td>All rows from both tables</td>
+                            </tr>
+                            <tr>
+                                <td><code>CROSS JOIN</code></td>
+                                <td>Cartesian product (all combinations)</td>
+                            </tr>
+                            <tr>
+                                <td><code>SELF JOIN</code></td>
+                                <td>Table joined with itself</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>INNER JOIN</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- INNER JOIN - only matching rows
+SELECT 
+    e.name AS employee_name,
+    d.name AS department_name,
+    e.salary
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.id;
+
+-- Multiple JOINs
+SELECT 
+    e.name,
+    d.name AS department,
+    m.name AS manager
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.id
+INNER JOIN employees m ON e.manager_id = m.id;</code></pre>
+                        </div>
+                        
+                        <h3>LEFT JOIN (LEFT OUTER JOIN)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- LEFT JOIN - all from left, matching from right
+SELECT 
+    e.name AS employee_name,
+    d.name AS department_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.id;
+
+-- Find employees without departments
+SELECT e.name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.id
+WHERE d.id IS NULL;</code></pre>
+                        </div>
+                        
+                        <h3>SELF JOIN</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Find employee and their manager
+SELECT 
+    e.name AS employee,
+    m.name AS manager
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.id;
+
+-- Find employees earning more than their manager
+SELECT e.name, e.salary, m.name AS manager, m.salary AS manager_salary
+FROM employees e
+INNER JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary;</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Pro Tip:</strong> When joining tables, always use table aliases (e, d, m) for readability. Use INNER JOIN when you only want matching records, LEFT JOIN when you need all records from the "main" table.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Aggregations Section -->
+                <section id="aggregations" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-calculator"></i></div>
+                        <h2>Aggregations & GROUP BY</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Aggregate Functions</h3>
+                        <table class="data-table">
+                            <tr>
+                                <th>Function</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><code>COUNT()</code></td>
+                                <td>Count rows</td>
+                                <td><code>COUNT(*)</code>, <code>COUNT(column)</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>SUM()</code></td>
+                                <td>Sum of values</td>
+                                <td><code>SUM(salary)</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>AVG()</code></td>
+                                <td>Average value</td>
+                                <td><code>AVG(salary)</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>MIN()</code></td>
+                                <td>Minimum value</td>
+                                <td><code>MIN(salary)</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>MAX()</code></td>
+                                <td>Maximum value</td>
+                                <td><code>MAX(salary)</code></td>
+                            </tr>
+                        </table>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Basic aggregations
+SELECT 
+    COUNT(*) AS total_employees,
+    COUNT(DISTINCT dept_id) AS num_departments,
+    SUM(salary) AS total_salary,
+    AVG(salary) AS avg_salary,
+    MIN(salary) AS min_salary,
+    MAX(salary) AS max_salary
+FROM employees;</code></pre>
+                        </div>
+                        
+                        <h3>GROUP BY</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Group by one column
+SELECT 
+    dept_id,
+    COUNT(*) AS employee_count,
+    AVG(salary) AS avg_salary
+FROM employees
+GROUP BY dept_id;
+
+-- Group by multiple columns
+SELECT 
+    dept_id,
+    job_title,
+    COUNT(*) AS count,
+    AVG(salary) AS avg_salary
+FROM employees
+GROUP BY dept_id, job_title;
+
+-- With JOIN
+SELECT 
+    d.name AS department,
+    COUNT(e.id) AS employee_count,
+    ROUND(AVG(e.salary), 2) AS avg_salary
+FROM departments d
+LEFT JOIN employees e ON d.id = e.dept_id
+GROUP BY d.id, d.name;</code></pre>
+                        </div>
+                        
+                        <h3>HAVING Clause</h3>
+                        <p><code>HAVING</code> filters groups after aggregation (WHERE filters rows before).</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Departments with more than 5 employees
+SELECT 
+    dept_id,
+    COUNT(*) AS employee_count
+FROM employees
+GROUP BY dept_id
+HAVING COUNT(*) > 5;
+
+-- Departments with average salary > 50000
+SELECT 
+    d.name AS department,
+    AVG(e.salary) AS avg_salary
+FROM departments d
+JOIN employees e ON d.id = e.dept_id
+GROUP BY d.id, d.name
+HAVING AVG(e.salary) > 50000
+ORDER BY avg_salary DESC;</code></pre>
+                        </div>
+                        
+                        <div class="info-box note">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>WHERE vs HAVING:</strong><br>
+                                • <code>WHERE</code> filters rows <em>before</em> grouping<br>
+                                • <code>HAVING</code> filters groups <em>after</em> aggregation<br>
+                                • <code>WHERE</code> cannot use aggregate functions<br>
+                                • <code>HAVING</code> must be used with <code>GROUP BY</code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Subqueries Section -->
+                <section id="subqueries" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code-branch"></i></div>
+                        <h2>Subqueries</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>A <strong>subquery</strong> is a query nested inside another query.</p>
+                        
+                        <h3>Subquery in WHERE</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Employees earning above average
+SELECT name, salary
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+
+-- Employees in Engineering department
+SELECT name, salary
+FROM employees
+WHERE dept_id = (SELECT id FROM departments WHERE name = 'Engineering');
+
+-- Using IN with subquery
+SELECT name
+FROM employees
+WHERE dept_id IN (
+    SELECT id FROM departments 
+    WHERE name IN ('Engineering', 'Marketing')
+);</code></pre>
+                        </div>
+                        
+                        <h3>EXISTS and NOT EXISTS</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Departments that have employees
+SELECT d.name
+FROM departments d
+WHERE EXISTS (
+    SELECT 1 FROM employees e 
+    WHERE e.dept_id = d.id
+);
+
+-- Departments with no employees
+SELECT d.name
+FROM departments d
+WHERE NOT EXISTS (
+    SELECT 1 FROM employees e 
+    WHERE e.dept_id = d.id
+);</code></pre>
+                        </div>
+                        
+                        <h3>Subquery in SELECT</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Add department name as scalar subquery
+SELECT 
+    e.name,
+    e.salary,
+    (SELECT d.name FROM departments d WHERE d.id = e.dept_id) AS department
+FROM employees e;
+
+-- Compare salary to department average
+SELECT 
+    name,
+    salary,
+    salary - (SELECT AVG(salary) FROM employees e2 WHERE e2.dept_id = e.dept_id) 
+        AS diff_from_dept_avg
+FROM employees e;</code></pre>
+                        </div>
+                        
+                        <h3>Subquery in FROM (Derived Tables)</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Find departments with highest average salary
+SELECT department, avg_salary
+FROM (
+    SELECT 
+        d.name AS department,
+        AVG(e.salary) AS avg_salary
+    FROM departments d
+    JOIN employees e ON d.id = e.dept_id
+    GROUP BY d.id, d.name
+) AS dept_salaries
+WHERE avg_salary = (
+    SELECT MAX(avg_sal) FROM (
+        SELECT AVG(salary) AS avg_sal
+        FROM employees
+        GROUP BY dept_id
+    ) AS max_avg
+);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTEs Section -->
+                <section id="cte" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sitemap"></i></div>
+                        <h2>Common Table Expressions (CTEs)</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>A <strong>CTE</strong> is a temporary named result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement.</p>
+                        
+                        <h3>Basic CTE Syntax</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Basic CTE
+WITH dept_stats AS (
+    SELECT 
+        dept_id,
+        COUNT(*) AS emp_count,
+        AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY dept_id
+)
+SELECT 
+    d.name,
+    ds.emp_count,
+    ds.avg_salary
+FROM dept_stats ds
+JOIN departments d ON ds.dept_id = d.id;
+
+-- Multiple CTEs
+WITH 
+high_earners AS (
+    SELECT * FROM employees WHERE salary > 70000
+),
+department_counts AS (
+    SELECT dept_id, COUNT(*) AS count
+    FROM high_earners
+    GROUP BY dept_id
+)
+SELECT d.name, COALESCE(dc.count, 0) AS high_earner_count
+FROM departments d
+LEFT JOIN department_counts dc ON d.id = dc.dept_id;</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>CTE vs Subquery:</strong> CTEs are more readable, can be referenced multiple times, and are easier to debug. Use CTEs for complex queries and subqueries for simple ones.
+                            </div>
+                        </div>
+                        
+                        <h3>Recursive CTE</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Find employee hierarchy
+WITH RECURSIVE emp_hierarchy AS (
+    -- Base case: top-level employees (no manager)
+    SELECT id, name, manager_id, 1 AS level
+    FROM employees
+    WHERE manager_id IS NULL
+    
+    UNION ALL
+    
+    -- Recursive case: employees with managers
+    SELECT e.id, e.name, e.manager_id, eh.level + 1
+    FROM employees e
+    INNER JOIN emp_hierarchy eh ON e.manager_id = eh.id
+)
+SELECT * FROM emp_hierarchy
+ORDER BY level, name;
+
+-- Generate a series of numbers
+WITH RECURSIVE numbers AS (
+    SELECT 1 AS n
+    UNION ALL
+    SELECT n + 1 FROM numbers WHERE n < 10
+)
+SELECT * FROM numbers;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Window Functions Section -->
+                <section id="window" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-window-maximize"></i></div>
+                        <h2>Window Functions</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Window functions</strong> perform calculations across a set of rows related to the current row, without collapsing the result set.</p>
+                        
+                        <h3>Basic Window Function Syntax</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Syntax: function() OVER (PARTITION BY ... ORDER BY ...)
+
+SELECT 
+    name,
+    dept_id,
+    salary,
+    AVG(salary) OVER () AS company_avg,
+    AVG(salary) OVER (PARTITION BY dept_id) AS dept_avg
+FROM employees;</code></pre>
+                        </div>
+                        
+                        <h3>Ranking Functions</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>SELECT 
+    name,
+    dept_id,
+    salary,
+    ROW_NUMBER() OVER (ORDER BY salary DESC) AS row_num,        -- 1, 2, 3, 4, 5
+    RANK() OVER (ORDER BY salary DESC) AS rank,                 -- 1, 2, 2, 4, 5 (gaps)
+    DENSE_RANK() OVER (ORDER BY salary DESC) AS dense_rank,     -- 1, 2, 2, 3, 4 (no gaps)
+    NTILE(4) OVER (ORDER BY salary DESC) AS quartile            -- Divide into 4 groups
+FROM employees;
+
+-- Rank within each department
+SELECT 
+    name,
+    dept_id,
+    salary,
+    RANK() OVER (PARTITION BY dept_id ORDER BY salary DESC) AS dept_rank
+FROM employees;</code></pre>
+                        </div>
+                        
+                        <h3>LAG and LEAD</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- LAG: access previous row
+-- LEAD: access next row
+
+SELECT 
+    name,
+    hire_date,
+    salary,
+    LAG(salary, 1) OVER (ORDER BY hire_date) AS prev_salary,
+    LEAD(salary, 1) OVER (ORDER BY hire_date) AS next_salary,
+    salary - LAG(salary, 1) OVER (ORDER BY hire_date) AS salary_change
+FROM employees;
+
+-- Calculate month-over-month growth
+SELECT 
+    month,
+    revenue,
+    LAG(revenue) OVER (ORDER BY month) AS prev_month,
+    ROUND(100.0 * (revenue - LAG(revenue) OVER (ORDER BY month)) 
+        / LAG(revenue) OVER (ORDER BY month), 2) AS growth_pct
+FROM monthly_sales;</code></pre>
+                        </div>
+                        
+                        <h3>Running Totals and Moving Averages</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Running total
+SELECT 
+    date,
+    amount,
+    SUM(amount) OVER (ORDER BY date ROWS UNBOUNDED PRECEDING) AS running_total
+FROM transactions;
+
+-- 3-day moving average
+SELECT 
+    date,
+    value,
+    AVG(value) OVER (
+        ORDER BY date 
+        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+    ) AS moving_avg_3day
+FROM daily_metrics;
+
+-- Cumulative percentage
+SELECT 
+    name,
+    salary,
+    SUM(salary) OVER (ORDER BY salary DESC) AS cumulative_salary,
+    ROUND(100.0 * SUM(salary) OVER (ORDER BY salary DESC) 
+        / SUM(salary) OVER (), 2) AS cumulative_pct
+FROM employees;</code></pre>
+                        </div>
+                        
+                        <h3>FIRST_VALUE and LAST_VALUE</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>SELECT 
+    name,
+    dept_id,
+    salary,
+    FIRST_VALUE(name) OVER (
+        PARTITION BY dept_id 
+        ORDER BY salary DESC
+    ) AS highest_paid_in_dept,
+    LAST_VALUE(name) OVER (
+        PARTITION BY dept_id 
+        ORDER BY salary DESC
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) AS lowest_paid_in_dept
+FROM employees;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Query Optimization Section -->
+                <section id="optimization" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h2>Query Optimization</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Indexing</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Create index
+CREATE INDEX idx_employee_dept ON employees(dept_id);
+
+-- Create composite index
+CREATE INDEX idx_emp_dept_salary ON employees(dept_id, salary);
+
+-- Create unique index
+CREATE UNIQUE INDEX idx_email ON employees(email);
+
+-- Drop index
+DROP INDEX idx_employee_dept;</code></pre>
+                        </div>
+                        
+                        <h3>When to Use Indexes</h3>
+                        <ul>
+                            <li>Columns in WHERE clauses</li>
+                            <li>Columns used in JOINs</li>
+                            <li>Columns in ORDER BY</li>
+                            <li>Columns with high cardinality (many unique values)</li>
+                        </ul>
+                        
+                        <div class="info-box warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>Index Considerations:</strong><br>
+                                • Indexes speed up reads but slow down writes<br>
+                                • Don't over-index - each index requires storage<br>
+                                • Composite index order matters: (a, b) is different from (b, a)
+                            </div>
+                        </div>
+                        
+                        <h3>EXPLAIN Plan</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- View query execution plan
+EXPLAIN SELECT * FROM employees WHERE dept_id = 101;
+
+-- Detailed explain (PostgreSQL)
+EXPLAIN ANALYZE SELECT * FROM employees WHERE salary > 50000;
+
+-- MySQL
+EXPLAIN FORMAT=JSON SELECT * FROM employees;</code></pre>
+                        </div>
+                        
+                        <h3>Optimization Tips</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- ❌ Bad: SELECT * (fetches unnecessary columns)
+SELECT * FROM employees;
+
+-- ✅ Good: Select only needed columns
+SELECT id, name, salary FROM employees;
+
+-- ❌ Bad: Function on column prevents index use
+SELECT * FROM employees WHERE YEAR(hire_date) = 2023;
+
+-- ✅ Good: Sargable - can use index
+SELECT * FROM employees 
+WHERE hire_date >= '2023-01-01' AND hire_date < '2024-01-01';
+
+-- ❌ Bad: OR can prevent index use
+SELECT * FROM employees WHERE dept_id = 1 OR salary > 50000;
+
+-- ✅ Good: Use UNION for separate index scans
+SELECT * FROM employees WHERE dept_id = 1
+UNION
+SELECT * FROM employees WHERE salary > 50000;
+
+-- ❌ Bad: Using NOT IN with NULLs
+SELECT * FROM employees WHERE dept_id NOT IN (SELECT id FROM inactive_depts);
+
+-- ✅ Good: Use NOT EXISTS
+SELECT * FROM employees e
+WHERE NOT EXISTS (SELECT 1 FROM inactive_depts d WHERE d.id = e.dept_id);</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interview Questions Section -->
+                <section id="interview" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-briefcase"></i></div>
+                        <h2>Interview Query Problems</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>1. Second Highest Salary</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Method 1: Using subquery
+SELECT MAX(salary) AS second_highest
+FROM employees
+WHERE salary < (SELECT MAX(salary) FROM employees);
+
+-- Method 2: Using DENSE_RANK
+SELECT salary AS second_highest
+FROM (
+    SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rank
+    FROM employees
+) ranked
+WHERE rank = 2;
+
+-- Method 3: Using LIMIT/OFFSET
+SELECT DISTINCT salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;</code></pre>
+                        </div>
+                        
+                        <h3>2. Find Duplicate Emails</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Using GROUP BY and HAVING
+SELECT email
+FROM users
+GROUP BY email
+HAVING COUNT(*) > 1;
+
+-- Using self join
+SELECT DISTINCT a.email
+FROM users a
+JOIN users b ON a.email = b.email AND a.id != b.id;</code></pre>
+                        </div>
+                        
+                        <h3>3. Employees Earning More Than Manager</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>SELECT e.name AS employee
+FROM employees e
+JOIN employees m ON e.manager_id = m.id
+WHERE e.salary > m.salary;</code></pre>
+                        </div>
+                        
+                        <h3>4. Department with Highest Average Salary</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>WITH dept_avg AS (
+    SELECT 
+        d.name AS department,
+        AVG(e.salary) AS avg_salary,
+        RANK() OVER (ORDER BY AVG(e.salary) DESC) AS rank
+    FROM departments d
+    JOIN employees e ON d.id = e.dept_id
+    GROUP BY d.id, d.name
+)
+SELECT department, avg_salary
+FROM dept_avg
+WHERE rank = 1;</code></pre>
+                        </div>
+                        
+                        <h3>5. Consecutive Login Days</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Find users who logged in for 3+ consecutive days
+WITH consecutive_logins AS (
+    SELECT 
+        user_id,
+        login_date,
+        login_date - INTERVAL ROW_NUMBER() OVER (
+            PARTITION BY user_id 
+            ORDER BY login_date
+        ) DAY AS group_date
+    FROM logins
+)
+SELECT user_id, COUNT(*) AS consecutive_days
+FROM consecutive_logins
+GROUP BY user_id, group_date
+HAVING COUNT(*) >= 3;</code></pre>
+                        </div>
+                        
+                        <h3>6. Top 3 Salaries per Department</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>WITH ranked AS (
+    SELECT 
+        d.name AS department,
+        e.name AS employee,
+        e.salary,
+        DENSE_RANK() OVER (
+            PARTITION BY e.dept_id 
+            ORDER BY e.salary DESC
+        ) AS rank
+    FROM employees e
+    JOIN departments d ON e.dept_id = d.id
+)
+SELECT department, employee, salary
+FROM ranked
+WHERE rank <= 3
+ORDER BY department, salary DESC;</code></pre>
+                        </div>
+                        
+                        <h3>7. Year-over-Year Growth</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>WITH yearly_sales AS (
+    SELECT 
+        YEAR(order_date) AS year,
+        SUM(amount) AS total_sales
+    FROM orders
+    GROUP BY YEAR(order_date)
+)
+SELECT 
+    year,
+    total_sales,
+    LAG(total_sales) OVER (ORDER BY year) AS prev_year_sales,
+    ROUND(100.0 * (total_sales - LAG(total_sales) OVER (ORDER BY year)) 
+        / LAG(total_sales) OVER (ORDER BY year), 2) AS yoy_growth_pct
+FROM yearly_sales;</code></pre>
+                        </div>
+                        
+                        <h3>8. Pivot Table</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">SQL</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code>-- Convert rows to columns (manual pivot)
+SELECT 
+    product,
+    SUM(CASE WHEN month = 'Jan' THEN sales ELSE 0 END) AS Jan,
+    SUM(CASE WHEN month = 'Feb' THEN sales ELSE 0 END) AS Feb,
+    SUM(CASE WHEN month = 'Mar' THEN sales ELSE 0 END) AS Mar
+FROM monthly_sales
+GROUP BY product;</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Interview Tips:</strong><br>
+                                • Always clarify requirements before writing<br>
+                                • Consider edge cases (NULL, empty tables, ties)<br>
+                                • Explain your thought process<br>
+                                • Discuss time complexity and optimization<br>
+                                • Test with sample data mentally
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced-features.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block');
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                }, 2000);
+            });
+        }
+        
+        // Active TOC link on scroll
+        const sections = document.querySelectorAll('.topic-section');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

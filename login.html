@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/advanced-features.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <meta name="theme-color" content="#722f37">
@@ -515,9 +516,8 @@
         
         function handleLogout() {
             if (window.NaukriAuth) {
-                window.NaukriAuth.logout();
+                window.NaukriAuth.showLogoutConfirmation();
             }
-            updateLoginUI(null);
         }
         
         function updateLoginUI(user) {
@@ -540,6 +540,16 @@
                             ${user.name.charAt(0).toUpperCase()}
                         </div>
                     `;
+                }
+                
+                // Show login stats
+                const stats = window.NaukriAuth?.getLoginStats();
+                if (stats && stats.loginCount > 1) {
+                    const loginInfo = document.createElement('p');
+                    loginInfo.className = 'login-stats';
+                    loginInfo.style.cssText = 'font-size: 0.85rem; color: var(--neutral-500); margin-top: 5px;';
+                    loginInfo.innerHTML = `<i class="fas fa-sign-in-alt"></i> Visit #${stats.loginCount}`;
+                    document.getElementById('userEmail').insertAdjacentElement('afterend', loginInfo);
                 }
             } else {
                 guestView.style.display = 'block';

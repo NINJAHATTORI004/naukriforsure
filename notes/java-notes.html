@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Complete Guide - Basics to Advanced | NaukriForSure</title>
+    <meta name="description" content="Complete Java programming guide: syntax, OOP, collections, multithreading, and interview preparation.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <style>
+        .notes-page { background: var(--neutral-50); min-height: 100vh; }
+        .notes-header { background: linear-gradient(135deg, #f89820 0%, #5382a1 100%); padding: 60px 0; color: var(--white); text-align: center; }
+        .notes-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .notes-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; padding: 40px 0; }
+        @media (max-width: 992px) { .notes-layout { grid-template-columns: 1fr; } .notes-sidebar { display: none; } }
+        .notes-sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sidebar-card { background: var(--white); border-radius: var(--radius-xl); padding: 25px; box-shadow: var(--shadow-lg); border: 2px solid rgba(248, 152, 32, 0.2); }
+        .sidebar-title { font-family: 'Cinzel', serif; font-size: 1.1rem; color: #f89820; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f89820; }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 6px; }
+        .toc-list a { display: flex; align-items: center; gap: 10px; padding: 8px 12px; color: var(--neutral-700); text-decoration: none; border-radius: var(--radius-md); transition: all 0.3s ease; font-size: 0.85rem; }
+        .toc-list a:hover, .toc-list a.active { background: #fff4e6; color: #f89820; }
+        .toc-list a i { color: #f89820; width: 16px; }
+        .notes-content { background: var(--white); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); border: 2px solid rgba(248, 152, 32, 0.2); }
+        .topic-section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        .topic-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 3px solid #f89820; }
+        .topic-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #f89820 0%, #5382a1 100%); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; }
+        .topic-header h2 { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--dark); }
+        .topic-content h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #5382a1; margin: 30px 0 15px; }
+        .topic-content h3::before { content: '☕ '; }
+        .topic-content p { color: var(--neutral-700); line-height: 1.8; margin-bottom: 15px; }
+        .topic-content ul { margin: 15px 0 20px 25px; color: var(--neutral-700); }
+        .topic-content li { margin-bottom: 8px; line-height: 1.7; }
+        .code-block { background: #1e1e1e; border-radius: var(--radius-lg); margin: 20px 0; overflow: hidden; border: 2px solid var(--neutral-300); }
+        .code-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; background: #2d2d2d; border-bottom: 1px solid #404040; }
+        .code-lang { color: #f89820; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .copy-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; transition: all 0.3s; }
+        .copy-btn:hover { background: #555; color: #fff; }
+        .code-block pre { margin: 0; padding: 20px; overflow-x: auto; }
+        .code-block code { font-family: 'Fira Code', monospace; font-size: 0.85rem; line-height: 1.6; }
+        .info-box { padding: 20px; border-radius: var(--radius-lg); margin: 20px 0; display: flex; gap: 15px; }
+        .info-box i { font-size: 1.3rem; margin-top: 2px; }
+        .info-box.tip { background: #fff4e6; border-left: 4px solid #f89820; }
+        .info-box.tip i { color: #f89820; }
+        .info-box.note { background: #e8f4fd; border-left: 4px solid #5382a1; }
+        .info-box.note i { color: #5382a1; }
+        .concept-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+        .concept-table th, .concept-table td { padding: 12px 15px; text-align: left; border: 1px solid var(--neutral-200); }
+        .concept-table th { background: #fff4e6; font-family: 'Cinzel', serif; color: #f89820; }
+        .concept-table tr:nth-child(even) { background: var(--neutral-50); }
+        .concept-table code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+    </style>
+</head>
+<body class="notes-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-text">Naukri<span class="highlight">ForSure</span></span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../jobs.html">All Jobs</a></li>
+                <li><a href="../blog/">Blog</a></li>
+                <li><a href="./" class="active">Notes</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../login.html" class="btn btn-outline"><i class="fas fa-user"></i> Login</a>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <header class="notes-header">
+        <div class="container">
+            <h1><i class="fab fa-java" style="margin-right: 15px;"></i>Java Programming</h1>
+            <p>Complete Guide from Basics to Advanced OOP Concepts</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="notes-layout">
+            <aside class="notes-sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title"><i class="fas fa-list" style="margin-right: 8px;"></i>Topics</h3>
+                    <ul class="toc-list">
+                        <li><a href="#intro"><i class="fas fa-play"></i> Introduction</a></li>
+                        <li><a href="#variables"><i class="fas fa-box"></i> Variables & Data Types</a></li>
+                        <li><a href="#operators"><i class="fas fa-calculator"></i> Operators</a></li>
+                        <li><a href="#control"><i class="fas fa-code-branch"></i> Control Flow</a></li>
+                        <li><a href="#arrays"><i class="fas fa-th"></i> Arrays</a></li>
+                        <li><a href="#oop"><i class="fas fa-sitemap"></i> OOP Concepts</a></li>
+                        <li><a href="#strings"><i class="fas fa-font"></i> Strings</a></li>
+                        <li><a href="#collections"><i class="fas fa-layer-group"></i> Collections</a></li>
+                        <li><a href="#exceptions"><i class="fas fa-exclamation-triangle"></i> Exception Handling</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="notes-content">
+                <!-- Introduction -->
+                <section id="intro" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fab fa-java"></i></div>
+                        <h2>Introduction to Java</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p><strong>Java</strong> is a high-level, class-based, object-oriented programming language. It follows the principle "Write Once, Run Anywhere" (WORA).</p>
+                        
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li><strong>Platform Independent:</strong> Runs on JVM</li>
+                            <li><strong>Object-Oriented:</strong> Everything is an object</li>
+                            <li><strong>Secure:</strong> No explicit pointers, bytecode verification</li>
+                            <li><strong>Robust:</strong> Strong memory management, exception handling</li>
+                            <li><strong>Multithreaded:</strong> Built-in support for concurrent programming</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Your first Java program
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        
+        // Taking input
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.println("Welcome, " + name + "!");
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Variables & Data Types -->
+                <section id="variables" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-box"></i></div>
+                        <h2>Variables & Data Types</h2>
+                    </div>
+                    <div class="topic-content">
+                        <p>Java is statically typed - variables must be declared with their type.</p>
+                        
+                        <h3>Primitive Data Types</h3>
+                        <table class="concept-table">
+                            <tr><th>Type</th><th>Size</th><th>Range</th><th>Example</th></tr>
+                            <tr><td><code>byte</code></td><td>1 byte</td><td>-128 to 127</td><td><code>byte b = 100;</code></td></tr>
+                            <tr><td><code>short</code></td><td>2 bytes</td><td>-32,768 to 32,767</td><td><code>short s = 1000;</code></td></tr>
+                            <tr><td><code>int</code></td><td>4 bytes</td><td>-2³¹ to 2³¹-1</td><td><code>int i = 100000;</code></td></tr>
+                            <tr><td><code>long</code></td><td>8 bytes</td><td>-2⁶³ to 2⁶³-1</td><td><code>long l = 100000L;</code></td></tr>
+                            <tr><td><code>float</code></td><td>4 bytes</td><td>6-7 decimal digits</td><td><code>float f = 3.14f;</code></td></tr>
+                            <tr><td><code>double</code></td><td>8 bytes</td><td>15 decimal digits</td><td><code>double d = 3.14;</code></td></tr>
+                            <tr><td><code>char</code></td><td>2 bytes</td><td>Unicode character</td><td><code>char c = 'A';</code></td></tr>
+                            <tr><td><code>boolean</code></td><td>1 bit</td><td>true/false</td><td><code>boolean b = true;</code></td></tr>
+                        </table>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Variable declarations
+int age = 25;
+double salary = 50000.50;
+char grade = 'A';
+boolean isEmployed = true;
+String name = "Alice";  // String is a class, not primitive
+
+// Constants
+final double PI = 3.14159;
+
+// Type casting
+int x = 10;
+double y = x;           // Implicit casting (widening)
+int z = (int) 3.14;     // Explicit casting (narrowing)
+
+// Wrapper classes
+Integer intObj = Integer.valueOf(10);
+int intValue = intObj.intValue();
+
+// Auto-boxing and unboxing (Java 5+)
+Integer num = 100;      // Auto-boxing
+int val = num;          // Unboxing</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Operators -->
+                <section id="operators" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-calculator"></i></div>
+                        <h2>Operators</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Arithmetic Operators
+int a = 10, b = 3;
+System.out.println(a + b);    // 13 - Addition
+System.out.println(a - b);    // 7  - Subtraction
+System.out.println(a * b);    // 30 - Multiplication
+System.out.println(a / b);    // 3  - Division (integer)
+System.out.println(a % b);    // 1  - Modulus
+
+// Increment/Decrement
+int x = 5;
+System.out.println(++x);  // 6 (pre-increment)
+System.out.println(x++);  // 6, then x becomes 7 (post-increment)
+
+// Comparison Operators
+System.out.println(a == b);   // false
+System.out.println(a != b);   // true
+System.out.println(a > b);    // true
+System.out.println(a >= b);   // true
+
+// Logical Operators
+boolean p = true, q = false;
+System.out.println(p && q);   // false - AND
+System.out.println(p || q);   // true  - OR
+System.out.println(!p);       // false - NOT
+
+// Bitwise Operators
+System.out.println(5 & 3);    // 1 - AND
+System.out.println(5 | 3);    // 7 - OR
+System.out.println(5 ^ 3);    // 6 - XOR
+System.out.println(~5);       // -6 - NOT
+System.out.println(5 << 1);   // 10 - Left shift
+System.out.println(5 >> 1);   // 2 - Right shift
+
+// Ternary Operator
+int max = (a > b) ? a : b;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Control Flow -->
+                <section id="control" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-code-branch"></i></div>
+                        <h2>Control Flow</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// if-else
+int age = 18;
+if (age < 13) {
+    System.out.println("Child");
+} else if (age < 20) {
+    System.out.println("Teenager");
+} else {
+    System.out.println("Adult");
+}
+
+// Switch statement
+int day = 3;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Other day");
+}
+
+// Switch expression (Java 14+)
+String dayName = switch (day) {
+    case 1 -> "Monday";
+    case 2 -> "Tuesday";
+    default -> "Other";
+};
+
+// For loop
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+
+// Enhanced for loop
+int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println(num);
+}
+
+// While loop
+int count = 0;
+while (count < 5) {
+    System.out.println(count);
+    count++;
+}
+
+// Do-while loop
+do {
+    System.out.println(count);
+    count--;
+} while (count > 0);
+
+// Break and Continue
+for (int i = 0; i < 10; i++) {
+    if (i == 3) continue;  // Skip 3
+    if (i == 7) break;     // Stop at 7
+    System.out.println(i);
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Arrays -->
+                <section id="arrays" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-th"></i></div>
+                        <h2>Arrays</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Array declaration and initialization
+int[] arr1 = new int[5];        // Creates array of size 5
+int[] arr2 = {1, 2, 3, 4, 5};   // Array literal
+int[] arr3 = new int[]{1, 2, 3};
+
+// Accessing elements
+arr1[0] = 10;
+System.out.println(arr2[2]);    // 3
+
+// Array length
+System.out.println(arr2.length); // 5
+
+// Iterating arrays
+for (int i = 0; i < arr2.length; i++) {
+    System.out.println(arr2[i]);
+}
+
+for (int num : arr2) {
+    System.out.println(num);
+}
+
+// 2D Arrays
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+System.out.println(matrix[1][2]); // 6
+
+// Arrays utility class
+import java.util.Arrays;
+
+int[] nums = {5, 2, 8, 1, 9};
+Arrays.sort(nums);                    // Sort
+System.out.println(Arrays.toString(nums)); // [1, 2, 5, 8, 9]
+int index = Arrays.binarySearch(nums, 5);  // Binary search
+Arrays.fill(nums, 0);                 // Fill with value
+int[] copy = Arrays.copyOf(nums, 10); // Copy with new size</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OOP -->
+                <section id="oop" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-sitemap"></i></div>
+                        <h2>Object-Oriented Programming</h2>
+                    </div>
+                    <div class="topic-content">
+                        <h3>Four Pillars of OOP</h3>
+                        <ul>
+                            <li><strong>Encapsulation:</strong> Bundling data and methods together</li>
+                            <li><strong>Inheritance:</strong> Deriving new classes from existing ones</li>
+                            <li><strong>Polymorphism:</strong> Many forms - overloading and overriding</li>
+                            <li><strong>Abstraction:</strong> Hiding implementation details</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Class and Object
+public class Person {
+    // Instance variables (Encapsulation)
+    private String name;
+    private int age;
+    
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Getter and Setter
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    
+    // Method
+    public void greet() {
+        System.out.println("Hello, I'm " + name);
+    }
+    
+    // Method overloading (Compile-time polymorphism)
+    public void greet(String greeting) {
+        System.out.println(greeting + ", I'm " + name);
+    }
+}
+
+// Inheritance
+public class Employee extends Person {
+    private double salary;
+    
+    public Employee(String name, int age, double salary) {
+        super(name, age);  // Call parent constructor
+        this.salary = salary;
+    }
+    
+    // Method overriding (Runtime polymorphism)
+    @Override
+    public void greet() {
+        System.out.println("Hello, I'm " + getName() + ", an employee");
+    }
+}
+
+// Abstract class
+public abstract class Shape {
+    abstract double area();  // Abstract method
+    
+    public void display() {  // Concrete method
+        System.out.println("This is a shape");
+    }
+}
+
+public class Circle extends Shape {
+    private double radius;
+    
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Interface
+public interface Drawable {
+    void draw();                    // Abstract method
+    default void print() {          // Default method (Java 8+)
+        System.out.println("Printing...");
+    }
+    static void info() {            // Static method
+        System.out.println("Drawable interface");
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Strings -->
+                <section id="strings" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-font"></i></div>
+                        <h2>Strings</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// String creation
+String s1 = "Hello";              // String literal (String pool)
+String s2 = new String("Hello");  // New object
+
+// String methods
+String str = "Hello World";
+System.out.println(str.length());         // 11
+System.out.println(str.charAt(0));        // H
+System.out.println(str.substring(0, 5));  // Hello
+System.out.println(str.toLowerCase());    // hello world
+System.out.println(str.toUpperCase());    // HELLO WORLD
+System.out.println(str.trim());           // Remove whitespace
+System.out.println(str.replace("o", "0")); // Hell0 W0rld
+System.out.println(str.split(" "));       // ["Hello", "World"]
+System.out.println(str.contains("World")); // true
+System.out.println(str.startsWith("Hello")); // true
+System.out.println(str.indexOf("o"));     // 4
+
+// String comparison
+String a = "Hello";
+String b = "Hello";
+System.out.println(a == b);         // true (same pool reference)
+System.out.println(a.equals(b));    // true (content comparison)
+System.out.println(a.equalsIgnoreCase("HELLO")); // true
+
+// StringBuilder (mutable, not thread-safe)
+StringBuilder sb = new StringBuilder();
+sb.append("Hello");
+sb.append(" World");
+sb.insert(5, ",");
+sb.reverse();
+String result = sb.toString();
+
+// StringBuffer (mutable, thread-safe)
+StringBuffer sbf = new StringBuffer();
+sbf.append("Thread").append("-safe");
+
+// String formatting
+String formatted = String.format("Name: %s, Age: %d", "Alice", 25);
+System.out.printf("Pi: %.2f%n", 3.14159);  // Pi: 3.14</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Collections -->
+                <section id="collections" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-layer-group"></i></div>
+                        <h2>Collections Framework</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">import java.util.*;
+
+// ArrayList - Dynamic array
+List&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add("Apple");
+list.add("Banana");
+list.get(0);           // Apple
+list.set(0, "Orange");
+list.remove("Banana");
+list.size();
+list.contains("Orange");
+
+// LinkedList - Doubly linked list
+LinkedList&lt;Integer&gt; linkedList = new LinkedList&lt;&gt;();
+linkedList.addFirst(1);
+linkedList.addLast(3);
+linkedList.getFirst();
+linkedList.removeLast();
+
+// HashSet - Unique elements, no order
+Set&lt;String&gt; set = new HashSet&lt;&gt;();
+set.add("A");
+set.add("B");
+set.add("A");  // Duplicate, ignored
+System.out.println(set.size()); // 2
+
+// TreeSet - Sorted unique elements
+Set&lt;Integer&gt; treeSet = new TreeSet&lt;&gt;();
+treeSet.add(5);
+treeSet.add(2);
+treeSet.add(8);  // Sorted: [2, 5, 8]
+
+// HashMap - Key-value pairs
+Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+map.put("Alice", 25);
+map.put("Bob", 30);
+map.get("Alice");      // 25
+map.getOrDefault("Charlie", 0);
+map.containsKey("Alice");
+map.keySet();          // All keys
+map.values();          // All values
+map.entrySet();        // Key-value pairs
+
+// Iterate HashMap
+for (Map.Entry&lt;String, Integer&gt; entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+
+// Queue
+Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+queue.offer(1);        // Add
+queue.poll();          // Remove and return head
+queue.peek();          // Return head without removing
+
+// Stack
+Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+stack.push(1);
+stack.pop();
+stack.peek();</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Exception Handling -->
+                <section id="exceptions" class="topic-section">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h2>Exception Handling</h2>
+                    </div>
+                    <div class="topic-content">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-lang">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre><code class="language-java">// Basic try-catch
+try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero!");
+}
+
+// Multiple catch blocks
+try {
+    int[] arr = new int[5];
+    arr[10] = 50;
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Array index error");
+} catch (Exception e) {
+    System.out.println("General error: " + e.getMessage());
+} finally {
+    System.out.println("This always executes");
+}
+
+// Try-with-resources (Java 7+)
+try (FileReader fr = new FileReader("file.txt");
+     BufferedReader br = new BufferedReader(fr)) {
+    String line = br.readLine();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// Throwing exceptions
+public void validateAge(int age) throws IllegalArgumentException {
+    if (age < 0) {
+        throw new IllegalArgumentException("Age cannot be negative");
+    }
+}
+
+// Custom exception
+public class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+// Exception hierarchy
+// Throwable
+//   ├── Error (unchecked)
+//   └── Exception
+//       ├── RuntimeException (unchecked)
+//       │   ├── NullPointerException
+//       │   ├── ArrayIndexOutOfBoundsException
+//       │   └── ArithmeticException
+//       └── Checked Exceptions
+//           ├── IOException
+//           └── SQLException</code></pre>
+                        </div>
+                        
+                        <div class="info-box tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <strong>Interview Tips:</strong><br>
+                                • Know difference between checked and unchecked exceptions<br>
+                                • Use specific exceptions, not generic Exception<br>
+                                • Always close resources (use try-with-resources)<br>
+                                • Don't catch Throwable or Error
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script>
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block');
+            const code = codeBlock.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

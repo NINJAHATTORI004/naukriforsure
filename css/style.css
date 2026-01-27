@@ -1,3 +1,81 @@
+/* --- Restrict white text on dark/gradient backgrounds to home page only --- */
+body.home [class*="bg-"],
+body.home [style*="background: linear-gradient"],
+body.home [style*="background: #1a365d"],
+body.home [style*="background: #153e75"],
+body.home [style*="background: #2a4a7f"],
+body.home [style*="background: #722f37"],
+body.home [style*="background: #b8860b"],
+body.home [style*="background: var(--accent)"],
+body.home [style*="background: var(--accent-600)"],
+body.home [style*="background: var(--gradient-cool)"],
+body.home [style*="background: var(--gradient-royal)"],
+body.home [style*="background: var(--primary)"],
+body.home [style*="background: var(--primary-dark)"],
+body.home [style*="background: var(--secondary)"],
+body.home .main-hero,
+body.home .main-hero *,
+body.home .bg-dark,
+body.home .bg-navy,
+body.home .bg-blue,
+body.home .bg-gradient,
+body.home .bg-accent,
+body.home .bg-primary,
+body.home .bg-secondary {
+    color: #fff !important;
+}
+
+body.home [class*="bg-"] a,
+body.home [class*="bg-"] h1,
+body.home [class*="bg-"] h2,
+body.home [class*="bg-"] h3,
+body.home [class*="bg-"] h4,
+body.home [class*="bg-"] h5,
+body.home [class*="bg-"] h6,
+body.home [class*="bg-"] p,
+body.home [class*="bg-"] span,
+body.home [class*="bg-"] strong,
+body.home [class*="bg-"] b,
+body.home [class*="bg-"] li,
+body.home [class*="bg-"] label,
+body.home [class*="bg-"] .stat,
+body.home [class*="bg-"] .subtitle,
+body.home [class*="bg-"] .desc,
+body.home [class*="bg-"] .lead,
+body.home [class*="bg-"] .highlight,
+body.home [class*="bg-"] .search-box,
+body.home [class*="bg-"] .search-box * {
+    color: #fff !important;
+}
+/* --- Force white text on dark backgrounds for readability --- */
+.notes-header,
+.topic-header,
+.hero,
+[style*="background: linear-gradient(135deg, #61dafb 0%, #282c34 100%)"],
+[style*="background: #1a365d"],
+[style*="background: #153e75"],
+[style*="background: #2a4a7f"],
+[style*="background: var(--accent)"],
+[style*="background: var(--accent-600)"],
+[style*="background: var(--gradient-cool)"],
+[style*="background: var(--gradient-royal)"],
+.bg-dark,
+.bg-navy,
+.bg-blue,
+.bg-gradient,
+.bg-accent,
+.bg-primary,
+.bg-secondary {
+    color: #fff !important;
+}
+
+.notes-header h1,
+.notes-header p,
+.topic-header h2,
+.hero h1,
+.hero p {
+    color: #fff !important;
+}
 /* ========================================
    NAUKRIFORSURE - VICTORIAN ERA DESIGN
    Elegant Job Portal Interface v3.0
@@ -59,8 +137,8 @@
     --neutral-950: #0d0b09;
     
     /* Legacy Support - Victorian Palette */
-    --dark: #1a1612;
-    --dark-light: #2d261d;
+    --dark: #222;
+    --dark-light: #444;
     --gray-900: #2d261d;
     --gray-800: #4a3f30;
     --gray: #8b7355;
@@ -145,6 +223,34 @@
     box-sizing: border-box;
 }
 
+/* --- Notes Page Heading/Section Spacing Fixes --- */
+.notes-header {
+    padding: 36px 0 !important;
+}
+.notes-header h1 {
+    margin-bottom: 4px !important;
+    font-size: 2.1rem !important;
+}
+.notes-content {
+    padding: 28px !important;
+}
+.topic-header {
+    margin-bottom: 12px !important;
+    padding-bottom: 8px !important;
+}
+.topic-header h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0 !important;
+}
+.topic-content h3 {
+    margin: 18px 0 8px !important;
+    font-size: 1.08rem !important;
+}
+.topic-section {
+    margin-bottom: 32px !important;
+    scroll-margin-top: 80px !important;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
@@ -154,14 +260,14 @@ html {
 
 body {
     font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
-    background: var(--cream);
-    color: var(--dark);
+    background: var(--light);
+    color: #222;
     line-height: 1.8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8860b' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* Selection Styling */
@@ -4107,4 +4213,412 @@ select:focus {
     .hero h1 {
         font-size: 1.75rem;
     }
+}
+/* ==================== TEXT VISIBILITY FIXES ==================== */
+/* Ensure all text is clearly visible against backgrounds */
+
+/* Search Box Enhanced Styling */
+.search-box {
+    background: var(--white);
+    border: 3px solid var(--secondary);
+    box-shadow: 0 8px 32px rgba(114, 47, 55, 0.15), 0 0 0 1px rgba(184, 134, 11, 0.1);
+}
+
+.search-field {
+    background: var(--neutral-50);
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-md);
+}
+
+.search-field:focus-within {
+    background: var(--white);
+    border-color: var(--secondary);
+}
+
+.search-field input {
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.search-field input::placeholder {
+    color: var(--neutral-500);
+    font-weight: 400;
+}
+
+.search-field i {
+    color: var(--primary);
+    opacity: 0.7;
+}
+
+.search-field:focus-within i {
+    color: var(--secondary);
+    opacity: 1;
+}
+
+/* Global Text Visibility */
+p, span, label, li {
+    color: var(--neutral-700);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark);
+}
+
+/* Card Text Visibility */
+.job-card p,
+.feature-card p,
+.category-card p,
+.testimonial-card p {
+    color: var(--neutral-600);
+}
+
+.job-card h3,
+.feature-card h3,
+.category-card h3 {
+    color: var(--dark);
+}
+
+/* Form Elements Text Visibility */
+input, textarea, select {
+    color: var(--dark) !important;
+    background: var(--white);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--neutral-500) !important;
+    opacity: 1;
+}
+
+/* Panel and Section Text */
+.panel, .section, .card {
+    color: var(--dark);
+}
+
+.panel h2, .panel h3, .panel h4,
+.section h2, .section h3, .section h4 {
+    color: var(--dark);
+}
+
+.panel p, .section p {
+    color: var(--neutral-700);
+}
+
+/* Badge and Tag Text */
+.badge, .tag, .job-tag {
+    font-weight: 600;
+}
+
+/* ==================== DARK MODE TEXT VISIBILITY FIXES ==================== */
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] label,
+[data-theme="dark"] li {
+    color: var(--neutral-300);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #f5f0e8;
+}
+
+[data-theme="dark"] .search-box {
+    background: rgba(45, 38, 29, 0.95);
+    border-color: var(--secondary);
+}
+
+[data-theme="dark"] .search-field {
+    background: rgba(26, 22, 18, 0.8);
+    border-color: rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] .search-field input {
+    color: #f5f0e8 !important;
+}
+
+[data-theme="dark"] .search-field input::placeholder {
+    color: #b8a890 !important;
+}
+
+[data-theme="dark"] .search-field i {
+    color: var(--secondary);
+}
+
+[data-theme="dark"] .job-card p,
+[data-theme="dark"] .feature-card p,
+[data-theme="dark"] .category-card p {
+    color: #d9cfc0;
+}
+
+[data-theme="dark"] .job-card h3,
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .category-card h3 {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    color: #f5f0e8 !important;
+    background: rgba(26, 22, 18, 0.9) !important;
+    border-color: rgba(184, 134, 11, 0.3) !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #8b7355 !important;
+}
+
+[data-theme="dark"] .panel,
+[data-theme="dark"] .section {
+    background: rgba(45, 38, 29, 0.95);
+    color: #ebe4d8;
+}
+
+[data-theme="dark"] .panel h2,
+[data-theme="dark"] .panel h3,
+[data-theme="dark"] .panel p {
+    color: #ebe4d8;
+}
+
+/* ==================== RESUME SCREENER DARK MODE ==================== */
+[data-theme="dark"] .screener-page {
+    background: linear-gradient(180deg, #0d0a08 0%, #1a1612 100%);
+}
+
+[data-theme="dark"] .screener-hero {
+    background: linear-gradient(135deg, #722f37 0%, #5c252c 50%, #b8860b 100%);
+}
+
+[data-theme="dark"] .panel {
+    background: rgba(45, 38, 29, 0.95);
+    border: 2px solid rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] .panel-header {
+    border-bottom-color: rgba(184, 134, 11, 0.2);
+}
+
+[data-theme="dark"] .panel-header h2 {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .drop-zone {
+    background: linear-gradient(135deg, rgba(26, 22, 18, 0.8) 0%, rgba(45, 38, 29, 0.9) 100%);
+    border-color: rgba(184, 134, 11, 0.4);
+}
+
+[data-theme="dark"] .drop-zone h3 {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .drop-zone p {
+    color: #b8a890;
+}
+
+[data-theme="dark"] .drop-zone .format-badge {
+    background: rgba(184, 134, 11, 0.2);
+    color: #d4af37;
+}
+
+[data-theme="dark"] .jd-section label {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .jd-section textarea {
+    background: rgba(26, 22, 18, 0.8);
+    border-color: rgba(184, 134, 11, 0.3);
+    color: #ebe4d8;
+}
+
+[data-theme="dark"] .jd-tips {
+    background: rgba(184, 134, 11, 0.15);
+    color: #d4af37;
+}
+
+[data-theme="dark"] .option-group label {
+    color: #d9cfc0;
+}
+
+[data-theme="dark"] .option-group select {
+    background: rgba(26, 22, 18, 0.8);
+    color: #ebe4d8;
+    border-color: rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] .overall-score-section {
+    background: linear-gradient(135deg, rgba(45, 38, 29, 0.9) 0%, rgba(26, 22, 18, 0.95) 100%);
+    border-color: rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] .score-ring .score-value {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .score-ring .score-label {
+    color: #b8a890;
+}
+
+[data-theme="dark"] .score-details h3 {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .breakdown-item {
+    background: rgba(26, 22, 18, 0.8);
+}
+
+[data-theme="dark"] .breakdown-item .item-label {
+    color: #b8a890;
+}
+
+[data-theme="dark"] .breakdown-item .item-value {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .tabs {
+    background: rgba(26, 22, 18, 0.8);
+}
+
+[data-theme="dark"] .tab-btn {
+    color: #b8a890;
+}
+
+[data-theme="dark"] .tab-btn:hover {
+    color: #d9cfc0;
+}
+
+[data-theme="dark"] .tab-btn.active {
+    background: rgba(114, 47, 55, 0.8);
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .section-header h3 {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .issue-item {
+    background: rgba(45, 38, 29, 0.8);
+    border-color: rgba(184, 134, 11, 0.2);
+    color: #ebe4d8;
+}
+
+[data-theme="dark"] .issue-item.error {
+    background: rgba(114, 47, 55, 0.2);
+    border-color: rgba(114, 47, 55, 0.4);
+}
+
+[data-theme="dark"] .issue-item.warning {
+    background: rgba(184, 134, 11, 0.15);
+    border-color: rgba(184, 134, 11, 0.3);
+}
+
+[data-theme="dark"] .issue-item.success {
+    background: rgba(26, 61, 46, 0.2);
+    border-color: rgba(26, 61, 46, 0.4);
+}
+
+[data-theme="dark"] .issue-item.info {
+    background: rgba(26, 54, 93, 0.2);
+    border-color: rgba(26, 54, 93, 0.4);
+}
+
+[data-theme="dark"] .results-placeholder {
+    color: #8b7355;
+}
+
+[data-theme="dark"] .results-placeholder h3 {
+    color: #b8a890;
+}
+
+[data-theme="dark"] .results-placeholder .placeholder-icon {
+    background: rgba(45, 38, 29, 0.8);
+}
+
+[data-theme="dark"] .results-placeholder .placeholder-icon i {
+    color: #6b5a45;
+}
+
+[data-theme="dark"] .file-preview {
+    background: linear-gradient(135deg, rgba(26, 61, 46, 0.3) 0%, rgba(45, 90, 68, 0.2) 100%);
+    border-color: rgba(45, 90, 68, 0.4);
+}
+
+[data-theme="dark"] .file-preview .file-name {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .file-preview .file-size {
+    color: #b8a890;
+}
+
+[data-theme="dark"] .progress-bar {
+    background: rgba(45, 38, 29, 0.8);
+}
+
+[data-theme="dark"] .progress-step .step-label {
+    color: #8b7355;
+}
+
+[data-theme="dark"] .progress-step.active .step-label {
+    color: #d4af37;
+}
+
+/* ==================== CONSISTENT PAGE BACKGROUNDS ==================== */
+/* Ensure all pages respect the dark mode setting */
+[data-theme="dark"] .page-content,
+[data-theme="dark"] main,
+[data-theme="dark"] .main-content {
+    background: #0d0a08;
+}
+
+[data-theme="dark"] .container {
+    color: #ebe4d8;
+}
+
+/* Page Header Dark Mode */
+[data-theme="dark"] .page-header h1 {
+    color: #faf8f5;
+}
+
+[data-theme="dark"] .page-header p,
+[data-theme="dark"] .page-header .breadcrumb {
+    color: #b8a890;
+}
+
+/* Footer Dark Mode Text */
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer span,
+[data-theme="dark"] .footer a {
+    color: #d9cfc0;
+}
+
+[data-theme="dark"] .footer h4 {
+    color: #faf8f5;
+}
+
+/* Button Text Visibility */
+.btn {
+    font-weight: 600;
+}
+
+.btn-primary {
+    color: var(--cream);
+}
+
+.btn-outline {
+    color: var(--primary);
+}
+
+[data-theme="dark"] .btn-outline {
+    color: var(--secondary-light);
+    border-color: var(--secondary);
+}
+
+[data-theme="dark"] .btn-outline:hover {
+    color: var(--cream);
+    background: var(--primary);
 }
