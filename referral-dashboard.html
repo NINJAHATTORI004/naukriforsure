@@ -1273,7 +1273,8 @@
         // Listen for auth state changes
         document.addEventListener('authStateChanged', (e) => {
             if (e.detail.user) {
-                location.reload(); // Reload to show dashboard
+                // Initialize dashboard directly instead of reloading (prevents infinite loop)
+                initDashboard();
             }
         });
 
