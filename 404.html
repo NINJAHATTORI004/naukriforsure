@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - NaukriForSure</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Find your dream job from thousands of opportunities on NaukriForSure.">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Victorian Era Google Fonts - Optimized -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <meta name="theme-color" content="#722f37">
+    
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #faf7f0 0%, #f4eed8 100%);
+            padding: 40px 20px;
+        }
+        
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #722f37 0%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 2rem;
+            color: #722f37;
+            margin-bottom: 15px;
+        }
+        
+        .error-message {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 1.2rem;
+            color: #6b5a45;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .error-illustration {
+            font-size: 6rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .search-box-404 {
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(114, 47, 55, 0.1);
+            border: 2px solid rgba(184, 134, 11, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .search-box-404 input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            background: transparent;
+            outline: none;
+        }
+        
+        .search-box-404 button {
+            background: linear-gradient(135deg, #722f37 0%, #b8860b 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 6px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box-404 button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(114, 47, 55, 0.3);
+        }
+        
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .quick-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid #722f37;
+            border-radius: 6px;
+            color: #722f37;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-link:hover {
+            background: #722f37;
+            color: white;
+        }
+        
+        .popular-searches {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .popular-searches h3 {
+            font-family: 'Cinzel', serif;
+            color: #722f37;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .search-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .search-tag {
+            padding: 8px 16px;
+            background: rgba(184, 134, 11, 0.1);
+            border-radius: 20px;
+            color: #6b5a45;
+            text-decoration: none;
+            font-family: 'EB Garamond', serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-tag:hover {
+            background: #b8860b;
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .search-box-404 {
+                flex-direction: column;
+            }
+            
+            .search-box-404 button {
+                width: 100%;
+            }
+            
+            .quick-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="error-page">
+        <div class="error-container">
+            <div class="error-illustration">🔍</div>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                Oops! The page you're looking for seems to have wandered off. 
+                Don't worry - let's help you find your dream job instead!
+            </p>
+            
+            <form class="search-box-404" action="jobs.html" method="GET">
+                <input type="text" name="search" placeholder="Search for jobs, companies, or skills..." aria-label="Search jobs">
+                <button type="submit">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </form>
+            
+            <div class="quick-links">
+                <a href="index.html" class="quick-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="jobs.html" class="quick-link">
+                    <i class="fas fa-briefcase"></i> All Jobs
+                </a>
+                <a href="categories.html" class="quick-link">
+                    <i class="fas fa-th-large"></i> Categories
+                </a>
+                <a href="blog/" class="quick-link">
+                    <i class="fas fa-newspaper"></i> Blog
+                </a>
+            </div>
+            
+            <div class="popular-searches">
+                <h3>Popular Searches</h3>
+                <div class="search-tags">
+                    <a href="jobs.html?search=software+engineer" class="search-tag">Software Engineer</a>
+                    <a href="jobs.html?search=data+analyst" class="search-tag">Data Analyst</a>
+                    <a href="jobs.html?search=devops" class="search-tag">DevOps</a>
+                    <a href="jobs.html?category=it" class="search-tag">IT Jobs</a>
+                    <a href="remote-jobs.html" class="search-tag">Remote Jobs</a>
+                    <a href="jobs.html?search=fresher" class="search-tag">Fresher Jobs</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Track 404 errors for analytics
+        if (typeof gtag === 'function') {
+            gtag('event', 'page_not_found', {
+                'page_location': window.location.href,
+                'page_referrer': document.referrer
+            });
+        }
+    </script>
+</body>
+</html>

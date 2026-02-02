@@ -1,15 +1,29 @@
 {
   "name": "naukriforsure",
-  "version": "1.0.0",
-  "description": "Static file server for naukriforsure job portal",
+  "version": "2.0.0",
+  "description": "Free job portal for freshers and job seekers - NaukriForSure",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "npm run generate:sitemap",
+    "generate:sitemap": "node generate-sitemap.js",
+    "lint": "echo 'Add your linting command here'"
   },
-  "author": "",
+  "keywords": [
+    "jobs",
+    "freshers",
+    "career",
+    "job portal",
+    "recruitment"
+  ],
+  "author": "NaukriForSure",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
     "serve-index": "^1.9.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

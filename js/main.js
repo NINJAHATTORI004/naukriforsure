@@ -1,5 +1,5 @@
 // Main JavaScript file for NaukriForSure
-// Premium UI/UX Interactions v2.0
+// Premium UI/UX Interactions v3.0 - Enhanced with Security & Analytics
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the page
@@ -14,7 +14,127 @@ document.addEventListener('DOMContentLoaded', function() {
     initParallaxEffects();
     initCounterAnimations();
     initDarkMode();
+    initAccessibility();
+    initAnalytics();
 });
+
+// ==================== SECURITY UTILITIES ====================
+
+// Sanitize user input to prevent XSS
+function sanitizeInput(input) {
+    if (typeof input !== 'string') return '';
+    const div = document.createElement('div');
+    div.textContent = input;
+    return div.innerHTML
+        .replace(/[<>]/g, '')
+        .replace(/javascript:/gi, '')
+        .replace(/on\w+=/gi, '')
+        .trim()
+        .slice(0, 500); // Limit length
+}
+
+// Sanitize URL parameters
+function sanitizeURL(url) {
+    try {
+        const parsed = new URL(url, window.location.origin);
+        // Only allow same-origin or specific trusted domains
+        const trustedDomains = ['naukriforsure.vercel.app', 'localhost'];
+        if (trustedDomains.some(d => parsed.hostname.includes(d)) || parsed.hostname === window.location.hostname) {
+            return parsed.href;
+        }
+    } catch (e) {}
+    return window.location.origin;
+}
+
+// ==================== ANALYTICS TRACKING ====================
+
+function initAnalytics() {
+    // Track page views
+    trackEvent('page_view', {
+        page_title: document.title,
+        page_path: window.location.pathname
+    });
+    
+    // Track job card clicks
+    document.addEventListener('click', function(e) {
+        const jobCard = e.target.closest('.job-card, .job-list-card');
+        if (jobCard) {
+            const jobTitle = jobCard.querySelector('h3')?.textContent || 'Unknown';
+            const company = jobCard.querySelector('.company')?.textContent || 'Unknown';
+            trackEvent('job_view', { job_title: jobTitle, company: company });
+        }
+        
+        // Track apply button clicks
+        if (e.target.closest('.apply-btn, [href*="apply"]')) {
+            const jobTitle = document.querySelector('.job-header h1')?.textContent || 'Unknown';
+            trackEvent('job_apply', { job_title: jobTitle });
+        }
+        
+        // Track save job clicks
+        if (e.target.closest('.save-job-btn, .save-btn')) {
+            trackEvent('job_save', { action: 'toggle' });
+        }
+    });
+}
+
+function trackEvent(eventName, params = {}) {
+    // Google Analytics 4
+    if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+    }
+    
+    // Console log for debugging (remove in production)
+    console.log('[Analytics]', eventName, params);
+}
+
+// ==================== ACCESSIBILITY ENHANCEMENTS ====================
+
+function initAccessibility() {
+    // Manage focus for dropdowns
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        const trigger = dropdown.querySelector('a');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        
+        if (trigger && menu) {
+            trigger.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+                    trigger.setAttribute('aria-expanded', !isExpanded);
+                    menu.style.display = isExpanded ? 'none' : 'block';
+                }
+            });
+        }
+    });
+    
+    // Handle escape key to close modals/menus
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            // Close mobile menu
+            document.querySelector('.nav-links')?.classList.remove('active');
+            document.querySelector('.hamburger')?.classList.remove('active');
+            
+            // Close dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.display = 'none';
+            });
+            document.querySelectorAll('[aria-expanded="true"]').forEach(el => {
+                el.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+    
+    // Announce dynamic content changes
+    window.announceToScreenReader = function(message) {
+        const announcement = document.createElement('div');
+        announcement.setAttribute('role', 'status');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'visually-hidden';
+        announcement.textContent = message;
+        document.body.appendChild(announcement);
+        setTimeout(() => announcement.remove(), 1000);
+    };
+}
 
 // ==================== DARK MODE ====================
 
@@ -23,7 +143,8 @@ function initDarkMode() {
     const themeToggle = document.createElement('button');
     themeToggle.className = 'theme-toggle';
     themeToggle.setAttribute('aria-label', 'Toggle dark mode');
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i><i class="fas fa-sun"></i>';
+    themeToggle.setAttribute('role', 'switch');
+    themeToggle.innerHTML = '<i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>';
     document.body.appendChild(themeToggle);
     
     // Check for saved theme preference - default to LIGHT mode
@@ -31,9 +152,11 @@ function initDarkMode() {
     
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggle.setAttribute('aria-checked', savedTheme === 'dark');
     } else {
         // Default to light theme
         document.documentElement.setAttribute('data-theme', 'light');
+        themeToggle.setAttribute('aria-checked', 'false');
     }
     
     // Toggle theme on click
@@ -43,6 +166,7 @@ function initDarkMode() {
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+        themeToggle.setAttribute('aria-checked', newTheme === 'dark');
         
         // Add animation class
         document.body.classList.add('theme-transitioning');
@@ -50,7 +174,8 @@ function initDarkMode() {
             document.body.classList.remove('theme-transitioning');
         }, 300);
         
-        showToast(`${newTheme === 'dark' ? '?? Dark' : '?? Light'} mode activated`, 'success');
+        showToast(`${newTheme === 'dark' ? '🌙 Dark' : '☀️ Light'} mode activated`, 'success');
+        trackEvent('theme_change', { theme: newTheme });
     });
     
     // Listen for system theme changes
@@ -600,8 +725,15 @@ function performSearch() {
     const searchInput = document.getElementById('searchInput');
     const locationInput = document.getElementById('locationInput');
     
-    const query = searchInput ? searchInput.value : '';
-    const location = locationInput ? locationInput.value : '';
+    // Sanitize inputs
+    const query = sanitizeInput(searchInput ? searchInput.value : '');
+    const location = sanitizeInput(locationInput ? locationInput.value : '');
+    
+    // Track search event
+    trackEvent('search', { 
+        search_term: query, 
+        location: location 
+    });
     
     // Redirect to jobs page with search parameters
     window.location.href = `jobs.html?q=${encodeURIComponent(query)}&location=${encodeURIComponent(location)}`;

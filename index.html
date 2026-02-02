@@ -9,6 +9,18 @@
     <meta name="author" content="NaukriForSure">
     <link rel="canonical" href="https://naukriforsure.vercel.app/">
     
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://naukriforsure.vercel.app/">
@@ -54,17 +66,22 @@
     });
     </script>
     
-    <!-- Victorian Era Google Fonts -->
+    <!-- Victorian Era Google Fonts - Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/advanced-features.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="js/jobs-data.js" as="script">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/advanced-features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#722f37">
@@ -148,19 +165,21 @@
             <h1>Find Your <span class="gradient-text">Dream Job</span><br>Your College Doesn't Define You</h1>
             <p>A free platform helping freshers and job seekers find genuine job opportunities. Your skills matter, not your background!</p>
             
-            <div class="search-box">
+            <form class="search-box" role="search" onsubmit="searchJobs(); return false;">
                 <div class="search-field">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Job title, keywords, or company">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <label for="searchInput" class="visually-hidden">Search jobs</label>
+                    <input type="text" id="searchInput" placeholder="Job title, keywords, or company" aria-label="Search by job title, keywords, or company" autocomplete="off">
                 </div>
                 <div class="search-field">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" id="locationInput" placeholder="Location">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <label for="locationInput" class="visually-hidden">Location</label>
+                    <input type="text" id="locationInput" placeholder="Location" aria-label="Filter by location" autocomplete="off">
                 </div>
-                <button class="btn btn-search" onclick="searchJobs()">
-                    <i class="fas fa-search"></i> Search Jobs
+                <button type="submit" class="btn btn-search" aria-label="Search for jobs">
+                    <i class="fas fa-search" aria-hidden="true"></i> Search Jobs
                 </button>
-            </div>
+            </form>
 
             <div class="hero-stats">
                 <div class="stat">
@@ -641,6 +660,7 @@
 
     <script src="js/jobs-data.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/components.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/chatbot.js"></script>
     <script src="js/victorian-effects.js"></script>
@@ -656,9 +676,22 @@
                 subscribers.push(email);
                 localStorage.setItem('nfs_subscribers', JSON.stringify(subscribers));
             }
-            alert('🎉 Welcome aboard! You\'ll receive daily job alerts at ' + email);
+            showToast('🎉 Welcome! You\'ll receive daily job alerts at ' + email, 'success');
             this.reset();
+            // Track event
+            if (typeof gtag === 'function') {
+                gtag('event', 'newsletter_signup', { email_domain: email.split('@')[1] });
+            }
         });
+        
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW registered:', reg.scope))
+                    .catch(err => console.log('SW registration failed:', err));
+            });
+        }
     </script>
 </body>
 </html>
