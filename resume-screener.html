@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Resume Screener & ATS Optimizer - NaukriForSure</title>
-    <meta name="description" content="Free AI-powered ATS resume screener. Analyze your resume, get keyword optimization, ATS compliance score, skill gap analysis, and generate ATS-friendly resumes.">
-    <meta name="keywords" content="resume screener, ATS checker, resume analyzer, ATS score, resume optimizer, keyword optimization, resume builder">
+    <title>SkillFit AI Resume Screening & Workforce Assessment - NaukriForSure</title>
+    <meta name="description" content="SkillFit AI combines NLP resume screening, multilingual interview scoring, authenticity checks, fitment classification, and recruiter dashboards.">
+    <meta name="keywords" content="SkillFit AI, resume screener, ATS checker, workforce assessment, AI interview, fraud detection, recruiter dashboard">
     <link rel="canonical" href="https://naukriforsure.vercel.app/resume-screener.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://naukriforsure.vercel.app/resume-screener.html">
-    <meta property="og:title" content="Advanced Resume Screener & ATS Optimizer - NaukriForSure">
-    <meta property="og:description" content="Free AI-powered ATS resume screener. Analyze your resume and generate ATS-friendly resumes.">
+    <meta property="og:title" content="SkillFit AI Resume Screening & Workforce Assessment - NaukriForSure">
+    <meta property="og:description" content="NLP resume screening, multilingual interview scoring, authenticity checks, and recruiter-ready fitment dashboards.">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Advanced Resume Screener & ATS Optimizer">
-    <meta name="twitter:description" content="Free AI-powered ATS resume screener. Analyze your resume and generate ATS-friendly resumes.">
+    <meta name="twitter:title" content="SkillFit AI Workforce Assessment">
+    <meta name="twitter:description" content="NLP resume screening, multilingual interviews, authenticity checks, and recruiter dashboards.">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6055589762174170" crossorigin="anonymous"></script>
     <script>
@@ -1254,6 +1254,222 @@
         .fab:hover { transform: scale(1.1); }
         .fab i { color: white; font-size: 1.3rem; }
         .fab.show { display: flex; }
+
+        /* SkillFit AI workforce assessment */
+        .skillfit-console {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .skillfit-card {
+            background: #fff;
+            border: 1px solid rgba(114, 47, 55, 0.12);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            box-shadow: var(--shadow-md);
+        }
+        .skillfit-card h3 {
+            margin: 8px 0 4px;
+            color: var(--gray-900);
+            font-size: 1rem;
+        }
+        .skillfit-card p {
+            margin: 0;
+            color: var(--gray-500);
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+        .skillfit-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-md);
+            background: var(--gradient-primary);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .interview-grid,
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .assessment-card {
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            background: var(--gray-50);
+        }
+        .assessment-card.full {
+            grid-column: 1 / -1;
+        }
+        .assessment-card h4 {
+            margin: 0 0 12px;
+            color: var(--gray-900);
+            font-size: 0.96rem;
+        }
+        .assessment-card label {
+            display: block;
+            margin: 12px 0 6px;
+            color: var(--gray-700);
+            font-weight: 600;
+            font-size: 0.84rem;
+        }
+        .assessment-card select,
+        .assessment-card textarea,
+        .assessment-card input {
+            width: 100%;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            background: #fff;
+            color: var(--gray-900);
+        }
+        .assessment-card textarea {
+            min-height: 92px;
+            resize: vertical;
+        }
+        .metric-list {
+            display: grid;
+            gap: 10px;
+        }
+        .metric-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+        .metric-track {
+            grid-column: 1 / -1;
+            height: 8px;
+            border-radius: 999px;
+            background: #eadfcb;
+            overflow: hidden;
+        }
+        .metric-fill {
+            height: 100%;
+            width: 0;
+            background: var(--gradient-primary);
+            transition: width 0.8s ease;
+        }
+        .fitment-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #dcfce7;
+            color: #166534;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+        .fitment-badge.training { background: #fef3c7; color: #92400e; }
+        .fitment-badge.review { background: #dbeafe; color: #1e40af; }
+        .fitment-badge.duplicate { background: #fee2e2; color: #991b1b; }
+        .flag-list {
+            display: grid;
+            gap: 10px;
+        }
+        .flag-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 11px 12px;
+            border-radius: var(--radius-sm);
+            background: #fff;
+            border: 1px solid var(--gray-100);
+            color: var(--gray-700);
+            font-size: 0.88rem;
+        }
+        .flag-status.ok { color: #166534; font-weight: 700; }
+        .flag-status.warn { color: #92400e; font-weight: 700; }
+        .candidate-table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius-md);
+            background: #fff;
+        }
+        .candidate-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 760px;
+            font-size: 0.86rem;
+        }
+        .candidate-table th,
+        .candidate-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--gray-100);
+            text-align: left;
+            color: var(--gray-700);
+        }
+        .candidate-table th {
+            background: var(--gray-50);
+            color: var(--gray-900);
+            font-weight: 700;
+        }
+        .dashboard-filters {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 18px 0;
+        }
+        .quick-action-btn {
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            background: #fff;
+            color: var(--primary);
+            padding: 11px 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .quick-action-btn:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .recorder-panel {
+            margin-top: 14px;
+            padding: 14px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-100);
+            background: #fff;
+        }
+        .recorder-panel video {
+            width: 100%;
+            max-height: 220px;
+            background: #1a1612;
+            border-radius: var(--radius-sm);
+            margin: 10px 0;
+        }
+        .recorder-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .recorder-status {
+            color: var(--gray-500);
+            font-size: 0.84rem;
+            margin-top: 8px;
+        }
+        @media (max-width: 900px) {
+            .skillfit-console,
+            .interview-grid,
+            .dashboard-grid,
+            .dashboard-filters,
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1283,7 +1499,7 @@
                     <li><a href="jobs.html">Jobs</a></li>
                     <li><a href="categories.html">Categories</a></li>
                     <li><a href="community.html">Community</a></li>
-                    <li><a href="resume-screener.html" class="active">Resume Screener</a></li>
+                    <li><a href="resume-screener.html" class="active">SkillFit AI</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -1304,16 +1520,16 @@
     <main class="screener-page">
         <div class="container">
             <div class="screener-hero">
-                <h1><i class="fas fa-wand-magic-sparkles"></i> Advanced Resume Screener & ATS Optimizer</h1>
-                <p>AI-powered resume analysis with ATS compliance check, keyword optimization, skill gap analysis, experience enhancement using CAR framework, and ATS-friendly resume generation.</p>
+                <h1><i class="fas fa-wand-magic-sparkles"></i> SkillFit AI Workforce Assessment</h1>
+                <p>NLP resume screening, multilingual interview scoring, authenticity checks, fitment classification, and recruiter-ready dashboards for scalable hiring across Bharat.</p>
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <span class="hero-stat-value" id="resumesAnalyzed">50K+</span>
                         <span class="hero-stat-label">Resumes Analyzed</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="hero-stat-value">12+</span>
-                        <span class="hero-stat-label">ATS Checks</span>
+                        <span class="hero-stat-value">4</span>
+                        <span class="hero-stat-label">Interview Languages</span>
                     </div>
                     <div class="hero-stat">
                         <span class="hero-stat-value">100%</span>
@@ -1321,11 +1537,34 @@
                     </div>
                 </div>
                 <div class="hero-badges">
-                    <span class="hero-badge"><i class="fas fa-shield-halved"></i> 100% Private</span>
-                    <span class="hero-badge"><i class="fas fa-bolt"></i> Instant Analysis</span>
-                    <span class="hero-badge"><i class="fas fa-download"></i> Export Optimized</span>
-                    <span class="hero-badge"><i class="fas fa-brain"></i> AI Powered</span>
-                    <span class="hero-badge"><i class="fas fa-chart-line"></i> Detailed Reports</span>
+                    <span class="hero-badge"><i class="fas fa-language"></i> Kannada Hindi English Hinglish</span>
+                    <span class="hero-badge"><i class="fas fa-user-shield"></i> Fraud Signals</span>
+                    <span class="hero-badge"><i class="fas fa-brain"></i> Fitment Intelligence</span>
+                    <span class="hero-badge"><i class="fas fa-chart-line"></i> Recruiter Dashboard</span>
+                    <span class="hero-badge"><i class="fas fa-file-export"></i> Export Reports</span>
+                </div>
+            </div>
+
+            <div class="skillfit-console" aria-label="SkillFit AI feature modules">
+                <div class="skillfit-card">
+                    <span class="skillfit-icon"><i class="fas fa-file-waveform"></i></span>
+                    <h3>NLP Resume Screening</h3>
+                    <p>Extracts skills, experience, qualification signals, keyword relevance, and job-role ranking.</p>
+                </div>
+                <div class="skillfit-card">
+                    <span class="skillfit-icon"><i class="fas fa-video"></i></span>
+                    <h3>AI Video Interview</h3>
+                    <p>Scores response relevance, confidence indicators, communication clarity, and readiness.</p>
+                </div>
+                <div class="skillfit-card">
+                    <span class="skillfit-icon"><i class="fas fa-fingerprint"></i></span>
+                    <h3>Authenticity Checks</h3>
+                    <p>Flags face presence, voice consistency, repeat attempts, and suspicious behavior.</p>
+                </div>
+                <div class="skillfit-card">
+                    <span class="skillfit-icon"><i class="fas fa-table-columns"></i></span>
+                    <h3>Recruiter Dashboard</h3>
+                    <p>Filter candidates by district, skill category, language, readiness, and fraud flags.</p>
                 </div>
             </div>
 
@@ -1357,6 +1596,11 @@
                                 <div class="file-size" id="fileSize">245 KB</div>
                             </div>
                             <button class="remove-btn" id="removeFile"><i class="fas fa-xmark"></i></button>
+                        </div>
+
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" id="loadDemoBtn"><i class="fas fa-bolt"></i> Load Demo Candidate</button>
+                            <button class="quick-action-btn" id="clearDashboardBtn"><i class="fas fa-trash-can"></i> Clear Saved Dashboard</button>
                         </div>
                         
                         <div class="jd-section">
@@ -1395,6 +1639,42 @@
                                     <option value="mid">Mid-Level (3-5 yrs)</option>
                                     <option value="senior">Senior (5+ yrs)</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="options-grid">
+                            <div class="option-group">
+                                <label>Interview Language</label>
+                                <select id="interviewLanguage">
+                                    <option value="english">English</option>
+                                    <option value="hindi">Hindi</option>
+                                    <option value="kannada">Kannada</option>
+                                    <option value="hinglish">Hinglish</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Candidate District</label>
+                                <select id="candidateDistrict">
+                                    <option value="Bengaluru Urban">Bengaluru Urban</option>
+                                    <option value="Mysuru">Mysuru</option>
+                                    <option value="Dharwad">Dharwad</option>
+                                    <option value="Kalaburagi">Kalaburagi</option>
+                                    <option value="Delhi NCR">Delhi NCR</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="jd-section">
+                            <label>
+                                <i class="fas fa-video"></i> Video Interview Transcript
+                                <span class="optional-badge">OPTIONAL</span>
+                            </label>
+                            <textarea id="videoTranscript" placeholder="Paste candidate answer transcript, for example: I built a React dashboard, handled customer support calls, solved SQL issues, and can join immediately..."></textarea>
+                            <div class="jd-tips">
+                                <i class="fas fa-language"></i>
+                                <span>The assessment supports English, Hindi, Kannada, and Hinglish style responses using lightweight browser-side scoring.</span>
                             </div>
                         </div>
                         
@@ -1505,6 +1785,15 @@
                                 <button class="tab-btn" data-tab="parsed">
                                     <i class="fas fa-file-lines"></i> Parsed
                                 </button>
+                                <button class="tab-btn" data-tab="interview">
+                                    <i class="fas fa-video"></i> Interview
+                                </button>
+                                <button class="tab-btn" data-tab="authenticity">
+                                    <i class="fas fa-user-shield"></i> Authenticity
+                                </button>
+                                <button class="tab-btn" data-tab="dashboard">
+                                    <i class="fas fa-table-columns"></i> Dashboard
+                                </button>
                                 <button class="tab-btn" data-tab="generate">
                                     <i class="fas fa-file-export"></i> Export
                                 </button>
@@ -1579,6 +1868,107 @@
                                     <h3><i class="fas fa-file-lines"></i> Parsed Resume Data</h3>
                                 </div>
                                 <div class="parsed-grid" id="parsedResume"></div>
+                            </div>
+
+                            <!-- Tab: Interview Assessment -->
+                            <div class="tab-content" id="tab-interview">
+                                <div class="section-header">
+                                    <h3><i class="fas fa-video"></i> Multilingual Video Interview Assessment</h3>
+                                    <button class="action-btn" id="rerunInterviewBtn"><i class="fas fa-rotate"></i> Re-score</button>
+                                </div>
+                                <div class="interview-grid">
+                                    <div class="assessment-card">
+                                        <h4>Candidate Fitment</h4>
+                                        <div id="fitmentBadge" class="fitment-badge"><i class="fas fa-circle-check"></i> Awaiting Analysis</div>
+                                        <div class="metric-list" id="interviewMetrics" style="margin-top:14px;"></div>
+                                    </div>
+                                    <div class="assessment-card">
+                                        <h4>AI Interview Question</h4>
+                                        <p id="generatedQuestion" style="color:var(--gray-700);line-height:1.6;margin:0;"></p>
+                                        <label for="liveTranscript">Candidate Response</label>
+                                        <textarea id="liveTranscript" placeholder="Paste or edit the interview answer here, then click Re-score."></textarea>
+                                        <div class="recorder-panel">
+                                            <strong><i class="fas fa-camera"></i> Browser Video Sample</strong>
+                                            <video id="interviewPreview" playsinline muted></video>
+                                            <div class="recorder-controls">
+                                                <button class="action-btn" id="startRecordingBtn"><i class="fas fa-record-vinyl"></i> Start</button>
+                                                <button class="action-btn" id="stopRecordingBtn" disabled><i class="fas fa-stop"></i> Stop</button>
+                                            </div>
+                                            <div class="recorder-status" id="recorderStatus">No video sample captured yet.</div>
+                                        </div>
+                                    </div>
+                                    <div class="assessment-card full">
+                                        <h4>Readiness Summary</h4>
+                                        <div id="readinessSummary"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab: Authenticity -->
+                            <div class="tab-content" id="tab-authenticity">
+                                <div class="section-header">
+                                    <h3><i class="fas fa-user-shield"></i> Fraud / Duplicate Detection</h3>
+                                </div>
+                                <div class="dashboard-grid">
+                                    <div class="assessment-card">
+                                        <h4>Integrity Signals</h4>
+                                        <div class="flag-list" id="authFlags"></div>
+                                    </div>
+                                    <div class="assessment-card">
+                                        <h4>Risk Guidance</h4>
+                                        <div id="riskGuidance"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab: Recruiter Dashboard -->
+                            <div class="tab-content" id="tab-dashboard">
+                                <div class="section-header">
+                                    <h3><i class="fas fa-table-columns"></i> Recruiter Dashboard</h3>
+                                    <button class="action-btn" id="exportCandidatesBtn"><i class="fas fa-file-csv"></i> Export CSV</button>
+                                </div>
+                                <div class="dashboard-filters">
+                                    <select id="districtFilter" aria-label="Filter by district">
+                                        <option value="all">All districts</option>
+                                    </select>
+                                    <select id="skillFilter" aria-label="Filter by skill category">
+                                        <option value="all">All skill categories</option>
+                                        <option value="Software">Software</option>
+                                        <option value="Data">Data</option>
+                                        <option value="Support">Support</option>
+                                        <option value="Design">Design</option>
+                                    </select>
+                                    <select id="languageFilter" aria-label="Filter by language">
+                                        <option value="all">All languages</option>
+                                        <option value="English">English</option>
+                                        <option value="Hindi">Hindi</option>
+                                        <option value="Kannada">Kannada</option>
+                                        <option value="Hinglish">Hinglish</option>
+                                    </select>
+                                    <select id="readinessFilter" aria-label="Filter by readiness">
+                                        <option value="all">All readiness levels</option>
+                                        <option value="Job Ready">Job Ready</option>
+                                        <option value="Needs Training">Needs Training</option>
+                                        <option value="Manual Review">Manual Review</option>
+                                        <option value="Suspected Duplicate">Suspected Duplicate</option>
+                                    </select>
+                                </div>
+                                <div class="candidate-table-wrap">
+                                    <table class="candidate-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Candidate</th>
+                                                <th>District</th>
+                                                <th>Skill</th>
+                                                <th>Language</th>
+                                                <th>Fitment</th>
+                                                <th>Fraud Flag</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="candidateRows"></tbody>
+                                    </table>
+                                </div>
                             </div>
                             
                             <!-- Tab: Generate -->
@@ -1691,6 +2081,13 @@
         let parsedResume = {};
         let analysisResults = {};
         let optimizedResume = {};
+        let workforceAssessment = {};
+        let candidateRecords = [];
+        let videoSampleCaptured = false;
+        let mediaRecorder = null;
+        let recorderStream = null;
+        let recordedChunks = [];
+        const CANDIDATE_STORE_KEY = 'skillfitCandidates';
         
         // ==================== Skill Databases ====================
         const roleSkills = {
@@ -1738,9 +2135,32 @@
         const jobDescription = document.getElementById('jobDescription');
         const targetRole = document.getElementById('targetRole');
         const expLevel = document.getElementById('expLevel');
+        const interviewLanguage = document.getElementById('interviewLanguage');
+        const candidateDistrict = document.getElementById('candidateDistrict');
+        const videoTranscript = document.getElementById('videoTranscript');
         const analyzeBtn = document.getElementById('analyzeBtn');
         const resultsPlaceholder = document.getElementById('resultsPlaceholder');
         const resultsContent = document.getElementById('resultsContent');
+        const demoResumeText = `Aarav Kumar
+aarav.kumar@example.com | +91 98765 43210 | Bengaluru Urban | linkedin.com/in/aaravkumar | github.com/aaravkumar
+
+Professional Summary
+Software engineer with experience building React dashboards, Node.js APIs, SQL reports, and candidate analytics tools for high-volume hiring.
+
+Skills
+JavaScript, React, Node.js, REST API, SQL, MongoDB, Git, Docker, AWS, Data Structures, Algorithms, Agile, Communication, Problem Solving
+
+Experience
+Software Engineer | HireFlow Labs | Jan 2024 - Present
+- Built a React recruiter dashboard that filtered 5,000+ candidate profiles by skill, district, language, and readiness.
+- Developed Node.js APIs for resume parsing, keyword scoring, and duplicate candidate detection.
+- Improved report generation speed by 35% using optimized SQL queries and caching.
+
+Projects
+SkillFit AI - NLP resume screening and multilingual interview assessment platform using JavaScript, NLP, and dashboard analytics.
+
+Education
+B.Tech Computer Science, Bengaluru Institute of Technology, 2025`;
         
         // ==================== Event Listeners ====================
         dropZone.addEventListener('click', () => resumeInput.click());
@@ -1783,6 +2203,15 @@
         // Copy buttons
         document.getElementById('copyIssuesBtn')?.addEventListener('click', copyIssues);
         document.getElementById('copyKeywordsBtn')?.addEventListener('click', copyMissingKeywords);
+        document.getElementById('rerunInterviewBtn')?.addEventListener('click', rescoreInterview);
+        document.getElementById('exportCandidatesBtn')?.addEventListener('click', exportCandidateCsv);
+        document.getElementById('loadDemoBtn')?.addEventListener('click', loadDemoCandidate);
+        document.getElementById('clearDashboardBtn')?.addEventListener('click', clearSavedDashboard);
+        document.getElementById('startRecordingBtn')?.addEventListener('click', startVideoRecording);
+        document.getElementById('stopRecordingBtn')?.addEventListener('click', stopVideoRecording);
+        ['districtFilter', 'skillFilter', 'languageFilter', 'readinessFilter'].forEach(id => {
+            document.getElementById(id)?.addEventListener('change', renderCandidateDashboard);
+        });
         
         // Scroll to top
         const scrollTopBtn = document.getElementById('scrollTopBtn');
@@ -1828,6 +2257,26 @@
             if (bytes < 1024) return bytes + ' B';
             if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
             return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
+        function loadDemoCandidate() {
+            const demoFile = new File([demoResumeText], 'skillfit-demo-aarav-kumar.txt', { type: 'text/plain' });
+            handleFile(demoFile);
+            jobDescription.value = 'Hiring software engineer for React dashboard development, Node.js APIs, SQL reporting, REST integrations, AWS deployment, Docker, Git, data structures, algorithms, problem solving, and communication with recruiters.';
+            targetRole.value = 'fullstack';
+            expLevel.value = 'junior';
+            interviewLanguage.value = 'hinglish';
+            candidateDistrict.value = 'Bengaluru Urban';
+            videoTranscript.value = 'I built a React recruiter dashboard and Node.js APIs for candidate screening. I used SQL, REST APIs, Git, Docker, and AWS. The dashboard helped recruiters filter thousands of candidates by skill, district, language, and readiness. I also solved duplicate candidate issues and improved report speed by 35 percent.';
+            showToast('Demo candidate loaded. Click Analyze to run the full SkillFit flow.', 'success');
+        }
+
+        function clearSavedDashboard() {
+            localStorage.removeItem(CANDIDATE_STORE_KEY);
+            candidateRecords = getSeedCandidateRecords();
+            populateDashboardFilters(candidateRecords);
+            renderCandidateDashboard();
+            showToast('Saved dashboard records cleared.', 'success');
         }
         
         // ==================== Text Extraction ====================
@@ -2067,9 +2516,11 @@
                 updateProgress(4, 'Optimizing content...');
                 await delay(400);
                 optimizedResume = optimizeResume(parsedResume, analysisResults);
+                workforceAssessment = buildWorkforceAssessment(parsedResume, analysisResults);
                 
                 // Display results
                 displayResults(analysisResults, parsedResume, optimizedResume);
+                displayWorkforceAssessment(workforceAssessment);
                 
                 showToast('Analysis complete! Check your results.', 'success');
                 
@@ -3172,7 +3623,7 @@
                                         <strong style="font-size:0.9rem;">${edu.degree}</strong>
                                         <span style="font-size:0.8rem;color:var(--gray-500);">${edu.year}</span>
                                     </div>
-                                    <div style="font-size:0.85rem;color:var(--gray-500);">${edu.institution}${edu.gpa ? ` � GPA: ${edu.gpa}` : ''}</div>
+                                    <div style="font-size:0.85rem;color:var(--gray-500);">${edu.institution}${edu.gpa ? ` | GPA: ${edu.gpa}` : ''}</div>
                                 </div>
                             `).join('') :
                             (parsed.education.length > 0 ?
@@ -3194,7 +3645,7 @@
                                     ${proj.technologies && proj.technologies.length > 0 ? 
                                         `<span style="font-size:0.75rem;color:var(--primary);margin-left:8px;">[${proj.technologies.join(', ')}]</span>` : ''}
                                     ${proj.description ? `<p style="font-size:0.85rem;color:var(--gray-500);margin:4px 0 0 0;">${proj.description}</p>` : ''}
-                                    ${proj.link ? `<a href="https://${proj.link}" target="_blank" style="font-size:0.8rem;color:var(--primary);">?? ${proj.link}</a>` : ''}
+                                    ${proj.link ? `<a href="https://${proj.link}" target="_blank" style="font-size:0.8rem;color:var(--primary);">${proj.link}</a>` : ''}
                                 </div>
                             `).join('') :
                             (parsed.projects && parsed.projects.length > 0 ?
@@ -3354,7 +3805,7 @@
                                         <strong style="font-size: 0.85rem;">${edu.degree}</strong>
                                         <span style="font-size: 0.8rem; color: #64748b;">${edu.year}</span>
                                     </div>
-                                    <div style="font-size: 0.85rem; color: #64748b;">${edu.institution}${edu.gpa ? ` � GPA: ${edu.gpa}` : ''}</div>
+                                    <div style="font-size: 0.85rem; color: #64748b;">${edu.institution}${edu.gpa ? ` | GPA: ${edu.gpa}` : ''}</div>
                                 </div>
                             `).join('') :
                             p.education.map(e => `<p style="font-size: 0.85rem; margin: 5px 0;">${e}</p>`).join('')
@@ -3487,7 +3938,7 @@
                     ${experience.length > 0 ? `
                     <div style="margin-bottom: 15px;">
                         <div style="color: #22c55e; font-size: 0.7rem; margin-bottom: 8px;">// Experience</div>
-                        ${experience.slice(0, 5).map(b => `<div style="font-size: 0.78rem; color: #e2e8f0; margin: 6px 0; padding-left: 12px; border-left: 2px solid #b8860b;"><span style="color: #d4af37;">?</span> ${b}</div>`).join('')}
+                        ${experience.slice(0, 5).map(b => `<div style="font-size: 0.78rem; color: #e2e8f0; margin: 6px 0; padding-left: 12px; border-left: 2px solid #b8860b;">${b}</div>`).join('')}
                     </div>
                     ` : ''}
                     
@@ -3520,7 +3971,7 @@
                     <div style="margin-bottom: 25px;">
                         <h2 style="font-size: 1rem; font-weight: 400; letter-spacing: 2px; color: #333; margin-bottom: 12px; text-transform: uppercase;">Areas of Expertise</h2>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                            ${skills.slice(0, 10).map(s => `<span style="font-size: 0.85rem; color: #333;">� ${s.charAt(0).toUpperCase() + s.slice(1)}</span>`).join('')}
+                            ${skills.slice(0, 10).map(s => `<span style="font-size: 0.85rem; color: #333;">${s.charAt(0).toUpperCase() + s.slice(1)}</span>`).join('')}
                         </div>
                     </div>
                     ` : ''}
@@ -3548,7 +3999,7 @@
                     <div style="position: relative; margin-bottom: 25px;">
                         <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #722f37, #b8860b); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600; border: 2px solid #b8860b;">${name.charAt(0)}</div>
                         <h1 style="font-size: 1.6rem; margin: 10px 0 5px 0; font-weight: 700; font-family: 'Cinzel', Georgia, serif; color: #722f37;">${name}</h1>
-                        <div style="font-size: 0.8rem; color: #718096;">${contact.slice(0, 3).join(' � ')}</div>
+                        <div style="font-size: 0.8rem; color: #718096;">${contact.slice(0, 3).join(' | ')}</div>
                     </div>
                     
                     ${summary ? `
@@ -3576,7 +4027,7 @@
                     ${p.projects && p.projects.length > 0 ? `
                     <div>
                         <h2 style="font-size: 0.85rem; color: #722f37; margin-bottom: 10px; font-weight: 600; font-family: 'Cinzel', Georgia, serif;">Projects</h2>
-                        ${p.projects.slice(0, 3).map(proj => `<div style="font-size: 0.82rem; color: #4a5568; margin: 8px 0; padding-left: 12px; border-left: 2px solid #c4b5fd;">? ${proj}</div>`).join('')}
+                        ${p.projects.slice(0, 3).map(proj => `<div style="font-size: 0.82rem; color: #4a5568; margin: 8px 0; padding-left: 12px; border-left: 2px solid #c4b5fd;">${proj}</div>`).join('')}
                     </div>
                     ` : ''}
                 </div>
@@ -3640,7 +4091,7 @@ ${divider}
             const contactLines = [];
             if (email) contactLines.push(` ${email}`);
             if (phone) contactLines.push(` ${phone}`);
-            if (linkedin) contactLines.push(`?? ${linkedin}`);
+            if (linkedin) contactLines.push(`${linkedin}`);
             if (github) contactLines.push(` ${github}`);
             if (location) contactLines.push(` ${location}`);
             txt += contactLines.join('  |  ') + '\n\n';
@@ -3702,13 +4153,13 @@ ${subDivider}
 `;
                 if (p.projectDetails && p.projectDetails.length > 0) {
                     p.projectDetails.forEach(proj => {
-                        txt += `\n? ${proj.name}`;
+                        txt += `\n${proj.name}`;
                         if (proj.technologies && proj.technologies.length > 0) {
                             txt += ` [${proj.technologies.join(', ')}]`;
                         }
                         txt += '\n';
                         if (proj.description) txt += `  ${proj.description}\n`;
-                        if (proj.link) txt += `  ?? ${proj.link}\n`;
+                        if (proj.link) txt += `  ${proj.link}\n`;
                     });
                 } else {
                     p.projects.slice(0, 5).forEach(proj => {
@@ -3748,7 +4199,7 @@ CERTIFICATIONS & COURSES
 ${subDivider}
 `;
                 p.certifications.forEach(cert => {
-                    txt += `  ?? ${cert}\n`;
+                    txt += `  ${cert}\n`;
                 });
                 txt += '\n';
             }
@@ -3766,7 +4217,7 @@ ${subDivider}
             }
             
             txt += `${divider}
-Generated by NaukriForSure Resume Screener | ${new Date().toLocaleDateString()}
+Generated by NaukriForSure SkillFit AI | ${new Date().toLocaleDateString()}
 ${divider}`;
             
             return txt.trim();
@@ -3817,21 +4268,347 @@ ${divider}`;
             '</body></html>';
     }
 
+        // ==================== SkillFit AI Workforce Assessment ====================
+        function buildWorkforceAssessment(parsed, analysis) {
+            const transcript = (document.getElementById('liveTranscript')?.value || videoTranscript.value || '').trim();
+            const language = toTitleCase(interviewLanguage.value);
+            const role = targetRole.value;
+            const roleLabel = targetRole.options[targetRole.selectedIndex]?.text || 'General';
+            const district = candidateDistrict.value;
+            const candidateName = parsed.personalInfo?.name || uploadedFile?.name?.replace(/\.[^.]+$/, '') || 'Candidate';
+            const roleKeywords = roleSkills[role] || roleSkills.general;
+            const transcriptLower = transcript.toLowerCase();
+            const responseMatches = roleKeywords.filter(skill => transcriptLower.includes(skill.toLowerCase()));
+            const responseLength = transcript ? transcript.split(/\s+/).length : 0;
+            const relevance = Math.min(100, Math.round(((responseMatches.length / Math.max(1, Math.min(roleKeywords.length, 12))) * 70) + Math.min(responseLength, 90) / 3));
+            const confidence = scoreConfidence(transcript, parsed);
+            const clarity = scoreClarity(transcript, language);
+            const readiness = Math.round((analysis.overallScore * 0.45) + (relevance * 0.25) + (confidence * 0.15) + (clarity * 0.15));
+            const duplicateScore = calculateDuplicateRisk(parsed, transcript);
+            const repeatedCandidate = isRepeatedCandidate(parsed);
+            const flags = [
+                { label: 'Face presence check', status: videoSampleCaptured ? 'Video sample captured' : 'Needs video sample', level: videoSampleCaptured ? 'ok' : 'warn' },
+                { label: 'Voice consistency', status: responseLength > 25 ? 'Consistent enough' : 'Needs longer answer', level: responseLength > 25 ? 'ok' : 'warn' },
+                { label: 'Repeat attempt detection', status: repeatedCandidate || duplicateScore > 55 ? 'Possible duplicate' : 'No repeat pattern', level: repeatedCandidate || duplicateScore > 55 ? 'warn' : 'ok' },
+                { label: 'Suspicious behavior flags', status: transcriptLower.match(/copy|script|reading|someone told/i) ? 'Manual review' : 'No high-risk text flags', level: transcriptLower.match(/copy|script|reading|someone told/i) ? 'warn' : 'ok' }
+            ];
+            const riskyFlags = flags.filter(flag => flag.level === 'warn').length;
+            let fitment = 'Job Ready';
+            if (duplicateScore > 65) fitment = 'Suspected Duplicate';
+            else if (readiness < 45 || riskyFlags >= 3) fitment = 'Manual Review';
+            else if (readiness < 70 || analysis.keywordScore < 35) fitment = 'Needs Training';
+            return {
+                candidateName, district, role, roleLabel,
+                skillCategory: getSkillCategory(role),
+                language, transcript,
+                generatedQuestion: getInterviewQuestion(role),
+                relevance, confidence, clarity, readiness,
+                interviewScore: Math.round((relevance + confidence + clarity) / 3),
+                duplicateScore, fitment, flags,
+                authenticityRisk: riskyFlags === 0 ? 'Low' : riskyFlags <= 2 ? 'Medium' : 'High',
+                overallScore: analysis.overallScore,
+                email: parsed.personalInfo?.email || '',
+                phone: parsed.personalInfo?.phone || '',
+                status: 'New',
+                assessedAt: new Date().toISOString()
+            };
+        }
+
+        function displayWorkforceAssessment(assessment) {
+            const liveTranscript = document.getElementById('liveTranscript');
+            if (liveTranscript && !liveTranscript.value) liveTranscript.value = assessment.transcript;
+            document.getElementById('generatedQuestion').textContent = assessment.generatedQuestion;
+            renderMetricList('interviewMetrics', [
+                ['Response relevance', assessment.relevance],
+                ['Confidence indicators', assessment.confidence],
+                ['Communication clarity', assessment.clarity],
+                ['Role readiness', assessment.readiness]
+            ]);
+            const badge = document.getElementById('fitmentBadge');
+            badge.className = 'fitment-badge ' + fitmentClass(assessment.fitment);
+            badge.innerHTML = `<i class="fas fa-${assessment.fitment === 'Job Ready' ? 'circle-check' : assessment.fitment === 'Suspected Duplicate' ? 'triangle-exclamation' : 'clipboard-list'}"></i> ${assessment.fitment}`;
+            document.getElementById('readinessSummary').innerHTML = `
+                <div class="flag-list">
+                    <div class="flag-item"><span>Recommended next step</span><span class="flag-status ${assessment.fitment === 'Job Ready' ? 'ok' : 'warn'}">${getNextStep(assessment.fitment)}</span></div>
+                    <div class="flag-item"><span>Language mode</span><span class="flag-status ok">${assessment.language}</span></div>
+                    <div class="flag-item"><span>Target role</span><span class="flag-status ok">${assessment.roleLabel}</span></div>
+                    <div class="flag-item"><span>District</span><span class="flag-status ok">${assessment.district}</span></div>
+                </div>
+            `;
+            document.getElementById('authFlags').innerHTML = assessment.flags.map(flag => `
+                <div class="flag-item">
+                    <span>${flag.label}</span>
+                    <span class="flag-status ${flag.level}">${flag.status}</span>
+                </div>
+            `).join('');
+            document.getElementById('riskGuidance').innerHTML = `
+                <div class="flag-list">
+                    <div class="flag-item"><span>Authenticity risk</span><span class="flag-status ${assessment.authenticityRisk === 'Low' ? 'ok' : 'warn'}">${assessment.authenticityRisk}</span></div>
+                    <div class="flag-item"><span>Duplicate risk score</span><span class="flag-status ${assessment.duplicateScore > 55 ? 'warn' : 'ok'}">${assessment.duplicateScore}/100</span></div>
+                    <div class="flag-item"><span>Review policy</span><span class="flag-status ${assessment.fitment === 'Suspected Duplicate' ? 'warn' : 'ok'}">${assessment.fitment === 'Suspected Duplicate' ? 'Block auto-shortlist' : 'Eligible for recruiter review'}</span></div>
+                </div>
+            `;
+            saveCandidateRecord(assessment);
+            candidateRecords = buildCandidateRecords();
+            populateDashboardFilters(candidateRecords);
+            renderCandidateDashboard();
+        }
+
+        function renderMetricList(containerId, metrics) {
+            document.getElementById(containerId).innerHTML = metrics.map(([label, value]) => `
+                <div class="metric-row">
+                    <span>${label}</span>
+                    <strong>${value}/100</strong>
+                    <div class="metric-track"><div class="metric-fill" style="width:${value}%;"></div></div>
+                </div>
+            `).join('');
+        }
+
+        function rescoreInterview() {
+            if (!analysisResults || !analysisResults.overallScore) {
+                showToast('Analyze a resume first, then re-score the interview.', 'info');
+                return;
+            }
+            workforceAssessment = buildWorkforceAssessment(parsedResume, analysisResults);
+            displayWorkforceAssessment(workforceAssessment);
+            showToast('Interview and fitment scores updated.', 'success');
+        }
+
+        function buildCandidateRecords() {
+            const saved = loadCandidateRecords();
+            const seeds = getSeedCandidateRecords();
+            return [...saved, ...seeds];
+        }
+
+        function getSeedCandidateRecords() {
+            return [
+                { candidateName: 'Asha K', district: 'Mysuru', skillCategory: 'Support', language: 'Kannada', fitment: 'Needs Training', authenticityRisk: 'Low', overallScore: 64 },
+                { candidateName: 'Rahul Verma', district: 'Delhi NCR', skillCategory: 'Software', language: 'Hinglish', fitment: 'Job Ready', authenticityRisk: 'Low', overallScore: 86 },
+                { candidateName: 'Meera N', district: 'Dharwad', skillCategory: 'Data', language: 'English', fitment: 'Manual Review', authenticityRisk: 'Medium', overallScore: 58 },
+                { candidateName: 'Sameer P', district: 'Pune', skillCategory: 'Design', language: 'Hindi', fitment: 'Suspected Duplicate', authenticityRisk: 'High', overallScore: 42 }
+            ];
+        }
+
+        function loadCandidateRecords() {
+            try {
+                return JSON.parse(localStorage.getItem(CANDIDATE_STORE_KEY) || '[]');
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function saveCandidateRecord(record) {
+            const saved = loadCandidateRecords();
+            const key = getCandidateKey(record);
+            const cleanRecord = {
+                candidateName: record.candidateName,
+                district: record.district,
+                skillCategory: record.skillCategory,
+                language: record.language,
+                fitment: record.fitment,
+                authenticityRisk: record.authenticityRisk,
+                overallScore: record.overallScore,
+                email: record.email,
+                phone: record.phone,
+                status: record.status || 'New',
+                assessedAt: record.assessedAt,
+                key
+            };
+            const withoutCurrent = saved.filter(item => item.key !== key);
+            localStorage.setItem(CANDIDATE_STORE_KEY, JSON.stringify([cleanRecord, ...withoutCurrent].slice(0, 50)));
+        }
+
+        function isRepeatedCandidate(parsed) {
+            const key = getCandidateKey({
+                email: parsed.personalInfo?.email || '',
+                phone: parsed.personalInfo?.phone || '',
+                candidateName: parsed.personalInfo?.name || ''
+            });
+            return loadCandidateRecords().some(item => item.key === key);
+        }
+
+        function getCandidateKey(record) {
+            return `${record.email || ''}|${record.phone || ''}|${record.candidateName || ''}`.toLowerCase().replace(/\s+/g, '');
+        }
+
+        function populateDashboardFilters(records) {
+            const districtFilter = document.getElementById('districtFilter');
+            const selected = districtFilter.value;
+            const districts = [...new Set(records.map(row => row.district))].sort();
+            districtFilter.innerHTML = '<option value="all">All districts</option>' + districts.map(d => `<option value="${d}">${d}</option>`).join('');
+            if (districts.includes(selected)) districtFilter.value = selected;
+        }
+
+        function renderCandidateDashboard() {
+            const district = document.getElementById('districtFilter').value;
+            const skill = document.getElementById('skillFilter').value;
+            const language = document.getElementById('languageFilter').value;
+            const readiness = document.getElementById('readinessFilter').value;
+            const filtered = candidateRecords.filter(row =>
+                (district === 'all' || row.district === district) &&
+                (skill === 'all' || row.skillCategory === skill) &&
+                (language === 'all' || row.language === language) &&
+                (readiness === 'all' || row.fitment === readiness)
+            );
+            document.getElementById('candidateRows').innerHTML = filtered.map(row => `
+                <tr>
+                    <td>${row.candidateName}</td>
+                    <td>${row.district}</td>
+                    <td>${row.skillCategory}</td>
+                    <td>${row.language}</td>
+                    <td><span class="fitment-badge ${fitmentClass(row.fitment)}" style="padding:6px 10px;font-size:0.78rem;">${row.fitment}</span></td>
+                    <td>${row.authenticityRisk}</td>
+                    <td>${row.overallScore}/100</td>
+                </tr>
+            `).join('') || '<tr><td colspan="7">No candidates match these filters.</td></tr>';
+        }
+
+        function exportCandidateCsv() {
+            if (!candidateRecords.length) {
+                showToast('Analyze a resume to build the dashboard first.', 'info');
+                return;
+            }
+            const header = ['Candidate', 'District', 'Skill', 'Language', 'Fitment', 'Fraud Risk', 'Score'];
+            const rows = candidateRecords.map(row => [row.candidateName, row.district, row.skillCategory, row.language, row.fitment, row.authenticityRisk, row.overallScore]);
+            const csv = [header, ...rows].map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')).join('\n');
+            downloadFile(csv, `SkillFit_Candidates_${new Date().toISOString().split('T')[0]}.csv`, 'text/csv');
+            showToast('Recruiter dashboard CSV downloaded.', 'success');
+        }
+
+        async function startVideoRecording() {
+            const preview = document.getElementById('interviewPreview');
+            const status = document.getElementById('recorderStatus');
+            const startBtn = document.getElementById('startRecordingBtn');
+            const stopBtn = document.getElementById('stopRecordingBtn');
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                showToast('Camera recording is not supported in this browser.', 'error');
+                return;
+            }
+            try {
+                recordedChunks = [];
+                recorderStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                preview.srcObject = recorderStream;
+                await preview.play();
+                mediaRecorder = new MediaRecorder(recorderStream);
+                mediaRecorder.addEventListener('dataavailable', (event) => {
+                    if (event.data.size > 0) recordedChunks.push(event.data);
+                });
+                mediaRecorder.addEventListener('stop', () => {
+                    const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                    preview.srcObject = null;
+                    preview.src = URL.createObjectURL(blob);
+                    preview.controls = true;
+                    videoSampleCaptured = true;
+                    status.textContent = `Video sample captured (${formatFileSize(blob.size)}). Re-score to update authenticity.`;
+                    stopRecorderTracks();
+                    if (analysisResults && analysisResults.overallScore) rescoreInterview();
+                });
+                mediaRecorder.start();
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                status.textContent = 'Recording interview sample...';
+            } catch (error) {
+                showToast('Camera permission was blocked or unavailable.', 'error');
+            }
+        }
+
+        function stopVideoRecording() {
+            const startBtn = document.getElementById('startRecordingBtn');
+            const stopBtn = document.getElementById('stopRecordingBtn');
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        }
+
+        function stopRecorderTracks() {
+            if (recorderStream) {
+                recorderStream.getTracks().forEach(track => track.stop());
+                recorderStream = null;
+            }
+        }
+
+        function scoreConfidence(transcript, parsed) {
+            if (!transcript) return parsed.experience.length ? 55 : 35;
+            const confidentTerms = (transcript.match(/\b(led|built|created|managed|solved|improved|trained|handled|delivered|achieved)\b/gi) || []).length;
+            const hesitationTerms = (transcript.match(/\b(maybe|not sure|kind of|somewhat|basically)\b/gi) || []).length;
+            return Math.max(20, Math.min(100, 55 + confidentTerms * 8 - hesitationTerms * 7));
+        }
+
+        function scoreClarity(transcript, language) {
+            if (!transcript) return language === 'English' ? 45 : 50;
+            const words = transcript.split(/\s+/).filter(Boolean);
+            const avgWordLength = words.join('').length / Math.max(1, words.length);
+            const sentenceCount = Math.max(1, (transcript.match(/[.!?]/g) || []).length);
+            const wordsPerSentence = words.length / sentenceCount;
+            let score = 72;
+            if (words.length > 45) score += 12;
+            if (avgWordLength > 3.2 && avgWordLength < 7.5) score += 8;
+            if (wordsPerSentence > 8 && wordsPerSentence < 28) score += 8;
+            return Math.min(100, score);
+        }
+
+        function calculateDuplicateRisk(parsed, transcript) {
+            let risk = 10;
+            if (!parsed.personalInfo?.email || !parsed.personalInfo?.phone) risk += 18;
+            if ((parsed.personalInfo?.name || '').toLowerCase().includes('test')) risk += 25;
+            if (transcript && /(same answer|repeat|copied|script)/i.test(transcript)) risk += 35;
+            if (isRepeatedCandidate(parsed)) risk += 45;
+            if (!videoSampleCaptured) risk += 8;
+            if (analysisResults.atsIssues?.some(issue => issue.id === 'specialChars')) risk += 10;
+            return Math.min(100, risk);
+        }
+
+        function getSkillCategory(role) {
+            if (['data-science'].includes(role)) return 'Data';
+            if (['design'].includes(role)) return 'Design';
+            if (['general', 'qa'].includes(role)) return 'Support';
+            return 'Software';
+        }
+
+        function getInterviewQuestion(role) {
+            const roleLabel = targetRole.options[targetRole.selectedIndex]?.text || 'this role';
+            const localized = {
+                hindi: 'Apne kisi project ya kaam ke example ke baare mein batayein jahan aapne apni main skills use ki. Result kya tha?',
+                kannada: 'Nimma main skills use madida ondu project athava work example heli. Result enu?',
+                hinglish: 'Ek project ya work example batao jahan aapne apni main skills use ki. Result kya nikla?'
+            };
+            return localized[interviewLanguage.value] || `Tell us about one project or work situation where you used your main skills for ${roleLabel}. What was the result?`;
+        }
+
+        function getNextStep(fitment) {
+            if (fitment === 'Job Ready') return 'Shortlist for recruiter interview';
+            if (fitment === 'Needs Training') return 'Assign upskilling path';
+            if (fitment === 'Suspected Duplicate') return 'Run manual identity review';
+            return 'Send to human reviewer';
+        }
+
+        function fitmentClass(fitment) {
+            if (fitment === 'Needs Training') return 'training';
+            if (fitment === 'Manual Review') return 'review';
+            if (fitment === 'Suspected Duplicate') return 'duplicate';
+            return '';
+        }
+
+        function toTitleCase(value) {
+            return value.charAt(0).toUpperCase() + value.slice(1);
+        }
+
     function downloadReport() {
             const a = analysisResults;
             const date = new Date().toLocaleDateString();
             const time = new Date().toLocaleTimeString();
+            const w = workforceAssessment || {};
             
             const report = `
 +------------------------------------------------------------------+
-�           NAUKRIFORSURE - ADVANCED RESUME ANALYSIS REPORT        �
+            NAUKRIFORSURE - SKILLFIT AI ASSESSMENT REPORT
 +------------------------------------------------------------------+
 
 Generated: ${date} at ${time}
 Target Role: ${targetRole.value.replace('-', ' ').toUpperCase()}
 Experience Level: ${expLevel.value.toUpperCase()}
 
-??????????????????????????????????????????????????????????????????
+------------------------------------------------------------------
 
  SCORE SUMMARY
 ----------------
@@ -3840,29 +4617,32 @@ ATS Compatibility:  ${a.atsScore}/100
 Keyword Match:      ${a.keywordScore}%
 Readability:        ${a.readabilityScore}/100
 Recruiter Appeal:   ${a.appealScore}/100
+Fitment:            ${w.fitment || 'Not calculated'}
+Interview Score:    ${w.interviewScore || 0}/100
+Authenticity Risk:  ${w.authenticityRisk || 'Not calculated'}
 
-??????????????????????????????????????????????????????????????????
+------------------------------------------------------------------
 
-?? ATS ISSUES FOUND (${a.atsIssues.length})
+ATS ISSUES FOUND (${a.atsIssues.length})
 --------------------
 ${a.atsIssues.map(i => `[${i.severity.toUpperCase()}] ${i.name}
-   ? ${i.desc}
+   - ${i.desc}
     ${i.fix}`).join('\n\n') || 'No issues found!'}
 
-??????????????????????????????????????????????????????????????????
+------------------------------------------------------------------
 
-??? KEYWORD ANALYSIS
+KEYWORD ANALYSIS
 ------------------
  Found (${a.foundKeywords.length}):
-${a.foundKeywords.map(k => `   � ${k.keyword || k}${k.count ? ` (${k.count}x)` : ''}`).join('\n') || '   None'}
+${a.foundKeywords.map(k => `   - ${k.keyword || k}${k.count ? ` (${k.count}x)` : ''}`).join('\n') || '   None'}
 
  Missing (${a.missingKeywords.length}):
-${a.missingKeywords.slice(0, 15).map(k => `   � ${k}`).join('\n')}
+${a.missingKeywords.slice(0, 15).map(k => `   - ${k}`).join('\n')}
 
-?? Underused (${a.underusedKeywords.length}):
-${a.underusedKeywords.map(k => `   � ${k}`).join('\n') || '   None'}
+Underused (${a.underusedKeywords.length}):
+${a.underusedKeywords.map(k => `   - ${k}`).join('\n') || '   None'}
 
-??????????????????????????????????????????????????????????????????
+------------------------------------------------------------------
 
  EXPERIENCE ENHANCEMENTS (CAR Framework)
 ----------------------------------------
@@ -3872,7 +4652,7 @@ ${optimizedResume.enhancedBullets ? optimizedResume.enhancedBullets.map((b, i) =
    AFTER:  ${b.enhanced}
 `).join('\n') : 'No enhancements needed.'}
 
-??????????????????????????????????????????????????????????????????
+------------------------------------------------------------------
 
  TOP RECOMMENDATIONS
 ---------------------
@@ -3884,10 +4664,10 @@ ${optimizedResume.enhancedBullets ? optimizedResume.enhancedBullets.map((b, i) =
 6. Use standard section headers for ATS compatibility
 7. Ensure consistent date formatting throughout
 
-??????????????????????????????????????????????????????????????????
+------------------------------------------------------------------
 
-Generated by NaukriForSure Advanced Resume Screener
- https://naukriforsure.vercel.app/resume-screener.html
+Generated by NaukriForSure SkillFit AI
+https://naukriforsure.vercel.app/skillfit-ai.html
 
             `.trim();
             

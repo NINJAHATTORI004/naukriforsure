@@ -112,7 +112,7 @@ const NavbarHTML = `
                     Tools <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li role="none"><a href="/resume-screener.html" role="menuitem"><i class="fas fa-file-alt" aria-hidden="true"></i> Resume Screener</a></li>
+                    <li role="none"><a href="/skillfit-ai.html" role="menuitem"><i class="fas fa-file-alt" aria-hidden="true"></i> SkillFit AI</a></li>
                     <li role="none"><a href="/job-quiz.html" role="menuitem"><i class="fas fa-question-circle" aria-hidden="true"></i> Career Quiz</a></li>
                     <li role="none"><a href="/salary-calculator.html" role="menuitem"><i class="fas fa-calculator" aria-hidden="true"></i> Salary Calculator</a></li>
                 </ul>
@@ -163,7 +163,7 @@ const FooterHTML = `
             <div class="footer-links">
                 <h4>Resources</h4>
                 <ul>
-                    <li><a href="/resume-screener.html">Resume Screener</a></li>
+                    <li><a href="/skillfit-ai.html">SkillFit AI</a></li>
                     <li><a href="/salary-calculator.html">Salary Calculator</a></li>
                     <li><a href="/interview-questions.html">Interview Questions</a></li>
                     <li><a href="/notes/">Study Notes</a></li>
