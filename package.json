@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "mkdir -p public && cp -r *.html *.txt *.xml *.json *.js *.svg manifest.json css js blog compare job notes public/ 2>/dev/null || true && npm run generate:sitemap",
+    "build": "node build.js",
     "generate:sitemap": "node generate-sitemap.js",
     "lint": "echo 'Add your linting command here'"
   },
