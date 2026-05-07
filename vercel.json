@@ -1,6 +1,9 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "node build.js",
   "outputDirectory": "public",
+  "installCommand": "npm install",
+  "public": false,
+  "env": {},
   "rewrites": [
     { "source": "/(.*)", "destination": "/$1" }
   ],
