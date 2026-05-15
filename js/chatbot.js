@@ -65,7 +65,7 @@
             founder: {
                 patterns: ['who created', 'who made', 'founder', 'creator', 'who built', 'developed by', 'made by', 'owner', 'who owns'],
                 responses: [
-                    "🏛️ **About NaukriForSure:**\n\nNaukriForSure is a **free job portal** dedicated to helping freshers and job seekers!\n\n**Our Vision:** Make job hunting accessible to everyone, regardless of their background or financial situation.\n\n**Mission:** Bridge the gap between talented individuals and their dream opportunities.\n\n📧 **Contact:** naukriforsure@outlook.com\n\nBuilt with passion and ❤️ for job seekers everywhere!"
+                    "🏛️ **About NaukriForSure:**\n\nNaukriForSure is a **free job portal** dedicated to helping freshers and job seekers, founded and managed by **Ansh Mittal**!\n\n**Our Vision:** Make job hunting accessible to everyone, regardless of their background or financial situation.\n\n**Mission:** Bridge the gap between talented individuals and their dream opportunities.\n\n📧 **Contact Ansh:** anshmittal132@gmail.com\n\nBuilt with passion and ❤️ for job seekers everywhere!"
                 ]
             },
 
@@ -156,7 +156,7 @@
             contact: {
                 patterns: ['contact', 'reach out', 'support', 'help desk', 'email', 'get in touch', 'feedback', 'query', 'complain', 'report'],
                 responses: [
-                    " **Get In Touch:**\n\n **Email:** naukriforsure@outlook.com\n\n **Contact Page:** [Click Here](/contact.html)\n\n**Response Time:** Within 24-48 hours\n\n**Reach Out For:**\n�  Job posting inquiries\n�  Partnership opportunities\n� ?? Technical issues\n�  Feedback & suggestions\n� ?? Report suspicious listings\n\n**Follow Us:**\n� LinkedIn | Twitter | Instagram\n\nWe'd love to hear from you! ??"
+                    " **Get In Touch:**\n\n **Email:** anshmittal132@gmail.com\n\n **Contact Page:** [Click Here](/contact.html)\n\n**Response Time:** Within 24-48 hours\n\n**Reach Out For:**\n�  Job posting inquiries\n�  Partnership opportunities\n� ?? Technical issues\n�  Feedback & suggestions\n� ?? Report suspicious listings\n\n**Follow Us:**\n� LinkedIn | Twitter | Instagram\n\nWe'd love to hear from you! ??"
                 ]
             },
 
