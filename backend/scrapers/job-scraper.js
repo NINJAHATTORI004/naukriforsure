@@ -41,7 +41,7 @@ function isFrensherFriendly(title, description, experience) {
 }
 
 // Check if job is apprentice-friendly
-function isApprenticeF riendly(title, description, jobType) {
+function isApprentice Friendly(title, description, jobType) {
     const apprenticeKeywords = ['apprentice', 'apprenticeship', 'trainee', 'internship', 'intern'];
     const allText = `${title} ${description} ${jobType}`.toLowerCase();
     return apprenticeKeywords.some(keyword => allText.includes(keyword));
@@ -104,7 +104,7 @@ async function scrapNaukri() {
                         deadline: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
                         openings: 1,
                         fresher_friendly: isFrensherFriendly(title, description, experience) ? 1 : 0,
-                        apprentice_friendly: isApprenticeF riendly(title, description, 'Full-time') ? 1 : 0,
+                        apprentice_friendly: isApprentice Friendly(title, description, 'Full-time') ? 1 : 0,
                         is_active: 1
                     });
                 }

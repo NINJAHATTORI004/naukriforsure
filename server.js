@@ -4,6 +4,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const axios = require('axios');
 require('dotenv').config();
 
 // Import backend modules
@@ -28,29 +29,26 @@ app.get('/', (req, res) => {
 
 // ==================== API PROXY ROUTES ====================
 
-// Proxy API calls to backend API server
-app.use('/api/', require('express-http-proxy')('http://localhost:' + API_PORT));
-
-// ==================== WEBSOCKET FOR REAL-TIME UPDATES ====================
-
-const http = require('http');
-const WebSocket = require('ws');
-
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
-
-wss.on('connection', (ws) => {
-    console.log('✅ WebSocket client connected');
-    
-    ws.on('message', (message) => {
-        console.log('📨 Received:', message);
-        // Echo back or process
-        ws.send(JSON.stringify({ type: 'echo', data: message }));
-    });
-
-    ws.on('close', () => {
-        console.log('❌ WebSocket client disconnected');
-    });
+// Simple API proxy middleware
+app.use('/api/', async (req, res) => {
+    try {
+        const apiUrl = `http://localhost:${API_PORT}${req.originalUrl}`;
+        const config = {
+            method: req.method,
+            url: apiUrl,
+            headers: { ...req.headers, host: undefined },
+            data: req.body
+        };
+        
+        const response = await axios(config);
+        res.status(response.status).json(response.data);
+    } catch (error) {
+        if (error.response) {
+            res.status(error.response.status).json(error.response.data);
+        } else {
+            res.status(500).json({ error: 'API proxy error: ' + error.message });
+        }
+    }
 });
 
 // ==================== UTILITY ROUTES ====================
