@@ -5,2779 +5,3115 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://naukriforsure.vercel.app/</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/about.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://naukriforsure.vercel.app/career-agent.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://naukriforsure.vercel.app/categories.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/community.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/contact.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/index.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/interview-questions.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job-quiz.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/jobs-by-city.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/jobs-by-skills.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/jobs.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/latest-jobs-21-01-2026.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/latest-jobs-23-01-2026.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/login.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/privacy.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/profile.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/referral-dashboard.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/referral.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/remote-jobs.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/resume-screener.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/salary-calculator.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/skillfit-ai.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/skillfit-bharat-submission.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/terms.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/ats-friendly-resume-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/best-free-online-courses.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/cloud-computing-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/cybersecurity-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/data-science-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/devops-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/dsa-preparation-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/first-job-survival-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/freelancing-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/how-to-crack-tcs-infosys-wipro-interview.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/index.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/internship-guide-students.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/linkedin-profile-optimization-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/machine-learning-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/salary-negotiation-tips.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/soft-skills-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/startup-vs-mnc.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/top-programming-languages-2026.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/web-development-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/blog/work-from-home-tips.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/compare/google-vs-microsoft-vs-amazon.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/compare/tcs-vs-infosys-vs-wipro.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
+        <loc>https://naukriforsure.vercel.app/job/ai-product-intern-amber-266.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://naukriforsure.vercel.app/job/analyst-ar-optum-351.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/analyst-iqvia-306.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/application-developer-servicenow-ibm-253.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/applied-science-intern-microsoft-012.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/applied-science-phd-intern-microsoft-191.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/apprentice-cgi-256.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/assessment-hackerrank-420.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/assessment-honeywell-408.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/associate-analyst-deloitte-262.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-analyst-ey-350.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-engineer-bceglobal-223.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-sat-ey-410.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-development-pwc-282.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-aptiv-184.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-blueyonder-261.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-capgemini-254.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-carelon-417.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-cargill-270.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-dentsu-213.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-erp-cargill-245.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-fission-419.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-ibrowsejobs-414.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-mygate-297.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-software-engineer-opentext-182.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-system-engineer-ibm-250.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-system-engineer-ibm-416.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/associate-techmahindra-207.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/atlas-hiring-tcs-292.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/automation-sre-intern-ibm-007.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/backend-developer-intern-ibm-008.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/backend-developer-intern-prysm-373.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/backend-developer-sde1-groww-284.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/backend-intern-joveo-176.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/backend-intern-primetrace-231.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/backend-sde-cisco-343.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/business-analyst-spglobal-253.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/candidate-experience-oracle-263.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/careers-swiggy-265.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/cognizant-multiple-415.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/computer-vision-intern-anitum-372.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/contact-support-capgemini-225.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/content-writing-intern-tensorik-402.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/customer-service-associate-amazon-288.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/cyber-consultant-grantthornton-210.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/cyber-security-analyst-cloudsek-002.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/data-analyst-barclays-269.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/data-analyst-nttdata-341.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/data-analyst-redhat-261.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/data-analytics-analyst-natwest-256.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/data-engineer-intern-techmicra-197.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/data-science-intern-microsoft-010.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/data-scientist-revolut-244.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/data-scientist-revolut-272.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/design-intern-tensorik-403.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/devops-engineer-associate-deutschebank-219.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/devops-engineer-shl-286.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/devops-intern-streamline-001.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/engineer-associate-qualcomm-252.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/engineering-cloudsek-289.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/engineering-intern-tensorik-404.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/engineering-roles-qualcomm-206.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/entry-level-swe-revature-268.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/execution-analyst-bp-349.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/founding-swe-intern-lastlapai-265.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/fraud-analyst-navan-352.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/freshers-hcltech-307.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/freshers-infilect-205.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/freshers-wipro-sim-216.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/freshers-wipro-wilp-218.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/freshers-zycus-202.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/full-time-jpmorgan-chase-287.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/fullstack-developer-intern-timepilot-374.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/fullstack-engineer-intern-elucidata-195.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/generative-ai-intern-evnek-230.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/get-marketing-fosroc-209.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/glas-analyst-deloitte-348.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/global-analyst-hpe-264.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/go-ai-associate-amazon-259.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/grad-intern-walmart-407.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/graduate-engineer-trainee-ge-healthcare-303.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/graduate-opportunity-johnsoncontrols-199.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/graduate-programme-shell-248.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/graduate-programme-shell-301.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/graduate-trainee-calix-212.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/hr-intern-tensorik-405.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/intern-carrier-183.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/intern-ibm-177.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/intern-python-developer-siemensgamesa-242.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/intern-python-developer-siemensgamesa-274.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/intern-wipro-192.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/internal-audit-deloitte-413.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/job-aptean-296.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/job-careerhubx-294.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/job-idfc-first-bank-298.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/job-medochealth-295.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/job-oracle-293.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/job-rubrik-299.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/junior-fullstack-developer-jfrog-258.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/junior-support-specialist-cornerstone-240.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/junior-support-specialist-cornerstone-276.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/junior-swe-test-apple-267.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/junior-trainee-mphasis-369.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/l1-service-desk-zones-005.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/management-trainee-genpact-251.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/marketing-intern-deconstruct-345.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/ml-ai-engineer-intern-kuppismart-196.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/ml-engineer-data-scientist-mercor-302.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/motion-graphic-designer-syncfusion-226.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/multiple-openings-oracle-200.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/operations-intern-tensorik-406.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/power-bi-developer-ntt-data-305.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/product-management-intern-microsoft-011.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/product-support-engineer-google-291.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/product-support-engineer-soundhound-268.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/qa-intern-intelehealth-201.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/quality-engineer-automation-ibm-252.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/quality-engineer-data-ibm-251.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/reactjs-developer-intern-ailaysa-260.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/research-sciences-intern-microsoft-260.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sales-hiring-drive-talenttitan-270.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sales-officer-quess-290.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sap-btp-capgemini-409.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde-1-amazon-198.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde-1-amazon-university-247.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde-1-csg-015.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde-1-intuit-180.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde-1-paypal-262.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde-1-rippling-179.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde-intern-zorvyn-243.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/sde1-frontend-fancode-271.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sde1-mykaarma-375.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/sdet-gokwik-259.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sdet-intern-browserstack-203.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/service-desk-analyst-hcltech-217.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/service-desk-analyst-wipro-208.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/service-desk-l1-zones-215.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/sim-wipro-255.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/social-media-intern-tensorik-401.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-developer-2-oracle-186.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-developer-atidan-185.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-developer-intern-ibm-006.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-developer-intern-ibm-249.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-developer-oracle-004.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-developer-zoho-257.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-development-engineer-adobe-014.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-development-engineer-tesco-279.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-1-ghx-229.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-1-smartsheet-304.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-2-mastercard-204.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-akamai-228.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-backend-modulr-285.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-cisco-283.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-cisco-371.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-dotnet-alight-370.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/software-engineer-furtherai-278.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-hpe-220.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-intern-chargebee-267.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-intern-honeywell-013.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-intern-resollect-239.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/software-engineer-intern-resollect-277.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-intern-stripe-178.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-intern-zeotap-266.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/software-engineer-microsoft-264.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-microsoft-300.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-newgrad-stripe-181.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-optum-221.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-servicenow-280.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-siemens-222.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/software-engineer-smartsheet-255.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-uipath-211.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-uipath-269.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-visa-258.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineer-zebra-342.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineering-ic2-microsoft-227.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-engineering-intern-microsoft-009.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/software-security-engineer-meesho-241.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/software-security-engineer-meesho-275.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/student-intern-oracle-257.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/student-intern-oracle-353.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/job/system-software-designer-amd-263.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/talent-onboarding-deloitte-412.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/talent-platform-mercor-246.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/tech-intern-slb-193.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/technical-intern-hitachi-194.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/technical-support-engineer-idp-347.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/trainee-ase-redhat-346.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/trainee-wipro-224.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/transportation-specialist-amazon-418.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/ui-engineer-react-iris-software-281.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/web-developer-emmvee-214.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/web-development-deloitte-411.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/web-engineer-intern-fampay-344.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/job/wilp-wipro-254.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/aws-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/azure-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/c-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/cpp-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/csharp-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/css-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/docker-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/dotnet-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/dsa-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/github-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/html-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/index.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/java-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/javascript-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/python-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/react-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/restapi-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/sorting-algorithms.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/notes/sql-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/about.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/ats-friendly-resume-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/best-free-online-courses.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/cloud-computing-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/cybersecurity-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/data-science-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/devops-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/dsa-preparation-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/first-job-survival-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/freelancing-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/how-to-crack-tcs-infosys-wipro-interview.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/index.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/internship-guide-students.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/linkedin-profile-optimization-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/machine-learning-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/salary-negotiation-tips.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/soft-skills-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/startup-vs-mnc.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/top-programming-languages-2026.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/web-development-career-guide.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/blog/work-from-home-tips.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/career-agent.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/categories.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/community.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/compare/google-vs-microsoft-vs-amazon.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/compare/tcs-vs-infosys-vs-wipro.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/contact.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/index.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/interview-questions.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job-quiz.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://naukriforsure.vercel.app/public/job/ai-product-intern-amber-266.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://naukriforsure.vercel.app/public/job/analyst-ar-optum-351.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/analyst-iqvia-306.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/application-developer-servicenow-ibm-253.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/applied-science-intern-microsoft-012.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/applied-science-phd-intern-microsoft-191.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/apprentice-cgi-256.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/assessment-hackerrank-420.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/assessment-honeywell-408.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/associate-analyst-deloitte-262.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-analyst-ey-350.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-engineer-bceglobal-223.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-sat-ey-410.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-development-pwc-282.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-aptiv-184.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-blueyonder-261.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-capgemini-254.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-carelon-417.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-cargill-270.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-dentsu-213.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-erp-cargill-245.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-fission-419.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-ibrowsejobs-414.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-mygate-297.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-software-engineer-opentext-182.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-system-engineer-ibm-250.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-system-engineer-ibm-416.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/associate-techmahindra-207.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/atlas-hiring-tcs-292.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/automation-sre-intern-ibm-007.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/backend-developer-intern-ibm-008.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/backend-developer-intern-prysm-373.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/backend-developer-sde1-groww-284.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/backend-intern-joveo-176.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/backend-intern-primetrace-231.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/backend-sde-cisco-343.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/business-analyst-spglobal-253.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/candidate-experience-oracle-263.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/careers-swiggy-265.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/cognizant-multiple-415.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/computer-vision-intern-anitum-372.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/contact-support-capgemini-225.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/content-writing-intern-tensorik-402.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/customer-service-associate-amazon-288.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/cyber-consultant-grantthornton-210.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/cyber-security-analyst-cloudsek-002.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/data-analyst-barclays-269.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/data-analyst-nttdata-341.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/data-analyst-redhat-261.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/data-analytics-analyst-natwest-256.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/data-engineer-intern-techmicra-197.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/data-science-intern-microsoft-010.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/data-scientist-revolut-244.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/data-scientist-revolut-272.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/design-intern-tensorik-403.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/devops-engineer-associate-deutschebank-219.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/devops-engineer-shl-286.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/devops-intern-streamline-001.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/engineer-associate-qualcomm-252.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/engineering-cloudsek-289.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/engineering-intern-tensorik-404.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/engineering-roles-qualcomm-206.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/entry-level-swe-revature-268.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/execution-analyst-bp-349.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/founding-swe-intern-lastlapai-265.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/fraud-analyst-navan-352.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/freshers-hcltech-307.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/freshers-infilect-205.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/freshers-wipro-sim-216.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/freshers-wipro-wilp-218.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/freshers-zycus-202.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/full-time-jpmorgan-chase-287.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/fullstack-developer-intern-timepilot-374.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/fullstack-engineer-intern-elucidata-195.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/generative-ai-intern-evnek-230.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/get-marketing-fosroc-209.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/glas-analyst-deloitte-348.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/global-analyst-hpe-264.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/go-ai-associate-amazon-259.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/grad-intern-walmart-407.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/graduate-engineer-trainee-ge-healthcare-303.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/graduate-opportunity-johnsoncontrols-199.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/graduate-programme-shell-248.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/graduate-programme-shell-301.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/graduate-trainee-calix-212.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/hr-intern-tensorik-405.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/intern-carrier-183.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/intern-ibm-177.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/intern-python-developer-siemensgamesa-242.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/intern-python-developer-siemensgamesa-274.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/intern-wipro-192.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/internal-audit-deloitte-413.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/job-aptean-296.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/job-careerhubx-294.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/job-idfc-first-bank-298.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/job-medochealth-295.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/job-oracle-293.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/job-rubrik-299.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/junior-fullstack-developer-jfrog-258.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/junior-support-specialist-cornerstone-240.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/junior-support-specialist-cornerstone-276.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/junior-swe-test-apple-267.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/junior-trainee-mphasis-369.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/l1-service-desk-zones-005.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/management-trainee-genpact-251.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/marketing-intern-deconstruct-345.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/ml-ai-engineer-intern-kuppismart-196.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/ml-engineer-data-scientist-mercor-302.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/motion-graphic-designer-syncfusion-226.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/multiple-openings-oracle-200.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/operations-intern-tensorik-406.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/power-bi-developer-ntt-data-305.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/product-management-intern-microsoft-011.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/product-support-engineer-google-291.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/product-support-engineer-soundhound-268.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/qa-intern-intelehealth-201.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/quality-engineer-automation-ibm-252.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/quality-engineer-data-ibm-251.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/reactjs-developer-intern-ailaysa-260.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/research-sciences-intern-microsoft-260.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sales-hiring-drive-talenttitan-270.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sales-officer-quess-290.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sap-btp-capgemini-409.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde-1-amazon-198.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde-1-amazon-university-247.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde-1-csg-015.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde-1-intuit-180.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde-1-paypal-262.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde-1-rippling-179.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde-intern-zorvyn-243.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/sde1-frontend-fancode-271.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sde1-mykaarma-375.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/sdet-gokwik-259.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sdet-intern-browserstack-203.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/service-desk-analyst-hcltech-217.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/service-desk-analyst-wipro-208.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/service-desk-l1-zones-215.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/sim-wipro-255.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/social-media-intern-tensorik-401.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-developer-2-oracle-186.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-developer-atidan-185.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-developer-intern-ibm-006.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-developer-intern-ibm-249.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-developer-oracle-004.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-developer-zoho-257.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-development-engineer-adobe-014.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-development-engineer-tesco-279.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-1-ghx-229.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-1-smartsheet-304.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-2-mastercard-204.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-akamai-228.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-backend-modulr-285.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-cisco-283.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-cisco-371.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-dotnet-alight-370.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/software-engineer-furtherai-278.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-hpe-220.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-intern-chargebee-267.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-intern-honeywell-013.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-intern-resollect-239.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/software-engineer-intern-resollect-277.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-intern-stripe-178.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-intern-zeotap-266.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/software-engineer-microsoft-264.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-microsoft-300.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-newgrad-stripe-181.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-optum-221.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-servicenow-280.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-siemens-222.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/software-engineer-smartsheet-255.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-uipath-211.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-uipath-269.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-visa-258.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineer-zebra-342.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineering-ic2-microsoft-227.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-engineering-intern-microsoft-009.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/software-security-engineer-meesho-241.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/software-security-engineer-meesho-275.html</loc>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/student-intern-oracle-257.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/student-intern-oracle-353.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://naukriforsure.vercel.app/public/job/system-software-designer-amd-263.html</loc>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/talent-onboarding-deloitte-412.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/talent-platform-mercor-246.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/tech-intern-slb-193.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/technical-intern-hitachi-194.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/technical-support-engineer-idp-347.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/trainee-ase-redhat-346.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/trainee-wipro-224.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/transportation-specialist-amazon-418.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/ui-engineer-react-iris-software-281.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/web-developer-emmvee-214.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/web-development-deloitte-411.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/web-engineer-intern-fampay-344.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/job/wilp-wipro-254.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/jobs-by-city.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/jobs-by-skills.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/jobs.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/latest-jobs-21-01-2026.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/latest-jobs-23-01-2026.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/login.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/aws-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/azure-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/c-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/cpp-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/csharp-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/css-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/docker-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/dotnet-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/dsa-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/github-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/html-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/index.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/java-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/javascript-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/python-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/react-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/restapi-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/sorting-algorithms.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/notes/sql-notes.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/privacy.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/profile.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/referral-dashboard.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/referral.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/remote-jobs.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/resume-screener.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/salary-calculator.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/skillfit-ai.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/skillfit-bharat-submission.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://naukriforsure.vercel.app/public/terms.html</loc>
-        <lastmod>2026-05-15</lastmod>
+        <lastmod>2026-06-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>

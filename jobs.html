@@ -212,6 +212,7 @@
                 <li class="nav-dropdown">
                     <a href="#">Tools <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
                     <ul class="dropdown-menu">
+                        <li><a href="career-agent.html"><i class="fas fa-robot"></i> AI Career Agent</a></li>
                         <li><a href="resume-screener.html"><i class="fas fa-file-alt"></i> Resume Screener</a></li>
                         <li><a href="job-quiz.html"><i class="fas fa-question-circle"></i> Career Quiz</a></li>
                         <li><a href="salary-calculator.html"><i class="fas fa-calculator"></i> Salary Calculator</a></li>
@@ -586,7 +587,7 @@
                 });
             }
             
-            filteredJobs = jobs;
+            filteredJobs = jobs.sort((a, b) => parseSalary(b.salary) - parseSalary(a.salary));
             currentPage = 1;
             
             updateActiveFiltersDisplay();
@@ -596,13 +597,17 @@
         function parseSalary(salaryStr) {
             if (!salaryStr) return 0;
             const str = salaryStr.toLowerCase();
+            if (str.includes('competitive') || str.includes('internship')) return 0;
+            
+            const rangeMatch = str.match(/(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)\s*(?:lpa|l|lakh)/i);
+            if (rangeMatch) return parseFloat(rangeMatch[2]);
             
             // Handle monthly salaries (convert to LPA)
             if (str.includes('/month') || str.includes('per month')) {
                 const match = str.match(/(\d+(?:\.\d+)?)\s*k/i) || str.match(/(\d+(?:,\d+)?)/);
                 if (match) {
                     const monthly = parseFloat(match[1].replace(',', ''));
-                    return (monthly * 12) / 100000; // Convert to LPA
+                    return (monthly * 12) / 100; // Convert K/month to LPA
                 }
             }
             

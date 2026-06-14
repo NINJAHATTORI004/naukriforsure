@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Agent - Autonomous Job Search Copilot | NaukriForSure</title>
+    <meta name="description" content="NaukriForSure AI Career Agent helps you match jobs, tailor resumes, generate outreach messages, track applications, and prepare for assessments in one dashboard.">
+    <meta name="keywords" content="AI career agent, auto apply jobs India, resume tailoring, job matching, assessment tracker, application tracker, fresher jobs AI">
+    <meta name="author" content="NaukriForSure">
+    <link rel="canonical" href="https://naukriforsure.vercel.app/career-agent.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://naukriforsure.vercel.app/career-agent.html">
+    <meta property="og:title" content="AI Career Agent - NaukriForSure">
+    <meta property="og:description" content="Match jobs, tailor resumes, generate outreach, track applications, and prepare for assessments with an India-focused AI Career Agent.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Career Agent - NaukriForSure">
+    <meta name="twitter:description" content="Your AI-powered career command center for job matching, resume tailoring, and application tracking.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NaukriForSure AI Career Agent",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "AI career copilot for job matching, resume tailoring, application tracking, and assessment preparation.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/advanced-features.css">
+    <link rel="stylesheet" href="css/career-agent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <meta name="theme-color" content="#722f37">
+</head>
+<body class="career-agent-page">
+    <a href="#career-agent-main" class="skip-link">Skip to career agent</a>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span class="logo-text">Naukri<span class="highlight">ForSure</span></span>
+            </a>
+            <ul class="nav-links">
+                <li class="mobile-menu-header">
+                    <span class="mobile-menu-title">Menu</span>
+                    <button class="mobile-menu-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">All Jobs</a></li>
+                <li class="nav-dropdown">
+                    <a href="categories.html">Explore <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="jobs-by-city.html"><i class="fas fa-city"></i> Jobs by City</a></li>
+                        <li><a href="jobs-by-skills.html"><i class="fas fa-cogs"></i> Jobs by Skills</a></li>
+                        <li><a href="remote-jobs.html"><i class="fas fa-home"></i> Remote Jobs</a></li>
+                        <li><a href="categories.html"><i class="fas fa-th-large"></i> All Categories</a></li>
+                    </ul>
+                </li>
+                <li><a href="blog/index.html">Blog</a></li>
+                <li><a href="notes/index.html">Notes</a></li>
+                <li class="nav-dropdown">
+                    <a href="career-agent.html" class="active">Tools <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="career-agent.html" class="active"><i class="fas fa-robot"></i> AI Career Agent</a></li>
+                        <li><a href="resume-screener.html"><i class="fas fa-file-alt"></i> Resume Screener</a></li>
+                        <li><a href="job-quiz.html"><i class="fas fa-question-circle"></i> Career Quiz</a></li>
+                        <li><a href="salary-calculator.html"><i class="fas fa-calculator"></i> Salary Calculator</a></li>
+                    </ul>
+                </li>
+                <li><a href="referral.html" style="color: var(--secondary);"><i class="fas fa-gift"></i> Rewards</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="profile.html" class="btn btn-outline auth-profile-btn" style="margin-right: 10px; display: none;"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="login.html" class="btn btn-outline auth-login-btn" style="margin-right: 10px;"><i class="fas fa-user"></i> Login</a>
+                <a href="#job-matches" class="btn btn-primary">Find Matches</a>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <main id="career-agent-main">
+        <section class="agent-hero">
+            <div class="container agent-hero-grid">
+                <div class="agent-hero-copy">
+                    <div class="agent-kicker"><i class="fas fa-wand-magic-sparkles"></i> India-first AI Career Agent MVP</div>
+                    <h1>Stop applying blindly. Build a career system that moves every day.</h1>
+                    <p>Match jobs, tailor your resume, create outreach messages, track applications, and prepare for assessments from one command center.</p>
+                    <div class="agent-hero-actions">
+                        <a href="#agent-profile" class="btn btn-primary"><i class="fas fa-rocket"></i> Start Setup</a>
+                        <a href="#resume-tailor" class="btn btn-outline"><i class="fas fa-file-pen"></i> Tailor Resume</a>
+                    </div>
+                </div>
+                <div class="agent-command-card" aria-label="Career agent status preview">
+                    <div class="command-orb"><i class="fas fa-robot"></i></div>
+                    <h2>Career Agent Status</h2>
+                    <div class="agent-status-list">
+                        <div><span>Job Scout</span><strong id="heroJobCount">Scanning jobs</strong></div>
+                        <div><span>Resume Agent</span><strong>Ready</strong></div>
+                        <div><span>Assessment Agent</span><strong id="heroAssessmentCount">0 tracked</strong></div>
+                        <div><span>Application CRM</span><strong id="heroApplicationCount">0 active</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="agent-shell container">
+            <div class="agent-topbar">
+                <div>
+                    <span class="section-eyebrow">Command Center</span>
+                    <h2>Your autonomous career workflow</h2>
+                    <p>Static-site MVP today. Backend automation, email monitoring, and browser auto-apply can plug in later.</p>
+                </div>
+                <button class="btn btn-outline" id="resetAgentBtn"><i class="fas fa-rotate-left"></i> Reset Demo Data</button>
+            </div>
+
+            <div class="agent-stats-grid">
+                <article class="agent-stat-card">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Job matches</span>
+                    <strong id="statMatches">0</strong>
+                </article>
+                <article class="agent-stat-card">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Applications</span>
+                    <strong id="statApplications">0</strong>
+                </article>
+                <article class="agent-stat-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Assessments</span>
+                    <strong id="statAssessments">0</strong>
+                </article>
+                <article class="agent-stat-card">
+                    <i class="fas fa-bullseye"></i>
+                    <span>Profile strength</span>
+                    <strong id="statProfile">0%</strong>
+                </article>
+            </div>
+
+            <div class="agent-grid two-col">
+                <section class="agent-panel" id="agent-profile">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Step 1</span>
+                            <h3>Candidate Profile</h3>
+                        </div>
+                        <span class="agent-chip">Saved locally</span>
+                    </div>
+                    <form id="agentProfileForm" class="agent-form">
+                        <label>Full name
+                            <input type="text" id="candidateName" placeholder="e.g. Ansh Kumar">
+                        </label>
+                        <label>Target roles
+                            <input type="text" id="targetRoles" placeholder="SDE, Data Analyst, AI Intern, Frontend Developer">
+                        </label>
+                        <label>Core skills
+                            <textarea id="candidateSkills" rows="4" placeholder="Python, JavaScript, React, SQL, DSA, Machine Learning"></textarea>
+                        </label>
+                        <div class="form-row">
+                            <label>Experience
+                                <select id="experienceLevel">
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="0-1 Years">0-1 Years</option>
+                                    <option value="0-2 Years">0-2 Years</option>
+                                    <option value="1-3 Years">1-3 Years</option>
+                                </select>
+                            </label>
+                            <label>Preferred location
+                                <input type="text" id="preferredLocation" placeholder="Remote, Bangalore, Pune">
+                            </label>
+                        </div>
+                        <label>Work mode
+                            <select id="workMode">
+                                <option value="Any">Any</option>
+                                <option value="Remote">Remote</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="Office">Office</option>
+                            </select>
+                        </label>
+                        <label>Paste base resume text
+                            <textarea id="baseResume" rows="7" placeholder="Paste your resume text here. The agent uses this to tailor summaries, bullet points, and outreach."></textarea>
+                        </label>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Profile & Match Jobs</button>
+                            <button type="button" class="btn btn-outline" id="loadDemoProfile"><i class="fas fa-bolt"></i> Load Demo</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="agent-panel agent-roadmap-panel">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Product Roadmap</span>
+                            <h3>From portal to autonomous agent</h3>
+                        </div>
+                    </div>
+                    <div class="roadmap-stack">
+                        <div class="roadmap-item complete"><span>1</span><div><strong>ATS + Resume Scoring</strong><p>Existing resume screener and local analysis.</p></div></div>
+                        <div class="roadmap-item active"><span>2</span><div><strong>Career Agent MVP</strong><p>Matching, tailoring, CRM, assessments.</p></div></div>
+                        <div class="roadmap-item"><span>3</span><div><strong>Backend Job Discovery</strong><p>Scrapers, APIs, queues, deduplication.</p></div></div>
+                        <div class="roadmap-item"><span>4</span><div><strong>Email Assessment Monitor</strong><p>Gmail/Outlook OAuth and invite detection.</p></div></div>
+                        <div class="roadmap-item"><span>5</span><div><strong>Human-approved Auto Apply</strong><p>Playwright workers with safety checkpoints.</p></div></div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="agent-panel" id="job-matches">
+                <div class="panel-title-row wide">
+                    <div>
+                        <span class="section-eyebrow">Step 2</span>
+                        <h3>AI Job Matching</h3>
+                        <p>Scores your profile against live jobs in your existing job database.</p>
+                    </div>
+                    <div class="match-controls">
+                        <input type="search" id="matchSearch" placeholder="Filter matches by company, role, skill">
+                        <button class="btn btn-primary" id="refreshMatches"><i class="fas fa-arrows-rotate"></i> Refresh</button>
+                    </div>
+                </div>
+                <div id="jobMatches" class="job-match-grid"></div>
+            </section>
+
+            <div class="agent-grid two-col">
+                <section class="agent-panel" id="resume-tailor">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Step 3</span>
+                            <h3>Resume Tailoring Studio</h3>
+                        </div>
+                    </div>
+                    <form id="tailorForm" class="agent-form">
+                        <label>Job description or selected job summary
+                            <textarea id="jobDescriptionInput" rows="8" placeholder="Paste any job description here, or click Tailor Resume from a matched job."></textarea>
+                        </label>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-file-pen"></i> Generate Tailored Kit</button>
+                    </form>
+                    <div id="tailorOutput" class="tailor-output empty-state">
+                        <i class="fas fa-file-lines"></i>
+                        <p>Your tailored summary, bullet points, missing keywords, cover letter, and referral message will appear here.</p>
+                    </div>
+                </section>
+
+                <section class="agent-panel">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Step 4</span>
+                            <h3>Application CRM</h3>
+                        </div>
+                        <button class="btn btn-outline btn-small" id="addManualApplication"><i class="fas fa-plus"></i> Add Manual</button>
+                    </div>
+                    <div class="crm-board" id="applicationBoard"></div>
+                </section>
+            </div>
+
+            <section class="agent-panel" id="assessment-tracker">
+                <div class="panel-title-row wide">
+                    <div>
+                        <span class="section-eyebrow">Step 5</span>
+                        <h3>Assessment Hunter & Prep Planner</h3>
+                        <p>Track HackerRank, SHL, AMCAT, Codility, Mettl, company rounds, and preparation tasks.</p>
+                    </div>
+                </div>
+                <form id="assessmentForm" class="assessment-form">
+                    <input type="text" id="assessmentCompany" placeholder="Company e.g. TCS, Amazon, Deloitte" required>
+                    <select id="assessmentType">
+                        <option>HackerRank</option>
+                        <option>Codility</option>
+                        <option>SHL</option>
+                        <option>AMCAT</option>
+                        <option>Mettl</option>
+                        <option>Aptitude + Coding</option>
+                        <option>Technical Interview</option>
+                    </select>
+                    <input type="date" id="assessmentDeadline" required>
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-plus"></i> Track Assessment</button>
+                </form>
+                <div id="assessmentList" class="assessment-list"></div>
+            </section>
+
+            <div class="agent-grid two-col roadmap-completion-grid">
+                <section class="agent-panel" id="job-discovery-engine">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Phase 3</span>
+                            <h3>Job Discovery Engine</h3>
+                            <p>Generate India-focused job-search missions across major portals and company careers pages.</p>
+                        </div>
+                    </div>
+                    <form id="discoveryForm" class="agent-form">
+                        <label>Search role
+                            <input type="text" id="discoveryRole" placeholder="Software Engineer Intern, Data Analyst, AI Intern">
+                        </label>
+                        <div class="form-row">
+                            <label>Location
+                                <input type="text" id="discoveryLocation" placeholder="India, Remote, Bangalore">
+                            </label>
+                            <label>Experience level
+                                <select id="discoveryExperience">
+                                    <option>Fresher</option>
+                                    <option>Internship</option>
+                                    <option>0-1 Years</option>
+                                    <option>0-2 Years</option>
+                                    <option>1-3 Years</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="source-grid" aria-label="Job discovery sources">
+                            <label><input type="checkbox" value="LinkedIn" checked> LinkedIn</label>
+                            <label><input type="checkbox" value="Naukri" checked> Naukri</label>
+                            <label><input type="checkbox" value="Indeed" checked> Indeed</label>
+                            <label><input type="checkbox" value="Foundit" checked> Foundit</label>
+                            <label><input type="checkbox" value="Wellfound"> Wellfound</label>
+                            <label><input type="checkbox" value="Company Careers" checked> Company Careers</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-satellite-dish"></i> Generate Discovery Mission</button>
+                    </form>
+                    <div id="discoveryOutput" class="agent-output empty-state">
+                        <i class="fas fa-compass"></i>
+                        <p>Your search links, scraping-safe source plan, and deduping strategy will appear here.</p>
+                    </div>
+                </section>
+
+                <section class="agent-panel" id="auto-apply-control">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Phase 4</span>
+                            <h3>Auto-Apply Control Room</h3>
+                            <p>Prepare safe auto-fill answers and readiness checks before real browser automation.</p>
+                        </div>
+                    </div>
+                    <form id="autoApplyForm" class="agent-form">
+                        <div class="form-row">
+                            <label>Notice period
+                                <input type="text" id="noticePeriod" placeholder="Immediate / 15 days / 30 days">
+                            </label>
+                            <label>Expected CTC
+                                <input type="text" id="expectedCtc" placeholder="As per company standards / ₹6 LPA">
+                            </label>
+                        </div>
+                        <label>Work authorization / eligibility
+                            <input type="text" id="workEligibility" placeholder="Eligible to work in India">
+                        </label>
+                        <label>Reusable application notes
+                            <textarea id="applicationNotes" rows="4" placeholder="Anything the agent should remember while filling forms."></textarea>
+                        </label>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-keyboard"></i> Generate Auto-Fill Answers</button>
+                            <button type="button" class="btn btn-outline" id="exportAgentProfile"><i class="fas fa-download"></i> Export Agent Profile</button>
+                        </div>
+                    </form>
+                    <div id="autoApplyOutput" class="agent-output"></div>
+                </section>
+            </div>
+
+            <div class="agent-grid two-col roadmap-completion-grid">
+                <section class="agent-panel" id="email-assessment-parser">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Phase 5</span>
+                            <h3>Email Assessment Parser</h3>
+                            <p>Paste an assessment email. The agent detects company, platform, deadline, and prep plan.</p>
+                        </div>
+                    </div>
+                    <form id="emailParserForm" class="agent-form">
+                        <label>Paste assessment invite email
+                            <textarea id="assessmentEmailText" rows="8" placeholder="Paste email text from HackerRank, SHL, Mettl, AMCAT, Codility, etc."></textarea>
+                        </label>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-envelope-circle-check"></i> Parse Invite</button>
+                    </form>
+                    <div id="emailParserOutput" class="agent-output empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>Detected assessment details will appear here with one-click tracking.</p>
+                    </div>
+                </section>
+
+                <section class="agent-panel" id="interview-intelligence">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Phase 7</span>
+                            <h3>Interview Intelligence</h3>
+                            <p>Generate company-specific interview prep, project pitch, and mock questions.</p>
+                        </div>
+                    </div>
+                    <form id="interviewForm" class="agent-form">
+                        <div class="form-row">
+                            <label>Company
+                                <input type="text" id="interviewCompany" placeholder="Amazon, Deloitte, TCS">
+                            </label>
+                            <label>Role
+                                <input type="text" id="interviewRole" placeholder="Software Engineer, Analyst">
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-comments"></i> Build Interview Pack</button>
+                    </form>
+                    <div id="interviewOutput" class="agent-output empty-state">
+                        <i class="fas fa-user-tie"></i>
+                        <p>Your interview story, likely questions, and prep checklist will appear here.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="agent-grid two-col roadmap-completion-grid">
+                <section class="agent-panel" id="follow-up-agent">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Phase 9</span>
+                            <h3>Follow-up Agent</h3>
+                            <p>Create recruiter follow-ups, referral asks, and post-assessment nudges.</p>
+                        </div>
+                    </div>
+                    <form id="followUpForm" class="agent-form">
+                        <div class="form-row">
+                            <label>Company
+                                <input type="text" id="followUpCompany" placeholder="Company name">
+                            </label>
+                            <label>Scenario
+                                <select id="followUpScenario">
+                                    <option>After applying</option>
+                                    <option>Referral request</option>
+                                    <option>After assessment</option>
+                                    <option>After interview</option>
+                                    <option>Recruiter cold email</option>
+                                </select>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-reply"></i> Generate Follow-up</button>
+                    </form>
+                    <div id="followUpOutput" class="agent-output empty-state">
+                        <i class="fas fa-paper-plane"></i>
+                        <p>Personalized follow-up messages will appear here.</p>
+                    </div>
+                </section>
+
+                <section class="agent-panel" id="backend-blueprint">
+                    <div class="panel-title-row">
+                        <div>
+                            <span class="section-eyebrow">Backend Ready</span>
+                            <h3>Production Architecture Blueprint</h3>
+                            <p>The exact backend path for real scraping, Gmail monitoring, and approved browser automation.</p>
+                        </div>
+                    </div>
+                    <div class="blueprint-grid">
+                        <div><strong>FastAPI Backend</strong><span>/api/profile, /api/match, /api/applications</span></div>
+                        <div><strong>Job Ingestion Workers</strong><span>Playwright + queues + dedupe + robots/ToS checks</span></div>
+                        <div><strong>OAuth Email Monitor</strong><span>Gmail/Outlook scopes, invite classifier, audit logs</span></div>
+                        <div><strong>Vector Matching</strong><span>PostgreSQL + pgvector/Pinecone for semantic matching</span></div>
+                        <div><strong>Human-approved Auto Apply</strong><span>Browser worker pauses before every submit</span></div>
+                        <div><strong>Observability</strong><span>Langfuse/OpenTelemetry + application history</span></div>
+                    </div>
+                    <div class="agent-output blueprint-note">
+                        <strong>Safety rule:</strong> real auto-apply should never submit without user approval, should not bypass CAPTCHAs, and should respect each job board's terms.
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NaukriForSure. Built as an India-first AI Career Agent for freshers and early-career professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jobs-data.js"></script>
+    <script src="js/career-agent.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

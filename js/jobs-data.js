@@ -1,4 +1,4 @@
-// Jobs Data - Each job has a unique ID for URL routing
+﻿// Jobs Data - Each job has a unique ID for URL routing
 const jobsData = [
     // ========== LATEST JOBS - May 15, 2026 ==========
     {
@@ -11,7 +11,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "content",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 5,
         skills: ["Social Media Marketing", "Content Strategy", "Communication", "Analytics"],
@@ -28,7 +28,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "content",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 5,
         skills: ["Content Writing", "Copywriting", "SEO", "Communication"],
@@ -45,7 +45,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "design",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 3,
         skills: ["UI/UX Design", "Figma", "Graphic Design", "Design Principles"],
@@ -62,7 +62,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 8,
         skills: ["Python", "JavaScript", "Problem Solving", "Web Development"],
@@ -79,7 +79,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "hr",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 3,
         skills: ["HR Management", "Communication", "Organization", "Problem Solving"],
@@ -96,7 +96,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "hr",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 4,
         skills: ["Operations Management", "Coordination", "Organization", "Communication"],
@@ -109,11 +109,11 @@ const jobsData = [
         company: "Walmart",
         companyShort: "Walmart",
         location: "Bangalore",
-        salary: "₹5-8 LPA",
+        salary: "â‚¹5-8 LPA",
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 30, 2026",
         openings: 15,
         skills: ["Problem Solving", "Communication", "Teamwork", "Business Acumen"],
@@ -130,7 +130,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 20,
         skills: ["Technical Skills", "Communication", "Problem Solving", "Leadership"],
@@ -143,15 +143,15 @@ const jobsData = [
         company: "Capgemini",
         companyShort: "Capgemini",
         location: "Multiple Cities",
-        salary: "₹6-12 LPA",
+        salary: "â‚¹6-12 LPA",
         type: "Full Time",
         experience: "0-3 Years",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 30, 2026",
         openings: 25,
         skills: ["SAP BTP", "Cloud Technologies", "Java", "Problem Solving"],
-        description: `<h3>About the Role</h3><p>Capgemini is hiring SAP BTP Developers. Excellent opportunity for IT professionals to work with enterprise solutions.</p><h3>Job Details</h3><ul><li>Job Role: SAP BTP Developer</li><li>Company: Capgemini</li><li>Experience: 0-3 Years</li><li>Salary: ₹6-12 LPA</li></ul>`,
+        description: `<h3>About the Role</h3><p>Capgemini is hiring SAP BTP Developers. Excellent opportunity for IT professionals to work with enterprise solutions.</p><h3>Job Details</h3><ul><li>Job Role: SAP BTP Developer</li><li>Company: Capgemini</li><li>Experience: 0-3 Years</li><li>Salary: â‚¹6-12 LPA</li></ul>`,
         applyLink: "https://www.capgemini.com/in-en/jobs/468468-en_GB+sap_btp"
     },
     {
@@ -160,11 +160,11 @@ const jobsData = [
         company: "EY",
         companyShort: "EY",
         location: "Bangalore",
-        salary: "₹5-9 LPA",
+        salary: "â‚¹5-9 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "finance",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 20, 2026",
         openings: 20,
         skills: ["Valuation", "Analysis", "Financial Modeling", "Communication"],
@@ -177,11 +177,11 @@ const jobsData = [
         company: "Deloitte",
         companyShort: "Deloitte",
         location: "Bangalore",
-        salary: "₹7-12 LPA",
+        salary: "â‚¹7-12 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 12,
         skills: ["Web Development", "JavaScript", "Frontend/Backend", "Problem Solving"],
@@ -194,11 +194,11 @@ const jobsData = [
         company: "Deloitte",
         companyShort: "Deloitte",
         location: "Bangalore",
-        salary: "₹5-10 LPA",
+        salary: "â‚¹5-10 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "hr",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 10,
         skills: ["HR Management", "Talent Onboarding", "Communication", "Organization"],
@@ -211,11 +211,11 @@ const jobsData = [
         company: "Deloitte",
         companyShort: "Deloitte",
         location: "Bangalore",
-        salary: "₹6-11 LPA",
+        salary: "â‚¹6-11 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "finance",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 8,
         skills: ["Internal Audit", "Compliance", "Risk Management", "Analysis"],
@@ -228,11 +228,11 @@ const jobsData = [
         company: "iBrowseJobs Technologies",
         companyShort: "iBrowseJobs",
         location: "Bangalore",
-        salary: "₹3-6 LPA",
+        salary: "â‚¹3-6 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 10, 2026",
         openings: 18,
         skills: ["Java", "Python", "Problem Solving", "Web Development"],
@@ -249,7 +249,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 20, 2026",
         openings: 30,
         skills: ["Technical Skills", "Communication", "Problem Solving", "Teamwork"],
@@ -262,11 +262,11 @@ const jobsData = [
         company: "IBM",
         companyShort: "IBM",
         location: "Multiple Cities",
-        salary: "₹4-8 LPA",
+        salary: "â‚¹4-8 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 25, 2026",
         openings: 22,
         skills: ["System Administration", "Linux", "Cloud", "Problem Solving"],
@@ -279,11 +279,11 @@ const jobsData = [
         company: "Carelon",
         companyShort: "Carelon",
         location: "Bangalore",
-        salary: "₹4-7 LPA",
+        salary: "â‚¹4-7 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 15, 2026",
         openings: 15,
         skills: ["Java", "Web Development", "Problem Solving", "Communication"],
@@ -296,11 +296,11 @@ const jobsData = [
         company: "Amazon",
         companyShort: "Amazon",
         location: "India",
-        salary: "₹5-9 LPA",
+        salary: "â‚¹5-9 LPA",
         type: "Full Time",
         experience: "0-2 Years",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 20, 2026",
         openings: 20,
         skills: ["Supply Chain", "Logistics", "Problem Solving", "Communication"],
@@ -313,11 +313,11 @@ const jobsData = [
         company: "Fission Labs",
         companyShort: "Fission Labs",
         location: "Hyderabad",
-        salary: "₹4-7 LPA",
+        salary: "â‚¹4-7 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 10, 2026",
         openings: 12,
         skills: ["Java", "Python", "Problem Solving", "Web Development"],
@@ -334,7 +334,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "May 15, 2026",
+        posted: "Today",
         deadline: "June 30, 2026",
         openings: 25,
         skills: ["Problem Solving", "Coding", "Data Structures", "Algorithms"],
@@ -348,7 +348,7 @@ const jobsData = [
         company: "Mphasis",
         companyShort: "Mphasis",
         location: "Pune",
-        salary: "₹3.5 LPA",
+        salary: "â‚¹3.5 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "it",
@@ -356,7 +356,7 @@ const jobsData = [
         deadline: "February 15, 2026",
         openings: 50,
         skills: ["Programming", "Communication", "Problem Solving", "Java/Python"],
-        description: `<h3>About the Role</h3><p>Mphasis is hiring Junior Trainees for their Pune office. Great opportunity for freshers to start their IT career with a leading company.</p><h3>Job Details</h3><ul><li>Job Role: Junior Trainee</li><li>Company: Mphasis</li><li>Location: Pune (Hybrid)</li><li>Salary: ₹3.5 LPA</li><li>Batch: 2024-2025</li></ul>`,
+        description: `<h3>About the Role</h3><p>Mphasis is hiring Junior Trainees for their Pune office. Great opportunity for freshers to start their IT career with a leading company.</p><h3>Job Details</h3><ul><li>Job Role: Junior Trainee</li><li>Company: Mphasis</li><li>Location: Pune (Hybrid)</li><li>Salary: â‚¹3.5 LPA</li><li>Batch: 2024-2025</li></ul>`,
         applyLink: "https://careers.mphasis.com/"
     },
     {
@@ -365,7 +365,7 @@ const jobsData = [
         company: "Alight",
         companyShort: "Alight",
         location: "Gurugram / Chennai",
-        salary: "₹6-10 LPA",
+        salary: "â‚¹6-10 LPA",
         type: "Full Time",
         experience: "0-3 Years",
         category: "it",
@@ -382,7 +382,7 @@ const jobsData = [
         company: "Cisco",
         companyShort: "Cisco",
         location: "Bangalore",
-        salary: "₹12-18 LPA",
+        salary: "â‚¹12-18 LPA",
         type: "Full Time",
         experience: "0-2 Years",
         category: "it",
@@ -399,7 +399,7 @@ const jobsData = [
         company: "Anitum Technologies",
         companyShort: "Anitum",
         location: "Hyderabad",
-        salary: "₹60,000/month",
+        salary: "â‚¹60,000/month",
         type: "Internship",
         experience: "Fresher",
         category: "it",
@@ -407,7 +407,7 @@ const jobsData = [
         deadline: "February 10, 2026",
         openings: 5,
         skills: ["Python", "OpenCV", "Deep Learning", "TensorFlow", "Computer Vision"],
-        description: `<h3>About the Role</h3><p>Anitum Technologies is offering a paid internship for Computer Vision enthusiasts. Work on real-world AI/ML projects.</p><h3>Job Details</h3><ul><li>Job Role: Computer Vision Intern</li><li>Company: Anitum Technologies</li><li>Location: Hyderabad</li><li>Stipend: ₹60,000/month</li></ul>`,
+        description: `<h3>About the Role</h3><p>Anitum Technologies is offering a paid internship for Computer Vision enthusiasts. Work on real-world AI/ML projects.</p><h3>Job Details</h3><ul><li>Job Role: Computer Vision Intern</li><li>Company: Anitum Technologies</li><li>Location: Hyderabad</li><li>Stipend: â‚¹60,000/month</li></ul>`,
         applyLink: "https://anitum.com/careers"
     },
     {
@@ -416,7 +416,7 @@ const jobsData = [
         company: "Prysm Labs",
         companyShort: "Prysm Labs",
         location: "Remote",
-        salary: "₹25,000/month",
+        salary: "â‚¹25,000/month",
         type: "Internship",
         experience: "Fresher",
         category: "it",
@@ -424,7 +424,7 @@ const jobsData = [
         deadline: "February 15, 2026",
         openings: 10,
         skills: ["Node.js", "Python", "MongoDB", "REST APIs", "Git"],
-        description: `<h3>About the Role</h3><p>Prysm Labs is hiring Backend Developer Interns for remote work. Great opportunity to learn and grow in a startup environment.</p><h3>Job Details</h3><ul><li>Job Role: Backend Developer Intern</li><li>Company: Prysm Labs</li><li>Location: Remote</li><li>Stipend: ₹25,000/month</li></ul>`,
+        description: `<h3>About the Role</h3><p>Prysm Labs is hiring Backend Developer Interns for remote work. Great opportunity to learn and grow in a startup environment.</p><h3>Job Details</h3><ul><li>Job Role: Backend Developer Intern</li><li>Company: Prysm Labs</li><li>Location: Remote</li><li>Stipend: â‚¹25,000/month</li></ul>`,
         applyLink: "https://prysmlabs.com/careers"
     },
     {
@@ -433,7 +433,7 @@ const jobsData = [
         company: "Time Pilot",
         companyShort: "Time Pilot",
         location: "Remote",
-        salary: "₹20,000/month",
+        salary: "â‚¹20,000/month",
         type: "Internship",
         experience: "Fresher",
         category: "it",
@@ -441,7 +441,7 @@ const jobsData = [
         deadline: "February 12, 2026",
         openings: 8,
         skills: ["React", "Node.js", "JavaScript", "MongoDB", "HTML/CSS"],
-        description: `<h3>About the Role</h3><p>Time Pilot is looking for Full Stack Developer Interns to work on exciting web applications. Remote-friendly startup culture.</p><h3>Job Details</h3><ul><li>Job Role: Full Stack Developer Intern</li><li>Company: Time Pilot</li><li>Location: Remote</li><li>Stipend: ₹20,000/month</li></ul>`,
+        description: `<h3>About the Role</h3><p>Time Pilot is looking for Full Stack Developer Interns to work on exciting web applications. Remote-friendly startup culture.</p><h3>Job Details</h3><ul><li>Job Role: Full Stack Developer Intern</li><li>Company: Time Pilot</li><li>Location: Remote</li><li>Stipend: â‚¹20,000/month</li></ul>`,
         applyLink: "https://timepilot.io/careers"
     },
     {
@@ -450,7 +450,7 @@ const jobsData = [
         company: "myKaarma",
         companyShort: "myKaarma",
         location: "Noida",
-        salary: "₹8-12 LPA",
+        salary: "â‚¹8-12 LPA",
         type: "Full Time",
         experience: "0-3 Years",
         category: "it",
@@ -472,7 +472,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "January 30, 2025",
         openings: 10,
         skills: ["DevOps", "CI/CD", "Docker", "Linux"],
@@ -540,7 +540,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "February 15, 2025",
         openings: 25,
         skills: ["Programming", "Data Structures", "Problem Solving", "Java/Python"],
@@ -591,7 +591,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2025",
         openings: 100,
         skills: ["Programming", "Data Structures", "Algorithms", "Problem Solving"],
@@ -608,7 +608,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "data",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2025",
         openings: 50,
         skills: ["Python", "Machine Learning", "Statistics", "Data Analysis"],
@@ -659,7 +659,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "February 28, 2025",
         openings: 40,
         skills: ["Programming", "Software Development", "Problem Solving", "C++/Java"],
@@ -710,7 +710,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "February 28, 2026",
         openings: 5,
         skills: ["Backend Development", "Programming", "APIs", "Databases"],
@@ -727,7 +727,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "February 28, 2026",
         openings: 20,
         skills: ["Programming", "Problem Solving", "Technical Skills"],
@@ -744,7 +744,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Programming", "Data Structures", "Algorithms", "Problem Solving"],
@@ -761,7 +761,7 @@ const jobsData = [
         type: "Full Time",
         experience: "1 Year",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Programming", "Data Structures", "System Design", "Problem Solving"],
@@ -778,7 +778,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 20,
         skills: ["Programming", "Data Structures", "Algorithms", "Problem Solving"],
@@ -795,7 +795,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 25,
         skills: ["Programming", "Data Structures", "Algorithms", "System Design"],
@@ -812,7 +812,7 @@ const jobsData = [
         type: "Full Time",
         experience: "1-3 Years",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Programming", "Software Development", "Problem Solving"],
@@ -829,7 +829,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Programming", "Problem Solving", "Technical Skills"],
@@ -846,7 +846,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Programming", "Software Development", "Embedded Systems"],
@@ -863,7 +863,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Programming", "Software Development", "Problem Solving"],
@@ -880,7 +880,7 @@ const jobsData = [
         type: "Full Time",
         experience: "0-2 Years",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 30,
         skills: ["Java", "SQL", "Programming", "Problem Solving"],
@@ -897,7 +897,7 @@ const jobsData = [
         type: "Internship",
         experience: "PhD Student",
         category: "data",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Machine Learning", "Deep Learning", "Research", "Python"],
@@ -914,7 +914,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 50,
         skills: ["Programming", "Problem Solving", "Communication"],
@@ -931,7 +931,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 20,
         skills: ["Technical Skills", "Problem Solving", "Engineering"],
@@ -948,7 +948,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 25,
         skills: ["Technical Skills", "Programming", "Problem Solving"],
@@ -965,7 +965,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 5,
         skills: ["Full Stack Development", "JavaScript", "React", "Node.js"],
@@ -982,7 +982,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "data",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Machine Learning", "AI", "Python", "Deep Learning"],
@@ -999,7 +999,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "data",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Data Engineering", "Python", "SQL", "ETL"],
@@ -1016,7 +1016,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 50,
         skills: ["Programming", "Data Structures", "Algorithms", "System Design"],
@@ -1033,7 +1033,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 20,
         skills: ["Engineering", "Technical Skills", "Problem Solving"],
@@ -1050,7 +1050,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 100,
         skills: ["Programming", "Java", "SQL", "Problem Solving"],
@@ -1067,7 +1067,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 5,
         skills: ["QA Testing", "Manual Testing", "Bug Tracking", "Communication"],
@@ -1084,7 +1084,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 30,
         skills: ["Programming", "Problem Solving", "Communication"],
@@ -1101,7 +1101,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Testing", "Automation", "Programming", "Problem Solving"],
@@ -1118,7 +1118,7 @@ const jobsData = [
         type: "Full Time",
         experience: "1-2 Years",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 20,
         skills: ["Programming", "Software Development", "Problem Solving"],
@@ -1135,7 +1135,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Programming", "Problem Solving", "Technical Skills"],
@@ -1152,7 +1152,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 50,
         skills: ["Engineering", "Programming", "Embedded Systems", "Problem Solving"],
@@ -1169,7 +1169,7 @@ const jobsData = [
         type: "Full Time",
         experience: "0-5 Years",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 40,
         skills: ["Technical Skills", "Communication", "Problem Solving"],
@@ -1186,7 +1186,7 @@ const jobsData = [
         type: "Full Time",
         experience: "0-4 Years",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 30,
         skills: ["IT Support", "Communication", "Troubleshooting", "Customer Service"],
@@ -1203,7 +1203,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "marketing",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Marketing", "Communication", "Sales", "Engineering"],
@@ -1220,7 +1220,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Cyber Security", "Consulting", "Risk Assessment", "Communication"],
@@ -1237,7 +1237,7 @@ const jobsData = [
         type: "Full Time",
         experience: "1 Year",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 20,
         skills: ["Programming", "Software Development", "RPA", "Problem Solving"],
@@ -1254,7 +1254,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Programming", "Problem Solving", "Communication"],
@@ -1271,7 +1271,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Programming", "Software Development", "Problem Solving"],
@@ -1288,7 +1288,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 5,
         skills: ["Web Development", "HTML", "CSS", "JavaScript"],
@@ -1305,7 +1305,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 25,
         skills: ["IT Support", "Communication", "Troubleshooting", "Customer Service"],
@@ -1322,7 +1322,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 50,
         skills: ["Programming", "Problem Solving", "Communication"],
@@ -1339,7 +1339,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 40,
         skills: ["IT Support", "Communication", "Troubleshooting", "Customer Service"],
@@ -1356,7 +1356,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 100,
         skills: ["Programming", "Problem Solving", "Communication"],
@@ -1373,7 +1373,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["DevOps", "CI/CD", "Cloud", "Linux"],
@@ -1390,7 +1390,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 25,
         skills: ["Programming", "Software Development", "Problem Solving"],
@@ -1407,7 +1407,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 20,
         skills: ["Programming", "Software Development", "Healthcare Tech"],
@@ -1424,7 +1424,7 @@ const jobsData = [
         type: "Full Time",
         experience: "1-2 Years",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 20,
         skills: ["Programming", "Software Development", "Engineering"],
@@ -1441,7 +1441,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Programming", "Problem Solving", "Technical Skills"],
@@ -1458,7 +1458,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 100,
         skills: ["Programming", "Problem Solving", "Communication"],
@@ -1475,7 +1475,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 50,
         skills: ["Communication", "Customer Service", "Problem Solving"],
@@ -1492,7 +1492,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "design",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 5,
         skills: ["Motion Graphics", "Video Editing", "After Effects", "Design"],
@@ -1509,7 +1509,7 @@ const jobsData = [
         type: "Full Time",
         experience: "1 Year",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 30,
         skills: ["Programming", "Data Structures", "Algorithms", "System Design"],
@@ -1526,7 +1526,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 15,
         skills: ["Programming", "Cloud", "Networking", "Problem Solving"],
@@ -1543,7 +1543,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 15, 2026",
         openings: 10,
         skills: ["Programming", "Software Development", "Problem Solving"],
@@ -1577,7 +1577,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Node.js", "Go", "APIs", "Redis", "SQL", "Problem Solving"],
@@ -1594,7 +1594,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Programming", "Software Development", "Problem Solving", "DSA"],
@@ -1611,7 +1611,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Customer Support", "Communication", "Problem Solving", "Technical Support"],
@@ -1628,7 +1628,7 @@ const jobsData = [
         type: "Full Time",
         experience: "1 - 2 Years",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Security Engineering", "Application Security", "Penetration Testing", "Vulnerability Assessment"],
@@ -1645,7 +1645,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Python", "Tool Development", "Problem Solving", "Programming"],
@@ -1662,7 +1662,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Software Development", "Programming", "DSA", "Problem Solving"],
@@ -1679,7 +1679,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "data",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["Data Science", "Machine Learning", "Python", "SQL", "Statistics"],
@@ -1696,7 +1696,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 5,
         skills: ["ERP Systems", "Software Development", "Problem Solving", "Programming"],
@@ -1713,7 +1713,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 50,
         skills: ["Software Development", "AI/ML", "Design", "Problem Solving", "Communication"],
@@ -1730,7 +1730,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 50,
         skills: ["Data Structures", "Algorithms", "Programming", "System Design"],
@@ -1747,7 +1747,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 30,
         skills: ["Engineering", "Problem Solving", "Communication", "Leadership"],
@@ -1764,7 +1764,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 25,
         skills: ["Programming", "Software Development", "Problem Solving", "DSA"],
@@ -1781,7 +1781,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 20,
         skills: ["System Engineering", "Linux", "Networking", "Problem Solving"],
@@ -1798,7 +1798,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "data",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 15,
         skills: ["Data Testing", "SQL", "Quality Assurance", "Data Analysis"],
@@ -1815,7 +1815,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 15,
         skills: ["Automation Testing", "Selenium", "Python/Java", "QA"],
@@ -1832,7 +1832,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 10,
         skills: ["ServiceNow", "JavaScript", "Application Development", "ITSM"],
@@ -1849,7 +1849,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 100,
         skills: ["Programming", "Problem Solving", "Communication", "Learning Aptitude"],
@@ -1866,7 +1866,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 100,
         skills: ["IT Infrastructure", "Networking", "System Administration", "Problem Solving"],
@@ -1883,7 +1883,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 50,
         skills: ["Programming", "Problem Solving", "Communication", "Teamwork"],
@@ -1900,7 +1900,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 50,
         skills: ["Java", "Data Structures", "Algorithms", "Problem Solving"],
@@ -1917,7 +1917,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 20,
         skills: ["Java", "Python", "Software Development", "DSA"],
@@ -1934,7 +1934,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 100,
         skills: ["AI/ML Basics", "Problem Solving", "Communication", "Analytical Skills"],
@@ -1951,7 +1951,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "data",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 10,
         skills: ["Research", "Machine Learning", "Data Science", "Python"],
@@ -1968,7 +1968,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 20,
         skills: ["Programming", "Java/Python", "Software Development", "Problem Solving"],
@@ -1985,7 +1985,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 15,
         skills: ["Java", "Data Structures", "Algorithms", "System Design"],
@@ -2002,7 +2002,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 20,
         skills: ["Communication", "Problem Solving", "HR Knowledge", "Customer Service"],
@@ -2019,7 +2019,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 15,
         skills: ["Analytics", "Data Analysis", "Excel", "Communication"],
@@ -2036,7 +2036,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 30,
         skills: ["Programming", "Software Development", "Problem Solving", "DSA"],
@@ -2053,7 +2053,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 10,
         skills: ["Programming", "Software Development", "DSA", "Problem Solving"],
@@ -2070,7 +2070,7 @@ const jobsData = [
         type: "Internship",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 10,
         skills: ["Programming", "Software Development", "DSA", "Problem Solving"],
@@ -2087,7 +2087,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 100,
         skills: ["Programming Basics", "Problem Solving", "Learning Aptitude", "Communication"],
@@ -2104,7 +2104,7 @@ const jobsData = [
         type: "Full Time",
         experience: "Fresher",
         category: "it",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 15,
         skills: ["C#/.NET", "Software Development", "DSA", "Problem Solving"],
@@ -2121,7 +2121,7 @@ const jobsData = [
         type: "Full Time",
         experience: "0-3 Years",
         category: "sales",
-        posted: "1 day ago",
+        posted: "Today",
         deadline: "March 30, 2026",
         openings: 50,
         skills: ["Sales", "Business Development", "Insurance", "Team Handling", "Communication", "BFSI"],
@@ -2780,7 +2780,7 @@ const jobsData = [
         company: "Quess",
         companyShort: "Quess",
         location: "India",
-        salary: "₹16,000 - ₹25,000 + Incentives",
+        salary: "â‚¹16,000 - â‚¹25,000 + Incentives",
         type: "Full Time",
         experience: "0-3 Years",
         category: "sales",
@@ -2788,7 +2788,7 @@ const jobsData = [
         deadline: "March 15, 2026",
         openings: 30,
         skills: ["Sales", "Communication", "Negotiation", "Field Sales"],
-        description: `<h3>About the Role</h3><p>Quess is hiring Sales Officers with 0-3 years experience. Attractive salary plus incentives structure.</p><h3>Job Details</h3><ul><li>Job Role: Sales Officer</li><li>Company: Quess</li><li>Salary: ₹16,000 - ₹25,000 + Incentives</li><li>Experience: 0 - 3 Years</li></ul>`,
+        description: `<h3>About the Role</h3><p>Quess is hiring Sales Officers with 0-3 years experience. Attractive salary plus incentives structure.</p><h3>Job Details</h3><ul><li>Job Role: Sales Officer</li><li>Company: Quess</li><li>Salary: â‚¹16,000 - â‚¹25,000 + Incentives</li><li>Experience: 0 - 3 Years</li></ul>`,
         applyLink: "https://app.joinsuperset.com/join/#/signup/student/jobprofiles/e99d16fe-e66c-4507-b148-e449d0f1f2ff"
     },
     {
@@ -2814,7 +2814,7 @@ const jobsData = [
         company: "TCS",
         companyShort: "TCS",
         location: "India",
-        salary: "₹5.3 LPA",
+        salary: "â‚¹5.3 LPA",
         type: "Full Time",
         experience: "Fresher",
         category: "it",
@@ -3082,9 +3082,109 @@ const jobsData = [
     }
 ];
 
-// Function to get all jobs
+// ==================== PORTAL DISPLAY POLICY ====================
+// Visible portal feeds should only show jobs that are:
+// 1) posted in the last 24 hours / marked Today,
+// 2) India-based or India-remote,
+// 3) fresher, apprentice, trainee, graduate, internship, or early-career friendly,
+// 4) sorted by highest visible pay first.
+// Direct job pages remain available for older saved links, but older jobs are hidden from feeds.
+
+function parsePortalSalary(salaryStr) {
+    if (!salaryStr) return 0;
+    const str = String(salaryStr).toLowerCase();
+    if (str.includes('competitive') || str.includes('internship')) return 0;
+
+    const rangeMatch = str.match(/(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)\s*(?:lpa|l|lakh)/i);
+    if (rangeMatch) return parseFloat(rangeMatch[2]);
+
+    const lpaMatch = str.match(/(\d+(?:\.\d+)?)\s*(?:lpa|l|lakh)/i);
+    if (lpaMatch) return parseFloat(lpaMatch[1]);
+
+    if (str.includes('/month') || str.includes('per month')) {
+        const monthlyMatch = str.match(/(\d+(?:\.\d+)?)\s*k/i) || str.match(/(\d+(?:,\d+)?)/);
+        if (monthlyMatch) {
+            const monthly = parseFloat(monthlyMatch[1].replace(',', ''));
+            return (monthly * 12) / 100;
+        }
+    }
+
+    const numMatch = str.match(/(\d+)/);
+    if (numMatch) {
+        const num = parseInt(numMatch[1], 10);
+        if (num > 100000) return num / 100000;
+        return num;
+    }
+
+    return 0;
+}
+
+function parsePostedDate(posted) {
+    if (!posted) return null;
+    const value = String(posted).toLowerCase().trim();
+    const now = new Date();
+    if (value === 'today' || value.includes('just now') || value.includes('few hours')) return now;
+    if (value.includes('hour')) {
+        const hours = parseInt(value.match(/\d+/)?.[0] || '1', 10);
+        return new Date(now.getTime() - hours * 60 * 60 * 1000);
+    }
+    if (value.includes('1 day')) return new Date(now.getTime() - 23 * 60 * 60 * 1000);
+    const parsed = new Date(posted);
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function isPostedWithin24Hours(posted) {
+    const parsed = parsePostedDate(posted);
+    if (!parsed) return false;
+    return (Date.now() - parsed.getTime()) <= 24 * 60 * 60 * 1000;
+}
+
+function isIndiaBasedJob(job) {
+    const location = String(job.location || '').toLowerCase();
+    const indianLocations = [
+        'india', 'remote', 'bangalore', 'bengaluru', 'pune', 'mumbai', 'hyderabad',
+        'chennai', 'gurugram', 'gurgaon', 'noida', 'delhi', 'kolkata', 'ahmedabad',
+        'multiple cities', 'pan india'
+    ];
+    return indianLocations.some(place => location.includes(place));
+}
+
+function isFreshCareerJob(job) {
+    const text = `${job.title || ''} ${job.type || ''} ${job.experience || ''}`.toLowerCase();
+    return (
+        text.includes('fresher') ||
+        text.includes('intern') ||
+        text.includes('apprentice') ||
+        text.includes('trainee') ||
+        text.includes('graduate') ||
+        text.includes('student') ||
+        text.includes('0-') ||
+        text.includes('0 to') ||
+        text.includes('entry')
+    );
+}
+
+function isPortalEligibleJob(job) {
+    return isPostedWithin24Hours(job.posted) && isIndiaBasedJob(job) && isFreshCareerJob(job);
+}
+
+function sortJobsByPayAndFreshness(jobs) {
+    return [...jobs].sort((a, b) => {
+        const salaryDiff = parsePortalSalary(b.salary) - parsePortalSalary(a.salary);
+        if (salaryDiff !== 0) return salaryDiff;
+        const bDate = parsePostedDate(b.posted)?.getTime() || 0;
+        const aDate = parsePostedDate(a.posted)?.getTime() || 0;
+        return bDate - aDate;
+    });
+}
+
+function getPortalJobs() {
+    return sortJobsByPayAndFreshness(jobsData.filter(isPortalEligibleJob));
+}
+
+// Function to get all visible portal jobs
 function getAllJobs() {
-    return jobsData;
+    return getPortalJobs();
 }
 
 // Function to get job by ID
@@ -3094,12 +3194,12 @@ function getJobById(id) {
 
 // Function to get jobs by category
 function getJobsByCategory(category) {
-    return jobsData.filter(job => job.category === category);
+    return getPortalJobs().filter(job => job.category === category);
 }
 
 // Function to search jobs
 function searchJobs(query, location) {
-    return jobsData.filter(job => {
+    return getPortalJobs().filter(job => {
         const matchesQuery = !query || 
             job.title.toLowerCase().includes(query.toLowerCase()) ||
             job.company.toLowerCase().includes(query.toLowerCase()) ||
@@ -3114,10 +3214,18 @@ function searchJobs(query, location) {
 
 // Function to get featured jobs (first 6)
 function getFeaturedJobs() {
-    return jobsData.slice(0, 6);
+    return getPortalJobs().slice(0, 6);
+}
+
+if (typeof window !== 'undefined') {
+    window.getPortalJobs = getPortalJobs;
+    window.isPortalEligibleJob = isPortalEligibleJob;
+    window.parsePortalSalary = parsePortalSalary;
 }
 
 // Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { jobsData, getAllJobs, getJobById, getJobsByCategory, searchJobs, getFeaturedJobs };
+    module.exports = { jobsData, getAllJobs, getJobById, getJobsByCategory, searchJobs, getFeaturedJobs, getPortalJobs, isPortalEligibleJob, parsePortalSalary };
 }
+
+
