@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaukriForSure - Job Tinder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            max-height: 800px;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #722f37 0%, #9d3f4d 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .jobs-counter {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* Main Card Area */
+        .card-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .job-card {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transform-origin: center;
+            transition: all 0.3s ease;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .job-card.like {
+            animation: swipeRight 0.5s ease forwards;
+        }
+
+        .job-card.nope {
+            animation: swipeLeft 0.5s ease forwards;
+        }
+
+        @keyframes swipeRight {
+            to {
+                transform: translateX(500px) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes swipeLeft {
+            to {
+                transform: translateX(-500px) rotate(-20deg);
+                opacity: 0;
+            }
+        }
+
+        /* Badge */
+        .job-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        .job-badge.fresher {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .job-badge.trending {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        /* Job Title */
+        .job-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        /* Company */
+        .job-company {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* Salary - Highlighted */
+        .salary-section {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .salary-label {
+            font-size: 12px;
+            color: #333;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .salary-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: #722f37;
+            margin-top: 5px;
+        }
+
+        /* Job Details Grid */
+        .job-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .detail-item {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            color: #222;
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-section {
+            margin: 15px 0;
+        }
+
+        .skills-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #e8f4f8;
+            color: #0088cc;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Description */
+        .job-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin: 15px 0;
+            max-height: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        /* Bottom Actions */
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .btn-reject {
+            background: #f0f0f0;
+            color: #666;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-reject:hover {
+            background: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .btn-reject:active {
+            transform: scale(0.98);
+        }
+
+        .btn-accept {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-accept:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+        }
+
+        .btn-accept:active {
+            transform: scale(0.98);
+        }
+
+        .btn-icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            flex: 1;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .empty-state.show {
+            display: flex;
+        }
+
+        .empty-state-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h2 {
+            font-size: 24px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-reset:hover {
+            transform: scale(1.05);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #722f37;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Bottom Stats Bar */
+        .stats-bar {
+            background: #f8f9fa;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .stat {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #722f37;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Keyboard shortcuts */
+        .shortcuts-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 600px) {
+            .job-card {
+                padding: 20px;
+            }
+
+            .job-title {
+                font-size: 22px;
+            }
+
+            .salary-amount {
+                font-size: 24px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💼 Job Tinder</h1>
+            <p>Swipe to find your perfect job</p>
+            <div class="jobs-counter">
+                <span id="jobCounter">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Card Container -->
+        <div class="card-container">
+            <div class="loading" id="loadingState">
+                <div class="spinner"></div>
+            </div>
+
+            <div id="jobCard" class="job-card" style="display: none;">
+                <div>
+                    <div id="badgeContainer"></div>
+                    <h2 class="job-title" id="jobTitle"></h2>
+                    <p class="job-company" id="jobCompany"></p>
+
+                    <div class="salary-section">
+                        <div class="salary-label">Expected Salary</div>
+                        <div class="salary-amount" id="jobSalary"></div>
+                    </div>
+
+                    <div class="job-details">
+                        <div class="detail-item">
+                            <div class="detail-label">📍 Location</div>
+                            <div class="detail-value" id="jobLocation"></div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">⚡ Experience</div>
+                            <div class="detail-value" id="jobExperience"></div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">💼 Type</div>
+                            <div class="detail-value" id="jobType"></div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">📂 Category</div>
+                            <div class="detail-value" id="jobCategory"></div>
+                        </div>
+                    </div>
+
+                    <div class="job-description" id="jobDescription"></div>
+
+                    <div class="skills-section" id="skillsSection" style="display: none;">
+                        <div class="skills-label">Skills Required</div>
+                        <div class="skills-tags" id="skillsTags"></div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-reject" onclick="rejectJob()">
+                        <span class="btn-icon">👎</span> Skip
+                    </button>
+                    <button class="btn btn-accept" onclick="acceptJob()">
+                        <span class="btn-icon">❤️</span> Apply
+                    </button>
+                </div>
+            </div>
+
+            <div class="empty-state" id="emptyState">
+                <div class="empty-state-icon">🎉</div>
+                <h2>All Jobs Reviewed!</h2>
+                <p>You've gone through all available jobs.</p>
+                <button class="btn-reset" onclick="resetJobs()">View Again</button>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-number" id="acceptCount">0</div>
+                <div class="stat-label">❤️ Liked</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="rejectCount">0</div>
+                <div class="stat-label">👎 Skipped</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="remainingCount">0</div>
+                <div class="stat-label">📋 Remaining</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="shortcuts-hint">
+        👈 👉 or ← → to swipe
+    </div>
+
+    <script>
+        let jobs = [];
+        let currentJobIndex = 0;
+        let acceptedJobs = [];
+        let rejectedJobs = [];
+
+        // Initialize
+        async function initJobs() {
+            try {
+                const response = await fetch('/api/jobs?sortBy=salary_desc&limit=100&freshersOnly=true');
+                const data = await response.json();
+                jobs = data.data || [];
+                
+                if (jobs.length === 0) {
+                    showEmptyState();
+                } else {
+                    displayCurrentJob();
+                }
+                updateStats();
+            } catch (error) {
+                console.error('Error loading jobs:', error);
+                showEmptyState();
+            }
+        }
+
+        // Display current job
+        function displayCurrentJob() {
+            const loadingState = document.getElementById('loadingState');
+            const jobCard = document.getElementById('jobCard');
+            const emptyState = document.getElementById('emptyState');
+
+            if (currentJobIndex >= jobs.length) {
+                jobCard.style.display = 'none';
+                showEmptyState();
+                return;
+            }
+
+            const job = jobs[currentJobIndex];
+
+            // Populate card
+            document.getElementById('jobTitle').textContent = job.title;
+            document.getElementById('jobCompany').textContent = job.company;
+            document.getElementById('jobSalary').textContent = job.salary_text || 'Competitive';
+            document.getElementById('jobLocation').textContent = job.location || 'Remote';
+            document.getElementById('jobExperience').textContent = job.experience_level || '0-1 years';
+            document.getElementById('jobType').textContent = job.job_type || 'Full-time';
+            document.getElementById('jobCategory').textContent = job.category || 'IT';
+            document.getElementById('jobDescription').textContent = 
+                job.description?.substring(0, 150) + '...' || 'Click apply to see full details';
+
+            // Badges
+            let badges = '';
+            if (job.fresher_friendly) {
+                badges += '<div class="job-badge fresher">✨ Fresher Friendly</div>';
+            }
+            if (job.job_type?.includes('Intern')) {
+                badges += '<div class="job-badge trending">📈 Internship</div>';
+            }
+            document.getElementById('badgeContainer').innerHTML = badges;
+
+            // Skills
+            if (job.skills) {
+                const skillsArray = job.skills.split(',').slice(0, 5);
+                document.getElementById('skillsTags').innerHTML = skillsArray
+                    .map(skill => `<div class="skill-tag">${skill.trim()}</div>`)
+                    .join('');
+                document.getElementById('skillsSection').style.display = 'block';
+            } else {
+                document.getElementById('skillsSection').style.display = 'none';
+            }
+
+            loadingState.style.display = 'none';
+            jobCard.style.display = 'flex';
+            emptyState.classList.remove('show');
+
+            // Animate card
+            jobCard.classList.remove('like', 'nope');
+            void jobCard.offsetWidth; // Trigger reflow
+        }
+
+        // Accept job
+        function acceptJob() {
+            const job = jobs[currentJobIndex];
+            acceptedJobs.push(job);
+            
+            // Save to localStorage
+            localStorage.setItem('acceptedJobs', JSON.stringify(acceptedJobs));
+
+            // Animate
+            const card = document.getElementById('jobCard');
+            card.classList.add('like');
+
+            // Auto-apply
+            autoApplyToJob(job);
+
+            // Next job
+            setTimeout(() => {
+                currentJobIndex++;
+                displayCurrentJob();
+                updateStats();
+            }, 500);
+        }
+
+        // Reject job
+        function rejectJob() {
+            const job = jobs[currentJobIndex];
+            rejectedJobs.push(job);
+
+            // Animate
+            const card = document.getElementById('jobCard');
+            card.classList.add('nope');
+
+            // Next job
+            setTimeout(() => {
+                currentJobIndex++;
+                displayCurrentJob();
+                updateStats();
+            }, 500);
+        }
+
+        // Auto-apply to job
+        async function autoApplyToJob(job) {
+            try {
+                const response = await fetch('/api/apply', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        jobId: job.id,
+                        userId: 'tinder-user'
+                    })
+                });
+
+                if (response.ok) {
+                    console.log('Applied to:', job.title);
+                    // Could show toast notification here
+                }
+            } catch (error) {
+                console.error('Auto-apply failed:', error);
+            }
+        }
+
+        // Update stats
+        function updateStats() {
+            document.getElementById('acceptCount').textContent = acceptedJobs.length;
+            document.getElementById('rejectCount').textContent = rejectedJobs.length;
+            document.getElementById('remainingCount').textContent = jobs.length - currentJobIndex;
+            document.getElementById('jobCounter').textContent = 
+                `${currentJobIndex + 1} of ${jobs.length}`;
+        }
+
+        // Show empty state
+        function showEmptyState() {
+            document.getElementById('jobCard').style.display = 'none';
+            document.getElementById('emptyState').classList.add('show');
+        }
+
+        // Reset jobs
+        function resetJobs() {
+            currentJobIndex = 0;
+            acceptedJobs = [];
+            rejectedJobs = [];
+            localStorage.removeItem('acceptedJobs');
+            displayCurrentJob();
+            updateStats();
+        }
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') rejectJob();
+            if (e.key === 'ArrowRight') acceptJob();
+        });
+
+        // Swipe detection
+        let touchStartX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    rejectJob(); // Swipe left = reject
+                } else {
+                    acceptJob(); // Swipe right = accept
+                }
+            }
+        });
+
+        // Load jobs on page load
+        window.addEventListener('DOMContentLoaded', initJobs);
+    </script>
+</body>
+</html>

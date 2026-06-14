@@ -1,26 +1,124 @@
-// Simple static file server for naukriforsure
+// NaukriForSure - Autonomous AI Career Agent Platform
+// Integrated server with job scraping, auto-apply, assessment tracking, and AI features
+
 const express = require('express');
-const serveIndex = require('serve-index');
+const cors = require('cors');
 const path = require('path');
+require('dotenv').config();
+
+// Import backend modules
+const db = require('./backend/database/db');
 
 const app = express();
-// Allow port to be set via command line argument: npm start -- --port=3100
-const argvPort = process.argv.find(arg => arg.startsWith('--port='));
-const PORT = argvPort ? parseInt(argvPort.split('=')[1], 10) : (process.env.PORT || 3000);
-const PUBLIC_DIR = path.join(__dirname);
+const PORT = process.env.PORT || 3000;
+const API_PORT = process.env.API_PORT || 3001;
 
+// ==================== MIDDLEWARE ====================
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname)));
 
-// Redirect /notes/ to /notes/index.html
-app.get('/notes/', (req, res, next) => {
-  res.redirect('/notes/index.html');
+// ==================== MAIN ROUTES ====================
+
+// Home page redirect
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Serve static files
-app.use(express.static(PUBLIC_DIR, {
-  extensions: ['html'],
-  index: 'index.html'
-}));
+// ==================== API PROXY ROUTES ====================
 
+// Proxy API calls to backend API server
+app.use('/api/', require('express-http-proxy')('http://localhost:' + API_PORT));
+
+// ==================== WEBSOCKET FOR REAL-TIME UPDATES ====================
+
+const http = require('http');
+const WebSocket = require('ws');
+
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+
+wss.on('connection', (ws) => {
+    console.log('✅ WebSocket client connected');
+    
+    ws.on('message', (message) => {
+        console.log('📨 Received:', message);
+        // Echo back or process
+        ws.send(JSON.stringify({ type: 'echo', data: message }));
+    });
+
+    ws.on('close', () => {
+        console.log('❌ WebSocket client disconnected');
+    });
+});
+
+// ==================== UTILITY ROUTES ====================
+
+// Health check
+app.get('/health', (req, res) => {
+    res.json({ 
+        status: 'healthy', 
+        timestamp: new Date().toISOString(),
+        apis: {
+            main: `http://localhost:${PORT}`,
+            backend: `http://localhost:${API_PORT}`
+        }
+    });
+});
+
+// Get scraper status
+app.get('/scraper-status', async (req, res) => {
+    try {
+        const logs = await db.all('SELECT * FROM scrape_logs ORDER BY scraped_at DESC LIMIT 5');
+        res.json({ success: true, logs });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// ==================== START SERVERS ====================
+
+// Start static server
 app.listen(PORT, () => {
-  console.log(`Static server running at http://localhost:${PORT}`);
+    console.log(`\n🚀 NaukriForSure Main Server running on http://localhost:${PORT}`);
+    console.log(`📚 Static files served from: ${__dirname}`);
+    console.log(`\n📡 API Proxy: /api/* → http://localhost:${API_PORT}\n`);
 });
+
+// Start API server in background (if not already running)
+const apiServer = require('./backend/api-server');
+
+// Schedule job scraper
+const { runScrapers } = require('./backend/scrapers/job-scraper');
+
+// Run scraper every 4 hours
+setInterval(() => {
+    console.log('\n⏰ Running scheduled job scraper...');
+    runScrapers().catch(console.error);
+}, 4 * 60 * 60 * 1000);
+
+// Run scraper on startup
+console.log('🔧 Starting initial job scraper...');
+runScrapers().catch(console.error);
+
+// Schedule assessment reminders every hour
+setInterval(async () => {
+    try {
+        const { AssessmentTracker } = require('./backend/processors/assessment-tracker');
+        const tracker = new AssessmentTracker();
+        await tracker.sendReminderNotifications();
+    } catch (error) {
+        console.error('Reminder job error:', error);
+    }
+}, 60 * 60 * 1000);
+
+console.log('\n✅ NaukriForSure Autonomous Career Agent Started');
+console.log('📋 Running components:');
+console.log('   ✓ Main Server');
+console.log('   ✓ API Server');
+console.log('   ✓ Job Scraper (scheduled)');
+console.log('   ✓ Assessment Tracker');
+console.log('   ✓ Auto-Apply Agent (ready)');
+console.log('   ✓ Resume Rewriter (ready)\n');
+

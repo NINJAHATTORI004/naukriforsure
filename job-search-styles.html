@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaukriForSure - Choose Your Job Search Style</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .features-list li {
+            margin: 8px 0;
+            list-style: none;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .card.featured {
+            border: 2px solid #f5576c;
+            position: relative;
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .dashboard-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .dashboard-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .dashboard-link a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .card.featured {
+                transform: scale(1);
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 NaukriForSure</h1>
+            <p>Choose your job search experience</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Tinder Style -->
+            <a href="/jobs-tinder.html" class="card featured">
+                <div class="badge">⭐ RECOMMENDED</div>
+                <div class="card-icon">❤️</div>
+                <h2>Job Tinder</h2>
+                <p>Swipe through jobs like you're dating. Super fun and fast!</p>
+                <ul class="features-list">
+                    <li>Swipe right to apply</li>
+                    <li>Swipe left to skip</li>
+                    <li>One-tap acceptance</li>
+                    <li>Auto-apply on accept</li>
+                    <li>See all job details</li>
+                </ul>
+                <button class="btn-primary">Start Swiping →</button>
+            </a>
+
+            <!-- Traditional Grid -->
+            <a href="/jobs-new.html" class="card">
+                <div class="card-icon">📊</div>
+                <h2>Traditional Grid</h2>
+                <p>Classic job listing with advanced filters and sorting.</p>
+                <ul class="features-list">
+                    <li>View 12 jobs per page</li>
+                    <li>Advanced filters</li>
+                    <li>Sort by salary</li>
+                    <li>Save jobs</li>
+                    <li>Batch apply</li>
+                </ul>
+                <button class="btn-primary">Browse Jobs →</button>
+            </a>
+
+            <!-- Dashboard -->
+            <a href="/dashboard.html" class="card">
+                <div class="card-icon">📈</div>
+                <h2>Dashboard</h2>
+                <p>Track your applications, assessments, and interview pipeline.</p>
+                <ul class="features-list">
+                    <li>Track all applications</li>
+                    <li>View responses</li>
+                    <li>Assessment deadlines</li>
+                    <li>Interview schedule</li>
+                    <li>Success metrics</li>
+                </ul>
+                <button class="btn-primary">View Dashboard →</button>
+            </a>
+        </div>
+
+        <div class="dashboard-link">
+            <a href="/index.html">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

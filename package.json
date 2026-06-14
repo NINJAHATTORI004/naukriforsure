@@ -1,13 +1,15 @@
 {
   "name": "naukriforsure",
-  "version": "2.0.0",
-  "description": "Free job portal for freshers and job seekers - NaukriForSure",
+  "version": "3.0.0",
+  "description": "Autonomous AI Career Agent - Complete job portal solution for freshers",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
     "build": "node build.js",
     "generate:sitemap": "node generate-sitemap.js",
+    "scraper": "node backend/scraper/job-scraper.js",
+    "worker": "node backend/workers/job-processor.js",
     "lint": "echo 'Add your linting command here'"
   },
   "keywords": [
@@ -15,15 +17,28 @@
     "freshers",
     "career",
     "job portal",
-    "recruitment"
+    "recruitment",
+    "autonomous",
+    "ai-agent",
+    "career-agent"
   ],
   "author": "NaukriForSure",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
-    "serve-index": "^1.9.1"
+    "serve-index": "^1.9.1",
+    "axios": "^1.6.5",
+    "cheerio": "^1.0.0-rc.12",
+    "playwright": "^1.40.1",
+    "dotenv": "^16.3.1",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "optionalDependencies": {
+    "python-shell": "^5.0.0"
   }
 }
+
